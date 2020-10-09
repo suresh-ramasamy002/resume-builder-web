@@ -1,0 +1,48 @@
+.signup-border-none {
+  border: none;
+}
+.signup-page-height {
+  height: 96vh;
+}
+.signup-bg{
+  background-image: url("/assets/images/create-resume.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  box-shadow:inset 0 0 0 2000px rgba(0,0,0,0.7);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+.signup-label{
+  color:#3f51b5;
+  margin-bottom: 20px;
+}
+.signup-btn {
+  width: 50%;
+  margin-top: 10px;
+}
+.margin-top-12{
+  margin-top: 12px;
+}
+.margin-top-5{
+  margin-top: 5px;
+}
+.color-red {
+  color: red;
+}
+.signup-padding-top-bottom {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+.signup-margin-top-15{
+  margin-top: 15px;
+}
+.signup-margin-top-25{
+  margin-top: 25px;
+}
+.signup-error{
+  font-size: 13px;
+  color: #ff5959;
+}

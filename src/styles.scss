@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+@import '../node_modules/@angular/material/prebuilt-themes/indigo-pink.css';
+@import './assets/scss/material-override';
+@import './assets/scss/global';
+body{
+  padding: 0;
+  margin: 0;
+}
