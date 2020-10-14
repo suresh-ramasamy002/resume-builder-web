@@ -6,8 +6,13 @@
         <div fxLayout="row" fxLayoutAlign="center center" class="signup-page-height">
           <mat-card fxFlex="100%" class="signup-padding-top-bottom">
             <div fxLayout="row"  fxLayoutAlign="center center">
-              <div fxFlex="70%" fxFlex.xs="100%">
+              <div fxFlex="70%" fxFlex.xs="100%" data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
                 <div fxLayout="row">
+                  <div fxFlex="100%" fxLayoutAlign="center">
+                    <span data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="1500"><img src="assets/images/business-logo-login.png" width="240px"/></span>
+                  </div>
+                </div>
+                <div fxLayout="row" class="margin-top-15">
                   <div fxFlex="100%" fxLayoutAlign="center">
                     <label class="signup-label">SIGN UP</label>
                   </div>
@@ -23,7 +28,7 @@
                 <div fxLayout="row" fxLayoutAlign="center" fxLayoutGap="1.5%" class="signup-margin-top-25">
                   <mat-form-field appearance="outline" floatLabel="always" fxFlex="25%"  fxFlex.xs="100%">
                     <mat-label class="mat-body-2" for="firstName">First Name</mat-label>
-                    <input matInput name="firstName" id="firstName" tabindex="1" formControlName="firstName" [(ngModel)]="userDetails.firstName" autocomplete="off" required/>
+                    <input matInput #formRow name="firstName" id="firstName" tabindex="1" formControlName="firstName" [(ngModel)]="userDetails.firstName" autocomplete="off" required/>
                     <mat-error class="margin-top-5" *ngIf="enrollFormValidation.get('firstName').hasError('required')">Invalid First Name</mat-error>
                   </mat-form-field>
                   <mat-form-field appearance="outline" floatLabel="always" fxFlex="25%"  fxFlex.xs="100%">
@@ -111,7 +116,7 @@
                   </div>
                 </div>
               </div>
-              <div fxFlex="30%" fxLayoutAlign="end" fxHide fxShow.lg="true" fxShow.md="true">
+              <div fxFlex="30%" fxLayoutAlign="end" fxHide fxShow.lg="true" fxShow.md="true" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
                 <img src="./assets/images/login-banner.jpg" width="380px" height="100%">
               </div>
             </div>

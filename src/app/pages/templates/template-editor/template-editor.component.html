@@ -1,0 +1,400 @@
+<mat-toolbar class="navbar-bg" data-aos="zoom-up" data-aos-easing="ease-out-cubic" data-aos-duration="1500">
+  <mat-toolbar-row style="padding-left:0px">
+    <span data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="1500"><img src="assets/images/business-logo-page.png" width="240px"/></span>
+    <span class="menu-spacer"></span>
+    <div fxShow="true" fxHide.lt-md *ngIf="coreDataService?.userDetails?.firstName">
+      <a mat-button [routerLink]="'/home'" class="color-white font-size-15"><i class="fa fa-arrow-left"></i>&nbsp;Back</a>
+      <a href="#" mat-button  class="color-white font-size-15">Hello {{coreDataService.userDetails.firstName}}</a>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+<div fxLayout="row" data-aos="fade-down" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
+  <div fxFlex="24%" class="theme-container" >
+    <button (click)="openDialog()" mat-raised-button color="accent">open payment</button>
+  </div>
+  <div fxFlex="25%" class="theme-container" >
+    <div fxLayout="row">
+      <div fxFlex="100%" fxLayoutAlign="center">
+        <label class="label-right-color margin-top-5">Theme</label>
+      </div>
+    </div>
+    <div class="theme-container-theme">
+      <div *ngFor="let color of themeColor; let index = index" class="color cr-pointer" [ngStyle]="{backgroundColor: color.value}" (click)="changeTheme(color.value)">
+        <i class="fa fa-check" style="color: #292929; position: relative; top: 2px; left: 2px;" *ngIf="coreDataService.templateData.templateTheme == color.value"></i>
+      </div>
+    </div>
+  </div>
+  <div fxFlex="15%" class="theme-container">
+    <div fxLayout="row">
+      <div fxFlex="100%" fxLayoutAlign="center">
+        <label class="label-right-color margin-top-5">Fonts</label>
+      </div>
+    </div>
+     <div fxLayout="row"  fxLayoutAlign="center">
+       <mat-form-field appearance="outline" fxFlex="90%">
+         <mat-select [(ngModel)]="coreDataService.templateData.fontFamily">
+           <mat-option *ngFor="let fonts of fontFamily" [value]="fonts">{{fonts}}
+           </mat-option>
+         </mat-select>
+       </mat-form-field>
+     </div>
+  </div>
+  <div fxFlex="9%" class="theme-container">
+    <div fxLayout="row">
+      <div fxFlex="100%" fxLayoutAlign="center">
+        <label class="label-right-color margin-top-5">Font size</label>
+      </div>
+    </div>
+    <div fxLayout="row" class="margin-top-10">
+      <div fxFlex="33%" fxLayoutAlign="center center" (click)="changeFontSize('1')"><label [ngClass]="{'font-size-ui': coreDataService.templateData.fontSize == 1}" style="font-size: 12px;" class="cr-pointer">A</label></div>
+      <div fxFlex="33%" fxLayoutAlign="center center" (click)="changeFontSize('2')"><label [ngClass]="{'font-size-ui': coreDataService.templateData.fontSize == 2}" style="font-size: 14px;" class="cr-pointer">A</label></div>
+      <div fxFlex="33%" fxLayoutAlign="center center" (click)="changeFontSize('3')"><label [ngClass]="{'font-size-ui': coreDataService.templateData.fontSize == 3}" style="font-size: 16px;" class="cr-pointer">A</label></div>
+    </div>
+  </div>
+  <div fxFlex="9%" class="theme-container">
+    <div fxLayout="row">
+      <div fxFlex="100%" fxLayoutAlign="center">
+        <label class="label-right-color margin-top-5">Text formatting</label>
+      </div>
+    </div>
+    <div fxLayout="row" class="margin-top-10">
+      <div fxFlex="33%" fxLayoutAlign="center center" class="margin-top-10 cr-pointer" [matMenuTriggerFor]="boldInfo"><label style="font-size: 14px;" class="cr-pointer">B</label></div>
+      <div fxFlex="33%" fxLayoutAlign="center center" class="margin-top-10 cr-pointer" [matMenuTriggerFor]="italicInfo"><label style="font-size: 14px;" class="cr-pointer"><i>I</i></label></div>
+      <div fxFlex="33%" fxLayoutAlign="center center" class="margin-top-10 cr-pointer" [matMenuTriggerFor]="underlineInfo"><label style="font-size: 14px;" class="cr-pointer">U</label></div>
+      <mat-menu #boldInfo="matMenu">
+        <div fxLayout="row">
+          <div fxFlex="100%">
+            <label class="mat-caption mat-menu-msg">Please highlight the text and press Ctrl+B(windows)/cmd+B(mac) makes the text bold. If the text is already bold, highlighting the bold text and pressing Ctrl+B(windows)/cmd+B(mac) un-bolds the text.</label>
+          </div>
+        </div>
+      </mat-menu>
+      <mat-menu #italicInfo="matMenu" class="mat-menu-msg">
+        <div fxLayout="row">
+          <div fxFlex="100%">
+            <label class="mat-caption">Please highlight the text and press Ctrl+I(windows)/cmd+I(mac) makes the text Italic. If the text is already Italic, highlighting the italic text and pressing Ctrl+I(windows)/cmd+I(mac) to make the text normal.</label>
+          </div>
+        </div>
+      </mat-menu>
+      <mat-menu #underlineInfo="matMenu">
+        <div fxLayout="row">
+          <div fxFlex="100%">
+            <label class="mat-caption mat-menu-msg">Please highlight the text and press Ctrl+U(windows)/cmd+U(mac) makes the text Underline. If the text is already Underlined, highlighting the underlined text and pressing Ctrl+I(windows)/cmd+I(mac) to make the text normal.</label>
+          </div>
+        </div>
+      </mat-menu>
+    </div>
+  </div>
+  <div fxFlex="24%" class="theme-container" fxLayoutAlign="center center">
+    <button mat-raised-button (click)="exportToPdf()" color="primary">Download PDF</button>
+  </div>
+</div>
+<div fxLayout="row" class="margin-top-15">
+  <div fxFlex="15%">
+    <mat-sidenav-container fxFlexFill style="background: white; box-shadow: 0 1px 3px 0 rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 2px 1px -1px rgba(0,0,0,.12);">
+      <mat-sidenav-content fxFlexFill>
+        <div class="sd-content" data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
+        <mat-card>
+          <img class="sidebar-img" src="https://www.goodcv.com/images/cv/screenshots/thumbs/en/default.png">
+        </mat-card>
+        <mat-card class="margin-top-10">
+          <img class="sidebar-img" src="https://www.goodcv.com/images/cv/screenshots/thumbs/en/default.png">
+        </mat-card>
+          <mat-card class="margin-top-10">
+            <img class="sidebar-img" src="https://www.goodcv.com/images/cv/screenshots/thumbs/en/default.png">
+          </mat-card>
+          <mat-card class="margin-top-10">
+            <img class="sidebar-img" src="https://www.goodcv.com/images/cv/screenshots/thumbs/en/default.png">
+          </mat-card>
+          <mat-card class="margin-top-10">
+            <img class="sidebar-img" src="https://www.goodcv.com/images/cv/screenshots/thumbs/en/default.png">
+          </mat-card>
+        </div>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
+  <div fxFlex="45%" data-aos="fade-right" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
+    <div class="temp-container">
+    <app-template-one #templateFile id="templateFile"></app-template-one>
+  </div>
+  </div>
+  <div fxFlex="38%" data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-duration="1000" style="margin-left:15px">
+    <div fxLayout="row">
+      <div fxFlex="100%" fxLayoutAlign="center">
+        <label>Check/Uncheck items to Show/Hide entries.</label>
+      </div>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="center" class="margin-top-15">
+      <mat-card fxFlex="98%" class="section-mat-card feature-container">
+        <div fxLayout="row" data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
+          <mat-card class="sub-section-mat-card" fxFlex="100%">
+            <mat-checkbox [disabled]="true" [checked]="true">Profile</mat-checkbox>
+          </mat-card>
+        </div>
+        <div fxLayout="row">
+          <div fxFlex="100%">
+            <hr/>
+          </div>
+        </div>
+        <div fxLayout="row">
+          <mat-card class="sub-section-mat-card" fxFlex="100%">
+            <div fxLayout="row">
+              <div fxFlex="72%" fxLayoutAlign="left center">
+                <mat-checkbox [(ngModel)]="coreDataService.templateData.isImageNeeded" [checked]="coreDataService.templateData.isImageNeeded">Profile Image</mat-checkbox>
+              </div>
+              <div fxFlex="20%" *ngIf="coreDataService.templateData.workExp">
+                <button *ngIf="coreDataService.templateData.image != null" mat-raised-button (click)="removeImage()" style="color: #3f51b5">Remove Image</button>
+              </div>
+            </div>
+          </mat-card>
+        </div>
+        <div fxLayout="row" class="margin-top-5">
+          <mat-card class="sub-section-mat-card" fxFlex="100%">
+            <mat-checkbox [(ngModel)]="coreDataService.templateData.objective" [checked]="coreDataService.templateData.objective">Objectives</mat-checkbox>
+          </mat-card>
+        </div>
+        <div fxLayout="row" class="margin-top-5">
+          <mat-card class="sub-section-mat-card" fxFlex="100%">
+            <div fxLayout="row">
+              <div fxFlex="75%" fxLayoutAlign="left center">
+                <mat-checkbox [(ngModel)]="coreDataService.templateData.workExp" [checked]="coreDataService.templateData.workExp">Work Experience</mat-checkbox>
+              </div>
+              <div fxFlex="20%" *ngIf="coreDataService.templateData.workExp">
+                <button mat-raised-button (click)="addWorkExperience()" style="color: #3f51b5">+Experience</button>
+              </div>
+            </div>
+          </mat-card>
+        </div>
+        <div fxLayout="row" *ngIf="coreDataService.templateData.workExp" class="margin-top-bottom">
+          <div fxFlex="100%">
+            <ng-container *ngFor="let companyInfo of coreDataService.templateData.companyInfo; let i = index">
+            <div fxLayout="row" class="margin-top-10">
+              <div fxFlex="75%">
+                <span class="font-weight-normal mat-body-1" style="margin-left: 20px">{{companyInfo.companyName}}</span>&nbsp;
+                <i class="fa fa-trash cr-pointer" style="color: red" (click)="deleteCompanyInfo(i)"></i>
+              </div>
+              <div fxFlex="25%">
+                <i class="fa fa-plus cr-pointer" style="color: #3f51b5" (click)="addAcheivement(i)"></i>&nbsp;<span class="mat-body-1 cr-pointer" (click)="addAcheivement(i)" style="color: #3f51b5">Achievement</span>
+              </div>
+            </div>
+              <div *ngFor="let achieve of companyInfo.details; let k = index;" class="summary-word-elipsis margin-top-5">
+                <span  class="mat-caption" ><i class="fa fa-trash cr-pointer" style="color: red" (click)="deleteAcheivement(i, k)"></i>&nbsp;{{achieve}}
+
+                </span>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+        <div fxLayout="row" class="margin-top-5">
+          <mat-card class="sub-section-mat-card" fxFlex="100%">
+            <div fxLayout="row">
+              <div fxFlex="76%" fxLayoutAlign="left center">
+                <mat-checkbox [(ngModel)]="coreDataService.templateData.education" [checked]="coreDataService.templateData.education">Education</mat-checkbox>
+              </div>
+              <div fxFlex="20%" *ngIf="coreDataService.templateData.education">
+                <button mat-raised-button (click)="addEducation()" style="color: #3f51b5">+Education</button>
+              </div>
+            </div>
+          </mat-card>
+        </div>
+        <div fxLayout="row" *ngIf="coreDataService.templateData.education" class="margin-top-bottom">
+          <div fxFlex="100%">
+            <ng-container *ngFor="let eduInfo of coreDataService.templateData.educationInfo; let i = index">
+              <div fxLayout="row" class="margin-top-10">
+                <div fxFlex="100%">
+                  <span class="font-weight-normal mat-body-1" style="margin-left: 20px">{{eduInfo.schoolName}}</span>&nbsp;
+                  <i class="fa fa-trash cr-pointer" style="color: red" (click)="deleteEduInfo(i)"></i>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+        <div fxLayout="row" class="margin-top-5">
+          <mat-card class="sub-section-mat-card" fxFlex="100%">
+            <div fxLayout="row">
+              <div fxFlex="75%" fxLayoutAlign="left center">
+                <mat-checkbox [(ngModel)]="coreDataService.templateData.certifications" [checked]="coreDataService.templateData.certifications">Certifications</mat-checkbox>
+              </div>
+              <div fxFlex="20%" *ngIf="coreDataService.templateData.certifications">
+                <button mat-raised-button (click)="addCerficates()" style="color: #3f51b5">+Certificates</button>
+              </div>
+            </div>
+          </mat-card>
+        </div>
+        <div fxLayout="row" *ngIf="coreDataService.templateData.certifications" class="margin-top-bottom">
+          <div fxFlex="100%">
+            <ng-container *ngFor="let certifiInfo of coreDataService.templateData.certificates; let i = index">
+              <div fxLayout="row" class="margin-top-10">
+                <div fxFlex="100%">
+                  <span class="font-weight-normal mat-body-1" style="margin-left: 20px">{{certifiInfo.certificateName}}</span>&nbsp;
+                  <i class="fa fa-trash cr-pointer" style="color: red" (click)="deleteCerficates(i)"></i>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+        <div fxLayout="row" class="margin-top-5">
+          <mat-card class="sub-section-mat-card" fxFlex="100%">
+            <div fxLayout="row">
+              <div fxFlex="80%" fxLayoutAlign="left center">
+                <mat-checkbox [(ngModel)]="coreDataService.templateData.honorReward" [checked]="coreDataService.templateData.honorReward">Honors & Awards</mat-checkbox>
+              </div>
+              <div fxFlex="20%" *ngIf="coreDataService.templateData.honorReward">
+                <button mat-raised-button (click)="addAwards()" style="color: #3f51b5">+Awards</button>
+              </div>
+            </div>
+          </mat-card>
+        </div>
+        <div fxLayout="row" *ngIf="coreDataService.templateData.honorReward" class="margin-top-bottom">
+          <div fxFlex="100%">
+            <ng-container *ngFor="let honorInfo of coreDataService.templateData.honorAwardInfo; let i = index">
+              <div fxLayout="row" class="margin-top-10">
+                <div fxFlex="100%">
+                  <span class="font-weight-normal mat-body-1" style="margin-left: 20px">{{honorInfo.award}}</span>&nbsp;
+                  <i class="fa fa-trash cr-pointer" style="color: red" (click)="deleteAwards(i)"></i>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+        <div fxLayout="row" class="margin-top-5">
+          <mat-card class="sub-section-mat-card" fxFlex="100%">
+            <div fxLayout="row">
+              <div fxFlex="80%" fxLayoutAlign="left center">
+                <mat-checkbox [(ngModel)]="coreDataService.templateData.interest" [checked]="coreDataService.templateData.interest">Interests</mat-checkbox>
+              </div>
+              <div fxFlex="20%" *ngIf="coreDataService.templateData.interest">
+                <button mat-raised-button (click)="addInterest()" style="color: #3f51b5">+Interest</button>
+              </div>
+            </div>
+          </mat-card>
+        </div>
+        <div fxLayout="row" *ngIf="coreDataService.templateData.interest" class="margin-top-bottom">
+          <div fxFlex="100%">
+            <ng-container *ngFor="let interest of coreDataService.templateData.interestOn; let i = index">
+              <div fxLayout="row" class="margin-top-10">
+                <div fxFlex="100%">
+                  <span class="font-weight-normal mat-body-1" style="margin-left: 20px">{{interest}}</span>&nbsp;
+                  <i class="fa fa-trash cr-pointer" style="color: red" (click)="deleteInterest(i)"></i>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+        <div fxLayout="row" class="margin-top-5">
+          <mat-card class="sub-section-mat-card" fxFlex="100%">
+            <div fxLayout="row">
+              <div fxFlex="18%" fxLayoutAlign="left center">
+                <mat-checkbox [(ngModel)]="coreDataService.templateData.skills" [checked]="coreDataService.templateData.skills">Skills</mat-checkbox>
+              </div>
+              <div fxFlex="28%" *ngIf="coreDataService.templateData.interest">
+                <button mat-raised-button (click)="addLanguage()" style="color: #3f51b5">+Language Skills</button>
+              </div>
+              <div fxFlex="25%" *ngIf="coreDataService.templateData.interest" fxLayoutAlign="center">
+                <button mat-raised-button (click)="addTechSkills()" style="color: #3f51b5">+Tech Skills</button>
+              </div>
+              <div fxFlex="25%" *ngIf="coreDataService.templateData.interest">
+                <button mat-raised-button (click)="addComputerSkills()" style="color: #3f51b5">+Computer Skills</button>
+              </div>
+            </div>
+          </mat-card>
+        </div>
+        <div fxLayout="row" *ngIf="coreDataService.templateData.skills" class="margin-top-bottom">
+          <div fxFlex="33.33%">
+            <ng-container *ngFor="let language of coreDataService.templateData.knownLanguage; let i = index">
+              <label class="font-weight-normal mat-body-1" style="margin-left: 20px">{{language}}&nbsp;<i class="fa fa-trash cr-pointer" style="color: red" (click)="deleteLangauge(i)"></i></label><br/>
+            </ng-container>
+          </div>
+          <div fxFlex="33.33%">
+            <ng-container *ngFor="let tech of coreDataService.templateData.technicalSkills; let i = index">
+              <label class="font-weight-normal mat-body-1" style="margin-left: 20px">{{tech}}&nbsp;<i class="fa fa-trash cr-pointer" style="color: red" (click)="deleteTechSkills(i)"></i></label><br/>
+            </ng-container>
+          </div>
+          <div fxFlex="33.33%">
+            <ng-container *ngFor="let csSkills of coreDataService.templateData.computerSkills; let i = index">
+              <label class="font-weight-normal mat-body-1" style="margin-left: 20px">{{csSkills}}&nbsp;<i class="fa fa-trash cr-pointer" style="color: red" (click)="deleteCsSkills(i)"></i></label><br/>
+            </ng-container>
+          </div>
+        </div>
+        <div fxLayout="row" class="margin-top-5">
+          <mat-card class="sub-section-mat-card" fxFlex="100%">
+            <div fxLayout="row">
+              <div fxFlex="79%" fxLayoutAlign="left center">
+                <mat-checkbox [(ngModel)]="coreDataService.templateData.activities" [checked]="coreDataService.templateData.activities">Activities</mat-checkbox>
+              </div>
+              <div fxFlex="20%" *ngIf="coreDataService.templateData.activities">
+                <button mat-raised-button (click)="addActivities()" style="color: #3f51b5">+Activities</button>
+              </div>
+            </div>
+          </mat-card>
+        </div>
+        <div fxLayout="row" *ngIf="coreDataService.templateData.activities" class="margin-top-bottom">
+          <div fxFlex="100%">
+            <ng-container *ngFor="let activityInfo of coreDataService.templateData.activitiesInfo; let i = index">
+              <div fxLayout="row" class="margin-top-10">
+                <div fxFlex="80%">
+                  <span class="font-weight-normal mat-body-1" style="margin-left: 20px">{{activityInfo.role}}</span>&nbsp;
+                  <i class="fa fa-trash cr-pointer" style="color: red" (click)="deleteActivityInfo(i)"></i>
+                </div>
+                <div fxFlex="20%">
+                  <i class="fa fa-plus cr-pointer" style="color: #3f51b5" (click)="addActivitySummary(i)"></i>&nbsp;<span class="mat-body-1 cr-pointer" (click)="addActivitySummary(i)" style="color: #3f51b5">Summary</span>
+                </div>
+              </div>
+              <div *ngFor="let summary of activityInfo.summary; let k = index;" class="summary-word-elipsis margin-top-5">
+                <span  class="mat-caption" ><i class="fa fa-trash cr-pointer" style="color: red" (click)="deleteActivitySummary(i, k)"></i>&nbsp;{{summary}}</span>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+        <div fxLayout="row" class="margin-top-5">
+          <mat-card class="sub-section-mat-card" fxFlex="100%">
+            <div fxLayout="row">
+              <div fxFlex="73%" fxLayoutAlign="left center">
+                <mat-checkbox [(ngModel)]="coreDataService.templateData.additionalInfo" [checked]="coreDataService.templateData.additionalInfo">Additional Information</mat-checkbox>
+              </div>
+              <div fxFlex="20%" *ngIf="coreDataService.templateData.additionalInfo">
+                <button mat-raised-button (click)="addAdditionalInfo()" style="color: #3f51b5">+Additional Info</button>
+              </div>
+            </div>
+          </mat-card>
+        </div>
+        <div fxLayout="row" *ngIf="coreDataService.templateData.additionalInfo" class="margin-top-bottom">
+          <div fxFlex="100%">
+            <ng-container *ngFor="let addInfo of coreDataService.templateData.additionalInfoDetails; let i = index">
+              <div fxLayout="row" class="margin-top-10">
+                <div fxFlex="100%">
+                  <span class="font-weight-normal mat-body-1" style="margin-left: 20px">{{addInfo}}</span>&nbsp;
+                  <i class="fa fa-trash cr-pointer" style="color: red" (click)="deleteAdditionalInfo(i)"></i>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+        <div fxLayout="row" class="margin-top-5" >
+          <mat-card class="sub-section-mat-card" fxFlex="100%">
+            <div fxLayout="row">
+              <div fxFlex="78%" fxLayoutAlign="left center">
+                <mat-checkbox [(ngModel)]="coreDataService.templateData.reference" [checked]="coreDataService.templateData.reference">Reference</mat-checkbox>
+              </div>
+              <div fxFlex="20%" *ngIf="coreDataService.templateData.reference">
+                <button mat-raised-button (click)="addReference()" style="color: #3f51b5">+Reference</button>
+              </div>
+            </div>
+          </mat-card>
+        </div>
+        <div fxLayout="row" *ngIf="coreDataService.templateData.reference" class="margin-top-bottom">
+          <div fxFlex="100%">
+            <ng-container *ngFor="let refInfo of coreDataService.templateData.referenceDetails; let i = index">
+              <div fxLayout="row" class="margin-top-10">
+                <div fxFlex="100%">
+                  <span class="font-weight-normal mat-body-1" style="margin-left: 20px">{{refInfo}}</span>&nbsp;
+                  <i class="fa fa-trash cr-pointer" style="color: red" (click)="deleteReference(i)"></i>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+        <div class="margin-top-15" style="padding-bottom:20px"></div>
+      </mat-card>
+    </div>
+  </div>
+</div>

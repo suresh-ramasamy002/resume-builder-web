@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnDestroy, OnInit, ViewChild, ElementRef} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../../services/auth.service';
 import {EnrollUserDetails} from '../../class/api-model/request';
@@ -8,7 +8,7 @@ import {EnrollUserDetails} from '../../class/api-model/request';
   templateUrl: './enrollment.component.html',
   styleUrls: ['./enrollment.component.scss']
 })
-export class EnrollmentComponent implements OnInit, OnDestroy {
+export class EnrollmentComponent implements OnInit, OnDestroy, AfterViewInit {
   public enrollFormValidation: FormGroup;
   public showToken: boolean = false;
   public showToken2: boolean = false;
@@ -16,6 +16,7 @@ export class EnrollmentComponent implements OnInit, OnDestroy {
   public authError: any;
   public pass2: string = null;
   public showSpinner: boolean = false;
+  @ViewChild('formRow') rows: ElementRef;
   public userDetails: EnrollUserDetails = new EnrollUserDetails(null, null, null, null, null, null, null);
   constructor(private formBuilder: FormBuilder, private auth: AuthService) { }
 
@@ -34,6 +35,12 @@ export class EnrollmentComponent implements OnInit, OnDestroy {
     this.auth.evtAuthErr$.subscribe(data => {
        this.authError = data;
     });
+    this.authError = null;
+  }
+  ngAfterViewInit() {
+    setTimeout(() => {
+      this.rows.nativeElement.focus();
+    }, 10);
   }
   ngOnDestroy() {
   }

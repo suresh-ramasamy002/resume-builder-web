@@ -1,0 +1,100 @@
+.theme-container {
+  background-color: white;
+  border-radius: 3px;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 2px 1px -1px rgba(0,0,0,.12);
+  &-theme {
+    padding: 8px;
+    display: flex;
+    flex-wrap: nowrap;
+  }
+}
+
+.color {
+  height: 20px;
+  width: 20px;
+  margin: 4px;
+  border-radius: 50px;
+  cursor: pointer;
+}
+.sidebar-img {
+  height: 250px;
+}
+.sd-content{
+  height: 80vh;
+  overflow: scroll;
+  padding: 0 15px;
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: #f9f9f9;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 0.2rem;
+  }
+
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: #c1c1c1;
+  }
+}
+.mat-menu-panel.glcs-note-widget {
+  max-width:none;
+  width: 365px;
+  max-height: 360px;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: #f9f9f9;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 0.2rem;
+  }
+
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: #c1c1c1;
+  }
+}
+.margin-top-10{
+  margin-top: 10px;
+}
+.font-size-ui{
+  padding: 8px 11px;
+  background: darkgray;
+  color: white;
+  border-radius: 50px;
+}
+.mat-menu-msg{
+  padding: 10px;
+}
+.section-mat-card{
+  background: #efefef;
+}
+.sub-section-mat-card{
+  padding: 8px 14px;
+}
+mat-toolbar {
+  background: linear-gradient(90deg,#00c4cc,#7d2ae8);
+}
+.summary-word-elipsis {
+  white-space: nowrap;
+  width: 75%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-left: 35px;
+}
+.feature-container {
+  height: 75vh;
+  overflow-y: scroll;
+}

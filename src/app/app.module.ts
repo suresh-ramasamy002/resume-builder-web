@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ImageCropperModule } from 'ngx-image-cropper';
+
 // import firebase module
 import {AngularFireModule} from '@angular/fire';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
@@ -54,7 +56,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './pages/home/home.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import {LoadingService} from './services/loading.service';
+import {PaymentService} from './services/payment.service';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
+import { TemplateOneComponent } from './components/template-files/template-one/template-one.component';
+import { TemplateRootComponent } from './pages/templates/template-root.component';
+import { TemplateEditorComponent } from './pages/templates/template-editor/template-editor.component';
+import {CoreDataService} from './services/core-data.service';
+import { AlertDialogComponent } from './components/alert-dialog/alert-dialog.component';
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
+import {UserService} from './services/user.service';
+import { ImageUploadCropComponent } from './components/image-upload-crop/image-upload-crop.component';
+import { FileUploadComponent } from './components/file-upload/file-upload.component';
+import { PaymentRequestComponent } from './components/payment-request/payment-request.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,9 +76,18 @@ import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password
     UserInfoComponent,
     HomeComponent,
     LoaderComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    TemplateOneComponent,
+    TemplateRootComponent,
+    TemplateEditorComponent,
+    AlertDialogComponent,
+    ConfirmDialogComponent,
+    ImageUploadCropComponent,
+    FileUploadComponent,
+    PaymentRequestComponent
   ],
   imports: [
+    ImageCropperModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -105,7 +127,7 @@ import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password
     MatSliderModule,
     MatRippleModule, ReactiveFormsModule
   ],
-  providers: [LoadingService],
+  providers: [LoadingService, CoreDataService, UserService, PaymentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

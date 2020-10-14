@@ -2,7 +2,11 @@
 @import '../node_modules/@angular/material/prebuilt-themes/indigo-pink.css';
 @import './assets/scss/material-override';
 @import './assets/scss/global';
-body{
+@import "./assets/scss/aos.scss";
+html, body {
   padding: 0;
   margin: 0;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  font-family: sans-serif;
 }

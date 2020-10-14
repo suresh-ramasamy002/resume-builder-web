@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import {EnrollUserDetails} from '../class/api-model/request';
+import {TemplateCoreObj} from '../class';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class CoreDataService {
  private $userDetails: EnrollUserDetails = null;
  private $showSpinner: boolean = false;
@@ -28,5 +27,14 @@ export class CoreDataService {
 
   set loadingMsg(value: string) {
     this.$loadingMsg = value;
+  }
+  // template variables;
+  private $templateData: TemplateCoreObj = null;
+  get templateData(): TemplateCoreObj{
+    return this.$templateData;
+  }
+
+  set templateData(value: TemplateCoreObj) {
+    this.$templateData = value;
   }
 }

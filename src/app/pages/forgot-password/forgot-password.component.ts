@@ -21,6 +21,7 @@ export class ForgotPasswordComponent implements OnInit {
     this.auth.evtAuthErr$.subscribe(data => {
       this.authError = data;
     });
+    this.authError = null;
   }
   sendLink() {
     this.auth.forgotPassword(this.email);

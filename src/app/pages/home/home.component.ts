@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {CoreDataService} from '../../services/core-data.service';
 import * as firebase from 'firebase/app';
 import {AuthService} from '../../services/auth.service';
+import {UserService} from '../../services/user.service';
 
 @Component({
   selector: 'app-home',
@@ -9,11 +10,11 @@ import {AuthService} from '../../services/auth.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
-  constructor(public coreDataService: CoreDataService, private auth: AuthService) { }
+  constructor(public coreDataService: CoreDataService, private auth: AuthService, private userService: UserService) { }
 
   ngOnInit(): void {
     this.auth.getUserData(firebase.auth().currentUser.uid);
+    this.userService.getUserResumeData(firebase.auth().currentUser.uid);
   }
 
   logoutUser() {

@@ -1,4 +1,11 @@
-<div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" class="login-bg">
+
+<div class="sk-folding-cube" [ngClass]="{'display-none': showLogin}">
+  <div class="sk-cube1 sk-cube"></div>
+  <div class="sk-cube2 sk-cube"></div>
+  <div class="sk-cube4 sk-cube"></div>
+  <div class="sk-cube3 sk-cube"></div>
+</div>
+<div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" class="login-bg" [ngClass]="{'display-none': !showLogin}">
 <div fxFlex="15%" fxFlex.xs="100%" fxFlex.sm="100%"></div>
   <div fxFlex="70%" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="70%">
      <form [formGroup]="loginFormValidation" (ngSubmit)="loginAcc()">
@@ -6,8 +13,13 @@
          <div fxLayout="row" fxLayoutAlign="center center" class="login-page-height">
            <mat-card fxFlex="100%">
              <div fxLayout="row"  fxLayoutAlign="center center">
-               <div fxFlex="70%" fxFlex.xs="100%">
+               <div fxFlex="70%" fxFlex.xs="100%" data-aos="fade-down" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
                  <div fxLayout="row">
+                   <div fxFlex="100%" fxLayoutAlign="center">
+                     <span data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="1500"><img src="assets/images/business-logo-login.png" width="240px"/></span>
+                   </div>
+                 </div>
+                 <div fxLayout="row" class="margin-top-15">
                    <div fxFlex="100%" fxLayoutAlign="center">
                      <label class="login-label">LOGIN</label>
                    </div>
@@ -15,7 +27,7 @@
                  <div fxLayout="row" fxLayoutAlign="center">
                    <mat-form-field appearance="outline" floatLabel="always" fxFlex="45%"  fxFlex.xs="100%">
                      <mat-label class="mat-body-2" for="userId">Email</mat-label>
-                     <input matInput name="userId" id="userId" tabindex="1" formControlName="userName" [(ngModel)]="userName" autocomplete="off" required/>
+                     <input matInput #formRow name="userId" id="userId" tabindex="1" formControlName="userName" [(ngModel)]="userName" autocomplete="off" required/>
                      <mat-error class="margin-top-5" *ngIf="!loginFormValidation.get('userName').valid">Invalid Email</mat-error>
                    </mat-form-field>
                  </div>
@@ -39,11 +51,6 @@
                        <mat-error class="margin-top-5" *ngIf="loginFormValidation.get('password').hasError('required')">Invalid Password</mat-error>
                      </mat-form-field>
                  </div>
-                 <div fxLayout="row">
-                   <div fxFlex="100%" fxLayoutAlign="center">
-                     <button mat-button color="primary" tabindex="4" [routerLink]="'/forgotPassword'">Forgot Password?</button>
-                   </div>
-                 </div>
                  <div fxLayout="row" class="margin-top-12" *ngIf="authError">
                    <div fxFlex="100%" fxLayoutAlign="center">
                      <label class="login-error">{{authError?.message}}</label>
@@ -56,12 +63,17 @@
                  </div>
                  <div fxLayout="row">
                    <div fxFlex="100%" fxLayoutAlign="center">
+                     <button mat-button color="primary" (click)="forgotPassword()">Forgot Password?</button>
+                   </div>
+                 </div>
+                 <div fxLayout="row">
+                   <div fxFlex="100%" fxLayoutAlign="center">
                      <label class="margin-top-12">Don't have Account?</label>
                      <button mat-button color="primary" style="margin-top: 3.5px" [routerLink]="'/enroll'" tabindex="5">Register here</button>
                    </div>
                  </div>
                </div>
-               <div fxFlex="30%" fxLayoutAlign="end" fxHide fxShow.lg="true" fxShow.md="true">
+               <div fxFlex="30%" fxLayoutAlign="end" fxHide fxShow.lg="true" fxShow.md="true" data-aos="flip-right" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
                  <img src="./assets/images/login-banner.jpg" width="380px" height="100%">
                </div>
              </div>

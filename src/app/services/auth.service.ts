@@ -64,11 +64,11 @@ export class AuthService {
       });
   }
   getUserData(uid) {
-    this.coreDataService.showSpinner = true;
     this.db.collection('users').doc(uid).valueChanges().subscribe((res: EnrollUserDetails) => {
-      let userData: EnrollUserDetails = new EnrollUserDetails(res.role, res.firstName, res.lastName, res.email, res.password, res.city, res.state);
+      const userData: EnrollUserDetails = new EnrollUserDetails(res.role, res.firstName, res.lastName, res.email, res.password, res.city, res.state);
       this.coreDataService.userDetails = userData;
       this.coreDataService.showSpinner = false;
+      localStorage.setItem('userDetails', JSON.stringify(this.coreDataService.userDetails));
     });
   }
   logout() {

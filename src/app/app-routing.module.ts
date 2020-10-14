@@ -6,6 +6,8 @@ import {EnrollmentComponent} from './pages/enrollment/enrollment.component';
 import {UserInfoComponent} from './pages/user-info/user-info.component';
 import {HomeComponent} from './pages/home/home.component';
 import {ForgotPasswordComponent} from './pages/forgot-password/forgot-password.component';
+import {TemplateOneComponent} from './components/template-files/template-one/template-one.component';
+import {TemplateEditorComponent} from './pages/templates/template-editor/template-editor.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -14,6 +16,7 @@ const routes: Routes = [
   {path: 'userInfo', component: UserInfoComponent},
   {path: 'forgotPassword', component: ForgotPasswordComponent},
   {path: 'home', component: HomeComponent, canActivate: [AngularFireAuthGuard]},
+  {path: 'tempEditor', component: TemplateEditorComponent, canActivate: [AngularFireAuthGuard]},
   {path: '**', redirectTo: '/home' }
 ];
 

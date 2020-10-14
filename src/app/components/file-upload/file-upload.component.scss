@@ -1,0 +1,80 @@
+.drop-zone {
+  font-size: 1.25rem; /* 20 */
+  background-color: #ececec;
+  position: relative;
+  padding: 10px 10px;
+  width: 150px;
+  height:130px;
+  border-radius: 10px;
+
+  .dragndrop,
+  .icon {
+    display: none;
+  }
+
+  &.has-drag-n-drop {
+    outline: 2px dashed #92b0b3;
+    outline-offset: -10px;
+
+    -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
+    transition: outline-offset .15s ease-in-out, background-color .15s linear;
+
+    .icon {
+      width: 50%;
+      height: 40px;
+      fill: #92b0b3;
+      display: block;
+      margin-top: 20px;
+      margin-bottom: 40px;
+    }
+
+    .dragndrop {
+      display: inline;
+    }
+
+    &.is-over {
+      outline-offset: -20px;
+      outline-color: #c8dadf;
+      background-color: #fff;
+    }
+  }
+
+  input[type="file"] {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+
+    & + label {
+      max-width: 80%;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      cursor: pointer;
+      display: inline-block;
+      overflow: hidden;
+    }
+
+    &:focus + label {
+      outline: 1px dotted #000;
+      outline: -webkit-focus-ring-color auto 5px;
+    }
+
+    &:focus + label strong,
+    & + label:hover strong {
+      color:black;
+    }
+  }
+}
+
+footer {
+  color: #92b0b3;
+  margin-top: 40px;
+  text-align: center;
+
+  a:hover,
+  a:focus {
+    color: #39bfd3;
+  }
+}
