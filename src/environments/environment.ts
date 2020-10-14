@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  functionsURL: 'https://us-central1-fir-resume-builder.cloudfunctions.net/charge',
   stripeKey: 'pk_test_51HaFOGAqOUzmy33nwJH7aBRiJM5sKIR41tAw4zpl6VpgS4isOlPKcVZfeTuAj1iLohwtAPNuUxVnPfHIOjCcNQPO00HiszLJ0Q',
   firebase: {
     apiKey: 'AIzaSyA_e64wuFThoaH1_xm9cu0sh-KhlX2CdkU',

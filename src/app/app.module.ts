@@ -68,6 +68,9 @@ import {UserService} from './services/user.service';
 import { ImageUploadCropComponent } from './components/image-upload-crop/image-upload-crop.component';
 import { FileUploadComponent } from './components/file-upload/file-upload.component';
 import { PaymentRequestComponent } from './components/payment-request/payment-request.component';
+import { HttpClientModule } from '@angular/common/http';
+import {StripePipe} from './shared/utils/stripe.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -84,9 +87,11 @@ import { PaymentRequestComponent } from './components/payment-request/payment-re
     ConfirmDialogComponent,
     ImageUploadCropComponent,
     FileUploadComponent,
-    PaymentRequestComponent
+    PaymentRequestComponent,
+    StripePipe
   ],
   imports: [
+    HttpClientModule,
     ImageCropperModule,
     BrowserModule,
     AppRoutingModule,
@@ -127,6 +132,7 @@ import { PaymentRequestComponent } from './components/payment-request/payment-re
     MatSliderModule,
     MatRippleModule, ReactiveFormsModule
   ],
+  exports: [StripePipe],
   providers: [LoadingService, CoreDataService, UserService, PaymentService],
   bootstrap: [AppComponent]
 })

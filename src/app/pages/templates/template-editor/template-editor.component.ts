@@ -66,7 +66,8 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
   }
   openDialog(): void {
     let dialogRef = this.dialog.open(PaymentRequestComponent, {
-      width: '350px'
+      width: '350px',
+      data: {amount: 1500}
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result) {

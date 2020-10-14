@@ -1,9 +1,21 @@
-// import * as functions from 'firebase-functions';
+require('./app/config');
+import * as auth from './app/auth';
+import * as webhooks from './app/webhooks';
+import * as connect from './app/connect';
+import { api } from './app/api';
 
-// // Start writing Firebase Functions
-// // https://firebase.google.com/docs/functions/typescript
-//
-// export const helloWorld = functions.https.onRequest((request, response) => {
-//   functions.logger.info("Hello logs!", {structuredData: true});
-//   response.send("Hello from Firebase!");
-// });
+// Main Authenticated User API
+export const app = api;
+
+// Auth Functions
+export const createStripeCustomer    = auth.createStripeCustomer;
+
+// Webhook Functions
+export const recurringPaymentWebhook = webhooks.recurringPaymentWebhook;
+
+// Connect Functions
+export const stripeRedirect = connect.redirect;
+export const oauthCallback  = connect.callback;
+
+
+
