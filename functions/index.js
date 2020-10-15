@@ -1,8 +1,10 @@
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
+// const stripe = require('stripe')('pk_test_51HaFOGAqOUzmy33nwJH7aBRiJM5sKIR41tAw4zpl6VpgS4isOlPKcVZfeTuAj1iLohwtAPNuUxVnPfHIOjCcNQPO00HiszLJ0Q');
 const stripe = require('stripe')('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');
 admin.initializeApp(functions.config().firebase);
 exports.stripeChargeCall = functions.https.onCall(async (data, context) => {
+
   if(!data || data.charge) return;
 
  const doc =  admin.firestore().collection('sources').doc();
@@ -24,3 +26,5 @@ exports.stripeChargeCall = functions.https.onCall(async (data, context) => {
    return {result: 'Payment Failed'}
  };
 });
+
+

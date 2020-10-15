@@ -15,7 +15,8 @@ export const environment = {
     appId: '1:743787013472:web:b60b77da84b95e66dbea05'
   }
 };
-
+// stripeKey: 'pk_test_51HaFOGAqOUzmy33nwJH7aBRiJM5sKIR41tAw4zpl6VpgS4isOlPKcVZfeTuAj1iLohwtAPNuUxVnPfHIOjCcNQPO00HiszLJ0Q'
+// stripeKey: 'pk_live_51HaFOGAqOUzmy33niSM9B5vow1uXTlS0L24xYlDyfTSaMWF1l6LC11ffnYROalBFJ7wN0UH7iXCtpU8Qdw8Hrsuw0071VDqWOR',
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
