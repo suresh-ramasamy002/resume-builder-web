@@ -50,6 +50,7 @@ export class PaymentRequestComponent implements OnInit, OnDestroy {
       };
       this.stripe.createSource(this.card, ownerInfo).then((result) => {
         console.log('result');
+        console.log(this.card);
         if (result.error) {
           this.error = result.error.message;
         } else {
@@ -77,7 +78,7 @@ export class PaymentRequestComponent implements OnInit, OnDestroy {
       const obs = callable(source);
       obs.subscribe(res => {
         console.log(res);
-        if (res.result === 'SUCCESSFUL') {
+        if (res.result === 'Payment Successful') {
            document.getElementsByClassName('text')[0].innerHTML = 'Payment Successful';
         } else {
           document.getElementsByClassName('text')[0].innerHTML = 'Something went wrong.';
