@@ -1,56 +1,27 @@
 const functions = require('firebase-functions');
-const express = require('express');
-const cors = require('cors')({origin: true});
-const app = express();
+const admin = require('firebase-admin');
+const stripe = require('stripe')('sk_test_51HaFOGAqOUzmy33nQjGc2SvPVmPfhSKfvxGQrAIN3AMzlecKxJR6cSRyXeW0EaUojZzcTusbRQhWm8iN2ISUmNpe00YAuZeyob');
+admin.initializeApp(functions.config().firebase);
+exports.stripeChargeCall = functions.https.onCall(async (data, context) => {
 
-// TODO: Remember to set token using >> firebase functions:config:set stripe.token="SECRET_STRIPE_TOKEN_HERE"
-const stripe = require('stripe')(functions.config().stripe.token);
+  if(!data || data.charge) return;
 
-function charge(req, res) {
-  const body = JSON.parse(req.body);
-  const token = body.token.id;
-  const amount = body.charge.amount;
-  const currency = body.charge.currency;
+ const doc =  admin.firestore().collection('sources').doc();
+ doc.set(data);
 
-  // Charge card
-  stripe.charges.create({
-    amount,
-    currency,
-    description: 'Resume Payment',
-    source: token,
-  }).then(charge => {
-    send(res, 200, {
-      message: 'Success',
-      charge,
-    });
-  }).catch(err => {
-    console.log(err);
-    send(res, 500, {
-      error: err.message,
-    });
-  });
-}
-
-function send(res, code, body) {
-  res.send({
-    statusCode: code,
-    headers: {'Access-Control-Allow-Origin': '*'},
-    body: JSON.stringify(body),
-  });
-}
-
-app.use(cors);
-app.post('/', (req, res) => {
-
-  // Catch any unexpected errors to prevent crashing
-  try {
-    charge(req, res);
-  } catch(e) {
-    console.log(e);
-    send(res, 500, {
-      error: `The server received an unexpected error. Please try again and contact the site admin if the error persists.`,
-    });
-  }
+ const source = data.id;
+ const email = 'suresh.ramasamy1996@gmail.com';
+ const customer = await stripe.customers.create({email, source});
+ const idempotencyKey = doc.id;
+ const amount = data.amount;
+ const currency = 'inr';
+ const charge = {amount, currency, source, customer: customer.id};
+ const charge_1 = await (stripe.charges.create(charge, {idempotencyKey}));
+ if(charge_1.paid === true) {
+   admin.firestore().collection('charges').doc().set(charge_1);
+   return {result: 'Payment Successful'}
+ } else  {
+   admin.firestore().collection('charges_error').doc().set(charge_1);
+   return {result: 'Payment Failed'}
+ };
 });
-
-exports.charge = functions.https.onRequest(app);
