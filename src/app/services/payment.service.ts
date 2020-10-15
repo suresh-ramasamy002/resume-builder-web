@@ -8,20 +8,20 @@ import { Customer, Source, Charge, SubscriptionPlan, StripeObject } from '../cla
 @Injectable()
 export class PaymentService {
 
-  readonly api = `${environment.functionsURL}/app`;
-
-  private stripe = Stripe(environment.stripeKey);
-  elements: any;
-  constructor(private http: HttpClient) {
-    this.elements = this.stripe.elements();
-  }
-  createCharge(card: any, amount: number): Observable<Charge> {
-    const url = `${this.api}/charges/`;
-
-    return fromPromise( this.stripe.createSource(card) ).pipe(
-      switchMap(data => {
-        return this.http.post<Charge>(url, { amount });
-      })
-    );
-  }
+  // readonly api = `${environment.functionsURL}/app`;
+  //
+  // private stripe = Stripe(environment.stripeKey);
+  // elements: any;
+  // constructor(private http: HttpClient) {
+  //   this.elements = this.stripe.elements();
+  // }
+  // createCharge(card: any, amount: number): Observable<Charge> {
+  //   const url = `${this.api}/charges/`;
+  //
+  //   return fromPromise( this.stripe.createSource(card) ).pipe(
+  //     switchMap(data => {
+  //       return this.http.post<Charge>(url, { amount });
+  //     })
+  //   );
+  // }
 }
