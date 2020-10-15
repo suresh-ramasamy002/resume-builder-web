@@ -69,3 +69,7 @@ Before we get started, keep in mind:
 [info] 
 [debug] [2020-10-15T11:08:37.910Z] >>> HTTP REQUEST GET https://firebaserules.googleapis.com/v1/projects/fir-resume-builder/releases?pageSize=10&pageToken=  
  
+[debug] [2020-10-15T11:09:53.670Z] Error: connect ETIMEDOUT 216.58.200.138:443
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1141:16)
+[error] 
+[error] Error: Server Error. connect ETIMEDOUT 216.58.200.138:443
