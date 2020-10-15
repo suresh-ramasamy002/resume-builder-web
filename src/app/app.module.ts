@@ -70,6 +70,7 @@ import { FileUploadComponent } from './components/file-upload/file-upload.compon
 import { PaymentRequestComponent } from './components/payment-request/payment-request.component';
 import { HttpClientModule } from '@angular/common/http';
 import {StripePipe} from './shared/utils/stripe.pipe';
+import {AngularFireFunctionsModule, REGION} from '@angular/fire/functions';
 
 @NgModule({
   declarations: [
@@ -130,10 +131,11 @@ import {StripePipe} from './shared/utils/stripe.pipe';
     MatStepperModule, MatTabsModule, MatToolbarModule,
     FormsModule,
     MatSliderModule,
-    MatRippleModule, ReactiveFormsModule
+    MatRippleModule, ReactiveFormsModule,
+    AngularFireFunctionsModule
   ],
   exports: [StripePipe],
-  providers: [LoadingService, CoreDataService, UserService, PaymentService],
+  providers: [{provide: REGION, useValue: 'us-central1'}, LoadingService, CoreDataService, UserService, PaymentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

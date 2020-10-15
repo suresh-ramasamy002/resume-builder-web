@@ -9,4 +9,3 @@ interface System {
   import(request: string): Promise<any>;
 }
 declare var Stripe: any;
-declare var StripeCheckout: any;
