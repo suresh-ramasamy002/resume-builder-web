@@ -1,18 +1,27 @@
 import { Injectable } from '@angular/core';
 import {EnrollUserDetails} from '../class/api-model/request';
 import {TemplateCoreObj} from '../class';
+import {Feedback} from '../class/feedback';
 
 @Injectable()
 export class CoreDataService {
  private $userDetails: EnrollUserDetails = null;
  private $showSpinner: boolean = false;
  private $loadingMsg: string = null;
+ private $feedbacks: Array<Feedback> = [];
  get userDetails(): EnrollUserDetails {
     return this.$userDetails;
   }
 
   set userDetails(value: EnrollUserDetails) {
     this.$userDetails = value;
+  }
+  get feedbacks(): Array<Feedback> {
+    return this.$feedbacks;
+  }
+
+  set feedbacks(value: Array<Feedback>) {
+    this.$feedbacks = value;
   }
   get showSpinner(): boolean{
     return this.$showSpinner;

@@ -1,9 +1,82 @@
-<form #checkout="ngForm" class="checkout">
-  <div class="form-row">
-    <label for="card-info">Card Info</label>
-    <div id="card-info" #cardInfo></div>
-    <div id="card-errors" role="alert" *ngIf="error">{{ error }}</div>
+<div fxLayout="row">
+  <div fxFlex="100%" fxLayoutAlign="end">
+    <img src="assets/images/x-mark.svg" width="20px" [mat-dialog-close]="false" class="cr-pointer"/>
   </div>
-  <div class="text"></div>
-  <button type="submit" id="button">Pay <i class="fa fa-rupee"></i>{{totalAmount/100}}</button>
+</div>
+<div fxLayout="row">
+  <div fxFlex="100%" class="position-relative" style="top:-8px"  fxLayoutAlign="center">
+    <img src="assets/images/business-logo-login.png" width="150px"/>
+  </div>
+</div>
+<div fxLayout="row">
+  <div fxFlex="50%">Payment Details</div>
+  <div fxFlex="12%" class="position-relative"><img src="assets/images/visa.svg" width="26px"/></div>
+  <div fxFlex="12%" class="position-relative"><img src="assets/images/mastercard.svg" width="26px"/></div>
+  <div fxFlex="12%" class="position-relative"><img src="assets/images/american-express.svg" width="26px"/></div>
+  <div fxFlex="12%" class="position-relative"><img src="assets/images/discover.svg" width="26px"/></div>
+</div>
+<form #checkout="ngForm" class="checkout">
+  <input type="hidden" name="token" />
+  <div class="group" fxLayout="row">
+    <label fxFlex="100%" [ngClass]="{'form-error': (customerName==null||customerName=='')&&showFormError}">
+      <span style="margin-right:40px">Name</span>
+      <input id="first-name" name="first-name" class="field" placeholder="Your Name" name="custName" [(ngModel)]="customerName" required/>
+    </label>
+  </div>
+  <div fxLayout="row" class="margin-top-5" style="margin-bottom: 8px;" *ngIf="(customerName==null||customerName=='')&&showFormError">
+    <div fxFlex="100%" fxLayoutAlign="left">
+      <div id="cust-errors" role="alert" style="color:red;font-size: 12px"> Name is required</div>
+    </div>
+  </div>
+  <div class="group" fxLayout="row">
+    <label fxFlex="100%" [ngClass]="{'form-error': (phoneNo==null||phoneNo=='')&&showFormError}">
+      <span>Phone No</span>
+      <input id="last-name" name="last-name" class="field" placeholder="Phone" name="pno" [(ngModel)]="phoneNo" (keydown)="allowNumbers($event)" required/>
+    </label>
+  </div>
+  <div fxLayout="row" class="margin-top-5" style="margin-bottom: 8px;" *ngIf="(phoneNo==null||phoneNo=='')&&showFormError">
+    <div fxFlex="100%" fxLayoutAlign="left">
+      <div id="phone-errors" role="alert" style="color:red;font-size: 12px">Phone No is required</div>
+    </div>
+  </div>
+  <div class="group">
+    <label>
+      <span>Card</span>
+      <div id="card-element" class="field"></div>
+    </label>
+  </div>
+  <div fxLayout="row" class="margin-top-5">
+    <div fxFlex="100%" fxLayoutAlign="center">
+      <div id="card-errors" role="alert" *ngIf="error" style="color:red">{{ error }}</div>
+    </div>
+  </div>
+  <div fxLayout="row">
+    <div fxFlex="100%">
+      <button  *ngIf="!isProcessing&&paymentMsg !='Success'" id="button" mat-raised-button color="primary" [disabled]="customerName==null&&customerName==''">Pay&nbsp;<img  class="position-relative" src="assets/images/rupee-indian.svg" width="12px" style="top:-2px"/>{{totalAmount/100}}</button>
+      <button *ngIf="isProcessing" mat-raised-button color="primary"><img src="assets/images/image-loader.svg" width="40px" /></button>
+      <button *ngIf="paymentMsg=='Success'" mat-raised-button color="primary"><img src="assets/images/check.svg" width="23px" /></button>
+    </div>
+  </div>
+  <div>
+    <div fxLayout="row" *ngIf="isProcessing" style="padding-top: 10px">
+      <div fxFlex="100%" fxLayoutAlign="center">
+        <div style="color: orange;font-size:13px">Your Payment is in progress. This will take few moments. Please wait</div>
+      </div>
+    </div>
+  </div>
+  <div fxLayout="row" *ngIf="paymentMsg=='Success'" style="padding-top: 10px">
+    <div fxFlex="100%" fxLayoutAlign="center">
+      <div style="color: #666EE8;font-size:13px">Payment Successful. Your CV will be downloading soon.</div>
+    </div>
+  </div>
+  <div fxLayout="row" *ngIf="paymentMsg=='Failure'" style="padding-top: 10px">
+    <div fxFlex="100%" fxLayoutAlign="center">
+      <div style="color: red;font-size:13px">Something went wrong. Please try after sometime or try with different card</div>
+    </div>
+  </div>
+  <div fxLayout="row">
+    <div fxFlex="100%" fxLayoutAlign="center">
+       <label style="color: #292929;">Safe & secure payments with Stripe</label>
+    </div>
+  </div>
 </form>

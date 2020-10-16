@@ -4,3 +4,16 @@ mat-toolbar {
 .font-size-15{
   font-size: 15px;
 }
+mat-toolbar {
+  position: fixed;
+  position: -webkit-sticky; /* For macOS/iOS Safari */
+  top: 0; /* Sets the sticky toolbar to be on top */
+  z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
+}
+.template-img {
+  height: 550px;
+  width: 100%;
+  margin-left: 10px;
+  margin-right: 20px;
+  margin-bottom: 10px;
+}

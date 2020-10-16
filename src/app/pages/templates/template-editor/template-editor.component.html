@@ -1,16 +1,17 @@
+<app-loader *ngIf="coreDataService.showSpinner"></app-loader>
+<div *ngIf="coreDataService.showSpinner" class="gl-overlay"></div>
 <mat-toolbar class="navbar-bg" data-aos="zoom-up" data-aos-easing="ease-out-cubic" data-aos-duration="1500">
   <mat-toolbar-row style="padding-left:0px">
-    <span data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="1500"><img src="assets/images/business-logo-page.png" width="240px"/></span>
+    <a mat-button [routerLink]="'/home'" class="color-white font-size-15"><i class="fa fa-arrow-left"></i>&nbsp;Back</a>
     <span class="menu-spacer"></span>
     <div fxShow="true" fxHide.lt-md *ngIf="coreDataService?.userDetails?.firstName">
-      <a mat-button [routerLink]="'/home'" class="color-white font-size-15"><i class="fa fa-arrow-left"></i>&nbsp;Back</a>
       <a href="#" mat-button  class="color-white font-size-15">Hello {{coreDataService.userDetails.firstName}}</a>
     </div>
   </mat-toolbar-row>
 </mat-toolbar>
 <div fxLayout="row" data-aos="fade-down" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
-  <div fxFlex="24%" class="theme-container" >
-    <button (click)="openDialog()" mat-raised-button color="accent">open payment</button>
+  <div fxFlex="24%" class="theme-container" fxLayoutAlign="center">
+    <span data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="1500"><img src="assets/images/business-logo-login.png" width="180px"/></span>
   </div>
   <div fxFlex="25%" class="theme-container" >
     <div fxLayout="row">
@@ -92,22 +93,22 @@
   <div fxFlex="15%">
     <mat-sidenav-container fxFlexFill style="background: white; box-shadow: 0 1px 3px 0 rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 2px 1px -1px rgba(0,0,0,.12);">
       <mat-sidenav-content fxFlexFill>
-        <div class="sd-content" data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
+        <div class="sd-content" data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-duration="1000" class="temp-container">
         <mat-card>
-          <img class="sidebar-img" src="https://www.goodcv.com/images/cv/screenshots/thumbs/en/default.png">
+          <img class="sidebar-img cr-pointer" src="assets/images/template-images/template-one.png">
         </mat-card>
-        <mat-card class="margin-top-10">
-          <img class="sidebar-img" src="https://www.goodcv.com/images/cv/screenshots/thumbs/en/default.png">
-        </mat-card>
-          <mat-card class="margin-top-10">
-            <img class="sidebar-img" src="https://www.goodcv.com/images/cv/screenshots/thumbs/en/default.png">
-          </mat-card>
-          <mat-card class="margin-top-10">
-            <img class="sidebar-img" src="https://www.goodcv.com/images/cv/screenshots/thumbs/en/default.png">
-          </mat-card>
-          <mat-card class="margin-top-10">
-            <img class="sidebar-img" src="https://www.goodcv.com/images/cv/screenshots/thumbs/en/default.png">
-          </mat-card>
+<!--        <mat-card class="margin-top-10">-->
+<!--          <img class="sidebar-img" src="https://www.goodcv.com/images/cv/screenshots/thumbs/en/default.png">-->
+<!--        </mat-card>-->
+<!--          <mat-card class="margin-top-10">-->
+<!--            <img class="sidebar-img" src="https://www.goodcv.com/images/cv/screenshots/thumbs/en/default.png">-->
+<!--          </mat-card>-->
+<!--          <mat-card class="margin-top-10">-->
+<!--            <img class="sidebar-img" src="https://www.goodcv.com/images/cv/screenshots/thumbs/en/default.png">-->
+<!--          </mat-card>-->
+<!--          <mat-card class="margin-top-10">-->
+<!--            <img class="sidebar-img" src="https://www.goodcv.com/images/cv/screenshots/thumbs/en/default.png">-->
+<!--          </mat-card>-->
         </div>
       </mat-sidenav-content>
     </mat-sidenav-container>

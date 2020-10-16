@@ -1,0 +1,47 @@
+<h1 mat-dialog-title style="font-size: 16px; color: #3f51b5; margin-bottom:0px">
+  <div class="header">
+    <div fxLayout="row">
+      <div fxFlex="100%" fxLayoutAlign="center center">
+        <label class="color-white font-size-20" style="padding-top: 35px">FEEDBACK</label>
+      </div>
+    </div>
+    <div fxLayout="row">
+      <div fxFlex="95%" fxLayoutAlign="end">
+        <label class="color-white" style="font-size: 12px">Powered by Resumearc</label>
+      </div>
+    </div>
+  </div>
+</h1>
+<div mat-dialog-content>
+  <div fxLayout="row">
+    <div fxFlex="100%" fxLayoutAlign="center center">
+      <label style="padding-top: 35px">How happy you are with Resumearc?</label>
+    </div>
+  </div>
+  <div fxLayout="row">
+    <div fxFlex="100%" fxLayoutAlign="center">
+      <div class="star-rating">
+        <input type="radio" id="5-stars" name="rating" value="5" (click)="setStars(5)" />
+        <label for="5-stars" class="star">&#9733;</label>
+        <input type="radio" id="4-stars" name="rating" value="4" (click)="setStars(4)"/>
+        <label for="4-stars" class="star">&#9733;</label>
+        <input type="radio" id="3-stars" name="rating" value="3" (click)="setStars(3)"/>
+        <label for="3-stars" class="star">&#9733;</label>
+        <input type="radio" id="2-stars" name="rating" value="2" (click)="setStars(2)"/>
+        <label for="2-stars" class="star">&#9733;</label>
+        <input type="radio" id="1-star" name="rating" value="1" (click)="setStars(1)"/>
+        <label for="1-star" class="star">&#9733;</label>
+      </div>
+    </div>
+  </div>
+  <div fxLayout="row" class="margin-top-15">
+      <mat-form-field fxFlex="100%" appearance="outline" floatLabel="always">
+        <textarea matInput placeholder="What do you like most?" rows="5" [(ngModel)]="feedback"></textarea>
+      </mat-form-field>
+  </div>
+</div>
+<div fxLayout="row">
+  <div mat-dialog-actions fxFlex="100%" fxLayoutAlign="center" style="padding-bottom: 20px">
+    <button mat-raised-button color="primary" (click)="submitFeedBack()">Submit Feedback</button>
+  </div>
+</div>

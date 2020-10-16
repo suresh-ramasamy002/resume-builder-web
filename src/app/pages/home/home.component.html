@@ -1,10 +1,9 @@
-<div style="height: 80vh;">
-  <mat-toolbar class="navbar-bg" data-aos="zoom-up" data-aos-easing="ease-out-cubic" data-aos-duration="1500">
+ <mat-toolbar class="navbar-bg" data-aos="zoom-up" data-aos-easing="ease-out-cubic" data-aos-duration="1500">
     <mat-toolbar-row>
       <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
        <i class="fa fa-bars"></i>
       </button>
-      <span data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="1500"><img src="assets/images/business-logo-login.png" width="240px"/></span>
+      <span data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="1500"><img src="assets/images/business-logo-page.png" width="240px"/></span>
       <span class="menu-spacer"></span>
       <div fxShow="true" fxHide.lt-md *ngIf="coreDataService?.userDetails?.firstName">
         <a mat-button [routerLink]="'/tempEditor'" class="color-white font-size-15">Editor</a>
@@ -24,4 +23,61 @@
     <mat-sidenav-content fxFlexFill>
     </mat-sidenav-content>
   </mat-sidenav-container>
-</div>
+ <div style="margin-top: 120px"></div>
+ <div fxLayout="row" fxLayoutGap="1.2%" fxLayout.xs="column" fxLayout.sm="column">
+   <div fxFlex="2.5%"></div>
+   <div fxFlex="30%" fxFlex.xs="100%" fxFlex.sm="100%">
+     <div fxLayout="row">
+       <mat-card fxFlex="100%">
+         <img class="cr-pointer template-img" src="assets/images/template-images/template-one.png">
+       </mat-card>
+     </div>
+     <div fxLayout="row" class="margin-top-15">
+       <div fxFlex="100%" fxLayoutAlign="center">
+         <label>Basic Template</label>
+       </div>
+     </div>
+   </div>
+<!--   <mat-card fxFlex="30%" fxFlex.xs="100%" fxFlex.sm="100%">-->
+<!--     <img class="cr-pointer template-img" src="assets/images/template-images/template-one.png">-->
+<!--   </mat-card>-->
+<!--   <mat-card fxFlex="30%" fxFlex.xs="100%" fxFlex.sm="100%">-->
+<!--     <img class="cr-pointer template-img" src="assets/images/template-images/template-one.png">-->
+<!--   </mat-card>-->
+<!--   <mat-card fxFlex="25%">-->
+<!--     <img class="cr-pointer template-img" src="assets/images/template-images/template-one.png">-->
+<!--   </mat-card>-->
+<!--   <mat-card fxFlex="25%">-->
+<!--     <img class="cr-pointer template-img" src="assets/images/template-images/template-one.png">-->
+<!--   </mat-card>-->
+ </div>
+<!-- <div fxLayout="row" fxLayoutGap="1.2%" fxLayout.xs="column" fxLayout.sm="column">-->
+<!--   <div fxFlex="2.5%"></div>-->
+<!--   <mat-card fxFlex="30%" fxFlex.xs="100%" fxFlex.sm="100%">-->
+<!--   </mat-card>-->
+<!-- </div>-->
+<!-- <div fxLayout="row" fxLayoutGap="0.7%" class="margin-top-15">-->
+<!--   <div fxFlex="7%"></div>-->
+<!--   <mat-card fxFlex="27%">-->
+<!--     <img class="cr-pointer template-img" src="assets/images/template-images/template-one.png">-->
+<!--   </mat-card>-->
+<!--   <mat-card fxFlex="27%">-->
+<!--     <img class="cr-pointer template-img" src="assets/images/template-images/template-one.png">-->
+<!--   </mat-card>-->
+<!--   <mat-card fxFlex="27%">-->
+<!--     <img class="cr-pointer template-img" src="assets/images/template-images/template-one.png">-->
+<!--   </mat-card>-->
+<!-- </div>-->
+<!-- <div fxLayout="row" fxLayoutGap="0.7%" class="margin-top-15">-->
+<!--   <div fxFlex="7%"></div>-->
+<!--   <mat-card fxFlex="27%">-->
+<!--     <img class="cr-pointer template-img" src="assets/images/template-images/template-one.png">-->
+<!--   </mat-card>-->
+<!--   <mat-card fxFlex="27%">-->
+<!--     <img class="cr-pointer template-img" src="assets/images/template-images/template-one.png">-->
+<!--   </mat-card>-->
+<!--   <mat-card fxFlex="27%">-->
+<!--     <img class="cr-pointer template-img" src="assets/images/template-images/template-one.png">-->
+<!--   </mat-card>-->
+<!-- </div>-->
+<div style="margin-bottom: 30px"></div>

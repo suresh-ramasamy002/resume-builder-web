@@ -20,6 +20,8 @@ import {
 import {FormBuilder} from '@angular/forms';
 import {ImageUploadCropComponent} from '../../../components/image-upload-crop/image-upload-crop.component';
 import {PaymentRequestComponent} from '../../../components/payment-request/payment-request.component';
+import {DownloadWarningDialogComponent} from '../../../components/download-warning-dialog/download-warning-dialog.component';
+import {FeedbackFormComponent} from '../../../components/feedback-form/feedback-form.component';
 @Component({
   selector: 'app-template-editor',
   templateUrl: './template-editor.component.html',
@@ -44,7 +46,7 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
      { name: 'Blue Grey', value: '#607D8B' },
      { name: 'Black', value: '#292929' }
    ];
-   public fontFamily = ['Arial', 'Arial Narrow', 'Book Antiqua', 'Calibri', 'Cambria', 'Didot', 'Garamond', 'sans-serif',  'Times New Roman', 'Trebuchet MS', 'Verdana'];
+   public fontFamily = ['Arial', 'Arial Narrow', 'Book Antiqua', 'Calibri', 'Cambria', 'Didot', 'Garamond',  'Times New Roman', 'Trebuchet MS', 'Verdana'];
   constructor(public coreDataService: CoreDataService, private auth: AuthService, private sanitizer: DomSanitizer, private userService: UserService, public dialog: MatDialog) {
 
   }
@@ -56,7 +58,6 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
     }
     window.onbeforeunload = (() => {
       localStorage.setItem('templateData', JSON.stringify(this.coreDataService.templateData));
-      console.log(firebase.auth().currentUser.uid);
     });
   }
   ngOnDestroy() {
@@ -64,15 +65,53 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
     console.log(this.coreDataService.templateData);
     this.userService.addUpdateUserResumeData(firebase.auth().currentUser.uid);
   }
-  openDialog(): void {
+  openPaymentDialog(): void {
     let dialogRef = this.dialog.open(PaymentRequestComponent, {
       width: '350px',
       data: {amount: 1500}
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-         console.log(result);
+        this.exportHtmlTableDataToPdf('templateFile', this.coreDataService.templateData.title);
       }
+    });
+  }
+  exportToPdf() {
+    if (this.coreDataService.userDetails.role.toLowerCase() !== 'admin' || this.coreDataService.userDetails.role.toLowerCase() !== 'co-admin') {
+      let dialogRef = this.dialog.open(DownloadWarningDialogComponent, {
+        width: '400px'
+      });
+      dialogRef.afterClosed().subscribe(result => {
+        if (result) {
+          this.openPaymentDialog();
+        } else {}
+      });
+    } else {
+      this.exportRightNow();
+    }
+  }
+  exportRightNow() {
+    this.exportHtmlTableDataToPdf('templateFile', this.coreDataService.templateData.title);
+  }
+  exportHtmlTableDataToPdf(element, fileName: string) {
+    let opt = {
+      margin: 12,
+      filename: fileName.replace(' ', '-') + '-resumearc.pdf',
+      image: {type: 'jpg', quality: 0.99},
+      html2canvas: {dpi: 192, letterRendering: true, useCORS: true},
+      jsPDF: {unit: 'pt', format: 'letter', orientation: 'portrait', scale: 4
+      }};
+    html2pdf().from(document.getElementById(element)).set(opt).save();
+    this.coreDataService.showSpinner = false;
+    this.openFeedbackDialog();
+  }
+  openFeedbackDialog() {
+    let dialogRef = this.dialog.open(FeedbackFormComponent, {
+      width: '350px'
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+      } else {}
     });
   }
   logoutUser() {
@@ -137,19 +176,6 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
   deleteAwards(i) {
     this.coreDataService.templateData.honorAwardInfo.splice(i, 1);
   }
-  exportToPdf() {
-    this.exportHtmlTableDataToPdf('templateFile', this.coreDataService.templateData.title);
-  }
-  exportHtmlTableDataToPdf(element, fileName: string) {
-    let opt = {
-      margin: 1,
-      filename: fileName.replace(' ', '-') + '-resumearc.pdf',
-      image: {type: 'jpg', quality: 0.99},
-      html2canvas: {dpi: 192, letterRendering: true, useCORS: true},
-      jsPDF: {unit: 'pt', format: 'letter', orientation: 'portrait'
-      }};
-    html2pdf().from(document.getElementById(element)).set(opt).save();
-  }
   removeImage() {
     this.coreDataService.templateData.image = null;
   }
@@ -201,5 +227,8 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
   deleteReference(i){
     this.coreDataService.templateData.referenceDetails.splice(i, 1);
   }
+sanitizeVideoUrl(url) {
+ return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+}
 }
 

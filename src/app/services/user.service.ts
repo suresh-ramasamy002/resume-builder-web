@@ -6,8 +6,9 @@ import {Router} from '@angular/router';
 import {CoreDataService} from './core-data.service';
 import {BehaviorSubject} from 'rxjs';
 import {EnrollUserDetails} from '../class/api-model/request';
-import {ActivitiesInfo, Certifications, CompanyInfo, EduInfo, ResumeDataRes, TemplateCoreObj} from '../class';
+import {ActivitiesInfo, Certifications, CompanyInfo, EduInfo, FeedbackRes, ResumeDataRes, TemplateCoreObj} from '../class';
 import {HonorAwardsInfo} from '../class/honor-awards-info';
+import {Feedback} from '../class/feedback';
 
 @Injectable()
 export class UserService {
@@ -76,7 +77,7 @@ export class UserService {
         dob: 'September 1, 1996',
         gender: 'Male',
         templateTheme: null,
-        fontFamily: 'sans-serif',
+        fontFamily: 'Verdana',
         fontSize: 2,
         phone: '1234567890',
         email: 'johndoe@gmail.com',
@@ -96,5 +97,16 @@ export class UserService {
       });
       localStorage.setItem('templateData', JSON.stringify(this.storeTemplateData));
     }
+  }
+  setFeedBack(uid) {
+    return this.db.doc('/feedbacks/' + uid).set({
+      userFeedback: this.coreDataService.feedbacks
+    });
+  }
+  getFeedbacks(uid) {
+    console.log(firebase.auth().currentUser.uid);
+    return this.db.doc('feedbacks/' + uid).valueChanges().subscribe((res: FeedbackRes) => {
+      this.coreDataService.feedbacks = res.userFeedback;
+    });
   }
 }

@@ -71,6 +71,8 @@ import { PaymentRequestComponent } from './components/payment-request/payment-re
 import { HttpClientModule } from '@angular/common/http';
 import {StripePipe} from './shared/utils/stripe.pipe';
 import {AngularFireFunctionsModule, REGION} from '@angular/fire/functions';
+import { DownloadWarningDialogComponent } from './components/download-warning-dialog/download-warning-dialog.component';
+import { FeedbackFormComponent } from './components/feedback-form/feedback-form.component';
 
 @NgModule({
   declarations: [
@@ -89,7 +91,9 @@ import {AngularFireFunctionsModule, REGION} from '@angular/fire/functions';
     ImageUploadCropComponent,
     FileUploadComponent,
     PaymentRequestComponent,
-    StripePipe
+    StripePipe,
+    DownloadWarningDialogComponent,
+    FeedbackFormComponent
   ],
   imports: [
     HttpClientModule,
