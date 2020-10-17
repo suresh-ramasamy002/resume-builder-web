@@ -73,6 +73,8 @@ import {StripePipe} from './shared/utils/stripe.pipe';
 import {AngularFireFunctionsModule, REGION} from '@angular/fire/functions';
 import { DownloadWarningDialogComponent } from './components/download-warning-dialog/download-warning-dialog.component';
 import { FeedbackFormComponent } from './components/feedback-form/feedback-form.component';
+import { TemplateTwoComponent } from './components/template-files/template-two/template-two.component';
+import { TemplateThreeComponent } from './components/template-three/template-three.component';
 
 @NgModule({
   declarations: [
@@ -93,7 +95,9 @@ import { FeedbackFormComponent } from './components/feedback-form/feedback-form.
     PaymentRequestComponent,
     StripePipe,
     DownloadWarningDialogComponent,
-    FeedbackFormComponent
+    FeedbackFormComponent,
+    TemplateTwoComponent,
+    TemplateThreeComponent
   ],
   imports: [
     HttpClientModule,

@@ -6,7 +6,7 @@
       <span data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="1500"><img src="assets/images/business-logo-page.png" width="240px"/></span>
       <span class="menu-spacer"></span>
       <div fxShow="true" fxHide.lt-md *ngIf="coreDataService?.userDetails?.firstName">
-        <a mat-button [routerLink]="'/tempEditor'" class="color-white font-size-15">Editor</a>
+<!--        <a mat-button [routerLink]="'/tempEditor'" class="color-white font-size-15">Editor</a>-->
         <a mat-button [routerLink]="'/login'" class="color-white font-size-15">Logout</a>
         <a mat-button  class="color-white font-size-15">Hello {{coreDataService.userDetails.firstName}}</a>
       </div>
@@ -24,17 +24,56 @@
     </mat-sidenav-content>
   </mat-sidenav-container>
  <div style="margin-top: 120px"></div>
- <div fxLayout="row" fxLayoutGap="1.2%" fxLayout.xs="column" fxLayout.sm="column">
-   <div fxFlex="2.5%"></div>
-   <div fxFlex="30%" fxFlex.xs="100%" fxFlex.sm="100%">
-     <div fxLayout="row">
-       <mat-card fxFlex="100%">
-         <img class="cr-pointer template-img" src="assets/images/template-images/template-one.png">
+ <div fxLayout="row" fxLayoutGap="1%" fxLayout.xs="column" fxLayout.sm="column">
+   <div fxFlex="1%"></div>
+   <div fxFlex="22%" fxFlex.xs="100%" fxFlex.sm="100%">
+     <div fxLayout="row" data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
+       <mat-card fxFlex="100%" class="padding-0 mat-card-shadow">
+         <div class="container">
+           <img class="cr-pointer image" src="assets/images/template-images/template-one.png">
+           <div class="middle">
+             <div class="text" (click)="selectedTemplate('template-one', '#292929')">Use this template</div>
+           </div>
+         </div>
        </mat-card>
      </div>
-     <div fxLayout="row" class="margin-top-15">
+     <div fxLayout="row" class="margin-top-15" data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="1200">
        <div fxFlex="100%" fxLayoutAlign="center">
-         <label>Basic Template</label>
+         <label>Basic</label>
+       </div>
+     </div>
+   </div>
+   <div fxFlex="22%" fxFlex.xs="100%" fxFlex.sm="100%">
+     <div fxLayout="row" data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
+       <mat-card fxFlex="100%" class="padding-0 mat-card-shadow">
+         <div class="container">
+           <img class="cr-pointer image" src="assets/images/template-images/template-two.png">
+           <div class="middle">
+             <div class="text" (click)="selectedTemplate('template-two', '#f3f3f3')">Use this template</div>
+           </div>
+         </div>
+       </mat-card>
+     </div>
+     <div fxLayout="row" class="margin-top-15" data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="1200">
+       <div fxFlex="100%" fxLayoutAlign="center">
+         <label>Clean</label>
+       </div>
+     </div>
+   </div>
+   <div fxFlex="22%" fxFlex.xs="100%" fxFlex.sm="100%">
+     <div fxLayout="row" data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
+       <mat-card fxFlex="100%" class="padding-0 mat-card-shadow">
+         <div class="container">
+           <img class="cr-pointer image" src="assets/images/template-images/template-three.png">
+           <div class="middle">
+             <div class="text" (click)="selectedTemplate('template-three', '#353f58')">Use this template</div>
+           </div>
+         </div>
+       </mat-card>
+     </div>
+     <div fxLayout="row" class="margin-top-15" data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="1200">
+       <div fxFlex="100%" fxLayoutAlign="center">
+         <label>Corporate</label>
        </div>
      </div>
    </div>
@@ -80,4 +119,4 @@
 <!--     <img class="cr-pointer template-img" src="assets/images/template-images/template-one.png">-->
 <!--   </mat-card>-->
 <!-- </div>-->
-<div style="margin-bottom: 30px"></div>
+<div style="margin-bottom: 100px"></div>

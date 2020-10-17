@@ -30,39 +30,56 @@ import {FeedbackFormComponent} from '../../../components/feedback-form/feedback-
 export class TemplateEditorComponent implements OnInit, OnDestroy {
   private PDF_EXTENSION = '.pdf';
    @ViewChild('templateFile') template: ElementRef;
-   public themeColor =  [
-     { name: 'Purple', value: '#9C27B0' },
-     { name: 'Deep Purple', value: '#673AB7' },
-     { name: 'Indigo', value: '#3F51B5' },
-     { name: 'Blue', value: '#2196F3' },
-     { name: 'Light Blue', value: '#03A9F4' },
-     { name: 'Cyan', value: '#00BCD4' },
-     { name: 'Teal', value: '#009688' },
-     { name: 'Green', value: '#4CAF50' },
-     { name: 'Light Green', value: '#8BC34A' },
-     { name: 'Lime', value: '#CDDC39' },
-     { name: 'Brown', value: '#795548' },
-     { name: 'Grey', value: '#9E9E9E' },
-     { name: 'Blue Grey', value: '#607D8B' },
-     { name: 'Black', value: '#292929' }
-   ];
+   public themeColor =  [];
    public fontFamily = ['Arial', 'Arial Narrow', 'Book Antiqua', 'Calibri', 'Cambria', 'Didot', 'Garamond',  'Times New Roman', 'Trebuchet MS', 'Verdana'];
   constructor(public coreDataService: CoreDataService, private auth: AuthService, private sanitizer: DomSanitizer, private userService: UserService, public dialog: MatDialog) {
 
   }
-
   ngOnInit(): void {
+    if ('selectedTemplate' in localStorage) {
+      this.coreDataService.selectedTemplate = localStorage.getItem('selectedTemplate');
+      this.setThemePerTemplate(this.coreDataService.selectedTemplate);
+    }
     this.coreDataService.userDetails = JSON.parse(localStorage.getItem('userDetails'));
     if ('templateData' in localStorage) {
       this.coreDataService.templateData = JSON.parse(localStorage.getItem('templateData'));
     }
     window.onbeforeunload = (() => {
       localStorage.setItem('templateData', JSON.stringify(this.coreDataService.templateData));
+      localStorage.setItem('selectedTemplate', this.coreDataService.selectedTemplate);
+      localStorage.setItem('selectedTemplateTheme', this.coreDataService.templateData.templateTheme);
     });
+
+    if ('selectedTemplateTheme' in localStorage) {
+      this.coreDataService.templateData.templateTheme = localStorage.getItem('selectedTemplateTheme');
+    }
+  }
+  setThemePerTemplate(templateName) {
+    this.themeColor = [];
+    switch (templateName) {
+      case 'template-one': this.themeColor = [
+        { name: 'Blue', value: '#353f58' },
+        { name: 'Blue Grey', value: '#607D8B' },
+        { name: 'Black', value: '#292929' }];
+        break;
+      case 'template-two': this.themeColor = [
+        { name: 'Blue', value: '#353f58' },
+        { name: 'Grey', value: '#f3f3f3' },
+        { name: 'Black', value: '#292929' }];
+        break;
+      case 'template-three': this.themeColor = [
+        { name: 'Blue', value: '#353f58' },
+        { name: 'Blue Grey', value: '#607D8B'},
+        { name: 'Brown', value: '#795548' },
+        { name: 'Black', value: '#292929' }];
+        break;
+    }
+    return this.themeColor;
   }
   ngOnDestroy() {
     this.coreDataService.templateData.image = null;
-    console.log(this.coreDataService.templateData);
+    localStorage.setItem('selectedTemplate', this.coreDataService.selectedTemplate);
+    localStorage.setItem('selectedTemplateTheme', this.coreDataService.templateData.templateTheme);
     this.userService.addUpdateUserResumeData(firebase.auth().currentUser.uid);
   }
   openPaymentDialog(): void {
@@ -72,7 +89,7 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.exportHtmlTableDataToPdf('templateFile', this.coreDataService.templateData.title);
+        this.exportHtmlTableDataToPdf(this.coreDataService.selectedTemplate, this.coreDataService.templateData.title);
       }
     });
   }
@@ -91,16 +108,18 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
     }
   }
   exportRightNow() {
-    this.exportHtmlTableDataToPdf('templateFile', this.coreDataService.templateData.title);
+    this.exportHtmlTableDataToPdf(this.coreDataService.selectedTemplate, this.coreDataService.templateData.title);
   }
   exportHtmlTableDataToPdf(element, fileName: string) {
     let opt = {
-      margin: 12,
+      margin: 0,
+      padding: 0,
       filename: fileName.replace(' ', '-') + '-resumearc.pdf',
       image: {type: 'jpg', quality: 0.99},
       html2canvas: {dpi: 192, letterRendering: true, useCORS: true},
-      jsPDF: {unit: 'pt', format: 'letter', orientation: 'portrait', scale: 4
+      jsPDF: {unit: 'pt', format: 'letter', orientation: 'portrait', scale: 0
       }};
+    console.log(element);
     html2pdf().from(document.getElementById(element)).set(opt).save();
     this.coreDataService.showSpinner = false;
     this.openFeedbackDialog();
@@ -114,17 +133,26 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
       } else {}
     });
   }
-  logoutUser() {
-    this.auth.logout();
-  }
+
+  // logoutUser() {
+  //   this.auth.logout();
+  // }
   // @HostListener('window:beforeunload', ['$event'])
   // preventReload(event) {
   //     let confirmationMessage = "\o/";
   //     event.returnValue = confirmationMessage;    // Gecko, Trident, Chrome 34+
   //     return confirmationMessage;              // Gecko, WebKit, Chrome <34
   // }
+  selectedTemplate(templateName, theme) {
+    this.coreDataService.selectedTemplate = templateName;
+    this.coreDataService.templateData.templateTheme = theme;
+    this.setThemePerTemplate(this.coreDataService.selectedTemplate);
+    localStorage.setItem('selectedTemplateTheme', this.coreDataService.templateData.templateTheme);
+    localStorage.setItem('selectedTemplate', this.coreDataService.selectedTemplate);
+  }
   changeTheme(colorValue) {
     this.coreDataService.templateData.templateTheme = colorValue;
+    localStorage.setItem('selectedTemplateTheme', this.coreDataService.templateData.templateTheme);
   }
   changeFontSize(size) {
     this.coreDataService.templateData.fontSize = Number(size);

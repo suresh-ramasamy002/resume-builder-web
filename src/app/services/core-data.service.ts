@@ -9,6 +9,17 @@ export class CoreDataService {
  private $showSpinner: boolean = false;
  private $loadingMsg: string = null;
  private $feedbacks: Array<Feedback> = [];
+ private $selectedTemplate: string = null;
+
+
+  get selectedTemplate(): string {
+    return this.$selectedTemplate;
+  }
+
+  set selectedTemplate(value: string) {
+    this.$selectedTemplate = value;
+  }
+
  get userDetails(): EnrollUserDetails {
     return this.$userDetails;
   }

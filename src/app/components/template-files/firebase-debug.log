@@ -1,0 +1,95 @@
+[debug] [2020-10-17T14:13:33.513Z] ----------------------------------------------------------------------
+[debug] [2020-10-17T14:13:33.515Z] Command:       /usr/local/bin/node /usr/local/bin/firebase init
+[debug] [2020-10-17T14:13:33.516Z] CLI Version:   8.12.1
+[debug] [2020-10-17T14:13:33.516Z] Platform:      darwin
+[debug] [2020-10-17T14:13:33.516Z] Node Version:  v12.18.3
+[debug] [2020-10-17T14:13:33.517Z] Time:          Sat Oct 17 2020 19:43:33 GMT+0530 (India Standard Time)
+[debug] [2020-10-17T14:13:33.517Z] ----------------------------------------------------------------------
+[debug] [2020-10-17T14:13:33.517Z] 
+[debug] [2020-10-17T14:13:33.524Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-10-17T14:13:33.524Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/sureshramasamy/workspace/resume-builder-web
+
+Before we get started, keep in mind:
+
+  * You are initializing in an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[info] i  .firebaserc already has a default project, using fir-resume-builder. 
+[debug] [2020-10-17T14:13:37.166Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-10-17T14:13:37.166Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-10-17T14:13:37.534Z] <<< HTTP RESPONSE 200 {"cache-control":"no-cache, no-store, max-age=0, must-revalidate","date":"Sat, 17 Oct 2020 14:13:37 GMT","expires":"Mon, 01 Jan 1990 00:00:00 GMT","pragma":"no-cache","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-10-17T14:13:37.553Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/fir-resume-builder  
+ 
+[debug] [2020-10-17T14:13:38.059Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sat, 17 Oct 2020 14:13:37 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+=== Database Setup
+[info] 
+[info] Firebase Realtime Database Rules allow you to define how your data should be
+[info] structured and when your data can be read from and written to.
+[info] 
+[info] ✔  Database Rules for  have been downloaded to database.rules.json. 
+[info] Future modifications to database.rules.json will update Database Rules when you run
+[info] firebase deploy.
+[info] 
+=== Firestore Setup
+[debug] [2020-10-17T14:13:38.994Z] >>> HTTP REQUEST GET https://serviceusage.googleapis.com/v1/projects/fir-resume-builder/services/firestore.googleapis.com  
+ 
+[debug] [2020-10-17T14:13:40.892Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sat, 17 Oct 2020 14:13:40 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-10-17T14:13:40.893Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/fir-resume-builder  
+ 
+[debug] [2020-10-17T14:13:41.854Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sat, 17 Oct 2020 14:13:41 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-10-17T14:13:41.854Z] database_type: CLOUD_FIRESTORE
+[debug] [2020-10-17T14:13:41.855Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-10-17T14:13:41.855Z] > authorizing via signed-in user
+[debug] [2020-10-17T14:13:41.855Z] [iam] checking project fir-resume-builder for permissions ["firebase.projects.get"]
+[debug] [2020-10-17T14:13:41.856Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/fir-resume-builder:testIamPermissions  
+ {"permissions":["firebase.projects.get"]}
+[debug] [2020-10-17T14:13:43.675Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sat, 17 Oct 2020 14:13:43 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=1314","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+[info] Firestore Security Rules allow you to define how and when to allow
+[info] requests. You can keep these rules in your project directory
+[info] and publish them with firebase deploy.
+[info] 
+[debug] [2020-10-17T14:13:46.029Z] >>> HTTP REQUEST GET https://firebaserules.googleapis.com/v1/projects/fir-resume-builder/releases?pageSize=10&pageToken=  
+ 
+[debug] [2020-10-17T14:13:47.770Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sat, 17 Oct 2020 14:13:47 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-10-17T14:13:47.772Z] Found ruleset: projects/fir-resume-builder/rulesets/fd815461-7104-4d39-b200-2c7b6bd84591
+[debug] [2020-10-17T14:13:47.772Z] >>> HTTP REQUEST GET https://firebaserules.googleapis.com/v1/projects/fir-resume-builder/rulesets/fd815461-7104-4d39-b200-2c7b6bd84591  
+ 
+[debug] [2020-10-17T14:13:49.315Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sat, 17 Oct 2020 14:13:49 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+[info] Firestore indexes allow you to perform complex queries while
+[info] maintaining performance that scales with the size of the result
+[info] set. You can keep index definitions in your project directory
+[info] and publish them with firebase deploy.
+[info] 
+[debug] [2020-10-17T14:13:50.815Z] >>> HTTP REQUEST GET https://firestore.googleapis.com/v1/projects/fir-resume-builder/databases/(default)/collectionGroups/-/indexes  
+ 
+[debug] [2020-10-17T14:13:50.815Z] >>> HTTP REQUEST GET https://firestore.googleapis.com/v1/projects/fir-resume-builder/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false  
+ 
+[debug] [2020-10-17T14:13:51.446Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sat, 17 Oct 2020 14:13:51 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-10-17T14:13:51.448Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sat, 17 Oct 2020 14:13:51 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+=== Hosting Setup
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 

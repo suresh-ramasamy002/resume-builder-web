@@ -1,6 +1,7 @@
 export const environment = {
   production: true,
-  stripeKey: 'pk_live_51HaFOGAqOUzmy33niSM9B5vow1uXTlS0L24xYlDyfTSaMWF1l6LC11ffnYROalBFJ7wN0UH7iXCtpU8Qdw8Hrsuw0071VDqWOR',
+  // stripeKey: 'pk_live_51HaFOGAqOUzmy33niSM9B5vow1uXTlS0L24xYlDyfTSaMWF1l6LC11ffnYROalBFJ7wN0UH7iXCtpU8Qdw8Hrsuw0071VDqWOR',
+  stripeKey: 'pk_test_51HaFOGAqOUzmy33nwJH7aBRiJM5sKIR41tAw4zpl6VpgS4isOlPKcVZfeTuAj1iLohwtAPNuUxVnPfHIOjCcNQPO00HiszLJ0Q',
   firebase: {
     apiKey: 'AIzaSyA_e64wuFThoaH1_xm9cu0sh-KhlX2CdkU',
     authDomain: 'fir-resume-builder.firebaseapp.com',
