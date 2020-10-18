@@ -76,7 +76,7 @@ export class UserService {
         normalSize: 14,
         dob: 'September 1, 1996',
         gender: 'Male',
-        templateTheme: null,
+        templateTheme: '#292929',
         fontFamily: 'Verdana',
         fontSize: 2,
         phone: '1234567890',
@@ -93,7 +93,8 @@ export class UserService {
         interestOn: interestedData,
         additionalInfoDetails: addnInfoData,
         referenceDetails: refernceData,
-        activitiesInfo: activityInfoData
+        activitiesInfo: activityInfoData,
+        pageType: 'single'
       });
       localStorage.setItem('templateData', JSON.stringify(this.storeTemplateData));
     }

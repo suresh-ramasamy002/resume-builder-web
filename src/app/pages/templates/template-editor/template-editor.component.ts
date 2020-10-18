@@ -22,6 +22,8 @@ import {ImageUploadCropComponent} from '../../../components/image-upload-crop/im
 import {PaymentRequestComponent} from '../../../components/payment-request/payment-request.component';
 import {DownloadWarningDialogComponent} from '../../../components/download-warning-dialog/download-warning-dialog.component';
 import {FeedbackFormComponent} from '../../../components/feedback-form/feedback-form.component';
+import {PdfViewerComponent} from '../../../components/pdf-viewer/pdf-viewer.component';
+
 @Component({
   selector: 'app-template-editor',
   templateUrl: './template-editor.component.html',
@@ -119,10 +121,11 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
       html2canvas: {dpi: 192, letterRendering: true, useCORS: true},
       jsPDF: {unit: 'pt', format: 'letter', orientation: 'portrait', scale: 0
       }};
-    console.log(element);
-    html2pdf().from(document.getElementById(element)).set(opt).save();
-    this.coreDataService.showSpinner = false;
-    this.openFeedbackDialog();
+   // console.log(element);
+    html2pdf().from(document.getElementById(element)).set(opt).save().then((e) => {
+      this.coreDataService.showSpinner = false;
+      this.openFeedbackDialog();
+    });
   }
   openFeedbackDialog() {
     let dialogRef = this.dialog.open(FeedbackFormComponent, {
@@ -255,8 +258,28 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
   deleteReference(i){
     this.coreDataService.templateData.referenceDetails.splice(i, 1);
   }
-sanitizeVideoUrl(url) {
+sanitizeUrl(url) {
  return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+}
+verifyPdfFile(selectedElement) {
+  let opt = {
+    margin: 0,
+    padding: 0,
+    image: {type: 'jpg', quality: 0.99},
+    html2canvas: {dpi: 192, letterRendering: true, useCORS: true},
+    jsPDF: {unit: 'pt', format: 'letter', orientation: 'portrait', scale: 0
+    }};
+  this.coreDataService.showSpinner = true;
+  html2pdf().from(document.getElementById(selectedElement)).set(opt).toPdf().get('pdf').then((pdf) => {
+    let dialogRef = this.dialog.open(PdfViewerComponent, {
+      width: '2lcm',
+      data: {src: this.sanitizeUrl(pdf.output('bloburl') + '#toolbar=0')}
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+      } else {}
+    });
+  });
 }
 }
 

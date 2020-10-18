@@ -3,8 +3,8 @@
     <div>
       <div fxLayout="row">
         <div fxFlex="100%" [ngStyle]="{height: coreDataService.templateData.isImageNeeded ? '140px': '100px', 'background': coreDataService.templateData.templateTheme}">
-          <div fxLayout="row" style="margin-top: 30px">
-            <div fxFlex="100%" fxLayoutAlign="center">
+          <div fxLayout="row">
+            <div fxFlex="100%" fxLayoutAlign="center" style="padding-top: 30px">
               <label #title [textContent]="coreDataService.templateData.title" (blur)="coreDataService.templateData.title = title.innerText" contenteditable="true" [ngStyle]="{'font-size': (coreDataService.templateData.titleSize+10) +'px', 'color': '#ffffff', 'font-family': coreDataService.templateData.fontFamily}">{{coreDataService.templateData.title}}</label>
             </div>
           </div>
@@ -155,7 +155,7 @@
             </div>
           </div>
         </div>
-        <div fxFlex="35%" [ngStyle]="{'background': '#f3f3f3', 'height': coreDataService.templateData.isImageNeeded ? '24.2cm': '25.2cm'}" style="padding-left: 10px">
+        <div fxFlex="35%" [ngStyle]="{'background': '#f3f3f3', height: this.pageHeight}" style="padding-left: 10px">
           <div fxLayout="row" style="margin-top: 25px; padding-left: 10px">
             <div fxFlex="100%">
               <i class="fa fa-envelope" ></i>&nbsp;&nbsp;

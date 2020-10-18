@@ -13,10 +13,9 @@
   <div fxFlex="24%" class="theme-container" fxLayoutAlign="center center">
     <div>
       <button mat-button [routerLink]="'/home'" style="font-size: 16px; color:#3f51b5;"><i class="fa fa-arrow-left"></i>&nbsp;Back to home</button>
-<!--      <button mat-button (click)="exportRightNow()">download df right now</button>-->
     </div>
   </div>
-  <div fxFlex="25%" class="theme-container" >
+  <div fxFlex="25%" class="theme-container">
     <div fxLayout="row">
       <div fxFlex="100%" fxLayoutAlign="center">
         <label class="label-right-color margin-top-5">Theme</label>
@@ -89,7 +88,8 @@
     </div>
   </div>
   <div fxFlex="24%" class="theme-container" fxLayoutAlign="center center">
-    <button mat-raised-button (click)="exportToPdf()" color="primary">Download PDF</button>
+    <button mat-raised-button (click)="verifyPdfFile(coreDataService.selectedTemplate)">Verify PDF</button>
+    <button mat-raised-button (click)="exportToPdf()" color="primary" style="margin-left:12px">Download PDF</button>
   </div>
 </div>
 <div fxLayout="row" class="margin-top-15">
@@ -128,8 +128,8 @@
   <div fxFlex="52%" data-aos="fade-right" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
     <div class="temp-container">
       <app-template-one id="template-one" *ngIf="coreDataService.selectedTemplate == 'template-one'"></app-template-one>
-      <app-template-two id="template-two" *ngIf="coreDataService.selectedTemplate == 'template-two'"></app-template-two>
-      <app-template-three id="template-three" *ngIf="coreDataService.selectedTemplate == 'template-three'"></app-template-three>
+      <app-template-two id="template-two" *ngIf="coreDataService.selectedTemplate == 'template-two'" [pageType]="this.coreDataService.templateData.pageType" [isImageNeeded]="coreDataService.templateData.isImageNeeded"></app-template-two>
+      <app-template-three id="template-three" *ngIf="coreDataService.selectedTemplate == 'template-three'" [pageType]="this.coreDataService.templateData.pageType" [isImageNeeded]="coreDataService.templateData.isImageNeeded"></app-template-three>
   </div>
   </div>
   <div fxFlex="32%" data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-duration="1000" style="margin-left:15px">
@@ -140,7 +140,15 @@
     </div>
     <div fxLayout="row" fxLayoutAlign="center" class="margin-top-15">
       <mat-card fxFlex="98%" class="section-mat-card feature-container">
-        <div fxLayout="row" data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
+        <div fxLayout="row">
+          <mat-card class="sub-section-mat-card" fxFlex="100%">
+            <mat-radio-group [(ngModel)]="coreDataService.templateData.pageType">
+              <mat-radio-button [checked]="coreDataService.templateData.pageType == 'single'" value="single">Single Page</mat-radio-button>&nbsp;&nbsp;
+              <mat-radio-button [checked]="coreDataService.templateData.pageType == 'multi'" value="multi">Multiple Page</mat-radio-button>
+            </mat-radio-group>
+          </mat-card>
+        </div>
+        <div fxLayout="row" class="margin-top-5">
           <mat-card class="sub-section-mat-card" fxFlex="100%">
             <mat-checkbox [disabled]="true" [checked]="true">Profile</mat-checkbox>
           </mat-card>

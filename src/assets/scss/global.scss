@@ -105,6 +105,7 @@ label[contenteditable="true"]:hover {
 label[contenteditable="true"] {
   padding: 3px;
   outline: none;
+  white-space: pre-line;
 }
 .cr-pointer{
   cursor: pointer;

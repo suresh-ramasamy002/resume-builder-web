@@ -42,6 +42,7 @@ export class TemplateCoreObj {
  additionalInfoDetails: Array<string>;
  referenceDetails: Array<string>;
  activitiesInfo: Array<ActivitiesInfo>;
+ pageType: string;
   constructor(options: { image?: any, isImageNeeded?: boolean, title?: string, titleSize?: number, role?: string, roleSize?: number, normalSize?: number, dob?: string, gender?: string, templateTheme?: string,  fontSize?: number, fontFamily?: string, objective?: boolean,
     workExp?: boolean,
     honorReward?: boolean,
@@ -66,7 +67,8 @@ export class TemplateCoreObj {
     interestOn?: Array<string>,
     additionalInfoDetails?: Array<string>,
     referenceDetails?: Array<string>,
-    activitiesInfo?: Array<ActivitiesInfo>
+    activitiesInfo?: Array<ActivitiesInfo>,
+    pageType?: string
   } = {}) {
     this.image = options.image;
     this.isImageNeeded = options.image || true;
@@ -105,5 +107,6 @@ export class TemplateCoreObj {
     this.additionalInfoDetails = options.additionalInfoDetails || null;
     this.referenceDetails = options.referenceDetails || null;
     this.activitiesInfo = options.activitiesInfo || null;
+    this.pageType = options.pageType || null;
   }
 }

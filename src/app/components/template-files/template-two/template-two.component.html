@@ -2,8 +2,8 @@
   <mat-card fxFlex="100%" class="padding-0">
     <div>
       <div fxLayout="row">
-        <div fxFlex="35%" [ngStyle]="{'background': coreDataService.templateData.templateTheme}" style="height:27.9cm; padding-left: 10px">
-          <div fxLayout="row" style="margin-top: 25px">
+        <div fxFlex="35%" [ngStyle]="{'background': coreDataService.templateData.templateTheme, 'height':pageHeight}" style="padding-left: 10px">
+          <div fxLayout="row" style="padding-top: 25px">
             <div fxFlex="100%" style="padding-left: 10px">
               <label #title [textContent]="coreDataService.templateData.title" (blur)="coreDataService.templateData.title = title.innerText" contenteditable="true" [ngStyle]="{'font-size': coreDataService.templateData.titleSize+'px', 'color': setTextColor(coreDataService.templateData.templateTheme), 'font-family': coreDataService.templateData.fontFamily}">{{coreDataService.templateData.title}}</label>
             </div>
@@ -133,7 +133,7 @@
             </div>
           </div>
         </div>
-        <div fxFlex="65%">
+        <div fxFlex="65%" id="template-container">
           <div fxLayout="row" style="margin-top: 25px" *ngIf="coreDataService.templateData.objective">
             <div fxFlex="100%">
               <label [ngStyle]="{'font-size': coreDataService.templateData.roleSize+'px', 'font-family': coreDataService.templateData.fontFamily}" class="label-right-color font-weight-bold" style="margin-left: 15px;">OBJECTIVE</label>

@@ -70,11 +70,13 @@ import { FileUploadComponent } from './components/file-upload/file-upload.compon
 import { PaymentRequestComponent } from './components/payment-request/payment-request.component';
 import { HttpClientModule } from '@angular/common/http';
 import {StripePipe} from './shared/utils/stripe.pipe';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 import {AngularFireFunctionsModule, REGION} from '@angular/fire/functions';
 import { DownloadWarningDialogComponent } from './components/download-warning-dialog/download-warning-dialog.component';
 import { FeedbackFormComponent } from './components/feedback-form/feedback-form.component';
 import { TemplateTwoComponent } from './components/template-files/template-two/template-two.component';
 import { TemplateThreeComponent } from './components/template-three/template-three.component';
+import { PdfViewerComponent } from './components/pdf-viewer/pdf-viewer.component';
 
 @NgModule({
   declarations: [
@@ -97,7 +99,8 @@ import { TemplateThreeComponent } from './components/template-three/template-thr
     DownloadWarningDialogComponent,
     FeedbackFormComponent,
     TemplateTwoComponent,
-    TemplateThreeComponent
+    TemplateThreeComponent,
+    PdfViewerComponent
   ],
   imports: [
     HttpClientModule,
@@ -140,7 +143,8 @@ import { TemplateThreeComponent } from './components/template-three/template-thr
     FormsModule,
     MatSliderModule,
     MatRippleModule, ReactiveFormsModule,
-    AngularFireFunctionsModule
+    AngularFireFunctionsModule,
+    PdfViewerModule
   ],
   exports: [StripePipe],
   providers: [{provide: REGION, useValue: 'us-central1'}, LoadingService, CoreDataService, UserService, PaymentService],
