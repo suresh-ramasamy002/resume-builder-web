@@ -1,6 +1,6 @@
 <h1 mat-dialog-title style="font-size: 16px; color: #3f51b5; margin-bottom:10px">PDF View</h1>
 <div mat-dialog-content>
-  <iframe [src]="data.src" width="793.70" height="1054" frameborder="0" style="border: 3px solid gray"></iframe>
+  <iframe id="iframe" #iframe [src]="data.src" width="793.70" height="1054" frameborder="0" style="border: 3px solid gray"></iframe>
 </div>
 <div fxLayout="row">
   <div mat-dialog-actions fxFlex="100%" style="padding-bottom: 20px; padding-top: 10px;" fxLayoutAlign="center">

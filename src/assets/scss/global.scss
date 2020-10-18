@@ -136,3 +136,13 @@ label[contenteditable="true"] {
 .mat-card.padding-0{
   padding: 0px;
 }
+
+#outerContainer#mainContainer.toolbar {
+  display: none !important; /* hide PDF viewer toolbar */
+}
+#outerContainer #mainContainer #viewerContainer {
+  top: 0 !important; /* move doc up into empty bar space */
+}
+#outerContainer {
+  display: none;
+}

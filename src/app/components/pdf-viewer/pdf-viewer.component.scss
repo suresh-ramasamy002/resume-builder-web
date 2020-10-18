@@ -5,3 +5,24 @@
     display:none;
   }
 }
+#outerContainer #mainContainer div.toolbar {
+  display: none !important; /* hide PDF viewer toolbar */
+  opacity: 0;
+}
+#outerContainer #mainContainer #viewerContainer {
+  top: 0 !important; /* move doc up into empty bar space */
+  opacity: 0;
+}
+.display-none {
+  display: none;
+}
+#toolbarViewer {
+  display: none !important; /* hide PDF viewer toolbar */
+}
+::ng-deep #outerContainer #mainContainer .toolbar #toolbarContainer{
+  display: none; /* hide PDF viewer toolbar */
+}
+::ng-deep div#toolbarViewer{
+  opacity: 0;
+}
+//#controls { display:none }

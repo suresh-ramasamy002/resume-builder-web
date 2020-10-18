@@ -262,24 +262,29 @@ sanitizeUrl(url) {
  return this.sanitizer.bypassSecurityTrustResourceUrl(url);
 }
 verifyPdfFile(selectedElement) {
-  let opt = {
-    margin: 0,
-    padding: 0,
-    image: {type: 'jpg', quality: 0.99},
-    html2canvas: {dpi: 192, letterRendering: true, useCORS: true},
-    jsPDF: {unit: 'pt', format: 'letter', orientation: 'portrait', scale: 0
-    }};
-  this.coreDataService.showSpinner = true;
-  html2pdf().from(document.getElementById(selectedElement)).set(opt).toPdf().get('pdf').then((pdf) => {
-    let dialogRef = this.dialog.open(PdfViewerComponent, {
-      width: '2lcm',
-      data: {src: this.sanitizeUrl(pdf.output('bloburl') + '#toolbar=0')}
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-      } else {}
-    });
-  });
+    if (window.navigator.userAgent.indexOf('Firefox') != -1) {
+      alert('Sorry!, We are not supporting to verify the pdf format in firefox browser due to some technical issues. Your details will be auto saved when you go back to home screen so, Please try login with chrome browser to verify it');
+    } else {
+      let opt = {
+        margin: 0,
+        padding: 0,
+        image: {type: 'jpg', quality: 0.99},
+        html2canvas: {dpi: 192, letterRendering: true, useCORS: true},
+        jsPDF: {unit: 'pt', format: 'letter', orientation: 'portrait', scale: 0
+        }};
+      this.coreDataService.showSpinner = true;
+      console.log();
+      html2pdf().from(document.getElementById(selectedElement)).set(opt).toPdf().get('pdf').then((pdf) => {
+        let dialogRef = this.dialog.open(PdfViewerComponent, {
+          width: '2lcm',
+          data: {src: this.sanitizeUrl(pdf.output('bloburl') + '#toolbar=0')}
+        });
+        dialogRef.afterClosed().subscribe(result => {
+          if (result) {
+          } else {}
+        });
+      });
+    }
 }
 }
 
