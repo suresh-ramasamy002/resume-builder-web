@@ -14,7 +14,6 @@ export class TemplateThreeComponent implements OnInit, OnChanges {
   constructor(public coreDataService: CoreDataService , private sanitizer: DomSanitizer) {
   }
 ngOnChanges(changes: SimpleChanges) {
-  console.log(this.pageType);
   if (this.pageType === 'single' && this.coreDataService.templateData.isImageNeeded) {
     this.pageHeight = '24.2cm';
   } else if (this.pageType === 'multi' && this.coreDataService.templateData.isImageNeeded) {

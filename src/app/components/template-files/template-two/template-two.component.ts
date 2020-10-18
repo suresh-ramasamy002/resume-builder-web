@@ -14,7 +14,6 @@ pageHeight: string;
   constructor(public coreDataService: CoreDataService , private sanitizer: DomSanitizer) {
   }
 ngOnChanges(changes: SimpleChanges) {
-  console.log(this.pageType);
     if (this.pageType === 'single') {
       this.pageHeight = '27.9cm';
     } else {
@@ -23,7 +22,6 @@ ngOnChanges(changes: SimpleChanges) {
 }
 
   ngOnInit(): void {
-    console.log(this.pageType);
     if (this.pageType === 'single') {
       this.pageHeight = '27.9cm';
     } else {

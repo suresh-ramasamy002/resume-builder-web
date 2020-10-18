@@ -16,7 +16,6 @@ export class TemplateOneComponent implements OnInit {
   ngOnInit(): void {
   }
   sanitize(url: string) {
-    console.log(url);
     return this.sanitizer.bypassSecurityTrustUrl(url);
   }
 }

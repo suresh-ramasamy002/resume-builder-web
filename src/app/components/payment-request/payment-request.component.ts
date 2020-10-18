@@ -83,8 +83,6 @@ export class PaymentRequestComponent implements OnInit, OnDestroy {
           currency: 'inr'
         };
         this.stripe.createSource(this.card, ownerInfo).then((result) => {
-          console.log('result');
-          console.log(this.card);
           this.isProcessing = true;
           if (result.error) {
             this.error = result.error.message;
@@ -116,7 +114,6 @@ export class PaymentRequestComponent implements OnInit, OnDestroy {
       const obs = callable(source);
       this.paymentMsg = null;
       obs.subscribe(res => {
-        console.log(res);
         if (res.result === 'Payment Successful') {
            this.paymentMsg = 'Success';
            this.isProcessing = false;

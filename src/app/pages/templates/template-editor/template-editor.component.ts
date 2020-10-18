@@ -121,7 +121,6 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
       html2canvas: {dpi: 192, letterRendering: true, useCORS: true},
       jsPDF: {unit: 'pt', format: 'letter', orientation: 'portrait', scale: 0
       }};
-   // console.log(element);
     html2pdf().from(document.getElementById(element)).set(opt).save().then((e) => {
       this.coreDataService.showSpinner = false;
       this.openFeedbackDialog();
@@ -267,13 +266,11 @@ verifyPdfFile(selectedElement) {
     } else {
       let opt = {
         margin: 0,
-        padding: 0,
         image: {type: 'jpg', quality: 0.99},
-        html2canvas: {dpi: 192, letterRendering: true, useCORS: true},
-        jsPDF: {unit: 'pt', format: 'letter', orientation: 'portrait', scale: 0
+        html2canvas: {dpi: 192, letterRendering: true},
+        jsPDF: {unit: 'pt', format: 'letter', orientation: 'portrait'
         }};
       this.coreDataService.showSpinner = true;
-      console.log();
       html2pdf().from(document.getElementById(selectedElement)).set(opt).toPdf().get('pdf').then((pdf) => {
         let dialogRef = this.dialog.open(PdfViewerComponent, {
           width: '2lcm',

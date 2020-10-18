@@ -77,10 +77,11 @@ export class AuthService {
   }
   forgotPassword(email) {
     this.coreDataService.showSpinner = true;
-    this.coreDataService.loadingMsg = 'Sending reset password link...';
+    this.coreDataService.loadingMsg = 'Sending reset password link to email...';
     this.afu.sendPasswordResetEmail(email).then(() => {
       this.coreDataService.showSpinner = false;
       this.coreDataService.loadingMsg = null;
+      this.router.navigate(['/login']);
     }).catch(error => {
       this.coreDataService.showSpinner = false;
       this.evtAuthErr.next(error);
