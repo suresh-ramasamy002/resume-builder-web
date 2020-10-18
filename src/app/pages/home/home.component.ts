@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
   }
   selectedTemplate(templateName, theme) {
     this.coreDataService.selectedTemplate = templateName;
-    this.coreDataService.templateData.templateTheme = theme;
+    // this.coreDataService.templateData.templateTheme = theme;
     localStorage.setItem('selectedTemplate', this.coreDataService.selectedTemplate);
     localStorage.setItem('selectedTemplateTheme', theme);
     this.router.navigate(['/tempEditor']);

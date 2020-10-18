@@ -1,28 +1,10 @@
-@media print
-{
-  .hide
-  {
-    display:none;
-  }
+:host ::ng-deep .ng2-pdf-viewer-container {
+  width: 793px;
+  padding-top: 15px;
+  padding-left: 13px;
+  padding-right: 35px;
+  background: #505050;
 }
-#outerContainer #mainContainer div.toolbar {
-  display: none !important; /* hide PDF viewer toolbar */
-  opacity: 0;
+:host ::ng-deep [_nghost-uhg-c155] .pdfViewer.removePageBorders .page {
+  margin-bottom: 20px;
 }
-#outerContainer #mainContainer #viewerContainer {
-  top: 0 !important; /* move doc up into empty bar space */
-  opacity: 0;
-}
-.display-none {
-  display: none;
-}
-#toolbarViewer {
-  display: none !important; /* hide PDF viewer toolbar */
-}
-::ng-deep #outerContainer #mainContainer .toolbar #toolbarContainer{
-  display: none; /* hide PDF viewer toolbar */
-}
-::ng-deep div#toolbarViewer{
-  opacity: 0;
-}
-//#controls { display:none }
