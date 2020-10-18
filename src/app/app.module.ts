@@ -77,8 +77,8 @@ import { FeedbackFormComponent } from './components/feedback-form/feedback-form.
 import { TemplateTwoComponent } from './components/template-files/template-two/template-two.component';
 import { TemplateThreeComponent } from './components/template-three/template-three.component';
 import { PdfViewerComponent } from './components/pdf-viewer/pdf-viewer.component';
-import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
-import { PdfJsViewerModule } from 'ng2-pdfjs-viewer';
+// import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
+// import { PdfJsViewerModule } from 'ng2-pdfjs-viewer';
 @NgModule({
   declarations: [
     AppComponent,
@@ -146,8 +146,8 @@ import { PdfJsViewerModule } from 'ng2-pdfjs-viewer';
     MatRippleModule, ReactiveFormsModule,
     AngularFireFunctionsModule,
     PdfViewerModule,
-    NgxExtendedPdfViewerModule,
-    PdfJsViewerModule
+    // NgxExtendedPdfViewerModule,
+    // PdfJsViewerModule
   ],
   exports: [StripePipe],
   providers: [{provide: REGION, useValue: 'us-central1'}, LoadingService, CoreDataService, UserService, PaymentService],

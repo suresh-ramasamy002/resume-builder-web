@@ -25,8 +25,6 @@ export class LoginComponent implements OnInit, AfterViewInit {
       this.showLogin = true;
     }, 3000);
     this.authError = null;
-    localStorage.removeItem('templateData');
-    localStorage.removeItem('userDetails');
     this.loginFormValidation = this.formBuilder.group({
       userName : [{value: this.userName}, [Validators.required, Validators.pattern('[A-Za-z0-9!#$%&\'*+/=?^_`{|}~-]+(?:\.[A-Za-z0-9!#$%&\'*+/=?^_`{|}~-]+)*@(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\.)+[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?')]],
       password : [{value: this.password}, [Validators.required]]
@@ -35,6 +33,10 @@ export class LoginComponent implements OnInit, AfterViewInit {
       this.authError = data;
     });
     this.authError = null;
+    localStorage.removeItem('templateData');
+    localStorage.removeItem('userDetails');
+    localStorage.removeItem('selectedTemplate');
+    localStorage.removeItem('selectedTemplateTheme');
   }
   ngAfterViewInit() {
     setTimeout(() => {
