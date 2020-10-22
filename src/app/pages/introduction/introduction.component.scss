@@ -1,0 +1,269 @@
+.dark-img {
+  position: relative;
+}
+
+.dark-img img {
+  display: block;
+  width: 100%;
+  height: 550px;
+}
+
+.dark-img::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+  background: rgba(0, 0, 0, .7);
+}
+.intro-toolbar {
+  position: fixed;
+  top: 0;
+  color: black;
+  padding-left: 0px;
+  z-index: 1000;
+  width: 100%;
+}
+.color-white{
+  color: #ffffff;
+}
+.after-banner{
+  width: 100%;
+  height: 60px;
+  background: #c5c5c5;
+}
+.image {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: 350px;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+
+
+@mixin white-gradient {
+  background: linear-gradient(to right,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+}
+$animationSpeed: 30s;
+
+// Animation
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-250px * 7))}
+}
+
+
+// Styling
+.slider {
+  background: white;
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, .125);
+  height: 400px;
+  overflow:hidden;
+  position: relative;
+  width: 100%;
+  margin-bottom: 40px;
+
+  &::after {
+    right: 0;
+    top: 0;
+    transform: rotateZ(180deg);
+  }
+
+  &::before {
+    left: 0;
+    top: 0;
+  }
+
+  .slide-track {
+    animation: scroll $animationSpeed linear infinite;
+    display: flex;
+    width: calc(250px * 14);
+  }
+
+  .slide {
+    height: 350px;
+    width: 250px;
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.63);
+  }
+}
+.text-color-black {
+  color: #2b2b2b;
+}
+.text-color-light-gray{
+  color: #8c8c8c;
+}
+.margin-top-40{
+  margin-top: 40px;
+}
+.margin-top-100{
+  margin-top: 100px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (min-width: 1024px){ // desktop
+  .intro-builder-online{
+    color: white;
+    position: absolute;
+    top: 25%;
+    z-index: 100;
+    left: 32vw;
+    font-family: 'arial';
+  }
+  .intro-builder-subheading{
+    color: white;
+    position: absolute;
+    top: 31vh;
+    z-index: 100;
+    left: 38vw;
+    font-family: 'arial';
+  }
+  .intro-builder-brief {
+    color: white;
+    position: absolute;
+    top: 34vh;
+    z-index: 100;
+    left: 28vw;
+    font-family: 'arial';
+  }
+  .intro-builder-button{
+    color: white;
+    position: absolute;
+    top: 42vh;
+    z-index: 10;
+    left: 45vw;
+    font-family: 'arial';
+    border-radius: 5px;
+  }
+  .app-banner-img{
+    width:80%;
+    height:490px;
+  }
+}
+@media screen and (min-width: 376px) and (max-width: 767px) { // pixels XL, Iphones
+  .intro-builder-online{
+    color: white;
+    position: absolute;
+    top: 20%;
+    left: 5%;
+    z-index: 100;
+    font-family: 'arial';
+  }
+  .intro-builder-subheading{
+    color: white;
+    position: absolute;
+    top: 29.5vh;
+    z-index: 100;
+    left: 6vw;
+    font-family: 'arial';
+  }
+  .intro-builder-brief {
+    color: white;
+    position: absolute;
+    top: 34vh;
+    z-index: 100;
+    left: 6vw;
+    font-family: 'arial';
+  }
+  .intro-builder-button{
+    color: white;
+    position: absolute;
+    top: 45vh;
+    z-index: 10;
+    left: 30vw;
+    font-family: 'arial';
+    border-radius: 5px;
+  }
+  .app-banner-img{
+    width:80%;
+    height:250px;
+  }
+  .xs-padding{
+    padding-left: 15px;
+  }
+}
+@media screen and (min-width: 260px) and (max-width: 375px){ // iphone xs, moto
+  .intro-builder-online{
+    color: white;
+    position: absolute;
+    top: 20%;
+    left: 5%;
+    z-index: 100;
+    font-family: 'arial';
+  }
+  .intro-builder-subheading{
+    color: white;
+    position: absolute;
+    top: 29.5vh;
+    z-index: 100;
+    left: 6vw;
+    font-family: 'arial';
+  }
+  .intro-builder-brief {
+    color: white;
+    position: absolute;
+    top: 34vh;
+    z-index: 100;
+    left: 6vw;
+    font-family: 'arial';
+  }
+  .intro-builder-button{
+    color: white;
+    position: absolute;
+    top: 45vh;
+    z-index: 10;
+    left: 30vw;
+    font-family: 'arial';
+    border-radius: 5px;
+  }
+  .app-banner-img{
+    width:80%;
+    height:250px;
+  }
+  .xs-padding{
+    padding-left: 15px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1023px){ //ipad
+  .intro-builder-online{
+    color: white;
+    position: absolute;
+    top: 20%;
+    left: 17%;
+    z-index: 100;
+    font-family: 'arial';
+  }
+  .intro-builder-subheading{
+    color: white;
+    position: absolute;
+    top: 25vh;
+    z-index: 100;
+    left: 27vw;
+    font-family: 'arial';
+  }
+  .intro-builder-brief {
+    color: white;
+    position: absolute;
+    top: 30vh;
+    z-index: 100;
+    left: 5vw;
+    font-family: 'arial';
+  }
+}

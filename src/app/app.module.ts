@@ -77,6 +77,7 @@ import { FeedbackFormComponent } from './components/feedback-form/feedback-form.
 import { TemplateTwoComponent } from './components/template-files/template-two/template-two.component';
 import { TemplateThreeComponent } from './components/template-three/template-three.component';
 import { PdfViewerComponent } from './components/pdf-viewer/pdf-viewer.component';
+import { IntroductionComponent } from './pages/introduction/introduction.component';
 // import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 // import { PdfJsViewerModule } from 'ng2-pdfjs-viewer';
 @NgModule({
@@ -101,7 +102,8 @@ import { PdfViewerComponent } from './components/pdf-viewer/pdf-viewer.component
     FeedbackFormComponent,
     TemplateTwoComponent,
     TemplateThreeComponent,
-    PdfViewerComponent
+    PdfViewerComponent,
+    IntroductionComponent
   ],
   imports: [
     HttpClientModule,

@@ -9,15 +9,15 @@
               <div fxFlex="70%" fxFlex.xs="100%" data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
                 <div fxLayout="row">
                   <div fxFlex="100%" fxLayoutAlign="center">
-                    <span data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="1500"><img src="assets/images/business-logo-login.png" width="240px"/></span>
+                    <span data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="1500"><img src="assets/images/business-logo-login.png" width="200px"/></span>
                   </div>
                 </div>
-                <div fxLayout="row" class="margin-top-15">
+                <div fxLayout="row">
                   <div fxFlex="100%" fxLayoutAlign="center">
                     <label class="signup-label">SIGN UP</label>
                   </div>
                 </div>
-                <div fxLayout="row" class="signup-margin-top-15">
+                <div fxLayout="row">
                   <div fxFlex="100%" fxLayoutAlign="center">
                     <mat-radio-group>
                       <mat-radio-button [checked]="userDetails.role === 'Student'" (click)="userDetails.role = 'Student'" value="Student">Student</mat-radio-button>&nbsp;&nbsp;&nbsp;
@@ -25,7 +25,7 @@
                     </mat-radio-group>
                   </div>
                 </div>
-                <div fxLayout="row" fxLayoutAlign="center" fxLayoutGap="1.5%" class="signup-margin-top-25">
+                <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="1.5%" class="signup-margin-top-25">
                   <mat-form-field appearance="outline" floatLabel="always" fxFlex="25%"  fxFlex.xs="100%">
                     <mat-label class="mat-body-2" for="firstName">First Name</mat-label>
                     <input matInput #formRow name="firstName" id="firstName" tabindex="1" formControlName="firstName" [(ngModel)]="userDetails.firstName" autocomplete="off" required/>
@@ -44,7 +44,7 @@
                     <mat-error class="margin-top-5" *ngIf="!enrollFormValidation.get('email').valid">Invalid Email</mat-error>
                   </mat-form-field>
                 </div>
-                <div fxLayout="row" fxLayoutAlign="center" fxLayoutGap="1.5%" class="margin-top-5">
+                <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="1.5%" class="margin-top-5">
                   <mat-form-field appearance="outline" floatLabel="always" fxFlex="25%"  fxFlex.xs="100%">
                     <mat-label class="mat-body-2" for="city">City</mat-label>
                     <input matInput name="city" id="city" tabindex="4" formControlName="city" [(ngModel)]="userDetails.city" autocomplete="off" required/>

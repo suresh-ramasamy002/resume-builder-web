@@ -72,8 +72,9 @@ export class AuthService {
     });
   }
   logout() {
-    this.afu.signOut();
-    this.router.navigate(['/login']);
+    this.afu.signOut().then(() => {
+      this.router.navigate(['/login']);
+    });
   }
   forgotPassword(email) {
     this.coreDataService.showSpinner = true;

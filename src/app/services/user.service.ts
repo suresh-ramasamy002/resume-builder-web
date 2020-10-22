@@ -58,9 +58,9 @@ export class UserService {
         year: '2015',
         award: 'Sample award\'s title'
       }];
-      const languageKnownData = ['English', 'Hindi'];
-      const computerSkillsData = ['Microsoft word', 'Excel', 'Powerpoint'];
-      const techSkillsData = ['Java', 'C++', 'Python'];
+      const languageKnownData = [{skill: 'English', rate: 3}, {skill: 'Hindi', rate: 5}];
+      const computerSkillsData = [{skill: 'Microsoft Word', rate: 3}, {skill: 'Excel', rate: 4}];
+      const techSkillsData = [{skill: 'Java', rate: 3}, {skill: 'C++', rate: 5}];
       const interestedData = ['Playing Cricket', 'Listening Music'];
       const addnInfoData = ['Sample Additional Info'];
       const refernceData = ['Reference\'s content'];

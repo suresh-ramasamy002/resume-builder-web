@@ -7,7 +7,7 @@
       <span class="menu-spacer"></span>
       <div fxShow="true" fxHide.lt-md *ngIf="coreDataService?.userDetails?.firstName">
 <!--        <a mat-button [routerLink]="'/tempEditor'" class="color-white font-size-15">Editor</a>-->
-        <a mat-button [routerLink]="'/login'" class="color-white font-size-15">Logout</a>
+        <a mat-button (click)="logoutUser()" class="color-white font-size-15">Logout</a>
         <a mat-button  class="color-white font-size-15">Hello {{coreDataService.userDetails.firstName}}</a>
       </div>
     </mat-toolbar-row>
@@ -23,7 +23,41 @@
     <mat-sidenav-content fxFlexFill>
     </mat-sidenav-content>
   </mat-sidenav-container>
- <div style="margin-top: 120px"></div>
+ <div fxLayout="row">
+   <div fxFlex="100%">
+     <div class="header">
+
+       <!--Content before waves-->
+       <div class="inner-header flex">
+         <!--Just the logo.. Don't mind this-->
+
+         <h2 class="template-res-header">Resume Templates</h2>
+         <h3 class="template-res-subheader">Make your resume online - Quick and Easy</h3>
+         <img src="assets/images/pick-resume.svg" class="temp-res-img"/>
+         <h4 class="template-res-subheader-right">Build a perfectly formatted resume in minutes</h4>
+       </div>
+
+       <!--Waves Container-->
+       <div>
+         <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+              viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+           <defs>
+             <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+           </defs>
+           <g class="parallax">
+             <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+<!--             <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />-->
+<!--             <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />-->
+<!--             <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />-->
+           </g>
+         </svg>
+       </div>
+       <!--Waves end-->
+
+     </div>
+   </div>
+ </div>
+ <div style="margin-top: 30px"></div>
  <div fxLayout="row" fxLayoutGap="1%" fxLayout.xs="column" fxLayout.sm="column">
    <div fxFlex="1%"></div>
    <div fxFlex="22%" fxFlex.xs="100%" fxFlex.sm="100%">

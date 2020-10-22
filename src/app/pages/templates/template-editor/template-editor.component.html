@@ -33,7 +33,7 @@
         <label class="label-right-color margin-top-5">Fonts</label>
       </div>
     </div>
-     <div fxLayout="row"  fxLayoutAlign="center">
+     <div fxLayout="row"  fxLayoutAlign="center" *ngIf="coreDataService?.templateData?.fontFamily != null">
        <mat-form-field appearance="outline" fxFlex="90%">
          <mat-select [(ngModel)]="coreDataService.templateData.fontFamily">
            <mat-option *ngFor="let fonts of fontFamily" [value]="fonts">{{fonts}}
@@ -322,17 +322,17 @@
         <div fxLayout="row" *ngIf="coreDataService.templateData.skills" class="margin-top-bottom">
           <div fxFlex="33.33%">
             <ng-container *ngFor="let language of coreDataService.templateData.knownLanguage; let i = index">
-              <label class="font-weight-normal mat-body-1" style="margin-left: 20px">{{language}}&nbsp;<i class="fa fa-trash cr-pointer" style="color: red" (click)="deleteLangauge(i)"></i></label><br/>
+              <label class="font-weight-normal mat-body-1" style="margin-left: 20px">{{language.skill}}&nbsp;<i class="fa fa-trash cr-pointer" style="color: red" (click)="deleteLangauge(i)"></i></label><br/>
             </ng-container>
           </div>
           <div fxFlex="33.33%">
             <ng-container *ngFor="let tech of coreDataService.templateData.technicalSkills; let i = index">
-              <label class="font-weight-normal mat-body-1" style="margin-left: 20px">{{tech}}&nbsp;<i class="fa fa-trash cr-pointer" style="color: red" (click)="deleteTechSkills(i)"></i></label><br/>
+              <label class="font-weight-normal mat-body-1" style="margin-left: 20px">{{tech.skill}}&nbsp;<i class="fa fa-trash cr-pointer" style="color: red" (click)="deleteTechSkills(i)"></i></label><br/>
             </ng-container>
           </div>
           <div fxFlex="33.33%">
             <ng-container *ngFor="let csSkills of coreDataService.templateData.computerSkills; let i = index">
-              <label class="font-weight-normal mat-body-1" style="margin-left: 20px">{{csSkills}}&nbsp;<i class="fa fa-trash cr-pointer" style="color: red" (click)="deleteCsSkills(i)"></i></label><br/>
+              <label class="font-weight-normal mat-body-1" style="margin-left: 20px">{{csSkills.skill}}&nbsp;<i class="fa fa-trash cr-pointer" style="color: red" (click)="deleteCsSkills(i)"></i></label><br/>
             </ng-container>
           </div>
         </div>

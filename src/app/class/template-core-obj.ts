@@ -3,6 +3,7 @@ import {EduInfo} from './edu-info';
 import {Certifications} from './certifications';
 import {HonorAwardsInfo} from './honor-awards-info';
 import {ActivitiesInfo} from './activities-info';
+import {Skills} from './skills';
 
 export class TemplateCoreObj {
   image: any;
@@ -35,9 +36,9 @@ export class TemplateCoreObj {
  educationInfo: Array<EduInfo>;
  certificates: Array<Certifications>;
  honorAwardInfo: Array<HonorAwardsInfo>;
- knownLanguage: Array<string>;
- computerSkills: Array<string>;
- technicalSkills: Array<string>;
+ knownLanguage: Array<Skills>;
+ computerSkills: Array<Skills>;
+ technicalSkills: Array<Skills>;
  interestOn: Array<string>;
  additionalInfoDetails: Array<string>;
  referenceDetails: Array<string>;
@@ -61,9 +62,9 @@ export class TemplateCoreObj {
     educationInfo?: Array<EduInfo>,
     certificates?: Array<Certifications>,
     honorAwardInfo?: Array<HonorAwardsInfo>,
-    knownLanguage?: Array<string>,
-    computerSkills?: Array<string>,
-    technicalSkills?: Array<string>,
+    knownLanguage?: Array<Skills>,
+    computerSkills?: Array<Skills>,
+    technicalSkills?: Array<Skills>,
     interestOn?: Array<string>,
     additionalInfoDetails?: Array<string>,
     referenceDetails?: Array<string>,

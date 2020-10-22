@@ -10,6 +10,7 @@ import {DomSanitizer} from '@angular/platform-browser';
 export class TemplateThreeComponent implements OnInit, OnChanges {
   @Input() pageType: string;
   @Input() isImageNeeded: boolean;
+  value: number = 4;
   pageHeight: string;
   constructor(public coreDataService: CoreDataService , private sanitizer: DomSanitizer) {
   }

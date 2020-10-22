@@ -55,6 +55,7 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
     if ('selectedTemplateTheme' in localStorage) {
       this.coreDataService.templateData.templateTheme = localStorage.getItem('selectedTemplateTheme');
     }
+    this.coreDataService.templateData.fontFamily = 'Verdana';
   }
   setThemePerTemplate(templateName) {
     this.themeColor = [];
@@ -225,13 +226,13 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
     this.coreDataService.templateData.computerSkills.splice(i, 1);
   }
   addLanguage() {
-    this.coreDataService.templateData.knownLanguage.push('New Language');
+    this.coreDataService.templateData.knownLanguage.push({skill: 'New Language', rate: 0});
   }
   addTechSkills() {
-    this.coreDataService.templateData.technicalSkills.push('New Skills');
+    this.coreDataService.templateData.technicalSkills.push({skill: 'New Skills', rate: 0});
   }
   addComputerSkills() {
-    this.coreDataService.templateData.computerSkills.push('New Skills');
+    this.coreDataService.templateData.computerSkills.push({skill: 'New Skills', rate: 0});
   }
   addActivities() {
     this.coreDataService.templateData.activitiesInfo.push({place: 'Activity Organization', role: 'Sample Position', year: 'From - To date/present', summary: ['Sample activities description']});

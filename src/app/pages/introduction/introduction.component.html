@@ -1,0 +1,303 @@
+<div class="dark-img">
+  <img src="assets/images/intro-banner.jpg" />
+</div>
+<mat-toolbar class="navbar-bg" data-aos="zoom-up" data-aos-easing="ease-out-cubic" data-aos-duration="1500" class="intro-toolbar">
+  <mat-toolbar-row>
+    <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+      <i class="fa fa-bars"></i>
+    </button>
+    <span data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="1500"><img src="assets/images/business-logo-page.png" width="240px"/></span>
+    <span class="menu-spacer"></span>
+    <div fxShow="true" fxHide.lt-md data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="1500">
+      <a mat-button [routerLink]="'/login'" class="font-size-15">Login</a>
+      <a mat-button [routerLink]="'/enroll'" class="font-size-15">Signup</a>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-sidenav-container fxFlexFill>
+  <mat-sidenav #sidenav>
+    <mat-nav-list>
+      <a mat-button [routerLink]="'/login'" class="font-size-15">Login</a>
+      <a mat-button [routerLink]="'/enroll'" class="font-size-15">Signup</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content fxFlexFill>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+<!--<mat-toolbar class="navbar-bg" data-aos="zoom-up" data-aos-easing="ease-out-cubic" data-aos-duration="1500" class="intro-toolbar">-->
+<!--  <mat-toolbar-row>-->
+<!--    <span data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="1500"><img src="assets/images/business-logo-page.png" width="240px"/></span>-->
+<!--    <span class="menu-spacer"></span>-->
+<!--    <div fxShow="true" data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="1500">-->
+<!--      <a mat-button [routerLink]="'/login'" class="font-size-15">Login</a>-->
+<!--      <a mat-button [routerLink]="'/enroll'" class="font-size-15">Signup</a>-->
+<!--    </div>-->
+<!--  </mat-toolbar-row>-->
+<!--</mat-toolbar>-->
+<div fxLayout="row" class="intro-builder-online" data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-duration="1500">
+  <div fxFlex="100%" fxLayoutAlign="center">
+    <h2 class="color-white">ONLINE RESUME BUILDER - QUICK & EASY</h2>
+  </div>
+</div>
+<div fxLayout="row" class="intro-builder-subheading" data-aos="fade-right" data-aos-easing="ease-out-cubic" data-aos-duration="1500">
+  <div fxFlex="100%">
+    <h3 class="color-white">Best Resume Templates in the Internet</h3>
+  </div>
+</div>
+<div fxLayout="row" class="intro-builder-brief" data-aos="fade-left" data-aos-easing="ease-out-cubic" data-aos-duration="1500">
+  <div fxFlex="100%">
+    <h4 class="color-white">Create Your CV using our designed themes and increase your changes of getting dream job</h4>
+  </div>
+</div>
+<div fxLayout="row" class="intro-builder-button" data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="1500">
+  <div fxFlex="100%">
+    <button mat-raised-button  [routerLink]="'/login'" color="primary">Build My Resume</button>
+  </div>
+</div>
+<div class="after-banner"></div>
+<div fxLayout="row" data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-duration="1500">
+  <div fxFlex="100%" fxLayoutAlign="center" fxLayoutAlign.xs="center center">
+    <h2 style="margin-bottom: 0px" class="text-color-black xs-padding">Build an Impressive Resume with Resumearc</h2>
+  </div>
+</div>
+<div fxLayout="row" data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-duration="1500">
+  <div fxFlex="15%"></div>
+  <div fxFlex="70%" fxLayoutAlign="center center">
+    <h4 style="margin-bottom: 0px" class="text-color-light-gray">Making a resume is the first step of any job search. Our online resume builder will help you write a perfect resume in minutes.</h4>
+  </div>
+  <div fxFlex="15%"></div>
+</div>
+<div fxLayout="row" data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-duration="1500">
+  <div fxFlex="15%"></div>
+  <div fxFlex="70%" fxLayoutAlign="center center">
+    <h4 style="margin-top: 8px;" class="text-color-light-gray">Create and download your professional resume in less than 10 minutes.</h4>
+  </div>
+  <div fxFlex="15%"></div>
+</div>
+<div class="slider margin-top-40">
+  <div class="slide-track" fxLayout="row" fxLayoutGap="1%">
+    <div fxFlex="8%" class="slide">
+      <img class="cr-pointer image" src="assets/images/template-images/template-one.png" alt="" width="100%" height="200px"><br/>
+      <div fxLayoutAlign="center">
+        <label>Basic</label>
+      </div>
+    </div>
+    <div fxFlex="8%" class="slide">
+      <img class="cr-pointer image" src="assets/images/template-images/template-two.png" alt="" width="100%" height="200px"><br/>
+      <div fxLayoutAlign="center">
+        <label>Clean</label>
+      </div>
+    </div>
+    <div fxFlex="8%" class="slide">
+      <img class="cr-pointer image" src="assets/images/template-images/template-three.png" alt="" width="100%" height="200px"><br/>
+      <div fxLayoutAlign="center">
+        <label>Corporate</label>
+      </div>
+    </div>
+    <div fxFlex="8%" class="slide">
+      <img class="cr-pointer image" src="assets/images/template-images/template-one.png" alt="" width="100%" height="200px"><br/>
+      <div fxLayoutAlign="center">
+        <label>Basic</label>
+      </div>
+    </div>
+    <div fxFlex="8%" class="slide">
+      <img class="cr-pointer image" src="assets/images/template-images/template-two.png" alt="" width="100%" height="200px"><br/>
+      <div fxLayoutAlign="center">
+        <label>Clean</label>
+      </div>
+    </div>
+    <div fxFlex="8%" class="slide">
+      <img class="cr-pointer image" src="assets/images/template-images/template-three.png" alt="" width="100%" height="200px"><br/>
+      <div fxLayoutAlign="center">
+        <label>Corporate</label>
+      </div>
+    </div>    <div fxFlex="8%" class="slide">
+    <img class="cr-pointer image" src="assets/images/template-images/template-one.png" alt="" width="100%" height="200px"><br/>
+    <div fxLayoutAlign="center">
+      <label>Basic</label>
+    </div>
+  </div>
+    <div fxFlex="8%" class="slide">
+      <img class="cr-pointer image" src="assets/images/template-images/template-two.png" alt="" width="100%" height="200px"><br/>
+      <div fxLayoutAlign="center">
+        <label>Clean</label>
+      </div>
+    </div>
+    <div fxFlex="8%" class="slide">
+      <img class="cr-pointer image" src="assets/images/template-images/template-three.png" alt="" width="100%" height="200px"><br/>
+      <div fxLayoutAlign="center">
+        <label>Corporate</label>
+      </div>
+    </div>    <div fxFlex="8%" class="slide">
+    <img class="cr-pointer image" src="assets/images/template-images/template-one.png" alt="" width="100%" height="200px"><br/>
+    <div fxLayoutAlign="center">
+      <label>Basic</label>
+    </div>
+  </div>
+    <div fxFlex="8%" class="slide">
+      <img class="cr-pointer image" src="assets/images/template-images/template-two.png" alt="" width="100%" height="200px"><br/>
+      <div fxLayoutAlign="center">
+        <label>Clean</label>
+      </div>
+    </div>
+    <div fxFlex="8%" class="slide">
+      <img class="cr-pointer image" src="assets/images/template-images/template-three.png" alt="" width="100%" height="200px"><br/>
+      <div fxLayoutAlign="center">
+        <label>Corporate</label>
+      </div>
+    </div>
+  </div>
+</div>
+<div fxLayout="row" data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
+  <div fxFlex="100%" fxLayoutAlign="center">
+    <h2 class="xs-padding">Benefits of Resumearc's online resume builder</h2>
+  </div>
+</div>
+<div fxLayout="row" fxLayout.xs="column" fxLayout.sm="100%">
+  <div fxFlex="33%" fxFlex.xs="100%" fxFlex.sm="100%" data-aos="fade-right" data-aos-easing="ease-out-cubic" data-aos-duration="1000" fxLayoutAlign.lg="center" fxLayoutAlign.md="center" fxLayoutAlign.xs="left">
+    <div fxLayout="row" class="xs-padding">
+      <div fxFlex="10%">
+        <img src="assets/images/flash.svg" width="30px" style="position: relative; top: 15px"/>
+      </div>
+      <div fxFlex="90%">
+        <div fxLayout="row">
+          <div fxFlex="100%">
+            <h4 class="m-b-0">It's fast and easy to use</h4>
+          </div>
+        </div>
+        <div fxLayout="row">
+          <div fxFlex="100%">
+            <h5 class="m-t-0 font-weight-normal">We will help you write a perfect resume in minutes.</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div fxFlex="33%" fxFlex.xs="100%" fxFlex.sm="100%" data-aos="fade-right" data-aos-easing="ease-out-cubic" data-aos-duration="1000" fxLayoutAlign.lg="center" fxLayoutAlign.md="center" fxLayoutAlign.xs="left">
+    <div fxLayout="row" class="xs-padding">
+      <div fxFlex="8%">
+        <img src="assets/images/safe.svg" width="32px" style="position: relative; top: 15px"/>
+      </div>
+      <div fxFlex="90%">
+        <div fxLayout="row">
+          <div fxFlex="100%">
+            <h4 class="m-b-0">Your data is safe</h4>
+          </div>
+        </div>
+        <div fxLayout="row">
+          <div fxFlex="80%">
+            <h5 class="m-t-0 font-weight-normal">Your resume details is kept private and protected. You can update the details and download whenever you want.</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div fxFlex="33%" fxFlex.xs="100%" fxFlex.sm="100%" data-aos="fade-right" data-aos-easing="ease-out-cubic" data-aos-duration="1000" fxLayoutAlign.lg="center" fxLayoutAlign.md="center" fxLayoutAlign.xs="left">
+    <div fxLayout="row" class="xs-padding">
+      <div fxFlex="10%">
+        <img src="assets/images/typography.svg" width="28px" style="position: relative; top: 15px"/>&nbsp;
+      </div>
+      <div fxFlex="90%">
+        <div fxLayout="row">
+          <div fxFlex="100%">
+            <h4 class="m-b-0">Professional Typography</h4>
+          </div>
+        </div>
+        <div fxLayout="row">
+          <div fxFlex="100%">
+            <h5 class="m-t-0 font-weight-normal">Polished look, optimal readability with professional fonts.</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div fxLayout="row" fxLayout.xs="column" fxLayout.sm="100%">
+  <div fxFlex="6%" fxFlex.xs="0%" fxFlex.sm="0%"></div>
+  <div fxFlex="27%" fxFlex.xs="100%" fxFlex.sm="100%" data-aos="fade-right" data-aos-easing="ease-out-cubic" data-aos-duration="1000" fxLayoutAlign.lg="center" fxLayoutAlign.md="center" fxLayoutAlign.xs="left">
+    <div fxLayout="row" class="xs-padding">
+      <div fxFlex="8%">
+        <img src="assets/images/theme.svg" width="25px" style="position: relative; top: 15px"/>
+      </div>
+      <div fxFlex="93%">
+        <div fxLayout="row">
+          <div fxFlex="100%">
+            <h4 class="m-b-0">Multiple themes</h4>
+          </div>
+        </div>
+        <div fxLayout="row">
+          <div fxFlex="80%">
+            <h5 class="m-t-0 font-weight-normal">We've providing you multiple theme options to choose as you like.</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div fxFlex="20%" fxFlex.xs="100%" fxFlex.sm="100%" data-aos="fade-right" data-aos-easing="ease-out-cubic" data-aos-duration="1000" fxLayoutAlign.lg="center" fxLayoutAlign.md="center" fxLayoutAlign.xs="left">
+    <div fxLayout="row" class="xs-padding">
+      <div fxFlex="10%">
+        <img src="assets/images/spell-check.svg" width="25px" style="position: relative; top: 17px"/>
+      </div>
+      <div fxFlex="90%">
+        <div fxLayout="row">
+          <div fxFlex="100%">
+            <h4 class="m-b-0">Auto spell check</h4>
+          </div>
+        </div>
+        <div fxLayout="row">
+          <div fxFlex="95%">
+            <h5 class="m-t-0 font-weight-normal">Identifies misspelled words while you are typing.</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div fxFlex="9.5%"></div>
+  <div fxFlex="33%" fxFlex.xs="100%" fxFlex.sm="100%" data-aos="fade-right" data-aos-easing="ease-out-cubic" data-aos-duration="1000" fxLayoutAlign.lg="center" fxLayoutAlign.md="center" fxLayoutAlign.xs="left">
+    <div fxLayout="row" class="xs-padding">
+      <div fxFlex="12%" fxFlex.xs="0%" fxFlex.sm="0%">
+        <img src="assets/images/cv.svg" width="25px" style="position: relative; top: 16px"/>
+      </div>
+      <div fxFlex="88%">
+        <div fxLayout="row">
+          <div fxFlex="100%">
+            <h4 class="m-b-0">30+ Resume templates</h4>
+          </div>
+        </div>
+        <div fxLayout="row">
+          <div fxFlex="100%">
+            <h5 class="m-t-0 font-weight-normal">Pick and create a professional resume</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div fxLayout="row" data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="1500">
+  <div fxFlex="100%" fxLayoutAlign="center">
+    <button mat-raised-button  [routerLink]="'/login'" color="primary">Build My Resume</button>
+  </div>
+</div>
+<div fxLayout="row" fxLayout.xs="column" class="margin-top-100">
+  <div fxFlex="50%" fxFlex.xs="100%" data-aos="fade-right" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
+    <div fxLayout="row">
+      <div fxFlex="100%" fxLayoutAlign="center">
+        <h2>How it works</h2>
+      </div>
+    </div>
+    <div fxLayout="row">
+      <div fxFlex="100%" fxLayoutAlign="center">
+        <h4>Step 1: Create a new account</h4>
+      </div>
+    </div>
+    <div fxLayout="row">
+      <div fxFlex="100%" fxLayoutAlign="center">
+        <h4>Step 2: Choose a resume layout</h4>
+      </div>
+    </div>
+  </div>
+  <div fxFlex="50%" fxFlex.xs="100%" fxLayoutAlign="center center" data-aos="fade-left" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
+    <img src="assets/images/app-edit-screen.png" class="app-banner-img" />
+  </div>
+</div>
+<div style="margin-bottom: 200px"></div>

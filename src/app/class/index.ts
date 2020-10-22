@@ -7,3 +7,4 @@ export * from './certifications';
 export * from './honor-awards-info';
 export * from './activities-info';
 export * from './payment-models';
+export * from './skills';
