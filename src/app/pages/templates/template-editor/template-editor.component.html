@@ -5,7 +5,7 @@
     <span data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="1500"><img src="assets/images/business-logo-page.png" width="240px"/></span>
     <span class="menu-spacer"></span>
     <div fxShow="true" fxHide.lt-md *ngIf="coreDataService?.userDetails?.firstName">
-      <a href="#" mat-button  class="color-white font-size-15">Hello {{coreDataService.userDetails.firstName}}</a>
+      <label class="color-white" style="font-size: 14px">Hello {{coreDataService.userDetails.firstName}}</label>
     </div>
   </mat-toolbar-row>
 </mat-toolbar>
@@ -121,6 +121,14 @@
               </div>
             </div>
           </mat-card>
+          <mat-card [ngClass]="{'selected-temp': coreDataService.selectedTemplate == 'template-four'}" class="padding-0 margin-top-15">
+            <div class="container">
+              <img class="sidebar-img cr-pointer image" src="assets/images/template-images/template-four.png">
+              <div class="middle">
+                <div class="text" (click)="selectedTemplate('template-four', '#353f58')">Select</div>
+              </div>
+            </div>
+          </mat-card>
         </div>
       </mat-sidenav-content>
     </mat-sidenav-container>
@@ -130,6 +138,7 @@
       <app-template-one id="template-one" *ngIf="coreDataService.selectedTemplate == 'template-one'"></app-template-one>
       <app-template-two id="template-two" *ngIf="coreDataService.selectedTemplate == 'template-two'" [pageType]="this.coreDataService.templateData.pageType" [isImageNeeded]="coreDataService.templateData.isImageNeeded"></app-template-two>
       <app-template-three id="template-three" *ngIf="coreDataService.selectedTemplate == 'template-three'" [pageType]="this.coreDataService.templateData.pageType" [isImageNeeded]="coreDataService.templateData.isImageNeeded"></app-template-three>
+      <app-template-four id="template-four" *ngIf="coreDataService.selectedTemplate == 'template-four'" [pageType]="this.coreDataService.templateData.pageType" [isImageNeeded]="coreDataService.templateData.isImageNeeded"></app-template-four>
   </div>
   </div>
   <div fxFlex="32%" data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-duration="1000" style="margin-left:15px">
@@ -162,21 +171,21 @@
           <mat-card class="sub-section-mat-card" fxFlex="100%">
             <div fxLayout="row">
               <div fxFlex="72%" fxLayoutAlign="left center">
-                <mat-checkbox [(ngModel)]="coreDataService.templateData.isImageNeeded" [checked]="coreDataService.templateData.isImageNeeded">Designation</mat-checkbox>
+                <mat-checkbox [(ngModel)]="coreDataService.templateData.isImageNeeded" [checked]="coreDataService.templateData.isImageNeeded" color="primary">Designation</mat-checkbox>
               </div>
             </div>
           </mat-card>
         </div>
         <div fxLayout="row" class="margin-top-5">
           <mat-card class="sub-section-mat-card" fxFlex="100%">
-            <mat-checkbox [(ngModel)]="coreDataService.templateData.objective" [checked]="coreDataService.templateData.objective">Objectives</mat-checkbox>
+            <mat-checkbox [(ngModel)]="coreDataService.templateData.objective" [checked]="coreDataService.templateData.objective" color="primary">Objectives</mat-checkbox>
           </mat-card>
         </div>
         <div fxLayout="row" class="margin-top-5">
           <mat-card class="sub-section-mat-card" fxFlex="100%">
             <div fxLayout="row">
               <div fxFlex="71%" fxLayoutAlign="left center">
-                <mat-checkbox [(ngModel)]="coreDataService.templateData.workExp" [checked]="coreDataService.templateData.workExp">Work Experience</mat-checkbox>
+                <mat-checkbox [(ngModel)]="coreDataService.templateData.workExp" [checked]="coreDataService.templateData.workExp" color="primary">Work Experience</mat-checkbox>
               </div>
               <div fxFlex="20%" *ngIf="coreDataService.templateData.workExp">
                 <button mat-raised-button (click)="addWorkExperience()" style="color: #3f51b5">+Experience</button>
@@ -207,7 +216,7 @@
           <mat-card class="sub-section-mat-card" fxFlex="100%">
             <div fxLayout="row">
               <div fxFlex="72.5%" fxLayoutAlign="left center">
-                <mat-checkbox [(ngModel)]="coreDataService.templateData.education" [checked]="coreDataService.templateData.education">Education</mat-checkbox>
+                <mat-checkbox [(ngModel)]="coreDataService.templateData.education" [checked]="coreDataService.templateData.education" color="primary">Education</mat-checkbox>
               </div>
               <div fxFlex="20%" *ngIf="coreDataService.templateData.education">
                 <button mat-raised-button (click)="addEducation()" style="color: #3f51b5">+Education</button>
@@ -231,7 +240,7 @@
           <mat-card class="sub-section-mat-card" fxFlex="100%">
             <div fxLayout="row">
               <div fxFlex="71%" fxLayoutAlign="left center">
-                <mat-checkbox [(ngModel)]="coreDataService.templateData.certifications" [checked]="coreDataService.templateData.certifications">Certifications</mat-checkbox>
+                <mat-checkbox [(ngModel)]="coreDataService.templateData.certifications" [checked]="coreDataService.templateData.certifications" color="primary">Certifications</mat-checkbox>
               </div>
               <div fxFlex="20%" *ngIf="coreDataService.templateData.certifications">
                 <button mat-raised-button (click)="addCerficates()" style="color: #3f51b5">+Certificates</button>
@@ -255,7 +264,7 @@
           <mat-card class="sub-section-mat-card" fxFlex="100%">
             <div fxLayout="row">
               <div fxFlex="77%" fxLayoutAlign="left center">
-                <mat-checkbox [(ngModel)]="coreDataService.templateData.honorReward" [checked]="coreDataService.templateData.honorReward">Honors & Awards</mat-checkbox>
+                <mat-checkbox [(ngModel)]="coreDataService.templateData.honorReward" [checked]="coreDataService.templateData.honorReward" color="primary">Honors & Awards</mat-checkbox>
               </div>
               <div fxFlex="20%" *ngIf="coreDataService.templateData.honorReward">
                 <button mat-raised-button (click)="addAwards()" style="color: #3f51b5">+Awards</button>
@@ -281,7 +290,7 @@
           <mat-card class="sub-section-mat-card" fxFlex="100%">
             <div fxLayout="row">
               <div fxFlex="77%" fxLayoutAlign="left center">
-                <mat-checkbox [(ngModel)]="coreDataService.templateData.interest" [checked]="coreDataService.templateData.interest">Interests</mat-checkbox>
+                <mat-checkbox [(ngModel)]="coreDataService.templateData.interest" [checked]="coreDataService.templateData.interest" color="primary">Interests</mat-checkbox>
               </div>
               <div fxFlex="20%" *ngIf="coreDataService.templateData.interest">
                 <button mat-raised-button (click)="addInterest()" style="color: #3f51b5">+Interest</button>
@@ -305,7 +314,7 @@
           <mat-card class="sub-section-mat-card" fxFlex="100%">
             <div fxLayout="row">
               <div fxFlex="23%" fxLayoutAlign="left center">
-                <mat-checkbox [(ngModel)]="coreDataService.templateData.skills" [checked]="coreDataService.templateData.skills">Skills</mat-checkbox>
+                <mat-checkbox [(ngModel)]="coreDataService.templateData.skills" [checked]="coreDataService.templateData.skills" color="primary">Skills</mat-checkbox>
               </div>
               <div fxFlex="25%" *ngIf="coreDataService.templateData.interest">
                 <button mat-raised-button (click)="addLanguage()" style="color: #3f51b5">+Language</button>
@@ -340,7 +349,7 @@
           <mat-card class="sub-section-mat-card" fxFlex="100%">
             <div fxLayout="row">
               <div fxFlex="75%" fxLayoutAlign="left center">
-                <mat-checkbox [(ngModel)]="coreDataService.templateData.activities" [checked]="coreDataService.templateData.activities">Activities</mat-checkbox>
+                <mat-checkbox [(ngModel)]="coreDataService.templateData.activities" [checked]="coreDataService.templateData.activities" color="primary">Activities</mat-checkbox>
               </div>
               <div fxFlex="20%" *ngIf="coreDataService.templateData.activities">
                 <button mat-raised-button (click)="addActivities()" style="color: #3f51b5">+Activities</button>
@@ -370,7 +379,7 @@
           <mat-card class="sub-section-mat-card" fxFlex="100%">
             <div fxLayout="row">
               <div fxFlex="67%" fxLayoutAlign="left center">
-                <mat-checkbox [(ngModel)]="coreDataService.templateData.additionalInfo" [checked]="coreDataService.templateData.additionalInfo">Additional Information</mat-checkbox>
+                <mat-checkbox [(ngModel)]="coreDataService.templateData.additionalInfo" [checked]="coreDataService.templateData.additionalInfo" color="primary">Additional Information</mat-checkbox>
               </div>
               <div fxFlex="20%" *ngIf="coreDataService.templateData.additionalInfo">
                 <button mat-raised-button (click)="addAdditionalInfo()" style="color: #3f51b5">+Additional Info</button>
@@ -396,7 +405,7 @@
           <mat-card class="sub-section-mat-card" fxFlex="100%">
             <div fxLayout="row">
               <div fxFlex="74%" fxLayoutAlign="left center">
-                <mat-checkbox [(ngModel)]="coreDataService.templateData.reference" [checked]="coreDataService.templateData.reference">Reference</mat-checkbox>
+                <mat-checkbox [(ngModel)]="coreDataService.templateData.reference" [checked]="coreDataService.templateData.reference" color="primary">Reference</mat-checkbox>
               </div>
               <div fxFlex="20%" *ngIf="coreDataService.templateData.reference">
                 <button mat-raised-button (click)="addReference()" style="color: #3f51b5">+Reference</button>

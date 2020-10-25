@@ -76,6 +76,11 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
         { name: 'Brown', value: '#795548' },
         { name: 'Black', value: '#292929' }];
         break;
+      case 'template-four': this.themeColor = [
+        { name: 'Blue', value: '#353f58' },
+        { name: 'Blue Grey', value: '#607D8B'},
+        { name: 'Black', value: '#292929' }];
+        break;
     }
     return this.themeColor;
   }

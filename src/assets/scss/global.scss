@@ -158,3 +158,22 @@ label[contenteditable="true"] {
 .m-r-0{
   margin-right: 0px;
 }
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle{
+  border-color:#3f51b5;
+}
+
+.mat-radio-button.mat-accent .mat-radio-inner-circle{
+  color:#3f51b5;
+  background-color:#3f51b5;
+}
+
+.mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
+  background-color:transparent;
+}
+::ng-deep .mat-checkbox .mat-checkbox-frame {
+  border-color: #3f51b5;
+}
+
+::ng-deep .mat-checkbox-checked .mat-checkbox-background {
+  background-color: #3f51b5 !important;
+}

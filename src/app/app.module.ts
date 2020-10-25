@@ -75,9 +75,10 @@ import {AngularFireFunctionsModule, REGION} from '@angular/fire/functions';
 import { DownloadWarningDialogComponent } from './components/download-warning-dialog/download-warning-dialog.component';
 import { FeedbackFormComponent } from './components/feedback-form/feedback-form.component';
 import { TemplateTwoComponent } from './components/template-files/template-two/template-two.component';
-import { TemplateThreeComponent } from './components/template-three/template-three.component';
+import { TemplateThreeComponent } from './components/template-files/template-three/template-three.component';
 import { PdfViewerComponent } from './components/pdf-viewer/pdf-viewer.component';
 import { IntroductionComponent } from './pages/introduction/introduction.component';
+import { TemplateFourComponent } from './components/template-files/template-four/template-four.component';
 // import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 // import { PdfJsViewerModule } from 'ng2-pdfjs-viewer';
 @NgModule({
@@ -103,7 +104,8 @@ import { IntroductionComponent } from './pages/introduction/introduction.compone
     TemplateTwoComponent,
     TemplateThreeComponent,
     PdfViewerComponent,
-    IntroductionComponent
+    IntroductionComponent,
+    TemplateFourComponent
   ],
   imports: [
     HttpClientModule,

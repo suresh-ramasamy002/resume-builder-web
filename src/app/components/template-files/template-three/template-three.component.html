@@ -61,6 +61,30 @@
               </div>
             </div>
           </div>
+          <div fxLayout="row" style="margin-top: 15px" *ngIf="coreDataService.templateData.certifications">
+            <div fxFlex="100%">
+              <label [ngStyle]="{'font-size': coreDataService.templateData.roleSize+'px', 'font-family': coreDataService.templateData.fontFamily}" class="label-right-color font-weight-bold" style="margin-left: 15px;">CERTIFICATIONS</label>
+            </div>
+          </div>
+          <div fxLayout="row" *ngIf="coreDataService.templateData.certificates">
+            <div fxFlex="96%">
+              <div class="div-border" [ngClass]="{'color': setTextColor(coreDataService.templateData.templateTheme)}"></div>
+            </div>
+          </div>
+          <div fxLayout="row" *ngIf="coreDataService.templateData.certifications">
+            <div fxFlex="100%">
+              <div fxLayout="row" *ngFor="let certifiInfo of coreDataService.templateData.certificates; let i = index" class="margin-top-15">
+                <div fxFlex="30%">
+                  <label contenteditable="true" spellcheck="true" #cfyear [textContent]="coreDataService.templateData.certificates[i].year" (blur)="coreDataService.templateData.certificates[i].year = cfyear.innerText" [ngStyle]="{'font-size': coreDataService.templateData.normalSize+'px', 'font-family': coreDataService.templateData.fontFamily}" style="margin-left: 15px;" class="font-size-15">{{certifiInfo.year}}</label>
+                </div>
+                <div fxFlex="65%">
+                  <div>
+                    <label contenteditable="true" spellcheck="true" #cfname [textContent]="coreDataService.templateData.certificates[i].certificateName" (blur)="coreDataService.templateData.certificates[i].certificateName = cfname.innerText" [ngStyle]="{'font-size': coreDataService.templateData.normalSize+'px', 'font-family': coreDataService.templateData.fontFamily}" maxlength="50">{{certifiInfo.certificateName}}</label><br/>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           <div fxLayout="row" style="margin-top: 15px" *ngIf="coreDataService.templateData.honorReward">
             <div fxFlex="100%">
               <label [ngStyle]="{'font-size': coreDataService.templateData.roleSize+'px', 'font-family': coreDataService.templateData.fontFamily}" class="label-right-color font-weight-bold" style="margin-left: 15px;">HONOR & AWARDS</label>
@@ -75,7 +99,7 @@
             <div fxFlex="100%">
               <div fxLayout="row" *ngFor="let rewardInfo of coreDataService.templateData.honorAwardInfo; let i = index" class="margin-top-15" style="margin-left: 15px;">
                 <div fxFlex="20%">
-                  <label contenteditable="true" spellcheck="true" #rwyear [textContent]="coreDataService.templateData.honorAwardInfo[i].year" (blur)="coreDataService.templateData.honorAwardInfo[i].year = rwyear.innerText" [ngStyle]="{'font-size': coreDataService.templateData.normalSize+'px', 'font-family': coreDataService.templateData.fontFamily}" style="margin-left: 15px;" class="font-size-15">{{rewardInfo.year}}</label>
+                  <label contenteditable="true" spellcheck="true" #rwyear [textContent]="coreDataService.templateData.honorAwardInfo[i].year" (blur)="coreDataService.templateData.honorAwardInfo[i].year = rwyear.innerText" [ngStyle]="{'font-size': coreDataService.templateData.normalSize+'px', 'font-family': coreDataService.templateData.fontFamily}" class="font-size-15">{{rewardInfo.year}}</label>
                 </div>
                 <div fxFlex="76%">
                   <div>
