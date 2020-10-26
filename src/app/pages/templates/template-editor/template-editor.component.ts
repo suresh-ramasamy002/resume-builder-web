@@ -225,7 +225,7 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
     this.coreDataService.templateData.educationInfo.splice(i, 1);
   }
   addCerficates() {
-    this.coreDataService.templateData.certificates.push({certificateName: 'Certificate Name', year: 'Time'});
+    this.coreDataService.templateData.certificates.push({certificateName: 'Certification of ?', year: 'Year'});
   }
   deleteCerficates(i) {
     this.coreDataService.templateData.certificates.splice(i, 1);
@@ -300,7 +300,8 @@ verifyPdfFile(selectedElement) {
       this.coreDataService.showSpinner = true;
       html2pdf().from(document.getElementById(selectedElement)).set(opt).toPdf().get('pdf').then((pdf) => {
         let dialogRef = this.dialog.open(PdfViewerComponent, {
-          width: '2lcm',
+          width: '96vw',
+          maxWidth: '96vw',
           data: {src: pdf.output('bloburl')}
         });
         dialogRef.afterClosed().subscribe(result => {

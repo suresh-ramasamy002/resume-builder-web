@@ -82,6 +82,7 @@ import { TemplateFourComponent } from './components/template-files/template-four
 import { TemplateFiveComponent } from './components/template-files/template-five/template-five.component';
 import { TemplateSixComponent } from './components/template-files/template-six/template-six.component';
 import { TemplateSevenComponent } from './components/template-files/template-seven/template-seven.component';
+import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard.component';
 // import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 // import { PdfJsViewerModule } from 'ng2-pdfjs-viewer';
 @NgModule({
@@ -111,7 +112,8 @@ import { TemplateSevenComponent } from './components/template-files/template-sev
     TemplateFourComponent,
     TemplateFiveComponent,
     TemplateSixComponent,
-    TemplateSevenComponent
+    TemplateSevenComponent,
+    AdminDashboardComponent
   ],
   imports: [
     HttpClientModule,

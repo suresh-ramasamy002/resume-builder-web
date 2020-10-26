@@ -9,6 +9,7 @@ import {ForgotPasswordComponent} from './pages/forgot-password/forgot-password.c
 import {TemplateOneComponent} from './components/template-files/template-one/template-one.component';
 import {TemplateEditorComponent} from './pages/templates/template-editor/template-editor.component';
 import {IntroductionComponent} from './pages/introduction/introduction.component';
+import {AdminDashboardComponent} from './pages/admin-dashboard/admin-dashboard.component';
 import {pipe} from 'rxjs';
 import { map } from 'rxjs/operators';
 export const redirectAnonymousTo = (redirect: any[]) =>
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path: 'userInfo', component: UserInfoComponent},
   {path: 'forgotPassword', component: ForgotPasswordComponent},
   {path: 'home', component: HomeComponent, canActivate: [AngularFireAuthGuard]},
+  {path: 'adminDashboard_protect*1_!2000128846628812', component: AdminDashboardComponent, canActivate: [AngularFireAuthGuard]},
   {path: 'tempEditor', component: TemplateEditorComponent, canActivate: [AngularFireAuthGuard]},
   {path: '**', redirectTo: '/' }
 ];

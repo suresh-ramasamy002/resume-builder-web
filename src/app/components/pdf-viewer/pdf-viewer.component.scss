@@ -1,9 +1,28 @@
 :host ::ng-deep .ng2-pdf-viewer-container {
-  width: 793px;
+  width: 100%;
   padding-top: 15px;
   padding-left: 13px;
-  padding-right: 35px;
   background: #505050;
+  overflow: scroll;
+  &::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+  }
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: #f9f9f9;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 0.2rem;
+  }
+
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: #c1c1c1;
+  }
 }
 :host ::ng-deep [_nghost-uhg-c155] .pdfViewer.removePageBorders .page {
   margin-bottom: 20px;
@@ -11,3 +30,29 @@
 .text-color-light-gray{
   color: #757575;
 }
+.scroll-y {
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+  }
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: #f9f9f9;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 0.2rem;
+  }
+
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: #c1c1c1;
+  }
+}
+.mat-dialog-container {
+  max-width: 100vw !important;
+}
+

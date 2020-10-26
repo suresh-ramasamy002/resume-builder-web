@@ -1,4 +1,4 @@
- <mat-toolbar class="navbar-bg" data-aos="zoom-up" data-aos-easing="ease-out-cubic" data-aos-duration="1500">
+ <mat-toolbar class="navbar-bg" data-aos="zoom-up" data-aos-easing="ease-out-cubic" data-aos-duration="1200">
     <mat-toolbar-row>
       <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
        <i class="fa fa-bars"></i>
@@ -6,8 +6,8 @@
       <span data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="1500"><img src="assets/images/business-logo-page.png" width="240px"/></span>
       <span class="menu-spacer"></span>
       <div fxShow="true" fxHide.lt-md *ngIf="coreDataService?.userDetails?.firstName">
-<!--        <a mat-button [routerLink]="'/tempEditor'" class="color-white font-size-15">Editor</a>-->
-        <a mat-button (click)="logoutUser()" class="font-size-15 color-white">Logout</a>
+        <a mat-button *ngIf="coreDataService.userDetails.role == 'PRO_ADMIN_1'" mat-button [routerLink]="'/adminDashboard_protect*1_!2000128846628812'" class="color-white font-size-15">Admin Dashboard</a>
+        <a mat-button (click)="logoutUser()" class="font-size-15 color-white">Logout</a>&nbsp;
         <label style="font-size:14px" class="color-white">Hello {{coreDataService.userDetails.firstName}}</label>
       </div>
     </mat-toolbar-row>
@@ -133,5 +133,4 @@
      </div>
    </div>
  </div>
-
 <div style="margin-bottom: 250px"></div>

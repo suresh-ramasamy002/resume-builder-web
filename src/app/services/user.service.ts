@@ -43,46 +43,46 @@ export class UserService {
       this.coreDataService.templateData = JSON.parse(localStorage.getItem('templateData'));
     } else {
       const companyInfoData: Array<CompanyInfo> = [{
-        workFromTo: 'May 2019 - Jun 2020',
-        companyName: 'Microsoft',
-        role: 'Software Engineer',
-        details: ['Building a working productivity app for real-time project management collaboration. App was downloaded 1234 times.', 'Wrote a native Java cryptocurrency tracking app. The app retrieves and displays current prices for the 10 most popular cryptocurrencies.']
+        workFromTo: 'From - To/Present(eg:- JUN 2020 - OCT 2020)',
+        companyName: 'Company Name',
+        role: 'Your Designation',
+        details: ['Achievement']
       }];
       const eduInfoData: Array<EduInfo> = [{
-        yearFromTo: 'May 2014 - Jun 2018',
-        schoolName: 'Foreign trade university',
-        department: 'Computer Science',
-        gpa: '7.8/10'
+        yearFromTo: 'From - To/Present',
+        schoolName: 'Institute',
+        department: 'Department',
+        gpa: 'gpa/10'
       }];
       const honorAwardsData: Array<HonorAwardsInfo> = [{
-        year: '2015',
-        award: 'Sample award\'s title'
+        year: 'year',
+        award: 'Award details'
       }];
-      const languageKnownData = [{skill: 'English', rate: 3}, {skill: 'Hindi', rate: 5}];
-      const computerSkillsData = [{skill: 'Microsoft Word', rate: 3}, {skill: 'Excel', rate: 4}];
-      const techSkillsData = [{skill: 'Java', rate: 3}, {skill: 'C++', rate: 5}];
-      const interestedData = ['Playing Cricket', 'Listening Music'];
-      const addnInfoData = ['Sample Additional Info'];
+      const languageKnownData = [{skill: 'Known Language', rate: 0}];
+      const computerSkillsData = [{skill: 'Software skills', rate: 0}];
+      const techSkillsData = [{skill: 'Tech or management skills', rate: 0}];
+      const interestedData = ['Your Interests'];
+      const addnInfoData = ['Additional Info'];
       const refernceData = ['Reference\'s content'];
-      const certificateData: Array<Certifications> = [{certificateName: 'The 2nd Prize of Science Research at University', year: '2014-2015'}];
-      const activityInfoData: Array<ActivitiesInfo> = [new ActivitiesInfo({place: 'India', role: 'Volunteering', year: 'March 2014 - April 2019', summary: ['Involved in social activities like to teach culture for the childrens etc.,']})];
+      const certificateData: Array<Certifications> = [{certificateName: 'Certification of ?', year: 'year(eg:- 2019 - 2020)'}];
+      const activityInfoData: Array<ActivitiesInfo> = [new ActivitiesInfo({place: 'Place', role: 'Your Role', year: 'year(eg:- 2019 - 2020)', summary: ['Brief Description']})];
       this.storeTemplateData = new TemplateCoreObj({
         image: null,
         isImageNeeded: true,
-        title: 'John Doe',
+        title: 'Your Name',
         titleSize: 20,
-        role: 'Software Engineer',
+        role: 'Designation',
         roleSize: 16,
         normalSize: 14,
-        dob: 'September 1, 1996',
-        gender: 'Male',
+        dob: 'DOB',
+        gender: 'Gender',
         templateTheme: '#292929',
         fontFamily: 'Verdana',
         fontSize: 2,
-        phone: '1234567890',
-        email: 'johndoe@gmail.com',
-        address: '6221 southfrontroad, CA, USA',
-        objectiveMsg: 'Dedicated web developer with five years of experience in database administration and website design. Strong creative and analytical skills. Team player with an eye for detail. MySQL, Python and Ruby on Rails.',
+        phone: 'Your Phone',
+        email: 'Your Email',
+        address: 'Your Address',
+        objectiveMsg: 'A brief objective about you',
         companyInfo: companyInfoData,
         educationInfo: eduInfoData,
         certificates: certificateData,
@@ -105,7 +105,6 @@ export class UserService {
     });
   }
   getFeedbacks(uid) {
-    console.log(firebase.auth().currentUser.uid);
     return this.db.doc('feedbacks/' + uid).valueChanges().subscribe((res: FeedbackRes) => {
       this.coreDataService.feedbacks = res.userFeedback;
     });

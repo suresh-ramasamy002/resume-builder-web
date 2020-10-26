@@ -84,6 +84,7 @@ export class AuthService {
   getAdminUserDetails() {
     this.db.collection('accessUserDetails').doc(this.userDataId).valueChanges().subscribe((res: AdminUserData) => {
       this.userDataArray = res.userData;
+      this.coreDataService.userDetailsArr = res.userData;
     });
   }
   getUserData(uid) {

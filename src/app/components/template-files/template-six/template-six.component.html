@@ -90,7 +90,7 @@
           <div fxFlex="75%">
             <div fxLayout="row" *ngFor="let techSkills of coreDataService.templateData.technicalSkills; let i = index" class="margin-top-5">
               <div fxFlex="40%">
-                <label style="margin-top: 3px;" [ngStyle]="{'font-size': coreDataService.templateData.normalSize+'px', 'font-family': coreDataService.templateData.fontFamily}" class="font-size-15"><label contenteditable="true" spellcheck="true" #lngLang [textContent]="coreDataService.templateData.technicalSkills[i].skill" (blur)="coreDataService.templateData.technicalSkills[i].skill = lngLang.innerText">{{techSkills.skill}}</label></label>
+                <label [ngStyle]="{'font-size': coreDataService.templateData.normalSize+'px', 'font-family': coreDataService.templateData.fontFamily}" class="font-size-15"><label contenteditable="true" spellcheck="true" #lngLang [textContent]="coreDataService.templateData.technicalSkills[i].skill" (blur)="coreDataService.templateData.technicalSkills[i].skill = lngLang.innerText">{{techSkills.skill}}</label></label>
               </div>
               <div fxFlex="30%">
                 <div class="star-rating">

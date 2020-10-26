@@ -10,7 +10,16 @@ export class CoreDataService {
  private $loadingMsg: string = null;
  private $feedbacks: Array<Feedback> = [];
  private $selectedTemplate: string = null;
+ private $userDetailsArr: Array<EnrollUserDetails> = [];
 
+
+  get userDetailsArr(): Array<EnrollUserDetails> {
+    return this.$userDetailsArr;
+  }
+
+  set userDetailsArr(value: Array<EnrollUserDetails>) {
+    this.$userDetailsArr = value;
+  }
 
   get selectedTemplate(): string {
     return this.$selectedTemplate;

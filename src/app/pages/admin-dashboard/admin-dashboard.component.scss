@@ -1,0 +1,38 @@
+mat-toolbar {
+  background: linear-gradient(90deg, #70b6ff, #9479ff);
+}
+.gl-sticky-list-table{white-space: nowrap};
+.gl-sticky-list-table>thead>tr>th{background: #DADEE0; color:#292929;position: sticky; top:0; z-index:1; padding: 10px; text-align: left}
+.gl-sticky-list-table>tbody>tr>td{border-top:none;padding: 12px 0px 12px 12px; font-size:14px;}
+.gl-sticky-list-table>tbody>tr:nth-child(even) {background-color: #f2f2f2;}
+.gl-sticky-list-table>tbody>tr:nth-child(odd) {background-color: #ffffff}
+.table{
+  width: 100%;
+}
+.star-rating {
+  display:flex;
+  flex-direction: row-reverse;
+  font-size: 0.9em;
+  justify-content:space-around;
+  padding:0 .2em;
+  text-align:center;
+  width: 50%;
+}
+
+.star-rating input {
+  display:none;
+}
+
+.star-rating label {
+  color:#ccc;
+  cursor:pointer;
+}
+
+.star-rating :checked ~ label {
+  color:#353f58;
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+  color: #353f58;
+}

@@ -1,0 +1,187 @@
+<mat-toolbar class="navbar-bg" data-aos="zoom-up" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
+  <mat-toolbar-row>
+    <button mat-icon-button fxShow="true" fxHide.gt-sm>
+      <i class="fa fa-bars"></i>
+    </button>
+    <span data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="1500"><img src="assets/images/business-logo-page.png" width="240px"/></span>
+    <span class="menu-spacer"></span>
+    <button mat-button [routerLink]="'/home'" style="font-size: 16px; color:#ffffff;"><i class="fa fa-arrow-left"></i>&nbsp;Back to home</button>
+    <div fxShow="true" fxHide.lt-md *ngIf="coreDataService?.userDetails?.firstName">
+      <label style="font-size:14px" class="color-white">Hello {{coreDataService.userDetails.firstName}}</label>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+<div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutGap="1%" fxLayoutGap.xs="5%" fxLayoutGap.sm="5%" style="padding-top: 30px;padding-left: 20px; padding-right: 25px" data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
+  <mat-card fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="100%" style="background-image:-webkit-linear-gradient(90deg, rgb(132, 199, 135) 0%, rgb(73 151 249) 100%);color: white">
+    <div fxLayout="row">
+      <div fxFlex="100%">
+        <h2 style="margin-top: 5px">Users#</h2>
+      </div>
+    </div>
+    <div fxLayout="row">
+      <div fxFlex="50%" fxLayoutAlign="left center">
+        <img src="assets/images/group.svg" width="60px"/>
+      </div>
+      <div fxFlex="50%" fxLayoutAlign="center center">
+        <h1>{{coreDataService.userDetailsArr.length}}</h1>
+      </div>
+    </div>
+  </mat-card>
+  <mat-card fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="100%" style="background-image: -webkit-linear-gradient(90deg, rgb(118 140 253) 0%, rgb(255 103 134) 100%);color: white">
+    <div fxLayout="row">
+      <div fxFlex="100%">
+        <h2 style="margin-top: 5px">Resumes Downloaded#</h2>
+      </div>
+    </div>
+    <div fxLayout="row">
+      <div fxFlex="50%" fxLayoutAlign="left center">
+        <img src="assets/images/direct-download.svg" width="60px"/>
+      </div>
+      <div fxFlex="50%" fxLayoutAlign="center center">
+        <h1>{{coreDataService.feedbacks.length}}</h1>
+      </div>
+    </div>
+  </mat-card>
+  <mat-card fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="100%" style="background-image: -webkit-linear-gradient(90deg, rgb(255 104 178) 0%, rgb(255 158 89) 100%);color: white">
+    <div fxLayout="row">
+      <div fxFlex="100%">
+        <h2 style="margin-top: 5px">Revenue#</h2>
+      </div>
+    </div>
+    <div fxLayout="row">
+      <div fxFlex="50%" fxLayoutAlign="left center">
+        <img src="assets/images/business-and-finance.svg" width="60px"/>
+      </div>
+      <div fxFlex="50%" fxLayoutAlign="center center">
+        <h1><i class="fa fa-rupee"></i>&nbsp;{{revenueAmount}}</h1>
+      </div>
+    </div>
+  </mat-card>
+  <mat-card fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="100%" style="background-image:-webkit-linear-gradient(90deg, rgb(21 199 185) 0%, rgb(114 185 97) 100%);color: white">
+    <div fxLayout="row">
+      <div fxFlex="100%">
+        <h2 style="margin-top: 5px">Feedbacks#</h2>
+      </div>
+    </div>
+    <div fxLayout="row">
+      <div fxFlex="50%" fxLayoutAlign="left center">
+        <img src="assets/images/rating.svg" width="60px"/>
+      </div>
+      <div fxFlex="50%" fxLayoutAlign="center center">
+        <h1>{{coreDataService.feedbacks.length}}</h1>
+      </div>
+    </div>
+  </mat-card>
+</div>
+<div class="margin-top-15"></div>
+<div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" style="padding-left: 20px; padding-right: 25px" data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-duration="1000" fxLayoutGap="1%" fxLayoutGap.xs="5%" fxLayoutGap.sm="5%">
+  <mat-card fxFlex="70%" fxFlex.xs="100%" fxFlex.sm="100%">
+    <div fxLayout="row">
+      <div fxFlex="100%">
+        <h3>User Details</h3>
+      </div>
+    </div>
+    <div style="overflow: scroll" fxLayout="row">
+    <div style="height: 300px;" fxFlex="100%">
+    <table class="table gl-sticky-list-table" >
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Role</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Email</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of this.coreDataService.userDetailsArr">
+          <td>{{user.firstName + ' ' + user.lastName}}</td>
+          <td>{{user.role}}</td>
+          <td>{{user.city}}</td>
+          <td>{{user.state}}</td>
+          <td>{{user.email}}</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    </div>
+  </mat-card>
+  <mat-card fxFlex="30%" fxFlex.xs="100%" fxFlex.sm="100%">
+    <div fxLayout="row">
+      <mat-card fxFlex="100%">
+        <div fxLayout="row" fxLayoutAlign="center">
+          <div fxFlex="100%">
+            <div fxLayout="row">
+              <div fxFlex="100%">
+                <h3>Students#</h3>
+              </div>
+            </div>
+            <div fxLayout="row">
+              <div fxFlex="50%" fxLayoutAlign="left center">
+                <img src="assets/images/classroom.svg" width="60px"/>
+              </div>
+              <div fxFlex="50%" fxLayoutAlign="center center">
+                <h1>{{studentCount}}</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+    <div class="margin-top-15"></div>
+    <div fxLayout="row">
+      <mat-card fxFlex="100%">
+        <div fxFlex="100%">
+          <div fxLayout="row">
+            <div fxFlex="100%">
+              <h3>Professionals#</h3>
+            </div>
+          </div>
+          <div fxLayout="row">
+            <div fxFlex="50%" fxLayoutAlign="left center">
+              <img src="assets/images/portfolio.svg" width="60px"/>
+            </div>
+            <div fxFlex="50%" fxLayoutAlign="center center">
+              <h1>{{professionalCount}}</h1>
+            </div>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+  </mat-card>
+</div>
+<div class="margin-top-15"></div>
+<div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutGap="1%" fxLayoutGap.xs="5%" fxLayoutGap.sm="5%" data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-duration="1000" style="padding-left: 20px; padding-right: 25px">
+  <mat-card fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="100%">
+    <div fxLayout="row">
+      <div fxFlex="100%">
+        <h3 style="margin-top: 5px">States#</h3>
+      </div>
+    </div>
+    <div fxLayout="row" *ngFor="let state of stateCountData">
+      <div fxFlex="30%" fxLayoutAlign="left center">
+        <h4 style="margin-top: 5px;margin-bottom: 5px; color: gray">{{state.stateName}}</h4>
+      </div>
+      <div fxFlex="20%" fxLayoutAlign="left center">
+        <h3 style="margin-top: 5px;margin-bottom: 5px">{{state.countData}}</h3>
+      </div>
+    </div>
+  </mat-card>
+  <mat-card fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="100%">
+    <div fxLayout="row">
+      <div fxFlex="100%">
+        <h3 style="margin-top: 5px">Feedbacks</h3>
+      </div>
+    </div>
+    <div fxLayout="row" *ngFor="let data of this.coreDataService.feedbacks; let i = index" fxLayoutGap="1%">
+      <div fxFlex="70%" fxLayoutAlign="left center">
+        <h5 style="margin-top: 5px;margin-bottom: 5px; color: gray" *ngIf="data.feedback != null">{{data.feedback}}</h5>
+        <h5 style="margin-top: 5px;margin-bottom: 5px; color: gray" *ngIf="data.feedback == null">No Feedback was given</h5>
+      </div>
+      <div fxFlex="30%" fxLayoutAlign="left center">
+        <h4 style="margin-top: 5px;margin-bottom: 5px">{{data.stars + ' Stars'}}</h4>
+      </div>
+    </div>
+  </mat-card>
+</div>
+<div class="margin-top-15"></div>
