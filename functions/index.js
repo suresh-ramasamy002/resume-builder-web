@@ -1,7 +1,7 @@
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
- const stripe = require('stripe')('sk_test_51HaFOGAqOUzmy33nQjGc2SvPVmPfhSKfvxGQrAIN3AMzlecKxJR6cSRyXeW0EaUojZzcTusbRQhWm8iN2ISUmNpe00YAuZeyob');
-// const stripe = require('stripe')('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');
+// const stripe = require('stripe')('sk_test_51HaFOGAqOUzmy33nQjGc2SvPVmPfhSKfvxGQrAIN3AMzlecKxJR6cSRyXeW0EaUojZzcTusbRQhWm8iN2ISUmNpe00YAuZeyob');
+   const stripe = require('stripe')('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');
 admin.initializeApp(functions.config().firebase);
 exports.stripeChargeCall =  functions.https.onCall(async (data, context) => {
   try {

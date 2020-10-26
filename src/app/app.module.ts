@@ -79,6 +79,9 @@ import { TemplateThreeComponent } from './components/template-files/template-thr
 import { PdfViewerComponent } from './components/pdf-viewer/pdf-viewer.component';
 import { IntroductionComponent } from './pages/introduction/introduction.component';
 import { TemplateFourComponent } from './components/template-files/template-four/template-four.component';
+import { TemplateFiveComponent } from './components/template-files/template-five/template-five.component';
+import { TemplateSixComponent } from './components/template-files/template-six/template-six.component';
+import { TemplateSevenComponent } from './components/template-files/template-seven/template-seven.component';
 // import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 // import { PdfJsViewerModule } from 'ng2-pdfjs-viewer';
 @NgModule({
@@ -105,7 +108,10 @@ import { TemplateFourComponent } from './components/template-files/template-four
     TemplateThreeComponent,
     PdfViewerComponent,
     IntroductionComponent,
-    TemplateFourComponent
+    TemplateFourComponent,
+    TemplateFiveComponent,
+    TemplateSixComponent,
+    TemplateSevenComponent
   ],
   imports: [
     HttpClientModule,

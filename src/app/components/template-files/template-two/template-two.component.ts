@@ -35,6 +35,8 @@ ngOnChanges(changes: SimpleChanges) {
       break;
       case '#353f58': color = '#FFFFFF';
       break;
+      case '#414141': color = '#FFFFFF';
+      break;
     }
     return color;
   }

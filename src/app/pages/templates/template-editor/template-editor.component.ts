@@ -33,7 +33,7 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
   private PDF_EXTENSION = '.pdf';
    @ViewChild('templateFile') template: ElementRef;
    public themeColor =  [];
-   public fontFamily = ['Arial', 'Arial Narrow', 'Book Antiqua', 'Calibri', 'Cambria', 'Didot', 'Garamond',  'Times New Roman', 'Trebuchet MS', 'Verdana'];
+   public fontFamily = ['Arial', 'Book Antiqua', 'Calibri', 'Cambria', 'Didot', 'Garamond', 'Georgia', 'Helvetica', 'Times New Roman', 'Trebuchet MS', 'Verdana'];
   constructor(public coreDataService: CoreDataService, private auth: AuthService, private sanitizer: DomSanitizer, private userService: UserService, public dialog: MatDialog) {
 
   }
@@ -67,13 +67,14 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
         break;
       case 'template-two': this.themeColor = [
         { name: 'Blue', value: '#353f58' },
+        { name: 'Brown', value: '#414141' },
         { name: 'Grey', value: '#f3f3f3' },
         { name: 'Black', value: '#292929' }];
         break;
       case 'template-three': this.themeColor = [
         { name: 'Blue', value: '#353f58' },
         { name: 'Blue Grey', value: '#607D8B'},
-        { name: 'Brown', value: '#795548' },
+        { name: 'Brown', value: '#414141' },
         { name: 'Black', value: '#292929' }];
         break;
       case 'template-four': this.themeColor = [
@@ -81,8 +82,28 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
         { name: 'Blue Grey', value: '#607D8B'},
         { name: 'Black', value: '#292929' }];
         break;
+      case 'template-five': this.themeColor = [
+        { name: 'Black', value: '#292929' }];
+        break;
+      case 'template-six': this.themeColor = [
+        { name: 'Blue', value: '#353f58' },
+        { name: 'Blue Grey', value: '#607D8B' },
+        { name: 'Black', value: '#292929' }];
+        break;
     }
     return this.themeColor;
+  }
+  setTickColor(colorVal) {
+    let color = '#292929';
+   switch(colorVal) {
+     case '#292929': color = '#ffffff';
+     break;
+     case '#353f58': color = '#ffffff';
+     break;
+     case '#414141': color = '#ffffff';
+       break;
+    }
+    return color;
   }
   ngOnDestroy() {
     this.coreDataService.templateData.image = null;
@@ -102,7 +123,7 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
     });
   }
   exportToPdf() {
-    if (this.coreDataService.userDetails.role.toLowerCase() !== 'admin' || this.coreDataService.userDetails.role.toLowerCase() !== 'co-admin') {
+    if (this.coreDataService.userDetails.role !== 'PRO_ADMIN_1' && this.coreDataService.userDetails.role !== 'CO_ADMIN_1') {
       let dialogRef = this.dialog.open(DownloadWarningDialogComponent, {
         width: '400px'
       });
@@ -129,12 +150,15 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
       }};
     html2pdf().from(document.getElementById(element)).set(opt).save().then((e) => {
       this.coreDataService.showSpinner = false;
-      this.openFeedbackDialog();
+      if (this.coreDataService.userDetails.role !== 'PRO_ADMIN_1' && this.coreDataService.userDetails.role !== 'CO_ADMIN_1') {
+        this.openFeedbackDialog();
+      }
     });
   }
   openFeedbackDialog() {
     let dialogRef = this.dialog.open(FeedbackFormComponent, {
-      width: '350px'
+      width: '350px',
+      data: {selectedTemplate: this.coreDataService.selectedTemplate, price: 15}
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
@@ -207,7 +231,7 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
     this.coreDataService.templateData.certificates.splice(i, 1);
   }
   addAwards() {
-    this.coreDataService.templateData.honorAwardInfo.push({year: 'Year', award:'Sample awards\'s'});
+    this.coreDataService.templateData.honorAwardInfo.push({year: 'Year', award: 'Sample awards\'s'});
   }
   deleteAwards(i) {
     this.coreDataService.templateData.honorAwardInfo.splice(i, 1);

@@ -6,6 +6,7 @@ import {EnrollUserDetails} from '../class/api-model/request';
 import {BehaviorSubject, Observable} from 'rxjs';
 import * as firebase from 'firebase/app';
 import {CoreDataService} from './core-data.service';
+import {AdminUserData} from '../class/api-model/response';
 @Injectable({
   providedIn: 'root'
 })
@@ -13,6 +14,8 @@ export class AuthService {
   private authState: any = null;
   private newUser: EnrollUserDetails = null;
   private evtAuthErr = new BehaviorSubject<string>('');
+  private userDataId = 'o995EnHR9ukYfLlnRw79';
+  private userDataArray = [];
   evtAuthErr$ = this.evtAuthErr.asObservable();
 
   constructor(private afu: AngularFireAuth, private db: AngularFirestore, private router: Router, private coreDataService: CoreDataService) {
@@ -22,6 +25,7 @@ export class AuthService {
   }
   createNewUser(userDetails: EnrollUserDetails) {
     this.coreDataService.showSpinner = true;
+    this.getAdminUserDetails();
     this.afu.createUserWithEmailAndPassword(userDetails.email, userDetails.password)
       .then(userCredential => {
            userCredential.user.sendEmailVerification();
@@ -42,6 +46,7 @@ export class AuthService {
   }
 
   insertUserData(user: firebase.User) {
+    this.getAndSetUserData(user);
     return this.db.doc('/users/' + user.uid).set({
       email: this.newUser.email,
       firstName: this.newUser.firstName,
@@ -62,6 +67,24 @@ export class AuthService {
         this.coreDataService.showSpinner = false;
         this.evtAuthErr.next(error);
       });
+  }
+  getAndSetUserData(user: firebase.User) {
+    this.userDataArray.push({
+      email: this.newUser.email,
+      firstName: this.newUser.firstName,
+      lastName: this.newUser.lastName,
+      city: this.newUser.city,
+      state: this.newUser.state,
+      role: this.newUser.role
+    });
+    return this.db.doc('/accessUserDetails/' + this.userDataId).set({
+      userData: this.userDataArray
+    });
+  }
+  getAdminUserDetails() {
+    this.db.collection('accessUserDetails').doc(this.userDataId).valueChanges().subscribe((res: AdminUserData) => {
+      this.userDataArray = res.userData;
+    });
   }
   getUserData(uid) {
     this.db.collection('users').doc(uid).valueChanges().subscribe((res: EnrollUserDetails) => {
