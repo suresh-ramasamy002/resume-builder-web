@@ -188,7 +188,7 @@
             <div fxFlex="100%" class="history-tl-container">
               <ul class="tl">
                 <li class="tl-item" ng-repeat="item in retailer_history"  *ngFor="let companyInfo of coreDataService.templateData.companyInfo; let i = index">
-                  <div class="timestamp">
+                  <div class="timestamp" style="left:-150px">
                     <label contenteditable="true" spellcheck="true" #year [textContent]="coreDataService.templateData.companyInfo[i].workFromTo" (blur)="coreDataService.templateData.companyInfo[i].workFromTo = year.innerText" [ngStyle]="{'font-size': (coreDataService.templateData.normalSize-2)+'px', 'font-family': coreDataService.templateData.fontFamily}" class="font-size-15">{{companyInfo.workFromTo}}</label>
                   </div>
                   <label contenteditable="true" spellcheck="true" #crole [textContent]="coreDataService.templateData.companyInfo[i].role" (blur)="coreDataService.templateData.companyInfo[i].role = crole.innerText" [ngStyle]="{'font-size': coreDataService.templateData.normalSize+'px', 'font-family': coreDataService.templateData.fontFamily}" class="font-weight-bold">{{companyInfo.role}}</label><br/>
@@ -215,7 +215,7 @@
             <div fxFlex="100%" class="history-tl-container">
               <ul class="tl">
                 <li class="tl-item" ng-repeat="item in retailer_history" *ngFor="let certifiInfo of coreDataService.templateData.certificates; let i = index" style="margin-left: 80px">
-                  <div class="timestamp">
+                  <div class="timestamp" style="left: -94px">
                     <label contenteditable="true" spellcheck="true" #cfyear [textContent]="coreDataService.templateData.certificates[i].year" (blur)="coreDataService.templateData.certificates[i].year = cfyear.innerText" [ngStyle]="{'font-size': (coreDataService.templateData.normalSize -2)+'px', 'font-family': coreDataService.templateData.fontFamily}" style="margin-left: 15px;" class="font-size-15">{{certifiInfo.year}}</label>&nbsp;&nbsp;
                   </div>
                   <label contenteditable="true" spellcheck="true" #cfname [textContent]="coreDataService.templateData.certificates[i].certificateName" (blur)="coreDataService.templateData.certificates[i].certificateName = cfname.innerText" [ngStyle]="{'font-size': coreDataService.templateData.normalSize+'px', 'font-family': coreDataService.templateData.fontFamily}" maxlength="50">{{certifiInfo.certificateName}}</label><br/>

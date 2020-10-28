@@ -160,8 +160,8 @@
     </div>
     <div style="height: 300px;overflow: scroll">
     <div fxLayout="row" *ngFor="let state of stateCountData">
-      <div fxFlex="30%" fxLayoutAlign="left center">
-        <h4 style="margin-top: 5px;margin-bottom: 5px; color: gray">{{state.stateName}}</h4>
+      <div fxFlex="50%" fxLayoutAlign="left center">
+        <h4 style="margin-top: 5px;margin-bottom: 5px; color: gray">{{state.stateName.toUpperCase()}}</h4>
       </div>
       <div fxFlex="20%" fxLayoutAlign="left center">
         <h3 style="margin-top: 5px;margin-bottom: 5px">{{state.countData}}</h3>

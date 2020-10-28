@@ -29,7 +29,7 @@ export class AdminDashboardComponent implements OnInit {
         this.revenueAmount += Number(feedback.price);
       });
       this.coreDataService.userDetailsArr.forEach(user => {
-        this.stateSet.add(user.state);
+        this.stateSet.add(user.state.replace(' ', '').toLowerCase());
         this.roleSet.add(user.role);
         if (user.role == 'Student') {
           this.studentCount++;
@@ -40,7 +40,7 @@ export class AdminDashboardComponent implements OnInit {
       this.stateSet.forEach(stateData => {
         let count = 0;
         this.coreDataService.userDetailsArr.forEach(userData => {
-          if (stateData === userData.state) {
+          if (stateData === userData.state.replace(' ', '').toLowerCase()) {
             count++;
           }
         });

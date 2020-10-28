@@ -46,7 +46,7 @@ export class UserService {
         workFromTo: 'From - To/Present',
         companyName: 'NAME OF YOUR COMPANY',
         role: 'Job position',
-        details: ['Job\'s experience detail']
+        details: ['Job\'s professional history, key experience and achievements']
       }];
       const eduInfoData: Array<EduInfo> = [{
         yearFromTo: 'From - To/Present',
@@ -64,7 +64,7 @@ export class UserService {
       const interestedData = ['Interest 1'];
       const addnInfoData = ['Sample additional info'];
       const refernceData = ['Reference\'s content'];
-      const certificateData: Array<Certifications> = [{certificateName: 'Sample certification\'s title', year: 'year'}];
+      const certificateData: Array<Certifications> = [{certificateName: 'Areas of certification relevant to the position', year: 'year'}];
       const activityInfoData: Array<ActivitiesInfo> = [new ActivitiesInfo({place: 'ACTIVITY ORGANIZATION', role: 'Sample position', year: 'year', summary: ['Sample activities description']})];
       this.storeTemplateData = new TemplateCoreObj({
         image: null,

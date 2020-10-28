@@ -4,7 +4,7 @@
     <div>
       <div fxLayout="row">
         <div fxFlex="30%" [ngStyle]="{'background': coreDataService.templateData.templateTheme, 'height':pageHeight}" style="padding-top: 10px">
-          <div fxLayout="row" style="padding-top: 10px">
+          <div fxLayout="row" style="padding-top: 15px">
             <div fxFlex="100%" class="padding-left-10">
               <label #title [textContent]="coreDataService.templateData.title" (blur)="coreDataService.templateData.title = title.innerText" contenteditable="true" spellcheck="true" [ngStyle]="{'font-size': coreDataService.templateData.titleSize+'px', 'color': setTextColor(coreDataService.templateData.templateTheme), 'font-family': coreDataService.templateData.fontFamily}">{{coreDataService.templateData.title}}</label>
             </div>
@@ -140,7 +140,7 @@
             </div>
           </div>
         </div>
-        <div fxFlex="68%" style="padding-top: 15px">
+        <div fxFlex="68%" style="padding-top: 24px">
           <div fxLayout="row" *ngIf="coreDataService.templateData.objective">
             <div fxFlex="98%" style="margin-left:15px;">
               <label #objectiveMsg [textContent]="coreDataService.templateData.objectiveMsg" (blur)="coreDataService.templateData.objectiveMsg = objectiveMsg.innerText"  contenteditable="true" spellcheck="true" [ngStyle]="{'font-size': (coreDataService.templateData.normalSize-0.5)+'px', 'font-family': coreDataService.templateData.fontFamily}" class="line-height-20">{{coreDataService.templateData.objectiveMsg}}</label>

@@ -226,13 +226,13 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
     }
   }
   addWorkExperience() {
-    this.coreDataService.templateData.companyInfo.push({companyName: 'NAME OF YOUR COMPANY', workFromTo: 'From - To date/present', role: 'Job position', details: ['Job\'s experience detail']});
+    this.coreDataService.templateData.companyInfo.push({companyName: 'NAME OF YOUR COMPANY', workFromTo: 'From - To date/present', role: 'Job position', details: ['Job\'s professional history, key experience and achievements']});
   }
   deleteCompanyInfo(i) {
     this.coreDataService.templateData.companyInfo.splice(i, 1);
   }
   addAcheivement(i) {
-    this.coreDataService.templateData.companyInfo[i].details.push('Job\'s experience detail');
+    this.coreDataService.templateData.companyInfo[i].details.push('Job\'s professional history, key experience and achievements');
   }
   deleteAcheivement(i, j) {
     this.coreDataService.templateData.companyInfo[i].details.splice(j, 1);
@@ -244,7 +244,7 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
     this.coreDataService.templateData.educationInfo.splice(i, 1);
   }
   addCerficates() {
-    this.coreDataService.templateData.certificates.push({certificateName: 'Sample certification\'s title', year: 'Year'});
+    this.coreDataService.templateData.certificates.push({certificateName: 'Areas of certification relevant to the position', year: 'Year'});
   }
   deleteCerficates(i) {
     this.coreDataService.templateData.certificates.splice(i, 1);
@@ -312,7 +312,7 @@ sanitizeUrl(url) {
 verifyPdfFile(selectedElement) {
       let opt = {
         margin: 0,
-        image: {type: 'png', quality: 0.99},
+        image: {type: 'jpeg', quality: 0.99},
         html2canvas: {dpi: 192, letterRendering: true},
         jsPDF: {unit: 'pt', format: 'letter', orientation: 'portrait'}
       };
