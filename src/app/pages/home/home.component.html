@@ -1,14 +1,14 @@
- <mat-toolbar class="navbar-bg" data-aos="zoom-up" data-aos-easing="ease-out-cubic" data-aos-duration="1200">
-    <mat-toolbar-row>
+<mat-toolbar class="navbar-bg" data-aos="zoom-up" data-aos-easing="ease-out-cubic" data-aos-duration="1200">
+    <mat-toolbar-row style="padding-left:0px">
       <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
        <i class="fa fa-bars"></i>
       </button>
       <span data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="1500"><img src="assets/images/business-logo-page.png" width="240px"/></span>
       <span class="menu-spacer"></span>
       <div fxShow="true" fxHide.lt-md *ngIf="coreDataService?.userDetails?.firstName">
-        <a mat-button *ngIf="coreDataService.userDetails.role == 'PRO_ADMIN_1'" mat-button [routerLink]="'/adminDashboard_protect*1_!2000128846628812'" class="color-white font-size-15">Admin Dashboard</a>
-        <a mat-button (click)="logoutUser()" class="font-size-15 color-white">Logout</a>&nbsp;
-        <label style="font-size:14px" class="color-white">Hello {{coreDataService.userDetails.firstName}}</label>
+        <a mat-button *ngIf="coreDataService.userDetails.role == 'PRO_ADMIN_1'" mat-button [routerLink]="'/adminDashboard_protect*1_!2000128846628812'" class="font-size-15">Admin Dashboard</a>
+        <a mat-button (click)="logoutUser()" class="font-size-15">Logout</a>&nbsp;
+        <label style="font-size:14px">Hello {{coreDataService.userDetails.firstName + ' ' + coreDataService.userDetails.lastName}}</label>
       </div>
     </mat-toolbar-row>
   </mat-toolbar>
@@ -24,6 +24,17 @@
     </mat-sidenav-content>
   </mat-sidenav-container>
  <div style="margin-top: 80px"></div>
+<div fxLayout="row">
+  <div fxFlex="100%" fxLayoutAlign="center">
+    <h1 style="margin-bottom: 0px">Resume Templates</h1>
+  </div>
+</div>
+<div fxLayout="row">
+  <div fxFlex="100%" fxLayoutAlign="center">
+    <h4 class="label-left-color">Choose your CV template, fill it out, and Export. Create and download your professional resume in a few minutes</h4>
+  </div>
+</div>
+
  <div fxLayout="row" fxLayoutGap="1%" fxLayout.xs="column" fxLayout.sm="column">
    <div fxFlex="1%"></div>
    <div fxFlex="23%" fxFlex.xs="100%" fxFlex.sm="100%">
@@ -32,14 +43,23 @@
          <div class="container">
            <img class="cr-pointer image" src="assets/images/template-images/template-one.png">
            <div class="middle">
-             <div class="text" (click)="selectedTemplate('template-one', '#292929')">Use this template</div>
+             <div class="text" (click)="selectedTemplate('template-one', '#343b46')">Use this template</div>
            </div>
          </div>
        </mat-card>
      </div>
      <div fxLayout="row" class="margin-top-15" data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="1200">
-       <div fxFlex="100%" fxLayoutAlign="center">
-         <label>Basic</label>
+       <div fxFlex="100%">
+         <div fxLayout="row">
+           <div fxFlex="100%"  fxLayoutAlign="center">
+             <label class="template-name"><i>Basic</i></label>
+           </div>
+         </div>
+         <div fxLayout="row">
+           <div fxFlex="100%"  fxLayoutAlign="center">
+             <label class="price-ribbon blink-soft">Free</label>
+           </div>
+         </div>
        </div>
      </div>
    </div>
@@ -55,8 +75,17 @@
        </mat-card>
      </div>
      <div fxLayout="row" class="margin-top-15" data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="1200">
-       <div fxFlex="100%" fxLayoutAlign="center">
-         <label>Clean</label>
+       <div fxFlex="100%">
+         <div fxLayout="row">
+           <div fxFlex="100%"  fxLayoutAlign="center">
+             <label class="template-name"><i>Clean</i></label>
+           </div>
+         </div>
+         <div fxLayout="row">
+           <div fxFlex="100%"  fxLayoutAlign="center">
+             <label class="price-ribbon blink-soft">Free</label>
+           </div>
+         </div>
        </div>
      </div>
    </div>
@@ -72,8 +101,17 @@
        </mat-card>
      </div>
      <div fxLayout="row" class="margin-top-15" data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="1200">
-       <div fxFlex="100%" fxLayoutAlign="center">
-         <label>Corporate</label>
+       <div fxFlex="100%">
+         <div fxLayout="row">
+           <div fxFlex="100%"  fxLayoutAlign="center">
+             <label class="template-name"><i>Corporate</i></label>
+           </div>
+         </div>
+         <div fxLayout="row">
+           <div fxFlex="100%"  fxLayoutAlign="center">
+             <label class="price-ribbon blink-soft"><i class="fa fa-rupee"></i>15</label>
+           </div>
+         </div>
        </div>
      </div>
    </div>
@@ -89,8 +127,17 @@
        </mat-card>
      </div>
      <div fxLayout="row" class="margin-top-15" data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="1200">
-       <div fxFlex="100%" fxLayoutAlign="center">
-         <label>Simple</label>
+       <div fxFlex="100%">
+         <div fxLayout="row">
+           <div fxFlex="100%"  fxLayoutAlign="center">
+             <label class="template-name"><i>Simple</i></label>
+           </div>
+         </div>
+         <div fxLayout="row">
+           <div fxFlex="100%"  fxLayoutAlign="center">
+             <label class="price-ribbon blink-soft">Free</label>
+           </div>
+         </div>
        </div>
      </div>
    </div>
@@ -104,14 +151,23 @@
          <div class="container">
            <img class="cr-pointer image" src="assets/images/template-images/template-five.png">
            <div class="middle">
-             <div class="text" (click)="selectedTemplate('template-five', '#292929')">Use this template</div>
+             <div class="text" (click)="selectedTemplate('template-five', '#343b46')">Use this template</div>
            </div>
          </div>
        </mat-card>
      </div>
      <div fxLayout="row" class="margin-top-15" data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="1200">
-       <div fxFlex="100%" fxLayoutAlign="center">
-         <label>Knowledgeable</label>
+       <div fxFlex="100%">
+         <div fxLayout="row">
+           <div fxFlex="100%"  fxLayoutAlign="center">
+             <label class="template-name"><i>Knowledgeable</i></label>
+           </div>
+         </div>
+         <div fxLayout="row">
+           <div fxFlex="100%"  fxLayoutAlign="center">
+             <label class="price-ribbon blink-soft"><i class="fa fa-rupee"></i>15</label>
+           </div>
+         </div>
        </div>
      </div>
    </div>
@@ -121,16 +177,77 @@
          <div class="container">
            <img class="cr-pointer image" src="assets/images/template-images/template-six.png">
            <div class="middle">
-             <div class="text" (click)="selectedTemplate('template-six', '#292929')">Use this template</div>
+             <div class="text" (click)="selectedTemplate('template-six', '#343b46')">Use this template</div>
            </div>
          </div>
        </mat-card>
      </div>
      <div fxLayout="row" class="margin-top-15" data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="1200">
-       <div fxFlex="100%" fxLayoutAlign="center">
-         <label>Insightful</label>
+       <div fxFlex="100%">
+         <div fxLayout="row">
+           <div fxFlex="100%" fxLayoutAlign="center">
+             <label class="template-name"><i>Insightful</i></label>
+           </div>
+         </div>
+         <div fxLayout="row">
+           <div fxFlex="100%" fxLayoutAlign="center">
+             <label class="price-ribbon blink-soft"><i class="fa fa-rupee"></i>15</label>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+   <div fxFlex="23%" fxFlex.xs="100%" fxFlex.sm="100%">
+     <div fxLayout="row" data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
+       <mat-card fxFlex="100%" class="padding-0 mat-card-shadow">
+         <div class="container">
+           <img class="cr-pointer image" src="assets/images/template-images/template-seven.png">
+           <div class="middle">
+             <div class="text" (click)="selectedTemplate('template-seven', '#414141')">Use this template</div>
+           </div>
+         </div>
+       </mat-card>
+     </div>
+     <div fxLayout="row" class="margin-top-15" data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="1200">
+       <div fxFlex="100%">
+         <div fxLayout="row">
+           <div fxFlex="100%" fxLayoutAlign="center">
+             <label class="template-name"><i>Timeline Clean</i></label>
+           </div>
+         </div>
+         <div fxLayout="row">
+           <div fxFlex="100%" fxLayoutAlign="center">
+             <label class="price-ribbon blink-soft"><i class="fa fa-rupee"></i>15</label>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+   <div fxFlex="23%" fxFlex.xs="100%" fxFlex.sm="100%">
+     <div fxLayout="row" data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
+       <mat-card fxFlex="100%" class="padding-0 mat-card-shadow">
+         <div class="container">
+           <img class="cr-pointer image" src="assets/images/template-images/template-eight.png">
+           <div class="middle">
+             <div class="text" (click)="selectedTemplate('template-seven', '#343b46')">Use this template</div>
+           </div>
+         </div>
+       </mat-card>
+     </div>
+     <div fxLayout="row" class="margin-top-15" data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="1200">
+       <div fxFlex="100%">
+         <div fxLayout="row">
+           <div fxFlex="100%" fxLayoutAlign="center">
+             <label class="template-name"><i>Professional</i></label>
+           </div>
+         </div>
+         <div fxLayout="row">
+           <div fxFlex="100%" fxLayoutAlign="center">
+             <label class="price-ribbon blink-soft"><i class="fa fa-rupee"></i>15</label>
+           </div>
+         </div>
        </div>
      </div>
    </div>
  </div>
-<div style="margin-bottom: 250px"></div>
+<div style="margin-bottom: 200px"></div>

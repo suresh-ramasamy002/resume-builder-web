@@ -31,7 +31,7 @@ ngOnChanges(changes: SimpleChanges) {
   setTextColor(bgColor) {
     let color = '#292929';
     switch (bgColor) {
-      case '#292929': color = '#FFFFFF';
+      case '#343b46': color = '#FFFFFF';
       break;
       case '#353f58': color = '#FFFFFF';
       break;

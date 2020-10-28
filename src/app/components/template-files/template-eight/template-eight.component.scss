@@ -1,0 +1,135 @@
+input[type="range"] {
+  margin: auto;
+  -webkit-appearance: none;
+  position: relative;
+  overflow: hidden;
+  height: 10px;
+  width: 100%;
+  cursor: pointer;
+  border: none;
+  outline: 0;
+  border-radius: 0; /* iOS */
+}
+mat-slider[type="range"] {
+  margin: auto;
+  -webkit-appearance: none;
+  position: relative;
+  overflow: hidden;
+  height: 10px;
+  width: 100%;
+  cursor: pointer;
+  border: none;
+  outline: 0;
+  border-radius: 0; /* iOS */
+}
+::-webkit-slider-runnable-track {
+  background: #20252f;
+}
+
+/*
+ * 1. Set to 0 width and remove border for a slider without a thumb
+ */
+::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px; /* 1 */
+  height: 10px;
+  background: #fff;
+  box-shadow: -100vw 0 0 100vw white;
+  border: none; /* 1 */
+}
+
+::-moz-range-track {
+  height: 12px;
+  background: #20252f;
+}
+
+::-moz-range-thumb {
+  background: #fff;
+  height: 10px;
+  width: 20px;
+  border: none;
+  border-radius: 0 !important;
+  box-shadow: none;
+  box-sizing: border-box;
+}
+
+::-ms-fill-lower {
+  background: white;
+}
+
+::-ms-thumb {
+  background: #fff;
+  border: none;
+  height: 10px;
+  width: 20px;
+  box-sizing: border-box;
+}
+
+::-ms-ticks-after {
+  display: none;
+}
+
+::-ms-ticks-before {
+  display: none;
+}
+
+::-ms-track {
+  background: #20252f;
+  color: transparent;
+  height: 10px;
+  border: none;
+}
+
+::-ms-tooltip {
+  display: none;
+}
+.padding-left-10{
+  padding-left: 10px;
+}
+.font-size-12{
+  font-size: 12px;
+}
+input{
+  background: #20252f;
+}
+.star-rating {
+  display:flex;
+  flex-direction: row-reverse;
+  font-size:1.7em;
+  text-align:center;
+  width: 50%;
+  margin-top: 8px;
+  margin-left: 6px;
+  line-height: 0;
+  transform: scale(2.7, 1);
+}
+
+.star-rating input {
+  display:none;
+}
+
+.star-rating label {
+  color:#20252f;
+  cursor:pointer;
+}
+
+.star-rating :checked ~ label {
+  color:#ffffff;
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+  color: #ffffff;
+}
+.div-border-top{
+  border-top: 0.5px solid #c3c3c3;
+  margin-top: 15px;
+  margin-bottom: 8px;
+  margin-left: 10px;
+}
+
+.div-border-bottom{
+  border-top: 0.5px solid #c3c3c3;
+  margin-top: 8px;
+  margin-left: 10px;
+}

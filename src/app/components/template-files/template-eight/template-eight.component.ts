@@ -3,18 +3,16 @@ import {CoreDataService} from '../../../services/core-data.service';
 import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-template-four',
-  templateUrl: './template-four.component.html',
-  styleUrls: ['./template-four.component.scss']
+  selector: 'app-template-eight',
+  templateUrl: './template-eight.component.html',
+  styleUrls: ['./template-eight.component.scss']
 })
-export class TemplateFourComponent implements OnInit {
+export class TemplateEightComponent implements OnInit {
   @Input() pageType: string;
   @Input() isImageNeeded: boolean;
   pageHeight: string;
-
-  constructor(public coreDataService: CoreDataService, private sanitizer: DomSanitizer) {
+  constructor(public coreDataService: CoreDataService , private sanitizer: DomSanitizer) {
   }
-
   ngOnChanges(changes: SimpleChanges) {
     if (this.pageType === 'single') {
       this.pageHeight = '27.9cm';
@@ -30,15 +28,14 @@ export class TemplateFourComponent implements OnInit {
       this.pageHeight = '55.8cm';
     }
   }
-
   setTextColor(bgColor) {
     let color = '#292929';
     switch (bgColor) {
-      case '#343b46':
-        color = '#FFFFFF';
+      case '#343b46': color = '#FFFFFF';
         break;
-      case '#353f58':
-        color = '#FFFFFF';
+      case '#353f58': color = '#FFFFFF';
+        break;
+      case '#414141': color = '#FFFFFF';
         break;
     }
     return color;

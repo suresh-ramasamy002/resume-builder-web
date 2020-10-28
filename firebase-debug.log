@@ -1,175 +1,116 @@
-[debug] [2020-10-26T16:27:42.359Z] ----------------------------------------------------------------------
-[debug] [2020-10-26T16:27:42.361Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
-[debug] [2020-10-26T16:27:42.361Z] CLI Version:   8.13.1
-[debug] [2020-10-26T16:27:42.361Z] Platform:      darwin
-[debug] [2020-10-26T16:27:42.362Z] Node Version:  v12.18.3
-[debug] [2020-10-26T16:27:42.363Z] Time:          Mon Oct 26 2020 21:57:42 GMT+0530 (India Standard Time)
-[debug] [2020-10-26T16:27:42.363Z] ----------------------------------------------------------------------
-[debug] [2020-10-26T16:27:42.363Z] 
-[debug] [2020-10-26T16:27:42.369Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2020-10-26T16:27:42.370Z] > authorizing via signed-in user
-[debug] [2020-10-26T16:27:42.370Z] [iam] checking project fir-resume-builder for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update"]
-[debug] [2020-10-26T16:27:42.373Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/fir-resume-builder:testIamPermissions  
- {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update"]}
-[debug] [2020-10-26T16:27:43.763Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 26 Oct 2020 16:27:43 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=1142","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
-[debug] [2020-10-26T16:27:43.765Z] >>> HTTP REQUEST POST https://iam.googleapis.com/v1/projects/fir-resume-builder/serviceAccounts/fir-resume-builder@appspot.gserviceaccount.com:testIamPermissions  
- {"permissions":["iam.serviceAccounts.actAs"]}
-[debug] [2020-10-26T16:27:45.776Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 26 Oct 2020 16:27:45 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
-[debug] [2020-10-26T16:27:45.777Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/fir-resume-builder  
- 
-[debug] [2020-10-26T16:27:46.315Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 26 Oct 2020 16:27:46 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
-[debug] [2020-10-26T16:27:46.316Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/fir-resume-builder  
- 
-[debug] [2020-10-26T16:27:46.763Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 26 Oct 2020 16:27:46 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-10-28T04:22:41.149Z] ----------------------------------------------------------------------
+[debug] [2020-10-28T04:22:41.151Z] Command:       /usr/local/bin/node /usr/local/bin/firebase init
+[debug] [2020-10-28T04:22:41.151Z] CLI Version:   8.14.1
+[debug] [2020-10-28T04:22:41.151Z] Platform:      darwin
+[debug] [2020-10-28T04:22:41.151Z] Node Version:  v12.18.3
+[debug] [2020-10-28T04:22:41.152Z] Time:          Wed Oct 28 2020 09:52:41 GMT+0530 (India Standard Time)
+[debug] [2020-10-28T04:22:41.152Z] ----------------------------------------------------------------------
+[debug] [2020-10-28T04:22:41.152Z] 
+[debug] [2020-10-28T04:22:41.157Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-10-28T04:22:41.157Z] > authorizing via signed-in user
 [info] 
-[info] === Deploying to 'fir-resume-builder'...
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/sureshramasamy/workspace/resume-builder-web
+
+Before we get started, keep in mind:
+
+  * You are initializing in an existing Firebase project directory
+
 [info] 
-[info] i  deploying database, firestore, functions, hosting 
-[info] ✔  functions: Finished running predeploy script. 
-[info] i  database: checking rules syntax... 
-[debug] [2020-10-26T16:27:50.147Z] >>> HTTP REQUEST PUT https://fir-resume-builder.firebaseio.com/.settings/rules.json?dryRun=true  
- {
-  "rules": {
-    ".read": "auth != null",
-    ".write": "auth != null"
-  }
-}
-[debug] [2020-10-26T16:27:51.540Z] <<< HTTP RESPONSE 200 {"server":"nginx","date":"Mon, 26 Oct 2020 16:27:51 GMT","content-type":"application/json; charset=utf-8","content-length":"15","connection":"keep-alive","access-control-allow-origin":"*","cache-control":"no-cache","strict-transport-security":"max-age=31556926; includeSubDomains; preload"}
-[info] ✔  database: rules syntax for database fir-resume-builder is valid 
-[info] i  firestore: reading indexes from firestore.indexes.json... 
-[info] i  cloud.firestore: checking firestore.rules for compilation errors... 
-[debug] [2020-10-26T16:27:51.544Z] >>> HTTP REQUEST POST https://firebaserules.googleapis.com/v1/projects/fir-resume-builder:test  
- {"source":{"files":[{"name":"firestore.rules","content":"service cloud.firestore {\n  match /databases/{database}/documents {\n    match /{document=**} {\n      allow read, write: if true;\n    }\n  }\n}"}]}}
-[debug] [2020-10-26T16:27:53.176Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 26 Oct 2020 16:27:53 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
-[warn] ⚠  [W] undefined:undefined - Ruleset uses old version (version [1]). Please update to the latest version (version [2]). 
-[info] ✔  cloud.firestore: rules file firestore.rules compiled successfully 
-[debug] [2020-10-26T16:27:53.178Z] > [functions] package.json contents: {
-  "name": "functions",
-  "description": "Cloud Functions for Firebase",
-  "scripts": {
-    "lint": "eslint .",
-    "serve": "firebase emulators:start --only functions",
-    "shell": "firebase functions:shell",
-    "start": "npm run shell",
-    "deploy": "firebase deploy --only functions",
-    "logs": "firebase functions:log"
-  },
-  "engines": {
-    "node": "10"
-  },
-  "main": "index.js",
-  "dependencies": {
-    "firebase-admin": "^8.10.0",
-    "firebase-functions": "^3.6.1",
-    "stripe": "^8.113.0"
-  },
-  "devDependencies": {
-    "eslint": "^5.12.0",
-    "eslint-plugin-promise": "^4.0.1",
-    "firebase-functions-test": "^0.2.0"
-  },
-  "private": true
-}
-[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
-[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
-[debug] [2020-10-26T16:27:54.293Z] >>> HTTP REQUEST GET https://serviceusage.googleapis.com/v1/projects/fir-resume-builder/services/cloudfunctions.googleapis.com  
- 
-[debug] [2020-10-26T16:27:54.294Z] >>> HTTP REQUEST GET https://serviceusage.googleapis.com/v1/projects/fir-resume-builder/services/runtimeconfig.googleapis.com  
- 
-[debug] [2020-10-26T16:27:54.294Z] >>> HTTP REQUEST GET https://serviceusage.googleapis.com/v1/projects/fir-resume-builder/services/cloudbuild.googleapis.com  
- 
-[debug] [2020-10-26T16:27:56.152Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 26 Oct 2020 16:27:55 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
-[debug] [2020-10-26T16:27:56.203Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 26 Oct 2020 16:27:55 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
-[info] ✔  functions: required API cloudbuild.googleapis.com is enabled 
-[debug] [2020-10-26T16:27:56.280Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 26 Oct 2020 16:27:55 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
-[info] ✔  functions: required API cloudfunctions.googleapis.com is enabled 
-[debug] [2020-10-26T16:27:56.281Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/fir-resume-builder/adminSdkConfig  
- 
-[debug] [2020-10-26T16:27:57.067Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 26 Oct 2020 16:27:56 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
-[debug] [2020-10-26T16:27:57.069Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/fir-resume-builder/versions  
- {"config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"}}
-[debug] [2020-10-26T16:27:59.547Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 26 Oct 2020 16:27:59 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
-[debug] [2020-10-26T16:27:59.549Z] >>> HTTP REQUEST GET https://firebaserules.googleapis.com/v1/projects/fir-resume-builder/releases?pageSize=10&pageToken=  
- 
-[debug] [2020-10-26T16:27:59.550Z] >>> HTTP REQUEST GET https://firestore.googleapis.com/v1/projects/fir-resume-builder/databases/(default)/collectionGroups/-/indexes  
- 
-[debug] [2020-10-26T16:28:00.242Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 26 Oct 2020 16:28:00 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
-[debug] [2020-10-26T16:28:00.242Z] >>> HTTP REQUEST GET https://firestore.googleapis.com/v1/projects/fir-resume-builder/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false  
- 
-[debug] [2020-10-26T16:28:00.963Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 26 Oct 2020 16:28:00 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
-[info] ✔  firestore: deployed indexes in firestore.indexes.json successfully 
-[debug] [2020-10-26T16:28:01.033Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 26 Oct 2020 16:28:00 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
-[debug] [2020-10-26T16:28:01.034Z] >>> HTTP REQUEST GET https://firebaserules.googleapis.com/v1/projects/fir-resume-builder/rulesets/3a0556fe-fae4-476a-ba01-aa6f86551687  
- 
-[debug] [2020-10-26T16:28:01.778Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 26 Oct 2020 16:28:01 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
-[info] i  firestore: latest version of firestore.rules already up to date, skipping upload... 
-[info] i  functions: preparing functions directory for uploading... 
-[debug] [2020-10-26T16:28:01.779Z] >>> HTTP REQUEST GET https://runtimeconfig.googleapis.com/v1beta1/projects/fir-resume-builder/configs  
- 
-[debug] [2020-10-26T16:28:02.598Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 26 Oct 2020 16:28:02 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
-[debug] [2020-10-26T16:28:02.599Z] >>> HTTP REQUEST GET https://runtimeconfig.googleapis.com/v1beta1/projects/fir-resume-builder/configs/stripe/variables  
- 
-[debug] [2020-10-26T16:28:03.542Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 26 Oct 2020 16:28:03 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
-[debug] [2020-10-26T16:28:03.543Z] >>> HTTP REQUEST GET https://runtimeconfig.googleapis.com/v1beta1/projects/fir-resume-builder/configs/stripe/variables/testkey  
- 
-[debug] [2020-10-26T16:28:04.365Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 26 Oct 2020 16:28:04 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
-[info] i  functions: packaged functions (40.96 KB) for uploading 
-[debug] [2020-10-26T16:28:04.553Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/projects/fir-resume-builder/locations/-/functions  
- 
-[debug] [2020-10-26T16:28:05.977Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 26 Oct 2020 16:28:05 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
-[debug] [2020-10-26T16:28:05.979Z] >>> HTTP REQUEST POST https://cloudfunctions.googleapis.com/v1/projects/fir-resume-builder/locations/us-central1/functions:generateUploadUrl  
- 
-[debug] [2020-10-26T16:28:07.140Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 26 Oct 2020 16:28:07 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
-[debug] [2020-10-26T16:28:07.141Z] >>> HTTP REQUEST PUT https://storage.googleapis.com/gcf-upload-us-central1-188089ff-4f85-440c-bd01-92f67c28658d/ced3e947-31c8-460d-bfe7-af8657a84d1d.zip?GoogleAccessId=service-743787013472@gcf-admin-robot.iam.gserviceaccount.com&Expires=1603731486&Signature=N00mnY0qsOt8VnWVThdSXpGL719EFNQeuBMl5Jrn%2FL3IdIHHyr1jQfMXX0JcDpUhYzpFyxcdRSz2wDckQOhwhEjPi5g9lAKa5FN2VSQfYIeFM%2BEwV89iYGK%2FvnfEN4y9GnPciLVyz9mmkAP67Z18c42JrPLZxqFw3xgFGFDlvHpajwtBHUO1Fic4%2By1WYS2XzhxWKOrNXmnMqyAWdbBQU7DE40OgEiHsePESsrLk9hbJPaZQ3m9sBX8dzsfDuTnydtOgYobZtpecIl019fe6ytVtKtEVKhB5U4zMScfFdsRV6hki%2FAm13prI2Yk3HDfx%2FMC7%2F8sBGoDJFee0Ya81dA%3D%3D  
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[info] i  .firebaserc already has a default project, using fir-resume-builder. 
+[debug] [2020-10-28T04:22:44.324Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-10-28T04:22:44.324Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
  <request body omitted>
-[debug] [2020-10-26T16:28:08.331Z] <<< HTTP RESPONSE 200 {"x-guploader-uploadid":"ABg5-UzNtgPSwhHUkmcv43FZHzl-fFwhnD_CtHNBaY2kSauxHDif7E3etXyvR5cw-gHaDrI9Dcj2gkCDuxlQIfvX2wEUV_2I6w","etag":"\"c9b70e936da97afc3a41f048251a4797\"","x-goog-generation":"1603729688059778","x-goog-metageneration":"1","x-goog-hash":"crc32c=r+f8yA==, md5=ybcOk22pevw6QfBIJRpHlw==","x-goog-stored-content-length":"41944","x-goog-stored-content-encoding":"identity","vary":"Origin","content-length":"0","date":"Mon, 26 Oct 2020 16:28:08 GMT","server":"UploadServer","content-type":"text/html; charset=UTF-8","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\""}
-[info] ✔  functions: functions folder uploaded successfully 
-[info] i  hosting[fir-resume-builder]: beginning deploy... 
-[info] i  hosting[fir-resume-builder]: found 62 files in dist/resume-builder-web 
-[debug] [2020-10-26T16:28:08.517Z] [hosting] hash cache [ZGlzdC9yZXN1bWUtYnVpbGRlci13ZWI] stored for 62 files
-[debug] [2020-10-26T16:28:08.517Z] [hosting][hash queue][FINAL] {"max":166,"min":16,"avg":44.75806451612903,"active":0,"complete":62,"success":62,"errored":0,"retried":0,"total":62,"elapsed":170}
-[debug] [2020-10-26T16:28:08.518Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/fir-resume-builder/versions/34ea1031bb1ec07b:populateFiles  
- <request body omitted>
-[debug] [2020-10-26T16:29:08.925Z] [populateQueue] Retrying task index 0
-[debug] [2020-10-26T16:29:08.925Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/fir-resume-builder/versions/34ea1031bb1ec07b:populateFiles  
- <request body omitted>
-[debug] [2020-10-26T16:29:11.297Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 26 Oct 2020 16:29:11 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
-[debug] [2020-10-26T16:29:11.300Z] [hosting][populate queue][FINAL] {"max":2373,"min":2373,"avg":2373,"active":0,"complete":1,"success":1,"errored":0,"retried":1,"total":1,"elapsed":62785}
-[debug] [2020-10-26T16:29:11.300Z] [hosting] uploads queued: 8
-[debug] [2020-10-26T16:29:41.709Z] [uploadQueue] Retrying task 6827557c54b0df1bb23bdbb27743b44adfd39b9a9e4350bbfacb0fbe30d425b7
-[debug] [2020-10-26T16:29:43.573Z] [hosting][upload queue][FINAL] {"max":5260,"min":1864,"avg":3421.25,"active":0,"complete":8,"success":8,"errored":0,"retried":1,"total":8,"elapsed":32276}
-[info] ✔  hosting[fir-resume-builder]: file upload complete 
-[debug] [2020-10-26T16:29:43.574Z] [hosting] deploy completed after 95242ms
-[info] i  database: releasing rules... 
-[debug] [2020-10-26T16:29:44.091Z] >>> HTTP REQUEST PUT https://fir-resume-builder.firebaseio.com/.settings/rules.json  
- {
-  "rules": {
-    ".read": "auth != null",
-    ".write": "auth != null"
-  }
-}
-[debug] [2020-10-26T16:29:45.008Z] <<< HTTP RESPONSE 200 {"server":"nginx","date":"Mon, 26 Oct 2020 16:29:44 GMT","content-type":"application/json; charset=utf-8","content-length":"15","connection":"keep-alive","access-control-allow-origin":"*","cache-control":"no-cache","strict-transport-security":"max-age=31556926; includeSubDomains; preload"}
-[info] ✔  database: rules for database fir-resume-builder released successfully 
-[debug] [2020-10-26T16:29:45.009Z] [rules] releasing cloud.firestore with ruleset projects/fir-resume-builder/rulesets/3a0556fe-fae4-476a-ba01-aa6f86551687
-[debug] [2020-10-26T16:29:45.009Z] >>> HTTP REQUEST PATCH https://firebaserules.googleapis.com/v1/projects/fir-resume-builder/releases/cloud.firestore  
- {"release":{"name":"projects/fir-resume-builder/releases/cloud.firestore","rulesetName":"projects/fir-resume-builder/rulesets/3a0556fe-fae4-476a-ba01-aa6f86551687"}}
-[debug] [2020-10-26T16:29:46.480Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 26 Oct 2020 16:29:46 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
-[debug] [2020-10-26T16:29:46.480Z] [rules] updated release projects/fir-resume-builder/releases/cloud.firestore
-[info] ✔  firestore: released rules firestore.rules to cloud.firestore 
-[info] i  functions: updating Node.js 10 function stripeChargeCall(us-central1)... 
-[debug] [2020-10-26T16:29:46.485Z] Trigger is:  {"httpsTrigger":{}}
-[debug] [2020-10-26T16:29:46.487Z] >>> HTTP REQUEST PATCH https://cloudfunctions.googleapis.com/v1/projects/fir-resume-builder/locations/us-central1/functions/stripeChargeCall {"updateMask":"sourceUploadUrl,name,labels,runtime,environmentVariables,httpsTrigger"} 
- {"sourceUploadUrl":"https://storage.googleapis.com/gcf-upload-us-central1-188089ff-4f85-440c-bd01-92f67c28658d/ced3e947-31c8-460d-bfe7-af8657a84d1d.zip?GoogleAccessId=service-743787013472@gcf-admin-robot.iam.gserviceaccount.com&Expires=1603731486&Signature=N00mnY0qsOt8VnWVThdSXpGL719EFNQeuBMl5Jrn%2FL3IdIHHyr1jQfMXX0JcDpUhYzpFyxcdRSz2wDckQOhwhEjPi5g9lAKa5FN2VSQfYIeFM%2BEwV89iYGK%2FvnfEN4y9GnPciLVyz9mmkAP67Z18c42JrPLZxqFw3xgFGFDlvHpajwtBHUO1Fic4%2By1WYS2XzhxWKOrNXmnMqyAWdbBQU7DE40OgEiHsePESsrLk9hbJPaZQ3m9sBX8dzsfDuTnydtOgYobZtpecIl019fe6ytVtKtEVKhB5U4zMScfFdsRV6hki%2FAm13prI2Yk3HDfx%2FMC7%2F8sBGoDJFee0Ya81dA%3D%3D","name":"projects/fir-resume-builder/locations/us-central1/functions/stripeChargeCall","labels":{"deployment-tool":"cli-firebase","deployment-callable":"true"},"httpsTrigger":{},"runtime":"nodejs10","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"fir-resume-builder\",\"databaseURL\":\"https://fir-resume-builder.firebaseio.com\",\"storageBucket\":\"fir-resume-builder.appspot.com\",\"locationId\":\"asia-south1\"}"}}
-[debug] [2020-10-26T16:29:48.181Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 26 Oct 2020 16:29:47 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
-[debug] [2020-10-26T16:29:48.182Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/projects/fir-resume-builder/locations/-/functions  
+[debug] [2020-10-28T04:22:44.817Z] <<< HTTP RESPONSE 200 {"cache-control":"no-cache, no-store, max-age=0, must-revalidate","date":"Wed, 28 Oct 2020 04:22:44 GMT","expires":"Mon, 01 Jan 1990 00:00:00 GMT","pragma":"no-cache","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-10-28T04:22:44.827Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/fir-resume-builder  
  
-[debug] [2020-10-26T16:29:49.330Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 26 Oct 2020 16:29:48 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
-[debug] [2020-10-26T16:29:49.330Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/ZmlyLXJlc3VtZS1idWlsZGVyL3VzLWNlbnRyYWwxL3N0cmlwZUNoYXJnZUNhbGwvQnhVbUNiTUVPZ1k  
+[debug] [2020-10-28T04:22:45.462Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 28 Oct 2020 04:22:45 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+=== Database Setup
+[info] 
+[info] Firebase Realtime Database Rules allow you to define how your data should be
+[info] structured and when your data can be read from and written to.
+[info] 
+[info] ✔  Database Rules for  have been downloaded to database.rules.json. 
+[info] Future modifications to database.rules.json will update Database Rules when you run
+[info] firebase deploy.
+[info] 
+=== Firestore Setup
+[debug] [2020-10-28T04:22:48.656Z] >>> HTTP REQUEST GET https://serviceusage.googleapis.com/v1/projects/fir-resume-builder/services/firestore.googleapis.com  
  
-[debug] [2020-10-26T16:29:50.122Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 26 Oct 2020 16:29:50 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
-[debug] [2020-10-26T16:29:52.125Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/ZmlyLXJlc3VtZS1idWlsZGVyL3VzLWNlbnRyYWwxL3N0cmlwZUNoYXJnZUNhbGwvQnhVbUNiTUVPZ1k  
+[debug] [2020-10-28T04:22:51.077Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 28 Oct 2020 04:22:50 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-10-28T04:22:51.078Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/fir-resume-builder  
  
-[debug] [2020-10-26T16:29:53.007Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 26 Oct 2020 16:29:52 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
-[debug] [2020-10-26T16:29:55.008Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/ZmlyLXJlc3VtZS1idWlsZGVyL3VzLWNlbnRyYWwxL3N0cmlwZUNoYXJnZUNhbGwvQnhVbUNiTUVPZ1k  
+[debug] [2020-10-28T04:22:52.016Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 28 Oct 2020 04:22:51 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-10-28T04:22:52.017Z] database_type: CLOUD_FIRESTORE
+[debug] [2020-10-28T04:22:52.017Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-10-28T04:22:52.017Z] > authorizing via signed-in user
+[debug] [2020-10-28T04:22:52.017Z] [iam] checking project fir-resume-builder for permissions ["firebase.projects.get"]
+[debug] [2020-10-28T04:22:52.018Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/fir-resume-builder:testIamPermissions  
+ {"permissions":["firebase.projects.get"]}
+[debug] [2020-10-28T04:22:53.481Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 28 Oct 2020 04:22:53 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=1125","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+[info] Firestore Security Rules allow you to define how and when to allow
+[info] requests. You can keep these rules in your project directory
+[info] and publish them with firebase deploy.
+[info] 
+[debug] [2020-10-28T04:22:55.061Z] >>> HTTP REQUEST GET https://firebaserules.googleapis.com/v1/projects/fir-resume-builder/releases?pageSize=10&pageToken=  
  
-[debug] [2020-10-26T16:29:55.761Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 26 Oct 2020 16:29:55 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-10-28T04:22:57.136Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 28 Oct 2020 04:22:56 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-10-28T04:22:57.137Z] Found ruleset: projects/fir-resume-builder/rulesets/3a0556fe-fae4-476a-ba01-aa6f86551687
+[debug] [2020-10-28T04:22:57.137Z] >>> HTTP REQUEST GET https://firebaserules.googleapis.com/v1/projects/fir-resume-builder/rulesets/3a0556fe-fae4-476a-ba01-aa6f86551687  
+ 
+[debug] [2020-10-28T04:22:58.582Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 28 Oct 2020 04:22:58 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+[info] Firestore indexes allow you to perform complex queries while
+[info] maintaining performance that scales with the size of the result
+[info] set. You can keep index definitions in your project directory
+[info] and publish them with firebase deploy.
+[info] 
+[debug] [2020-10-28T04:23:00.202Z] >>> HTTP REQUEST GET https://firestore.googleapis.com/v1/projects/fir-resume-builder/databases/(default)/collectionGroups/-/indexes  
+ 
+[debug] [2020-10-28T04:23:00.202Z] >>> HTTP REQUEST GET https://firestore.googleapis.com/v1/projects/fir-resume-builder/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false  
+ 
+[debug] [2020-10-28T04:23:01.746Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 28 Oct 2020 04:23:01 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-10-28T04:23:01.746Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 28 Oct 2020 04:23:01 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+=== Hosting Setup
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 
+[debug] [2020-10-28T04:23:16.172Z] >>> HTTP REQUEST GET https://www.gstatic.com/firebasejs/releases.json  
+ 
+[debug] [2020-10-28T04:23:16.705Z] <<< HTTP RESPONSE 200 {"accept-ranges":"bytes","vary":"Accept-Encoding, Origin","content-type":"application/json","content-length":"1411","date":"Wed, 28 Oct 2020 04:18:38 GMT","expires":"Wed, 28 Oct 2020 05:08:38 GMT","last-modified":"Mon, 26 Oct 2020 20:17:36 GMT","x-content-type-options":"nosniff","server":"sffe","x-xss-protection":"0","cache-control":"public, max-age=3000","age":"278","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\""}
+[info] ✔  Wrote dist/resume-builder-web/index.html 
+[info] 
+[info] i  Detected a .git folder at /Users/sureshramasamy/workspace/resume-builder-web 
+[info] i  Authorizing with GitHub to upload your service account to a GitHub repository's secrets store. 
+[info] 
+[info] Visit this URL on this device to log in:
+[info] https://github.com/login/oauth/authorize?client_id=89cf50f02ac6aaed3484&state=672268403&redirect_uri=http%3A%2F%2Flocalhost%3A9005&scope=read%3Auser%20repo%20public_repo
+[info] 
+[info] Waiting for authentication...
+[debug] [2020-10-28T04:23:19.138Z] >>> HTTP REQUEST POST https://github.com/login/oauth/access_token  
+ {"client_id":"89cf50f02ac6aaed3484","client_secret":"3330d14abc895d9a74d5f17cd7a00711fa2c5bf0","code":"b62c9c3b0e2b376d952f","redirect_uri":"http://localhost:9005","state":"672268403"}
+[debug] [2020-10-28T04:23:19.657Z] <<< HTTP RESPONSE 200 {"date":"Wed, 28 Oct 2020 04:23:19 GMT","content-type":"application/json; charset=utf-8","transfer-encoding":"chunked","server":"GitHub.com","status":"200 OK","vary":"X-PJAX, Accept-Encoding, Accept, X-Requested-With, Accept-Encoding","etag":"W/\"4f5ce92b13a6a538c373d8221d83fc43\"","cache-control":"max-age=0, private, must-revalidate","strict-transport-security":"max-age=31536000; includeSubdomains; preload","x-frame-options":"deny","x-content-type-options":"nosniff","x-xss-protection":"1; mode=block","referrer-policy":"origin-when-cross-origin, strict-origin-when-cross-origin","expect-ct":"max-age=2592000, report-uri=\"https://api.github.com/_private/browser/errors\"","content-security-policy":"default-src 'none'; base-uri 'self'; block-all-mixed-content; connect-src 'self' uploads.github.com www.githubstatus.com collector.githubapp.com api.github.com www.google-analytics.com github-cloud.s3.amazonaws.com github-production-repository-file-5c1aeb.s3.amazonaws.com github-production-upload-manifest-file-7fdce7.s3.amazonaws.com github-production-user-asset-6210df.s3.amazonaws.com cdn.optimizely.com logx.optimizely.com/v1/events wss://alive.github.com; font-src github.githubassets.com; form-action 'self' github.com gist.github.com; frame-ancestors 'none'; frame-src render.githubusercontent.com; img-src 'self' data: github.githubassets.com identicons.github.com collector.githubapp.com github-cloud.s3.amazonaws.com *.githubusercontent.com; manifest-src 'self'; media-src 'none'; script-src github.githubassets.com; style-src 'unsafe-inline' github.githubassets.com; worker-src github.com/socket-worker.js gist.github.com/socket-worker.js","x-github-request-id":"E511:1BC5:EAAF4:12BD83:5F98F237"}
+[debug] [2020-10-28T04:23:19.658Z] >>> HTTP REQUEST GET https://api.github.com/user  
+ 
+[debug] [2020-10-28T04:23:20.224Z] <<< HTTP RESPONSE 200 {"date":"Wed, 28 Oct 2020 04:23:20 GMT","content-type":"application/json; charset=utf-8","content-length":"1517","server":"GitHub.com","status":"200 OK","cache-control":"private, max-age=60, s-maxage=60","vary":"Accept, Authorization, Cookie, X-GitHub-OTP, Accept-Encoding, Accept, X-Requested-With, Accept-Encoding","etag":"\"8092adac64fa7c355462809e37f3ab6eb033f1b1e5331234dc966aa0cc6ec177\"","last-modified":"Mon, 26 Oct 2020 10:41:48 GMT","x-oauth-scopes":"read:user, repo","x-accepted-oauth-scopes":"","x-oauth-client-id":"89cf50f02ac6aaed3484","x-github-media-type":"github.v3","x-ratelimit-limit":"5000","x-ratelimit-remaining":"4999","x-ratelimit-reset":"1603862600","x-ratelimit-used":"1","access-control-expose-headers":"ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, Deprecation, Sunset","access-control-allow-origin":"*","strict-transport-security":"max-age=31536000; includeSubdomains; preload","x-frame-options":"deny","x-content-type-options":"nosniff","x-xss-protection":"1; mode=block","referrer-policy":"origin-when-cross-origin, strict-origin-when-cross-origin","content-security-policy":"default-src 'none'","x-github-request-id":"E514:1AA7:4D851:64EB3:5F98F237"}
+[info] 
+[info] ✔  Success! Logged into GitHub as suresh-ramasamy002 
+[info] 

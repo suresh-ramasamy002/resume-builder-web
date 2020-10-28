@@ -1,5 +1,10 @@
 mat-toolbar {
-  background: linear-gradient(90deg, #70b6ff, #9479ff);
+  background: White;
+  z-index: 9990;
+  border-left: none!important;
+  border-top: none!important;
+  border-right: none!important;
+  box-shadow: 0 1px 5px 0 rgba(0,0,0,.25);
 }
 .font-size-15{
   font-size: 15px;
@@ -166,4 +171,25 @@ mat-toolbar {
 }
 .margin-top-30{
   margin-top: 30px;
+}
+.price-ribbon {
+  margin-top: 5px;
+  padding: 5px 12px 5px 12px;
+  background: #3d62c4;
+  border-radius: 5px;
+  color: white;
+  font-size: 12px;
+}
+.template-name {
+  color: #354058;
+  font-size: 18px;
+  font-weight: 500;
+}
+.blink-soft {
+  animation: blinker 1.9s linear infinite;
+}
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
 }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {EnrollUserDetails} from '../class/api-model/request';
-import {TemplateCoreObj} from '../class';
+import {ResumeDownloadProperty, TemplateCoreObj} from '../class';
 import {Feedback} from '../class/feedback';
 
 @Injectable()
@@ -11,7 +11,15 @@ export class CoreDataService {
  private $feedbacks: Array<Feedback> = [];
  private $selectedTemplate: string = null;
  private $userDetailsArr: Array<EnrollUserDetails> = [];
+ private $resumeDownloadedData: Array<ResumeDownloadProperty> = [];
 
+  get resumeDownloadedData(): Array<ResumeDownloadProperty> {
+    return this.$resumeDownloadedData;
+  }
+
+  set resumeDownloadedData(value: Array<ResumeDownloadProperty>) {
+    this.$resumeDownloadedData = value;
+  }
 
   get userDetailsArr(): Array<EnrollUserDetails> {
     return this.$userDetailsArr;

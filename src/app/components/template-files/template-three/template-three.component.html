@@ -55,13 +55,13 @@
                   </div>
                   <div *ngFor="let summary of coreDataService.templateData.companyInfo[i].details; let k = index" class="margin-top-5">
                     <span>-</span>&nbsp;
-                    <label contenteditable="true" spellcheck="true" [ngStyle]="{'font-size': coreDataService.templateData.normalSize+'px', 'font-family': coreDataService.templateData.fontFamily}" #csumm [textContent]="coreDataService.templateData.companyInfo[i].details[k]" (blur)="coreDataService.templateData.companyInfo[i].details[k] = csumm.innerText">{{summary}}</label><br/>
+                    <label contenteditable="true" spellcheck="true" [ngStyle]="{'font-size': (coreDataService.templateData.normalSize - 1)+'px', 'font-family': coreDataService.templateData.fontFamily}" #csumm [textContent]="coreDataService.templateData.companyInfo[i].details[k]" (blur)="coreDataService.templateData.companyInfo[i].details[k] = csumm.innerText">{{summary}}</label><br/>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div fxLayout="row" style="margin-top: 15px" *ngIf="coreDataService.templateData.certifications">
+          <div fxLayout="row" style="margin-top: 5px" *ngIf="coreDataService.templateData.certifications">
             <div fxFlex="100%">
               <label [ngStyle]="{'font-size': coreDataService.templateData.roleSize+'px', 'font-family': coreDataService.templateData.fontFamily}" class="label-right-color font-weight-bold" style="margin-left: 15px;">CERTIFICATIONS</label>
             </div>
@@ -132,7 +132,7 @@
                   </div>
                   <div *ngFor="let summary of coreDataService.templateData.activitiesInfo[i].summary; let k = index" class="margin-top-5">
                     <span>-</span>&nbsp;
-                    <label contenteditable="true" spellcheck="true" [ngStyle]="{'font-size': coreDataService.templateData.normalSize+'px', 'font-family': coreDataService.templateData.fontFamily}" #csumm [textContent]="coreDataService.templateData.activitiesInfo[i].summary[k]" (blur)="coreDataService.templateData.activitiesInfo[i].summary[k] = csumm.innerText">{{summary}}</label><br/>
+                    <label contenteditable="true" spellcheck="true" [ngStyle]="{'font-size': (coreDataService.templateData.normalSize - 1)+'px', 'font-family': coreDataService.templateData.fontFamily}" #csumm [textContent]="coreDataService.templateData.activitiesInfo[i].summary[k]" (blur)="coreDataService.templateData.activitiesInfo[i].summary[k] = csumm.innerText">{{summary}}</label><br/>
                   </div>
                 </div>
               </div>
@@ -219,11 +219,11 @@
                     <label contenteditable="true" spellcheck="true" #sname [textContent]="coreDataService.templateData.educationInfo[i].schoolName" (blur)="coreDataService.templateData.educationInfo[i].schoolName = sname.innerText" [ngStyle]="{'font-size': coreDataService.templateData.normalSize+'px', 'font-family': coreDataService.templateData.fontFamily}" maxlength="50">{{eduInfo.schoolName}}</label><br/>
                   </div>
                   <div class="margin-top-5">
-                    <label [ngStyle]="{'font-size': coreDataService.templateData.normalSize+'px', 'font-family': coreDataService.templateData.fontFamily}">GPA:&nbsp;</label>
-                    <label contenteditable="true" spellcheck="true" #sgpa [textContent]="coreDataService.templateData.educationInfo[i].gpa" (blur)="coreDataService.templateData.educationInfo[i].gpa = sgpa.innerText" [ngStyle]="{'font-size': coreDataService.templateData.normalSize+'px', 'font-family': coreDataService.templateData.fontFamily}">{{eduInfo.gpa}}</label><br/>
+                    <label [ngStyle]="{'font-size': (coreDataService.templateData.normalSize-1)+'px', 'font-family': coreDataService.templateData.fontFamily}">GPA:&nbsp;</label>
+                    <label contenteditable="true" spellcheck="true" #sgpa [textContent]="coreDataService.templateData.educationInfo[i].gpa" (blur)="coreDataService.templateData.educationInfo[i].gpa = sgpa.innerText" [ngStyle]="{'font-size': (coreDataService.templateData.normalSize-1)+'px', 'font-family': coreDataService.templateData.fontFamily}">{{eduInfo.gpa}}</label><br/>
                   </div>
                   <div class="margin-top-5">
-                    <label contenteditable="true" spellcheck="true" #year [textContent]="coreDataService.templateData.educationInfo[i].yearFromTo" (blur)="coreDataService.templateData.educationInfo[i].yearFromTo = year.innerText" [ngStyle]="{'font-size': coreDataService.templateData.normalSize+'px', 'font-family': coreDataService.templateData.fontFamily}" class="font-size-15">{{eduInfo.yearFromTo}}</label>
+                    <label contenteditable="true" spellcheck="true" #year [textContent]="coreDataService.templateData.educationInfo[i].yearFromTo" (blur)="coreDataService.templateData.educationInfo[i].yearFromTo = year.innerText" [ngStyle]="{'font-size': (coreDataService.templateData.normalSize-1)+'px', 'font-family': coreDataService.templateData.fontFamily}" class="font-size-15">{{eduInfo.yearFromTo}}</label>
                   </div>
                 </div>
               </div>
@@ -239,9 +239,9 @@
               <div class="div-border" [ngClass]="{'color': setTextColor(coreDataService.templateData.templateTheme)}"></div>
             </div>
           </div>
-            <div fxLayout="row" *ngFor="let techSkills of coreDataService.templateData.technicalSkills; let i = index" fxLayoutAlign="center center">
+            <div fxLayout="row" *ngFor="let techSkills of coreDataService.templateData.technicalSkills; let i = index">
               <div fxFlex="60%">
-                <label  style="margin-top: 7px; padding-left:15px" [ngStyle]="{'font-size': coreDataService.templateData.normalSize+'px', 'font-family': coreDataService.templateData.fontFamily}" class="font-size-15"><label contenteditable="true" spellcheck="true" #lngLang [textContent]="coreDataService.templateData.technicalSkills[i].skill" (blur)="coreDataService.templateData.technicalSkills[i].skill = lngLang.innerText">{{techSkills.skill}}</label></label>
+                <label  style="margin-top: 7px" [ngStyle]="{'font-size': coreDataService.templateData.normalSize+'px', 'font-family': coreDataService.templateData.fontFamily}" class="font-size-15"><label contenteditable="true" spellcheck="true" #lngLang [textContent]="coreDataService.templateData.technicalSkills[i].skill" (blur)="coreDataService.templateData.technicalSkills[i].skill = lngLang.innerText">{{techSkills.skill}}</label></label>
               </div>
               <div fxFlex="40%">
                 <div class="star-rating">

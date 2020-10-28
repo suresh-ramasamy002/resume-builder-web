@@ -5,7 +5,7 @@
     <span data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="1500"><img src="assets/images/business-logo-page.png" width="240px"/></span>
     <span class="menu-spacer"></span>
     <div fxShow="true" fxHide.lt-md *ngIf="coreDataService?.userDetails?.firstName">
-      <label class="color-white" style="font-size: 14px">Hello {{coreDataService.userDetails.firstName}}</label>
+      <label style="font-size: 14px">Hello {{coreDataService.userDetails.firstName + ' ' + coreDataService.userDetails.lastName}}</label>
     </div>
   </mat-toolbar-row>
 </mat-toolbar>
@@ -101,7 +101,7 @@
           <div class="container">
             <img class="sidebar-img cr-pointer image" src="assets/images/template-images/template-one.png">
             <div class="middle">
-              <div class="text" (click)="selectedTemplate('template-one', '#292929')">Select</div>
+              <div class="text" (click)="selectedTemplate('template-one', '#343b46')">Select</div>
             </div>
           </div>
         </mat-card>
@@ -133,7 +133,7 @@
             <div class="container">
               <img class="sidebar-img cr-pointer image" src="assets/images/template-images/template-five.png">
               <div class="middle">
-                <div class="text" (click)="selectedTemplate('template-five', '#292929')">Select</div>
+                <div class="text" (click)="selectedTemplate('template-five', '#343b46')">Select</div>
               </div>
             </div>
           </mat-card>
@@ -141,7 +141,23 @@
             <div class="container">
               <img class="sidebar-img cr-pointer image" src="assets/images/template-images/template-six.png">
               <div class="middle">
-                <div class="text" (click)="selectedTemplate('template-six', '#292929')">Select</div>
+                <div class="text" (click)="selectedTemplate('template-six', '#343b46')">Select</div>
+              </div>
+            </div>
+          </mat-card>
+          <mat-card [ngClass]="{'selected-temp': coreDataService.selectedTemplate == 'template-seven'}" class="padding-0 margin-top-15">
+            <div class="container">
+              <img class="sidebar-img cr-pointer image" src="assets/images/template-images/template-seven.png">
+              <div class="middle">
+                <div class="text" (click)="selectedTemplate('template-seven', '#414141')">Select</div>
+              </div>
+            </div>
+          </mat-card>
+          <mat-card [ngClass]="{'selected-temp': coreDataService.selectedTemplate == 'template-eight'}" class="padding-0 margin-top-15">
+            <div class="container">
+              <img class="sidebar-img cr-pointer image" src="assets/images/template-images/template-eight.png">
+              <div class="middle">
+                <div class="text" (click)="selectedTemplate('template-eight', '#343b46')">Select</div>
               </div>
             </div>
           </mat-card>
@@ -157,6 +173,8 @@
       <app-template-four id="template-four" *ngIf="coreDataService.selectedTemplate == 'template-four'" [pageType]="this.coreDataService.templateData.pageType" [isImageNeeded]="coreDataService.templateData.isImageNeeded"></app-template-four>
       <app-template-five id="template-five" *ngIf="coreDataService.selectedTemplate == 'template-five'" [pageType]="this.coreDataService.templateData.pageType" [isImageNeeded]="coreDataService.templateData.isImageNeeded"></app-template-five>
       <app-template-six id="template-six" *ngIf="coreDataService.selectedTemplate == 'template-six'" [pageType]="this.coreDataService.templateData.pageType" [isImageNeeded]="coreDataService.templateData.isImageNeeded"></app-template-six>
+      <app-template-seven id="template-seven" *ngIf="coreDataService.selectedTemplate == 'template-seven'" [pageType]="this.coreDataService.templateData.pageType" [isImageNeeded]="coreDataService.templateData.isImageNeeded"></app-template-seven>
+      <app-template-eight id="template-eight" *ngIf="coreDataService.selectedTemplate == 'template-eight'" [pageType]="this.coreDataService.templateData.pageType" [isImageNeeded]="coreDataService.templateData.isImageNeeded"></app-template-eight>
   </div>
   </div>
   <div fxFlex="32%" data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-duration="1000" style="margin-left:15px">
@@ -189,14 +207,22 @@
           <mat-card class="sub-section-mat-card" fxFlex="100%">
             <div fxLayout="row">
               <div fxFlex="72%" fxLayoutAlign="left center">
-                <mat-checkbox [(ngModel)]="coreDataService.templateData.isImageNeeded" [checked]="coreDataService.templateData.isImageNeeded" color="primary">Designation</mat-checkbox>
+                <mat-checkbox [(ngModel)]="coreDataService.templateData.isImageNeeded" [checked]="coreDataService.templateData.isImageNeeded" color="primary">Job's Title</mat-checkbox>
               </div>
             </div>
           </mat-card>
         </div>
         <div fxLayout="row" class="margin-top-5">
-          <mat-card class="sub-section-mat-card" fxFlex="100%">
+          <mat-card class="sub-section-mat-card" fxFlex="100%" fxLayoutAlign="left center">
             <mat-checkbox [(ngModel)]="coreDataService.templateData.objective" [checked]="coreDataService.templateData.objective" color="primary">Objectives</mat-checkbox>
+            <i class="fa fa-info-circle info-icon-position" [matMenuTriggerFor]="objectiveHint"></i>
+            <mat-menu #objectiveHint="matMenu" class="mat-menu-msg">
+              <div fxLayout="row">
+                <div fxFlex="100%">
+                  <label class="mat-caption">It's an optional component of resumes that briefly describes the skills, experience and abilities. A general guideline is to limit this to two or three sentences, or approximately two lines of text.</label>
+                </div>
+              </div>
+            </mat-menu>
           </mat-card>
         </div>
         <div fxLayout="row" class="margin-top-5">
@@ -204,6 +230,14 @@
             <div fxLayout="row">
               <div fxFlex="71%" fxLayoutAlign="left center">
                 <mat-checkbox [(ngModel)]="coreDataService.templateData.workExp" [checked]="coreDataService.templateData.workExp" color="primary">Work Experience</mat-checkbox>
+                <i class="fa fa-info-circle info-icon-position" [matMenuTriggerFor]="wrkExpHint"></i>
+                <mat-menu #wrkExpHint="matMenu" class="mat-menu-msg">
+                  <div fxLayout="row">
+                    <div fxFlex="100%">
+                      <label class="mat-caption">Information about your professional history and key experiences and achievements.</label>
+                    </div>
+                  </div>
+                </mat-menu>
               </div>
               <div fxFlex="20%" *ngIf="coreDataService.templateData.workExp">
                 <button mat-raised-button (click)="addWorkExperience()" style="color: #3f51b5">+Experience</button>
@@ -235,6 +269,14 @@
             <div fxLayout="row">
               <div fxFlex="72.5%" fxLayoutAlign="left center">
                 <mat-checkbox [(ngModel)]="coreDataService.templateData.education" [checked]="coreDataService.templateData.education" color="primary">Education</mat-checkbox>
+                <i class="fa fa-info-circle info-icon-position" [matMenuTriggerFor]="eduHint"></i>
+                <mat-menu #eduHint="matMenu" class="mat-menu-msg">
+                  <div fxLayout="row">
+                    <div fxFlex="100%">
+                      <label class="mat-caption">Information about your list of degrees and your academic accomplishments.</label>
+                    </div>
+                  </div>
+                </mat-menu>
               </div>
               <div fxFlex="20%" *ngIf="coreDataService.templateData.education">
                 <button mat-raised-button (click)="addEducation()" style="color: #3f51b5">+Education</button>
@@ -259,6 +301,15 @@
             <div fxLayout="row">
               <div fxFlex="71%" fxLayoutAlign="left center">
                 <mat-checkbox [(ngModel)]="coreDataService.templateData.certifications" [checked]="coreDataService.templateData.certifications" color="primary">Certifications</mat-checkbox>
+                <i class="fa fa-info-circle info-icon-position" [matMenuTriggerFor]="certifiHint"></i>
+                <mat-menu #certifiHint="matMenu" class="mat-menu-msg">
+                  <div fxLayout="row">
+                    <div fxFlex="100%">
+                      <label class="mat-caption">List all areas of certification relevant to the position;<br/> include: type, year received.</label>
+                    </div>
+                  </div>
+                </mat-menu>
+
               </div>
               <div fxFlex="20%" *ngIf="coreDataService.templateData.certifications">
                 <button mat-raised-button (click)="addCerficates()" style="color: #3f51b5">+Certificates</button>
@@ -283,6 +334,14 @@
             <div fxLayout="row">
               <div fxFlex="77%" fxLayoutAlign="left center">
                 <mat-checkbox [(ngModel)]="coreDataService.templateData.honorReward" [checked]="coreDataService.templateData.honorReward" color="primary">Honors & Awards</mat-checkbox>
+                <i class="fa fa-info-circle info-icon-position" [matMenuTriggerFor]="awardHint"></i>
+                <mat-menu #awardHint="matMenu" class="mat-menu-msg">
+                  <div fxLayout="row">
+                    <div fxFlex="100%">
+                      <label class="mat-caption">Information about your awards for going above average, work related awards and promotions.</label>
+                    </div>
+                  </div>
+                </mat-menu>
               </div>
               <div fxFlex="20%" *ngIf="coreDataService.templateData.honorReward">
                 <button mat-raised-button (click)="addAwards()" style="color: #3f51b5">+Awards</button>
@@ -309,6 +368,14 @@
             <div fxLayout="row">
               <div fxFlex="77%" fxLayoutAlign="left center">
                 <mat-checkbox [(ngModel)]="coreDataService.templateData.interest" [checked]="coreDataService.templateData.interest" color="primary">Interests</mat-checkbox>
+                <i class="fa fa-info-circle info-icon-position" [matMenuTriggerFor]="interestHint"></i>
+                <mat-menu #interestHint="matMenu" class="mat-menu-msg">
+                  <div fxLayout="row">
+                    <div fxFlex="100%">
+                      <label class="mat-caption">Information on the topics you are currently exploring or would like to explore that would make you a good match for the company.</label>
+                    </div>
+                  </div>
+                </mat-menu>
               </div>
               <div fxFlex="20%" *ngIf="coreDataService.templateData.interest">
                 <button mat-raised-button (click)="addInterest()" style="color: #3f51b5">+Interest</button>
@@ -333,6 +400,16 @@
             <div fxLayout="row">
               <div fxFlex="23%" fxLayoutAlign="left center">
                 <mat-checkbox [(ngModel)]="coreDataService.templateData.skills" [checked]="coreDataService.templateData.skills" color="primary">Skills</mat-checkbox>
+                <i class="fa fa-info-circle info-icon-position" [matMenuTriggerFor]="skillsHint"></i>
+                <mat-menu #skillsHint="matMenu" class="mat-menu-msg">
+                  <div fxLayout="row">
+                    <div fxFlex="100%">
+                      <label class="mat-caption"> Information about your hard skills and soft skills.<br/>
+                        Technical skills Example: Computer Skills(Microsoft-word, Excel etc.,), Coding Skills(C, Java, Angular etc.,), Langauge Skills(English, Tamil, Hindi etc.,) <br/>
+                        Soft skills Example: Flexibility, patience and Time management</label>
+                    </div>
+                  </div>
+                </mat-menu>
               </div>
               <div fxFlex="25%" *ngIf="coreDataService.templateData.interest">
                 <button mat-raised-button (click)="addLanguage()" style="color: #3f51b5">+Language</button>
@@ -368,6 +445,22 @@
             <div fxLayout="row">
               <div fxFlex="75%" fxLayoutAlign="left center">
                 <mat-checkbox [(ngModel)]="coreDataService.templateData.activities" [checked]="coreDataService.templateData.activities" color="primary">Activities</mat-checkbox>
+                <i class="fa fa-info-circle info-icon-position" [matMenuTriggerFor]="activityHint"></i>
+                <mat-menu #activityHint="matMenu" class="mat-menu-msg">
+                  <div fxLayout="row">
+                    <div fxFlex="100%">
+                      <label class="mat-caption">Information on certain abilities, participated in college events, social activities and personal characteristics which may help you on getting that job.<br/>
+                        Activities may include:<br/>
+                        <label>&#x25CB;</label>&nbsp;Participation in various sports, particularly team games and those done at higher levels.<br/>
+                        <label>&#x25CB;</label>&nbsp;Voluntary work to help the community, such as coaching children.<br/>
+                        <label>&#x25CB;</label>&nbsp; Helping charities, for example in fundraising.<br/>
+                        <label>&#x25CB;</label>&nbsp;Activities in previous jobs that were outside the job description, such as organizing social events.<br/>
+                        <label>&#x25CB;</label>&nbsp;Personal learning activities, such as attending webinars.<br/>
+                      </label>
+                    </div>
+                  </div>
+                </mat-menu>
+
               </div>
               <div fxFlex="20%" *ngIf="coreDataService.templateData.activities">
                 <button mat-raised-button (click)="addActivities()" style="color: #3f51b5">+Activities</button>
@@ -398,6 +491,14 @@
             <div fxLayout="row">
               <div fxFlex="67%" fxLayoutAlign="left center">
                 <mat-checkbox [(ngModel)]="coreDataService.templateData.additionalInfo" [checked]="coreDataService.templateData.additionalInfo" color="primary">Additional Information</mat-checkbox>
+                <i class="fa fa-info-circle info-icon-position" [matMenuTriggerFor]="addInfoHint"></i>
+                <mat-menu #addInfoHint="matMenu" class="mat-menu-msg">
+                  <div fxLayout="row">
+                    <div fxFlex="100%">
+                      <label class="mat-caption">More Information about you</label>
+                    </div>
+                  </div>
+                </mat-menu>
               </div>
               <div fxFlex="20%" *ngIf="coreDataService.templateData.additionalInfo">
                 <button mat-raised-button (click)="addAdditionalInfo()" style="color: #3f51b5">+Additional Info</button>
@@ -424,6 +525,14 @@
             <div fxLayout="row">
               <div fxFlex="74%" fxLayoutAlign="left center">
                 <mat-checkbox [(ngModel)]="coreDataService.templateData.reference" [checked]="coreDataService.templateData.reference" color="primary">Reference</mat-checkbox>
+                <i class="fa fa-info-circle info-icon-position" [matMenuTriggerFor]="refrHint"></i>
+                <mat-menu #refrHint="matMenu" class="mat-menu-msg">
+                  <div fxLayout="row">
+                    <div fxFlex="100%">
+                      <label class="mat-caption">Information about you holding any document or a proof of their contact who may help in your professional references.</label>
+                    </div>
+                  </div>
+                </mat-menu>
               </div>
               <div fxFlex="20%" *ngIf="coreDataService.templateData.reference">
                 <button mat-raised-button (click)="addReference()" style="color: #3f51b5">+Reference</button>

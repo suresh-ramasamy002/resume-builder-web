@@ -32,7 +32,7 @@ export class TemplateFiveComponent implements OnInit, OnChanges {
   setTextColor(bgColor) {
     let color = '#292929';
     switch (bgColor) {
-      case '#292929':
+      case '#343b46':
         color = '#FFFFFF';
         break;
       case '#353f58':

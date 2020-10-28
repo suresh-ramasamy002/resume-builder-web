@@ -33,11 +33,13 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
   private PDF_EXTENSION = '.pdf';
    @ViewChild('templateFile') template: ElementRef;
    public themeColor =  [];
+   private aId = 'V5cCGAXOpHMTvgL2b2rccgDLt3x1';
    public fontFamily = ['Arial', 'Book Antiqua', 'Calibri', 'Cambria', 'Didot', 'Garamond', 'Georgia', 'Helvetica', 'Times New Roman', 'Trebuchet MS', 'Verdana'];
   constructor(public coreDataService: CoreDataService, private auth: AuthService, private sanitizer: DomSanitizer, private userService: UserService, public dialog: MatDialog) {
 
   }
   ngOnInit(): void {
+    this.userService.getResumeDetails(this.aId);
     if ('selectedTemplate' in localStorage) {
       this.coreDataService.selectedTemplate = localStorage.getItem('selectedTemplate');
       this.setThemePerTemplate(this.coreDataService.selectedTemplate);
@@ -63,32 +65,42 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
       case 'template-one': this.themeColor = [
         { name: 'Blue', value: '#353f58' },
         { name: 'Blue Grey', value: '#607D8B' },
-        { name: 'Black', value: '#292929' }];
+        { name: 'Black', value: '#343b46' }];
         break;
       case 'template-two': this.themeColor = [
         { name: 'Blue', value: '#353f58' },
         { name: 'Brown', value: '#414141' },
         { name: 'Grey', value: '#f3f3f3' },
-        { name: 'Black', value: '#292929' }];
+        { name: 'Black', value: '#343b46' }];
         break;
       case 'template-three': this.themeColor = [
         { name: 'Blue', value: '#353f58' },
         { name: 'Blue Grey', value: '#607D8B'},
         { name: 'Brown', value: '#414141' },
-        { name: 'Black', value: '#292929' }];
+        { name: 'Black', value: '#343b46' }];
         break;
       case 'template-four': this.themeColor = [
         { name: 'Blue', value: '#353f58' },
         { name: 'Blue Grey', value: '#607D8B'},
-        { name: 'Black', value: '#292929' }];
+        { name: 'Black', value: '#343b46' }];
         break;
       case 'template-five': this.themeColor = [
-        { name: 'Black', value: '#292929' }];
+        { name: 'Black', value: '#343b46' }];
         break;
       case 'template-six': this.themeColor = [
         { name: 'Blue', value: '#353f58' },
         { name: 'Blue Grey', value: '#607D8B' },
-        { name: 'Black', value: '#292929' }];
+        { name: 'Black', value: '#343b46' }];
+        break;
+      case 'template-seven': this.themeColor = [
+        { name: 'Blue', value: '#414141' },
+        { name: 'Blue Grey', value: '#353f58' },
+        { name: 'Black', value: '#343b46'}];
+        break;
+      case 'template-eight': this.themeColor = [
+        { name: 'Blue', value: '#414141' },
+        { name: 'Blue Grey', value: '#353f58' },
+        { name: 'Black', value: '#343b46'}];
         break;
     }
     return this.themeColor;
@@ -96,7 +108,7 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
   setTickColor(colorVal) {
     let color = '#292929';
    switch(colorVal) {
-     case '#292929': color = '#ffffff';
+     case '#343b46': color = '#ffffff';
      break;
      case '#353f58': color = '#ffffff';
      break;
@@ -112,19 +124,22 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
     this.userService.addUpdateUserResumeData(firebase.auth().currentUser.uid);
   }
   openPaymentDialog(): void {
-    let dialogRef = this.dialog.open(PaymentRequestComponent, {
-      width: '350px',
-      data: {amount: 1500}
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        this.exportHtmlTableDataToPdf(this.coreDataService.selectedTemplate, this.coreDataService.templateData.title);
-      }
-    });
+    if (this.coreDataService.userDetails.role === 'PRO_ADMIN_1' || this.coreDataService.userDetails.role === 'CO_ADMIN_1' || this.coreDataService.selectedTemplate === 'template-one' || this.coreDataService.selectedTemplate === 'template-two' || this.coreDataService.selectedTemplate === 'template-four') {
+      this.exportRightNow();
+    } else {
+      let dialogRef = this.dialog.open(PaymentRequestComponent, {
+        width: '350px',
+        data: {amount: 1500}
+      });
+      dialogRef.afterClosed().subscribe(result => {
+        if (result) {
+          this.exportHtmlTableDataToPdf(this.coreDataService.selectedTemplate, this.coreDataService.templateData.title);
+        }
+      });
+    }
   }
   exportToPdf() {
-    if (this.coreDataService.userDetails.role !== 'PRO_ADMIN_1' && this.coreDataService.userDetails.role !== 'CO_ADMIN_1') {
-      let dialogRef = this.dialog.open(DownloadWarningDialogComponent, {
+    let dialogRef = this.dialog.open(DownloadWarningDialogComponent, {
         width: '400px'
       });
       dialogRef.afterClosed().subscribe(result => {
@@ -132,11 +147,9 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
           this.openPaymentDialog();
         } else {}
       });
-    } else {
-      this.exportRightNow();
-    }
   }
   exportRightNow() {
+    this.coreDataService.showSpinner = true;
     this.exportHtmlTableDataToPdf(this.coreDataService.selectedTemplate, this.coreDataService.templateData.title);
   }
   exportHtmlTableDataToPdf(element, fileName: string) {
@@ -150,6 +163,12 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
       }};
     html2pdf().from(document.getElementById(element)).set(opt).save().then((e) => {
       this.coreDataService.showSpinner = false;
+      this.coreDataService.resumeDownloadedData.forEach(resumeData => {
+        if (resumeData.name === element) {
+          resumeData.count++;
+        }
+      });
+      this.userService.setResumeDetails(this.aId);
       if (this.coreDataService.userDetails.role !== 'PRO_ADMIN_1' && this.coreDataService.userDetails.role !== 'CO_ADMIN_1') {
         this.openFeedbackDialog();
       }
@@ -207,25 +226,25 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
     }
   }
   addWorkExperience() {
-    this.coreDataService.templateData.companyInfo.push({companyName: 'Company name', workFromTo: 'From - To date/present', role: 'Your Designation', details: ['Your Achievement and responsiblities']});
+    this.coreDataService.templateData.companyInfo.push({companyName: 'NAME OF YOUR COMPANY', workFromTo: 'From - To date/present', role: 'Job position', details: ['Job\'s experience detail']});
   }
   deleteCompanyInfo(i) {
     this.coreDataService.templateData.companyInfo.splice(i, 1);
   }
   addAcheivement(i) {
-    this.coreDataService.templateData.companyInfo[i].details.push('Your Achievement and responsiblities');
+    this.coreDataService.templateData.companyInfo[i].details.push('Job\'s experience detail');
   }
   deleteAcheivement(i, j) {
     this.coreDataService.templateData.companyInfo[i].details.splice(j, 1);
   }
   addEducation() {
-    this.coreDataService.templateData.educationInfo.push({schoolName: 'Institute Name', department: 'department', yearFromTo: 'From - To date/present', gpa: 'GPA percentage'});
+    this.coreDataService.templateData.educationInfo.push({schoolName: 'FULL NAME OF UNIVERSITY/ORGANIZATION', department: 'Your major/Name of your course', yearFromTo: 'From - To date/present', gpa: 'GPA, some subject'});
   }
   deleteEduInfo(i) {
     this.coreDataService.templateData.educationInfo.splice(i, 1);
   }
   addCerficates() {
-    this.coreDataService.templateData.certificates.push({certificateName: 'Certification of ?', year: 'Year'});
+    this.coreDataService.templateData.certificates.push({certificateName: 'Sample certification\'s title', year: 'Year'});
   }
   deleteCerficates(i) {
     this.coreDataService.templateData.certificates.splice(i, 1);
@@ -240,7 +259,7 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
     this.coreDataService.templateData.image = null;
   }
   addInterest() {
-    this.coreDataService.templateData.interestOn.push('Add Interest');
+    this.coreDataService.templateData.interestOn.push('New Interest');
   }
   deleteInterest(i) {
     this.coreDataService.templateData.interestOn.splice(i, 1);
@@ -255,7 +274,7 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
     this.coreDataService.templateData.computerSkills.splice(i, 1);
   }
   addLanguage() {
-    this.coreDataService.templateData.knownLanguage.push({skill: 'New Language', rate: 0});
+    this.coreDataService.templateData.knownLanguage.push({skill: 'New Skills', rate: 0});
   }
   addTechSkills() {
     this.coreDataService.templateData.technicalSkills.push({skill: 'New Skills', rate: 0});
@@ -293,7 +312,7 @@ sanitizeUrl(url) {
 verifyPdfFile(selectedElement) {
       let opt = {
         margin: 0,
-        image: {type: 'jpeg', quality: 0.99},
+        image: {type: 'png', quality: 0.99},
         html2canvas: {dpi: 192, letterRendering: true},
         jsPDF: {unit: 'pt', format: 'letter', orientation: 'portrait'}
       };

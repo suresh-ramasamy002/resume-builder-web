@@ -6,7 +6,7 @@ import {Router} from '@angular/router';
 import {CoreDataService} from './core-data.service';
 import {BehaviorSubject} from 'rxjs';
 import {EnrollUserDetails} from '../class/api-model/request';
-import {ActivitiesInfo, Certifications, CompanyInfo, EduInfo, FeedbackRes, ResumeDataRes, TemplateCoreObj} from '../class';
+import {ActivitiesInfo, Certifications, CompanyInfo, EduInfo, FeedbackRes, ResumeDataRes, ResumeDownload, TemplateCoreObj} from '../class';
 import {HonorAwardsInfo} from '../class/honor-awards-info';
 import {Feedback} from '../class/feedback';
 
@@ -43,35 +43,35 @@ export class UserService {
       this.coreDataService.templateData = JSON.parse(localStorage.getItem('templateData'));
     } else {
       const companyInfoData: Array<CompanyInfo> = [{
-        workFromTo: 'From - To/Present(eg:- JUN 2020 - OCT 2020)',
-        companyName: 'Company Name',
-        role: 'Your Designation',
-        details: ['Achievement']
+        workFromTo: 'From - To/Present',
+        companyName: 'NAME OF YOUR COMPANY',
+        role: 'Job position',
+        details: ['Job\'s experience detail']
       }];
       const eduInfoData: Array<EduInfo> = [{
         yearFromTo: 'From - To/Present',
-        schoolName: 'Institute',
-        department: 'Department',
-        gpa: 'gpa/10'
+        schoolName: 'FULL NAME OF UNIVERSITY/ORGANIZATION',
+        department: 'Your major/Name of your course',
+        gpa: 'GPA, some subject'
       }];
       const honorAwardsData: Array<HonorAwardsInfo> = [{
         year: 'year',
-        award: 'Award details'
+        award: 'Sample award\'s title'
       }];
-      const languageKnownData = [{skill: 'Known Language', rate: 0}];
-      const computerSkillsData = [{skill: 'Software skills', rate: 0}];
-      const techSkillsData = [{skill: 'Tech or management skills', rate: 0}];
-      const interestedData = ['Your Interests'];
-      const addnInfoData = ['Additional Info'];
+      const languageKnownData = [{skill: 'Skill 1', rate: 0}];
+      const computerSkillsData = [{skill: 'Skill 1', rate: 0}];
+      const techSkillsData = [{skill: 'Skill 1', rate: 0}];
+      const interestedData = ['Interest 1'];
+      const addnInfoData = ['Sample additional info'];
       const refernceData = ['Reference\'s content'];
-      const certificateData: Array<Certifications> = [{certificateName: 'Certification of ?', year: 'year(eg:- 2019 - 2020)'}];
-      const activityInfoData: Array<ActivitiesInfo> = [new ActivitiesInfo({place: 'Place', role: 'Your Role', year: 'year(eg:- 2019 - 2020)', summary: ['Brief Description']})];
+      const certificateData: Array<Certifications> = [{certificateName: 'Sample certification\'s title', year: 'year'}];
+      const activityInfoData: Array<ActivitiesInfo> = [new ActivitiesInfo({place: 'ACTIVITY ORGANIZATION', role: 'Sample position', year: 'year', summary: ['Sample activities description']})];
       this.storeTemplateData = new TemplateCoreObj({
         image: null,
         isImageNeeded: true,
-        title: 'Your Name',
+        title: 'Full Name',
         titleSize: 20,
-        role: 'Designation',
+        role: 'Job\'s Title',
         roleSize: 16,
         normalSize: 14,
         dob: 'DOB',
@@ -82,7 +82,7 @@ export class UserService {
         phone: 'Your Phone',
         email: 'Your Email',
         address: 'Your Address',
-        objectiveMsg: 'A brief objective about you',
+        objectiveMsg: 'Fill in your Career’s Objective',
         companyInfo: companyInfoData,
         educationInfo: eduInfoData,
         certificates: certificateData,
@@ -107,6 +107,16 @@ export class UserService {
   getFeedbacks(uid) {
     return this.db.doc('feedbacks/' + uid).valueChanges().subscribe((res: FeedbackRes) => {
       this.coreDataService.feedbacks = res.userFeedback;
+    });
+  }
+  getResumeDetails(uid) {
+    return this.db.doc('resumeDownloadCount/' + uid).valueChanges().subscribe((res: ResumeDownload) => {
+      this.coreDataService.resumeDownloadedData = res.resumeDownloaded;
+    });
+  }
+  setResumeDetails(uid) {
+    return this.db.doc('/resumeDownloadCount/' + uid).set({
+      resumeDownloaded: this.coreDataService.resumeDownloadedData
     });
   }
 }

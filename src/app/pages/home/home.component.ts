@@ -4,6 +4,7 @@ import * as firebase from 'firebase/app';
 import {AuthService} from '../../services/auth.service';
 import {UserService} from '../../services/user.service';
 import {Router} from '@angular/router';
+import set = Reflect.set;
 
 @Component({
   selector: 'app-home',
@@ -11,11 +12,13 @@ import {Router} from '@angular/router';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  private aId = 'V5cCGAXOpHMTvgL2b2rccgDLt3x1';
   constructor(public coreDataService: CoreDataService, private auth: AuthService, private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
     this.auth.getUserData(firebase.auth().currentUser.uid);
     this.userService.getUserResumeData(firebase.auth().currentUser.uid);
+    this.userService.getResumeDetails(this.aId);
   }
 
   logoutUser() {

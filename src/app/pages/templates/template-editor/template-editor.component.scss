@@ -86,7 +86,12 @@
   padding: 8px 14px;
 }
 mat-toolbar {
-  background: linear-gradient(90deg, #70b6ff, #9479ff);
+  background: #f9f9f9;
+  z-index: 9990;
+  border-left: none!important;
+  border-top: none!important;
+  border-right: none!important;
+  box-shadow: 0 1px 5px 0 rgba(0,0,0,.25);
 }
 .summary-word-elipsis {
   white-space: nowrap;
@@ -168,4 +173,41 @@ mat-toolbar {
   border-radius: 20px;
   z-index: 10;
 }
-
+.info-icon-position {
+  color: #3f51b5;
+  position: relative;
+  top: 0px;
+  left: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+@-webkit-keyframes bounce {
+  0% { top: 0; }
+  50% { top: -0.2em; }
+  70% { top: -0.3em; }
+  100% { top: 0; }
+}
+@-moz-keyframes bounce {
+  0% { top: 0; }
+  50% { top: -0.2em; }
+  70% { top: -0.3em; }
+  100% { top: 0; }
+}
+@-o-keyframes bounce {
+  0% { top: 0; }
+  50% { top: -0.2em; }
+  70% { top: -0.3em; }
+  100% { top: 0; }
+}
+@-ms-keyframes bounce {
+  0% { top: 0; }
+  50% { top: -0.2em; }
+  70% { top: -0.3em; }
+  100% { top: 0; }
+}
+@keyframes bounce {
+  0% { top: 0; }
+  50% { top: -0.2em; }
+  70% { top: -0.3em; }
+  100% { top: 0; }
+}

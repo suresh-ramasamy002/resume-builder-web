@@ -17,11 +17,13 @@ export class AdminDashboardComponent implements OnInit {
   public stateCountData = [];
   public studentCount = 0;
   public professionalCount = 0;
+  public downloadCount = 0;
   constructor(public coreDataService: CoreDataService, private auth: AuthService, private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
     this.auth.getAdminUserDetails();
     this.userService.getFeedbacks(this.aId);
+    this.userService.getResumeDetails(this.aId);
     setTimeout(() => {
       this.coreDataService.feedbacks.forEach(feedback => {
         this.revenueAmount += Number(feedback.price);
@@ -43,6 +45,9 @@ export class AdminDashboardComponent implements OnInit {
           }
         });
         this.stateCountData.push({stateName: stateData, countData: count});
+      });
+      this.coreDataService.resumeDownloadedData.forEach(resumeData => {
+        this.downloadCount += resumeData.count;
       });
     }, 1000);
   }
