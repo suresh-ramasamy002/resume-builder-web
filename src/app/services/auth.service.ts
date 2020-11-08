@@ -78,7 +78,6 @@ export class AuthService {
       state: this.newUser.state,
       role: this.newUser.role
     });
-    console.log(this.userDataArray);
     return this.db.doc('/accessUserDetails/' + this.userDataId).set({
       userData: this.userDataArray
     });
