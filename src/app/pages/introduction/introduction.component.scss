@@ -393,6 +393,55 @@ $animationSpeed: 30s;
   .margin-top-30 {
     margin-top: 30px;
   }
+  .testi-mon-1 {
+    position: absolute;
+    top: 120px;
+    left: 420px;
+    z-index: 20;
+    opacity: 0.7;
+    filter: blur(2px);
+  }
+  .testi-mon-2 {
+    position: absolute;
+    top: 320px;
+    left: 160px;
+    z-index: 20;
+    opacity: 0.7;
+    filter: blur(2px);
+  }
+  .testi-mon-3 {
+    position: absolute;
+    top: 120px;
+    left: 1020px;
+    z-index: 20;
+    opacity: 0.7;
+    filter: blur(2px);
+  }
+  .testi-mon-4 {
+    position: absolute;
+    top: 520px;
+    left: 360px;
+    z-index: 20;
+    opacity: 0.7;
+    filter: blur(2px);
+  }
+  .testi-mon-5 {
+    position: absolute;
+    top: 320px;
+    left: 1260px;
+    z-index: 20;
+    opacity: 0.7;
+    filter: blur(2px);
+  }
+  .testi-mon-6 {
+    position: absolute;
+    position: absolute;
+    top: 520px;
+    left: 1060px;
+    z-index: 20;
+    opacity: 0.7;
+    filter: blur(2px);
+  }
 }
 @media screen and (min-width: 375px) and (max-width: 767px) { // pixels XL, Iphones
   .mat-toolbar {
@@ -478,6 +527,54 @@ $animationSpeed: 30s;
   }
   .margin-top-30{
     margin-top: 30px;
+  }
+  .testi-mon-1 {
+    position: absolute;
+    top: 80px;
+    left: 60px;
+    z-index: 20;
+    opacity: 0.7;
+    filter: blur(2px);
+  }
+  .testi-mon-2 {
+    position: absolute;
+    top: 180px;
+    left: 120px;
+    z-index: 20;
+    opacity: 0.7;
+    filter: blur(2px);
+  }
+  .testi-mon-3 {
+    position: absolute;
+    top: 120px;
+    left: 300px;
+    z-index: 20;
+    opacity: 0.7;
+    filter: blur(2px);
+  }
+  .testi-mon-4 {
+    position: absolute;
+    top: 520px;
+    left: 160px;
+    z-index: 20;
+    opacity: 0.7;
+    filter: blur(2px);
+  }
+  .testi-mon-5 {
+    position: absolute;
+    top: 320px;
+    left: 260px;
+    z-index: 20;
+    opacity: 0.7;
+    filter: blur(2px);
+  }
+  .testi-mon-6 {
+    position: absolute;
+    top: 320px;
+    left: 60px;
+    z-index: 20;
+    opacity: 0.7;
+    filter: blur(2px);
   }
 }
 @media screen and (min-width: 260px) and (max-width: 374px){ // iphone xs, moto
@@ -566,7 +663,54 @@ $animationSpeed: 30s;
   .margin-top-30{
     margin-top: 30px;
   }
-
+  .testi-mon-1 {
+    position: absolute;
+    top: 80px;
+    left: 60px;
+    z-index: 20;
+    opacity: 0.7;
+    filter: blur(2px);
+  }
+  .testi-mon-2 {
+    position: absolute;
+    top: 180px;
+    left: 120px;
+    z-index: 20;
+    opacity: 0.7;
+    filter: blur(2px);
+  }
+  .testi-mon-3 {
+    position: absolute;
+    top: 120px;
+    left: 280px;
+    z-index: 20;
+    opacity: 0.7;
+    filter: blur(2px);
+  }
+  .testi-mon-4 {
+    position: absolute;
+    top: 520px;
+    left: 160px;
+    z-index: 20;
+    opacity: 0.7;
+    filter: blur(2px);
+  }
+  .testi-mon-5 {
+    position: absolute;
+    top: 320px;
+    left: 260px;
+    z-index: 20;
+    opacity: 0.7;
+    filter: blur(2px);
+  }
+  .testi-mon-6 {
+    position: absolute;
+    top: 320px;
+    left: 60px;
+    z-index: 20;
+    opacity: 0.7;
+    filter: blur(2px);
+  }
 }
 @media screen and (min-width: 768px) and (max-width: 1023px){ //ipad
   .mat-toolbar {
@@ -789,55 +933,6 @@ $animationSpeed: 30s;
     outline-color: #333;
     box-shadow: 0 0 0 0 #333, 0 0 0 0 rgba(51, 51, 51, 0);
   }
-}
-.testi-mon-1 {
-  position: absolute;
-  top: 120px;
-  left: 420px;
-  z-index: 20;
-  opacity: 0.7;
-  filter: blur(2px);
-}
-.testi-mon-2 {
-  position: absolute;
-  top: 320px;
-  left: 160px;
-  z-index: 20;
-  opacity: 0.7;
-  filter: blur(2px);
-}
-.testi-mon-3 {
-  position: absolute;
-  top: 120px;
-  left: 1020px;
-  z-index: 20;
-  opacity: 0.7;
-  filter: blur(2px);
-}
-.testi-mon-4 {
-  position: absolute;
-  top: 520px;
-  left: 360px;
-  z-index: 20;
-  opacity: 0.7;
-  filter: blur(2px);
-}
-.testi-mon-5 {
-  position: absolute;
-  top: 320px;
-  left: 1260px;
-  z-index: 20;
-  opacity: 0.7;
-  filter: blur(2px);
-}
-.testi-mon-6 {
-  position: absolute;
-  position: absolute;
-  top: 520px;
-  left: 1060px;
-  z-index: 20;
-  opacity: 0.7;
-  filter: blur(2px);
 }
 .position-relative {
   position: relative;
