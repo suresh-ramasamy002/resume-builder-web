@@ -7,6 +7,7 @@ import {BehaviorSubject, Observable} from 'rxjs';
 import * as firebase from 'firebase/app';
 import {CoreDataService} from './core-data.service';
 import {AdminUserData} from '../class/api-model/response';
+import set = Reflect.set;
 @Injectable({
   providedIn: 'root'
 })
@@ -37,6 +38,7 @@ export class AuthService {
              .then(() => {
                this.coreDataService.showSpinner = false;
                this.router.navigate(['/home']);
+               this.getAndSetUserData(userCredential.user);
              });
       })
     .catch(error => {
@@ -46,7 +48,6 @@ export class AuthService {
   }
 
   insertUserData(user: firebase.User) {
-    this.getAndSetUserData(user);
     return this.db.doc('/users/' + user.uid).set({
       email: this.newUser.email,
       firstName: this.newUser.firstName,
@@ -77,6 +78,7 @@ export class AuthService {
       state: this.newUser.state,
       role: this.newUser.role
     });
+    console.log(this.userDataArray);
     return this.db.doc('/accessUserDetails/' + this.userDataId).set({
       userData: this.userDataArray
     });
