@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1026" height="579" viewBox="0 0 1026 579">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_229" data-name="Rectangle 229" width="1026" height="579" transform="translate(894)" fill="#fff" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+    <linearGradient id="linear-gradient" x1="0.969" y1="-0.154" x2="0.031" y2="0.473" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#abb0ff"/>
+      <stop offset="1" stop-color="#00087b"/>
+    </linearGradient>
+    <filter id="Path_1361" x="-45" y="-20" width="1361.653" height="571.432" filterUnits="userSpaceOnUse">
+      <feOffset dy="40" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="20" result="blur"/>
+      <feFlood flood-color="#c5c3f9" flood-opacity="0.149"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Mask_Group_8" data-name="Mask Group 8" transform="translate(-894)" clip-path="url(#clip-path)">
+    <g transform="matrix(1, 0, 0, 1, 894, 0)" filter="url(#Path_1361)">
+      <path id="Path_1361-2" data-name="Path 1361" d="M6762.469-391.359c138.483,46.6,284.205-20.77,434.643,84.34s343.536,169.609,518.22,127.326S7871-249.259,7871-249.259V-618H6629.994S6623.986-437.956,6762.469-391.359Z" transform="translate(-6614.96 618)" fill="url(#linear-gradient)"/>
+    </g>
+  </g>
+</svg>

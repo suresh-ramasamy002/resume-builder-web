@@ -102,6 +102,11 @@ label[contenteditable="true"]:hover {
   border: 1px solid #ff9292;
   border-style: dotted;
 }
+
+label[contenteditable="true"]:focus {
+  border: 1px solid #ff9292;
+  border-style: dotted;
+}
 label[contenteditable="true"] {
   padding: 3px;
   outline: none;
@@ -176,4 +181,15 @@ label[contenteditable="true"] {
 
 ::ng-deep .mat-checkbox-checked .mat-checkbox-background {
   background-color: #3f51b5 !important;
+}
+[contenteditable=true]:empty::before {
+  content: attr(placeholder);
+  color: #b1b1b1;
+}
+[contenteditable][placeholder]:empty:before {
+  content: attr(placeholder);
+  color: #bababa;
+}
+.chakra-color {
+  color: #000080;
 }
