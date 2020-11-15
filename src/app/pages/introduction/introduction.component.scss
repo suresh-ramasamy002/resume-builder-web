@@ -316,12 +316,12 @@ $animationSpeed: 30s;
     padding-left: 0px;
   }
   .nav-font-size {
-    font-size: 15px;
+    font-size: 16px;
   }
   .top-nav-banner-img {
     position: absolute;
     right: 0;
-    height: 45%;
+    width: 50%;
     z-index: 10;
   }
   .header-top-height {
@@ -452,10 +452,10 @@ $animationSpeed: 30s;
     color: white;
   }
   .service-logo{
-    width: 300px;
+    width: 250px;
     position: absolute;
-    top: -60px;
-    left: -90px;
+    top: -40px;
+    left: -30px;
   }
   .top-nav-banner-img {
     position: absolute;
@@ -489,7 +489,7 @@ $animationSpeed: 30s;
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5);
   }
   .home-art-work{
-    height: 250px;
+    height: 240px;
   }
   .intro-msg {
     padding-top: 30px;
@@ -520,7 +520,7 @@ $animationSpeed: 30s;
     padding-bottom: 50px;
   }
   .foot-key{
-    margin-left: 20px;
+    margin-left: 0px;
   }
   .xs-padding {
     padding-left: 15px;
@@ -588,8 +588,8 @@ $animationSpeed: 30s;
   .service-logo{
     width: 200px;
     position: absolute;
-    top: -60px;
-    left: -90px;
+    top: -40px;
+    left: -30px;
   }
   .top-nav-banner-img {
     position: absolute;
@@ -617,7 +617,7 @@ $animationSpeed: 30s;
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5);
   }
   .home-art-work{
-    height: 250px;
+    height: 180px;
   }
   .sub-header-font{
     font-size: 20px;
@@ -655,7 +655,7 @@ $animationSpeed: 30s;
     padding-bottom: 50px;
   }
   .foot-key{
-    margin-left: 20px;
+    margin-left: 0px;
   }
   .xs-padding {
     padding-left: 15px;
@@ -946,4 +946,7 @@ $animationSpeed: 30s;
   background: #050080;
   border-radius: 50%;
   cursor: pointer;
+}
+.overflow-x-hidden {
+  overflow-x: hidden;
 }

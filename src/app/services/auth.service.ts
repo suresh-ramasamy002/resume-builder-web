@@ -29,7 +29,7 @@ export class AuthService {
     this.getAdminUserDetails();
     this.afu.createUserWithEmailAndPassword(userDetails.email, userDetails.password)
       .then(userCredential => {
-           userCredential.user.sendEmailVerification();
+          // userCredential.user.sendEmailVerification();
            this.newUser = userDetails;
            userCredential.user.updateProfile({
              displayName: userDetails.firstName

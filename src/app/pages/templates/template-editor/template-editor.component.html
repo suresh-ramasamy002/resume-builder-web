@@ -3,12 +3,12 @@
   <mat-toolbar class="example-toolbar">
     <button mat-icon-button (click)="snav.toggle()">
       <img src="assets/images/cv-burger.svg" width="25px"/>
-      <label style="font-size:12px;position: absolute; top:2.5px;margin-left: 5px; color: #234b5e" class="cr-pointer">Click to see design's</label>
+      <label style="font-size:12px;position: absolute; top:2.5px;margin-left: 5px; color: #234b5e" class="cr-pointer">Click to see all CV design's</label>
     </button>
     <span class="menu-spacer"></span>
-    <button mat-button [routerLink]="'/home'" style="font-size: 16px; color:#3f51b5;"><i class="fa fa-arrow-left"></i>&nbsp;<i>Back to home</i></button>
-    <button mat-raised-button (click)="verifyPdfFile(coreDataService.selectedTemplate)">Verify PDF</button>
-    <button mat-raised-button (click)="exportToPdf()" color="primary" style="margin-left:12px">Download PDF</button>
+    <div fxShow="true" fxHide.lt-md *ngIf="coreDataService?.userDetails?.firstName">
+      <label style="font-size: 14px">Hello {{coreDataService.userDetails.firstName + ' ' + coreDataService.userDetails.lastName}}</label>
+    </div>
   </mat-toolbar>
   <mat-sidenav-container class="sidenav-container">
     <mat-sidenav #snav [mode]="'over'">
@@ -103,11 +103,21 @@
         </div>
         <div fxFlex="3%"></div>
         <mat-card fxFlex="40%" fxFlex.sm="98%" fxFlex.xs="98%" fxLayoutAlign.xs="center" fxLayoutAlign.sm="center">
+          <div fxLayout="row">
+            <div fxFlex="40%">
+              <button mat-button [routerLink]="'/home'" style="font-size: 16px; color:#3f51b5;"><i class="fa fa-arrow-left"></i>&nbsp;<i>Back to home</i></button>
+            </div>
+            <div fxFlex="60%" fxLayoutAlign="end">
+              <button mat-stroked-button (click)="verifyPdfFile(coreDataService.selectedTemplate)" color="primary" style="border: 1px solid #3f51b5">Verify PDF</button>
+              <button mat-raised-button (click)="exportToPdf()" color="primary" style="margin-left:12px">Download PDF</button>
+            </div>
+          </div>
+          <div class="margin-top-15"></div>
           <div fxLayout="row" fxLayoutGap="1%">
             <div fxFlex="25%" class="theme-container">
               <div fxLayout="row">
                 <div fxFlex="100%" fxLayoutAlign="center">
-                  <label class="margin-top-5" [ngStyle]="{'color': this.coreDataService.templateData.templateTheme}"><i>Themes</i></label>
+                  <label class="margin-top-5"><i>Themes</i></label>
                 </div>
               </div>
               <div class="theme-container-theme" fxLayoutAlign="center">
@@ -177,6 +187,12 @@
                 </div>
               </div>
           </div>
+          <div class="margin-top-15"></div>
+          <div fxLayout="row">
+            <div fxFlex="100%" fxLayoutAlign="center">
+              <label>Check/Uncheck items to Show/Hide entries.</label>
+            </div>
+          </div>
           <div fxLayout="row" fxLayoutAlign="center" class="margin-top-15">
             <mat-card fxFlex="98%" class="section-mat-card feature-container">
               <div fxLayout="row">
@@ -208,7 +224,7 @@
               </div>
               <div fxLayout="row" class="margin-top-5">
                 <mat-card class="sub-section-mat-card" fxFlex="100%" fxLayoutAlign="left center">
-                  <mat-checkbox [(ngModel)]="coreDataService.templateData.objective" [checked]="coreDataService.templateData.objective" color="primary">Objectives</mat-checkbox>
+                  <mat-checkbox [(ngModel)]="coreDataService.templateData.objective" [checked]="coreDataService.templateData.objective" color="primary">Summary</mat-checkbox>
                   <i class="fa fa-info-circle info-icon-position" [matMenuTriggerFor]="objectiveHint"></i>
                   <mat-menu #objectiveHint="matMenu" class="mat-menu-msg">
                     <div fxLayout="row">

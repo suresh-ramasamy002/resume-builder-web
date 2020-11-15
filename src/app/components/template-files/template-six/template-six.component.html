@@ -31,7 +31,7 @@
         </div>
         <div fxLayout="row" class="margin-top-20" *ngIf="coreDataService.templateData.objective">
           <div fxFlex="20%" style="margin-left: 15px;">
-            <label [ngStyle]="{'font-size': (coreDataService.templateData.roleSize - 1)+'px', 'font-family': coreDataService.templateData.fontFamily, 'color': coreDataService.templateData.templateTheme}" class="label-right-color font-weight-bold">OBJECTIVE</label>
+            <label [ngStyle]="{'font-size': (coreDataService.templateData.roleSize - 1)+'px', 'font-family': coreDataService.templateData.fontFamily, 'color': coreDataService.templateData.templateTheme}" class="label-right-color font-weight-bold">SUMMARY</label>
           </div>
           <div fxFlex="75%">
             <label #objectiveMsg [textContent]="coreDataService.templateData.objectiveMsg" (blur)="coreDataService.templateData.objectiveMsg = objectiveMsg.innerText"  contenteditable="true" spellcheck="true" [ngStyle]="{'font-size': coreDataService.templateData.normalSize+'px', 'font-family': coreDataService.templateData.fontFamily}" class="line-height-20">{{coreDataService.templateData.objectiveMsg}}</label>

@@ -175,9 +175,10 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
     });
   }
   openFeedbackDialog() {
+    let amt = (this.coreDataService.selectedTemplate !== 'template-one' && this.coreDataService.selectedTemplate !== 'template-two' && this.coreDataService.selectedTemplate !== 'template-four') ? 15 : 0;
     let dialogRef = this.dialog.open(FeedbackFormComponent, {
       width: '350px',
-      data: {selectedTemplate: this.coreDataService.selectedTemplate, price: 15}
+      data: {selectedTemplate: this.coreDataService.selectedTemplate, price: amt}
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
