@@ -1,41 +1,46 @@
 <div fxLayout="row" #homeSection>
   <div fxFlex="100%">
-    <div fxLayout="row">
-      <div fxFlex="40%">
-      </div>
-      <div fxFlex="60%">
-        <img src="assets/images/top-nav-banner.svg" class="top-nav-banner-img" onContextMenu="return false;">
-      </div>
-    </div>
-    <mat-toolbar class="navbar-bg"  class="intro-toolbar">
+    <mat-toolbar [ngClass]="scrollNum > 10 ? 'intro-toolbar1' : 'intro-toolbar'">
       <mat-toolbar-row>
-        <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
-          <i class="fa fa-bars"></i>
-        </button>
-        <span ><img src="assets/images/business-logo-page.png" class="service-logo" onContextMenu="return false;"/></span>
-        <span class="menu-spacer"></span>
+<!--        <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>-->
+<!--          <i class="fa fa-bars"></i>-->
+<!--        </button>-->
+        <span (click)="goToHome()" class="cr-pointer"><img src="assets/images/business-logo-page.png" class="service-logo" onContextMenu="return false;"/></span>
         <div fxShow="true" fxHide.lt-md>
           <a mat-button class="nav-font-size" (click)="goToAbout()">About</a>
           <a mat-button class="nav-font-size" (click)="goToResume()">Resume Templates</a>
-          <a mat-button class="nav-font-size">Features</a>
-          <a mat-button class="nav-font-size">Pricing</a>
+          <a mat-button class="nav-font-size" (click)="goToBenefits()">Features</a>
+          <a mat-button class="nav-font-size" (click)="goToPricing()">Pricing</a>
+        </div>
+        <span class="menu-spacer"></span>
+        <div fxShow="true" fxHide.lt-md>
           <a mat-button [routerLink]="'/enroll'" class="nav-font-size">Register</a>
           <a mat-button [routerLink]="'/login'" class="nav-font-size">Sign In</a>
         </div>
       </mat-toolbar-row>
     </mat-toolbar>
-    <mat-sidenav-container fxFlexFill style="background: #ffffff">
-      <mat-sidenav #sidenav>
+    <mat-sidenav-container fxFlexFill style="background: #ffffff;">
+      <mat-sidenav #sidenav style="z-index: 30">
         <mat-list-item>
-          <mat-nav-list class="nav-list" [disableRipple]="true"  (click)="goToAbout()">About</mat-nav-list>
+          <mat-nav-list class="nav-list" [disableRipple]="true"  (click)="goToAbout();">About</mat-nav-list>
+          <mat-nav-list class="nav-list" [disableRipple]="true"  (click)="goToResume();">Resume Templates</mat-nav-list>
+          <mat-nav-list class="nav-list" [disableRipple]="true"  (click)="goToBenefits();">Features</mat-nav-list>
+          <mat-nav-list class="nav-list" [disableRipple]="true"  (click)="goToAbout();">Pricing</mat-nav-list>
+          <mat-nav-list class="nav-list" [disableRipple]="true"  [routerLink]="'/enroll'">Register</mat-nav-list>
+          <mat-nav-list class="nav-list" [disableRipple]="true"  [routerLink]="'/login'">Sign In</mat-nav-list>
         </mat-list-item>
       </mat-sidenav>
       <mat-sidenav-content fxFlexFill>
+        <div fxLayout="row">
+          <div fxFlex="100%">
+            <img src="assets/images/vector-gradient.svg" class="top-nav-banner-img" onContextMenu="return false;">
+          </div>
+        </div>
         <div class="header-top-height"></div>
-        <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayout.md="column" fxLayoutGap.xs="5%" fxLayoutGap.sm="5%" fxLayoutGap.md="3%" style="background: #ffffff">
+        <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayout.md="column" fxLayoutGap.xs="5%" fxLayoutGap.sm="5%" fxLayoutGap.md="3%" style="background: #1f2861">
           <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="100%" data-aos="fade-right" data-aos-easing="ease-out-cubic" data-aos-duration="1500" data-aos-once="true">
             <div fxLayoutAlign="center">
-              <label class="chakra-color header-font">Make A First Impression That Lasts!</label><br/>
+              <label class="color-white header-font">Make A First Impression That Lasts!</label><br/>
             </div>
             <div fxLayoutAlign="center">
               <h3 class="sub-header-font">With Resumearc, your dream job will no longer remain a dream</h3>
@@ -48,36 +53,81 @@
             <img src="assets/images/art-work-home.svg" class="home-art-work" onContextMenu="return false;">
           </div>
         </div>
+        <div class="header-top-height"></div>
+        <div class="div-white"></div>
         <div fxLayout="row">
           <div fxFlex="100%" class="intro-msg overflow-x-hidden">
             <div fxLayout="row">
               <div fxFlex="100%" fxLayoutAlign="center" fxLayoutAlign.xs="center center" fxLayoutAlign.sm="center center" data-aos="fade-right" data-aos-easing="ease-out-cubic" data-aos-duration="1500" data-aos-once="true">
-                <h1 style="margin-bottom: 0px" class="text-color-black xs-padding">Build an Impressive Resume with Resumearc</h1>
+                <h1 style="margin-bottom: 0px; font-family: Poppins,sans-serif;color: #202960" class="text-color-black xs-padding">Build an Impressive Resume with Resumearc</h1>
               </div>
             </div>
             <div fxLayout="row" >
               <div fxFlex="25%" fxFlex.xs="5%" fxFlex.sm="5%" fxFlex.md="20%"></div>
               <div fxFlex="50%" fxFlex.xs="90%" fxFlex.sm="90%" fxFlex.md="60%" fxLayoutAlign="center" data-aos="fade-left" data-aos-easing="ease-out-cubic" data-aos-duration="1500" data-aos-once="true">
-                <h3 style="margin-bottom: 0px" class="text-color-light-gray">Making a resume is the first step of any job search. Create Professionally beautiful resumes to score points from your future employer. it's a powerful and flexible publishing platform which enables you to access and modify all aspects of the resume using the editor.</h3>
+                <h4 style="margin-bottom: 0px; color: #4d5a70" class="text-color-light-gray font-weight-normal">Making a resume is the first step of any job search. Create Professionally beautiful resumes to score points from your future employer. it's a powerful and flexible publishing platform which enables you to access and modify all aspects of the resume using the editor.</h4>
               </div>
               <div fxFlex="25%" fxFlex.xs="5%" fxFlex.sm="5%" fxFlex.md="20%"></div>
             </div>
-            <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayout.md="column" >
-              <div fxFlex="15%" fxFlex.xs="0%" fxFlex.sm="0%" fxFlex.md="0%"></div>
-              <div fxFlex="23.3%" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.sm="100%" fxLayoutAlign="center" data-aos="flip-right" data-aos-easing="ease-out-cubic" data-aos-duration="1500" data-aos-once="true">
-                <img src="assets/images/intro-step-1.svg" width="100%" onContextMenu="return false;"/>
-              </div>
-              <div fxFlex="23.3%" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.sm="100%" fxLayoutAlign="center" data-aos="flip-right" data-aos-easing="ease-out-cubic" data-aos-duration="1500" data-aos-once="true">
-                <img src="assets/images/intro-step-2.svg" width="100%" onContextMenu="return false;"/>
-              </div>
-              <div fxFlex="23.3%" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.sm="100%" fxLayoutAlign="center" data-aos="flip-right" data-aos-easing="ease-out-cubic" data-aos-duration="1500" data-aos-once="true">
-                <img src="assets/images/intro-step-3.svg" width="100%" onContextMenu="return false;"/>
-              </div>
-              <div fxFlex="15%" fxFlex.xs="0%" fxFlex.sm="0%" fxFlex.md="0%"></div>
+            <div class="margin-top-80"></div>
+            <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayout.md="column" fxLayoutGap="2%" fxLayoutGap.xs="8%" fxLayoutGap.sm="8%" data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-duration="1500" data-aos-once="true">
+              <div fxFlex="5%" fxFlex.xs="2.5%" fxFlex.sm="2.5%" fxFlex.md="2.5%"></div>
+              <mat-card fxFlex="30%" fxFlex.xs="95%" fxFlex.sm="95%" fxFlex.sm="95%" style="border-radius: 15px;" class="margin-sm">
+                <div fxLayout="row">
+                  <div fxFlex="25%" fxLayoutAlign="center">
+                    <img src="assets/images/templates.svg" class="step-1-img"/>
+                  </div>
+                </div>
+                <div fxLayout="row">
+                  <div fxFlex="100%">
+                    <h2 style="padding-left: 15px; color: #202960; margin-bottom: 0px">Choose Template</h2>
+                  </div>
+                </div>
+                <div fxLayout="row">
+                  <div fxFlex="100%">
+                    <h4 style="padding-left: 15px;margin-top: 10px; color: #4d5a70; font-weight: normal" class="step-desc">You get to choose between several design options with our selection of resume templates.</h4>
+                  </div>
+                </div>
+              </mat-card>
+              <mat-card fxFlex="30%" fxFlex.xs="85%" fxFlex.sm="85%" fxFlex.sm="85%" style="border-radius: 15px;" class="margin-sm">
+               <div fxLayout="row">
+                 <div fxFlex="25%" fxLayoutAlign="center">
+                   <img src="assets/images/resume-edit.svg" class="step-2-img"/>
+                 </div>
+               </div>
+                <div fxLayout="row">
+                  <div fxFlex="100%">
+                    <h2 style="padding-left: 15px; color: #202960; margin-bottom: 0px">Edit/Design</h2>
+                  </div>
+                </div>
+                <div fxLayout="row">
+                  <div fxFlex="100%">
+                    <h4 style="padding-left: 15px;margin-top: 10px; color: #4d5a70; font-weight: normal" class="step-desc">Develop and optimize your content based on your requirements. Adding or removing a specific section based on your needs.</h4>
+                  </div>
+                </div>
+              </mat-card>
+              <mat-card fxFlex="30%" fxFlex.xs="95%" fxFlex.sm="95%" fxFlex.sm="95%" style="border-radius: 15px;" class="margin-sm">
+                <div fxLayout="row">
+                  <div fxFlex="25%" fxLayoutAlign="center">
+                    <img src="assets/images/pdf-file.svg" class="step-3-img"/>
+                  </div>
+                </div>
+                <div fxLayout="row">
+                  <div fxFlex="100%">
+                    <h2 style="padding-left: 15px; color: #202960; margin-bottom: 0px">Export PDF</h2>
+                  </div>
+                </div>
+                <div fxLayout="row">
+                  <div fxFlex="100%">
+                    <h4 style="padding-left: 15px;margin-top: 10px; color: #4d5a70; font-weight: normal" class="step-desc">Once your content is finished, you can export your resume in PDF and land the job you are looking for, effortlessly.</h4>
+                  </div>
+                </div>
+              </mat-card>
+              <div fxFlex="5%" fxFlex.xs="2.5%" fxFlex.sm="2.5%" fxFlex.md="2.5%"></div>
             </div>
           </div>
         </div>
-        <div #aboutSection></div>
+        <div class="div-white" #aboutSection></div>
         <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayout.md="column" fxLayoutGap.xs="5%" fxLayoutGap.sm="5%" fxLayoutGap.md="5%" class="about-screen-video overflow-x-hidden" data-aos="fade-right" data-aos-easing="ease-out-cubic" data-aos-duration="1500" data-aos-once="true">
           <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="100%" fxLayoutAlign="center center">
             <div fxFlex="15%" fxFlex.xs="10%" fxFlex.sm="10%" fxFlex.md="10%"></div>
@@ -93,10 +143,10 @@
               <div fxLayout="row">
                 <div fxFlex="100%">
                   <div fxLayoutAlign="left" fxLayoutAlign.xs="center" fxLayoutAlign.sm="center" fxLayoutAlign.md="center">
-                    <h2 style="margin-bottom: 0px">Know about Resumearc</h2>
+                    <h2 style="margin-bottom: 0px;color: #202960">Know about Resumearc</h2>
                   </div>
                   <div fxLayoutAlign="left" fxLayoutAlign.xs="center" fxLayoutAlign.sm="center" fxLayoutAlign.md="center">
-                  <h4 class="text-color-light-gray" style="margin-top: 5px">Create and export your selected template in minutes</h4>
+                  <h4 class="text-color-light-gray" style="margin-top: 5px;color: #4d5a70">Create and export your selected template in minutes</h4>
                   </div>
                 </div>
               </div>
@@ -104,9 +154,10 @@
             <div fxFlex="15%" fxFlex.xs="10%" fxFlex.sm="10%" fxFlex.md="10%"></div>
           </div>
         </div>
-        <div fxLayout="row" fxLayoutGap="1%" #resumeSection>
-          <div fxFlex="100%" fxLayoutAlign="center" style="background: #f8f8f8;" data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-duration="1500" data-aos-once="true">
-            <h1 style="margin-top: 30px">Our Resume Templates</h1>
+        <div class="div-white" #resumeSection></div>
+        <div fxLayout="row" fxLayoutGap="1%">
+          <div fxFlex="100%" fxLayoutAlign="center" style="background: #f7f8fd;" data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-duration="1500" data-aos-once="true">
+            <h1 style="padding-top: 50px;color: #202960">Our Resume Templates</h1>
           </div>
         </div>
         <div class="slider intro-msg">
@@ -161,6 +212,174 @@
             </div>
           </div>
         </div>
+        <div class="div-white"  #benefitSection></div>
+        <div fxLayout="row" id="benefitSection" style="background: #ffffff">
+          <div fxFlex="100%" style="background: #ffffff;" class="benefits-section">
+        <div fxLayout="row" data-aos="fade-right" data-aos-easing="ease-out-cubic" data-aos-duration="1000" data-aos-once="true">
+          <div fxFlex="100%" fxLayoutAlign="center" class="overflow-x-hidden">
+            <h1 class="xs-padding benefits-heading">Benefits of Resumearc's online resume builder</h1>
+          </div>
+        </div>
+        <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="100%">
+          <div fxFlex="5.5%" fxFlex.xs="0%" fxFlex.sm="0%"></div>
+          <div fxFlex="33%" fxFlex.xs="100%" fxFlex.sm="100%" data-aos="fade-right" data-aos-easing="ease-out-cubic" data-aos-duration="1000" data-aos-once="true" fxLayoutAlign.lg="center" fxLayoutAlign.md="center" fxLayoutAlign.xs="left">
+            <div fxLayout="row" class="xs-padding">
+              <div fxFlex="7%" fxFlex.xs="10%" fxFlex.sm="10%">
+                <img src="assets/images/flash.svg" width="30px" style="position: relative; top: 15px"/>
+              </div>
+              <div fxFlex="90%">
+                <div fxLayout="row">
+                  <div fxFlex="100%">
+                    <h3 class="m-b-0">It's fast and easy to use</h3>
+                  </div>
+                </div>
+                <div fxLayout="row">
+                  <div fxFlex="80%" class="margin-top-5">
+                    <h4 class="m-t-0 font-weight-normal text-color-light-gray" style="text-align: left">We are providing straight forward functionalities in the editior to make it  user friendly which will help you pick the perfect resume in minutes.</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div fxFlex="1%" fxFlex.xs="0%" fxFlex.sm="0%"></div>
+          <div fxFlex="29%" fxFlex.xs="100%" fxFlex.sm="100%" data-aos="fade-right" data-aos-easing="ease-out-cubic" data-aos-duration="1000" data-aos-once="true" fxLayoutAlign.lg="center" fxLayoutAlign.md="center" fxLayoutAlign.xs="left">
+            <div fxLayout="row" class="xs-padding">
+              <div fxFlex="8%" fxFlex.xs="10%" fxFlex.sm="10%">
+                <img src="assets/images/safe.svg" width="32px" style="position: relative; top: 15px"/>
+              </div>
+              <div fxFlex="90%">
+                <div fxLayout="row">
+                  <div fxFlex="100%">
+                    <h3 class="m-b-0">Your data is safe</h3>
+                  </div>
+                </div>
+                <div fxLayout="row">
+                  <div fxFlex="80%" class="margin-top-5">
+                    <h4 class="m-t-0 font-weight-normal text-color-light-gray" style="text-align: left">Your details is always private and protected, As per your requirement you can easily download and update the details of your resume.</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div fxFlex="33%" fxFlex.xs="100%" fxFlex.sm="100%" data-aos="fade-right" data-aos-easing="ease-out-cubic" data-aos-duration="1000" data-aos-once="true" fxLayoutAlign.lg="center" fxLayoutAlign.md="center" fxLayoutAlign.xs="left">
+            <div fxLayout="row" class="xs-padding">
+              <div fxFlex="7%" fxFlex.xs="10%" fxFlex.sm="10%">
+                <img src="assets/images/typography.svg" width="28px" style="position: relative; top: 15px"/>&nbsp;
+              </div>
+              <div fxFlex="90%">
+                <div fxLayout="row">
+                  <div fxFlex="100%">
+                    <h3 class="m-b-0">Professional Typography</h3>
+                  </div>
+                </div>
+                <div fxLayout="row">
+                  <div fxFlex="80%" class="margin-top-5">
+                    <h4 class="m-t-0 font-weight-normal text-color-light-gray" style="text-align: left">Making the text reader-friendly and at the same time establishing the right structure and hierarchy in the font. </h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="100%">
+          <div fxFlex="5.5%" fxFlex.xs="0%" fxFlex.sm="0%"></div>
+          <div fxFlex="27%" fxFlex.xs="100%" fxFlex.sm="100%" data-aos="fade-right" data-aos-easing="ease-out-cubic" data-aos-duration="1000" data-aos-once="true" fxLayoutAlign.lg="center" fxLayoutAlign.md="center" fxLayoutAlign.xs="left">
+            <div fxLayout="row" class="xs-padding">
+              <div fxFlex="8%">
+                <img src="assets/images/theme.svg" width="25px" style="position: relative; top: 15px"/>
+              </div>
+              <div fxFlex="93%">
+                <div fxLayout="row">
+                  <div fxFlex="100%">
+                    <h3 class="m-b-0">Multiple themes</h3>
+                  </div>
+                </div>
+                <div fxLayout="row">
+                  <div fxFlex="80%" class="margin-top-5">
+                    <h4 class="m-t-0 font-weight-normal text-color-light-gray" style="text-align: left">We are providing theme options for every template to customize and create a better visual impact on the resume as per the users requirement.</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div fxFlex="6.5%" fxFlex.xs="0%" fxFlex.sm="0%"></div>
+          <div fxFlex="20%" fxFlex.xs="100%" fxFlex.sm="100%" data-aos="fade-right" data-aos-easing="ease-out-cubic" data-aos-duration="1000" data-aos-once="true" fxLayoutAlign.lg="center" fxLayoutAlign.md="center" fxLayoutAlign.xs="left">
+            <div fxLayout="row" class="xs-padding">
+              <div fxFlex="10%">
+                <img src="assets/images/spell-check.svg" width="25px" style="position: relative; top: 17px"/>
+              </div>
+              <div fxFlex="90%">
+                <div fxLayout="row">
+                  <div fxFlex="100%">
+                    <h3 class="m-b-0">Auto spell check</h3>
+                  </div>
+                </div>
+                <div fxLayout="row">
+                  <div fxFlex="95%" class="margin-top-5">
+                    <h4 class="m-t-0 font-weight-normal text-color-light-gray" style="text-align: left">You can conveniently correct your misspelled words as and when your typing. </h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div fxFlex="8.7%"></div>
+          <div fxFlex="33%" fxFlex.xs="100%" fxFlex.sm="100%" data-aos="fade-right" data-aos-easing="ease-out-cubic" data-aos-duration="1000" data-aos-once="true" fxLayoutAlign.lg="center" fxLayoutAlign.md="center" fxLayoutAlign.xs="left">
+            <div fxLayout="row" class="xs-padding">
+              <div fxFlex="6%" fxFlex.xs="0%" fxFlex.sm="0%">
+                <img src="assets/images/cv.svg" width="25px" style="position: relative; top: 16px"/>
+              </div>
+              <div fxFlex="90%">
+                <div fxLayout="row">
+                  <div fxFlex="100%">
+                    <h3 class="m-b-0">20+ Resume templates</h3>
+                  </div>
+                </div>
+                <div fxLayout="row">
+                  <div fxFlex="80%" class="margin-top-5">
+                    <h4 class="m-t-0 font-weight-normal text-color-light-gray" style="text-align: left">We have handpicked 20+ templates that suits the various management and technical career segments in the market.</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+          </div>
+        </div>
+        <div #pricingSection style="padding-bottom: 50px;background: #f7f8fd"></div>
+        <div fxLayout="row">
+          <div fxFlex="100%"  style="background: #f7f8fd;">
+            <div fxLayout="row" class="overflow-x-hidden">
+              <div fxFlex="100%" fxLayoutAlign="center" fxFlex.xs="100%" fxFlex.sm="100%" data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-duration="1000" data-aos-once="true">
+                <h1 style="padding-bottom: 30px;color: #202960">Our Pricing</h1>
+              </div>
+            </div>
+            <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" class="overflow-x-hidden">
+              <div fxFlex="40%" fxFlex.xs="100%" fxFlex.sm="100%" fxLayoutAlign="center" data-aos="fade-right" data-aos-easing="ease-out-cubic" data-aos-duration="1000" data-aos-once="true">
+                <div class="card card2">
+                  <h3>PRO - 25% Off</h3>
+<!--                  <h2><s><i class="fa fa-rupee"></i>20</s></h2>-->
+                  <label><i class="fa fa-rupee"></i>15 / Resume</label>
+                  <hr>
+                  <p><span>&#x25cf;</span>&nbsp;&nbsp;20+ Resume templates</p>
+                  <p><span>&#x25cf;</span>&nbsp;&nbsp;2+ Free Resume templates</p>
+                  <p><span>&#x25cf;</span>&nbsp;&nbsp;Free access to all templates</p>
+                  <p><span>&#x25cf;</span>&nbsp;&nbsp;Up to 2 pages of a Resume/CV</p>
+                  <p><span>&#x25cf;</span>&nbsp;&nbsp;Multiple Theme Options Per Template</p>
+                  <p><span>&#x25cf;</span>&nbsp;&nbsp;10+ Extra Fonts</p>
+                  <p><span>&#x25cf;</span>&nbsp;&nbsp;Customize Sections</p>
+                  <p><span>&#x25cf;</span>&nbsp;&nbsp;Text Formatting</p>
+                  <p><span>&#x25cf;</span>&nbsp;&nbsp;3 Different Font Sizes</p>
+                  <a [routerLink]="'/login'">Build My Resume</a>
+                </div>
+              </div>
+              <div fxFlex="60%" fxFlex.xs="100%" fxFlex.sm="100%" fxLayoutAlign="center" data-aos="fade-left" data-aos-easing="ease-out-cubic" data-aos-duration="1000" data-aos-once="true">
+                <img  src="assets/images/desktop-app.png" class="desk-app"/>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="div-white"></div>
         <div fxLayout="row">
         <div fxFlex="100%" class="review-section position-relative">
           <img src="assets/images/man_on_a_street-2.svg" class="testi-mon-1" onContextMenu="return false;"/>
@@ -306,12 +525,12 @@
               </div>
               <div fxLayout="row">
                 <div fxFlex="100%" fxLayoutAlign="left center" fxLayoutAlign.xs="center" fxLayoutAlign.sm="center" fxLayoutAlign.md="center">
-                  <a class="foot-link cr-pointer">Features</a>
+                  <a class="foot-link cr-pointer" (click)="goToBenefits()">Features</a>
                 </div>
               </div>
               <div fxLayout="row">
                 <div fxFlex="100%" fxLayoutAlign="left center" fxLayoutAlign.xs="center" fxLayoutAlign.sm="center" fxLayoutAlign.md="center">
-                  <a class="foot-link cr-pointer">Pricing</a>
+                  <a class="foot-link cr-pointer" (click)="goToPricing()">Pricing</a>
                 </div>
               </div>
             </div>

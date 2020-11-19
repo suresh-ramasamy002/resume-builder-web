@@ -44,15 +44,19 @@
                     <mat-error  *ngIf="!enrollFormValidation.get('email').valid">Invalid Email</mat-error>
                   </mat-form-field>
                 </div>
-                <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap.lg="3.5%"  fxLayoutGap.xs="1.5%"  fxLayoutGap.sm="1.5%" class="margin-top-5">
-                  <mat-form-field floatLabel="always" fxFlex="35%"  fxFlex.xs="100%">
-                    <mat-label class="mat-body-2 gl-mat-text-field-label" for="city">City</mat-label>
-                    <input matInput name="city" id="city" tabindex="4" formControlName="city" [(ngModel)]="userDetails.city" autocomplete="off" required/>
-                    <mat-error *ngIf="enrollFormValidation.get('city').hasError('required')">Invalid City</mat-error>
+                <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap.lg="3.5%"  fxLayoutGap.xs="1.5%"  fxLayoutGap.sm="1.5%" class="margin-top-10">
+                  <mat-form-field floatLabel="always" fxFlex="35%" fxFlex.xs="100%">
+                    <mat-label class="mat-body-2 gl-mat-text-field-label">Country</mat-label>
+                    <mat-select name="country" formControlName="country" required [(ngModel)]="userDetails.country" autocomplete="off" required>
+                      <mat-option *ngFor="let country of countryList; let index = index" [value]="country" (click)="getStateDetails(index)">{{country}}</mat-option>
+                    </mat-select>
+                    <mat-error  *ngIf="!enrollFormValidation.get('country').valid">Invalid Country</mat-error>
                   </mat-form-field>
                   <mat-form-field floatLabel="always" fxFlex="35%"  fxFlex.xs="100%">
-                    <mat-label class="mat-body-2" for="state">State</mat-label>
-                    <input matInput name="state" id="state" tabindex="5" formControlName="state" [(ngModel)]="userDetails.state" autocomplete="off" required/>
+                    <mat-label class="mat-body-2 gl-mat-text-field-label" for="state">State</mat-label>
+                    <mat-select name="state" id="state" tabindex="5" formControlName="state" [(ngModel)]="userDetails.state" autocomplete="off" required>
+                      <mat-option *ngFor="let state of stateList; let index = index" [value]="state">{{state}}</mat-option>
+                    </mat-select>
                     <mat-error  *ngIf="enrollFormValidation.get('state').hasError('required')">Invalid State</mat-error>
                   </mat-form-field>
                 </div>

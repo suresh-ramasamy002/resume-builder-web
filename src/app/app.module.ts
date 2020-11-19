@@ -86,6 +86,7 @@ import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard
 import { TemplateEightComponent } from './components/template-files/template-eight/template-eight.component';
 // import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 // import { PdfJsViewerModule } from 'ng2-pdfjs-viewer';
+import {ScrollDispatcher} from '@angular/cdk/scrolling';
 @NgModule({
   declarations: [
     AppComponent,
@@ -164,7 +165,7 @@ import { TemplateEightComponent } from './components/template-files/template-eig
     // PdfJsViewerModule
   ],
   exports: [StripePipe],
-  providers: [{provide: REGION, useValue: 'us-central1'}, LoadingService, CoreDataService, UserService, PaymentService],
+  providers: [{provide: REGION, useValue: 'us-central1'}, LoadingService, CoreDataService, UserService, PaymentService, ScrollDispatcher],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

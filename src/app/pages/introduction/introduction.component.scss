@@ -302,33 +302,61 @@ $animationSpeed: 30s;
 //}
 
 @media screen and (min-width: 1024px){ // desktop
-  .mat-toolbar {
-    position: absolute;
-    top: 3%;
+  .step-desc {
+    width: 300px;
+  }
+  .desk-app{
+    height: 600px;
+  }
+  .margin-top-80 {
+    margin-top: 80px;
+  }
+  .div-white{
+    height: 100px;
+    background: white;
+  }
+  .intro-toolbar.mat-toolbar {
+    position: fixed;
+    top: 0%;
     background: transparent;
     z-index: 20;
+    padding-top: 10px;
+    padding-bottom: 5px;
     color: white;
   }
+  .intro-toolbar1.mat-toolbar {
+    position: fixed;
+    top: 0%;
+    background: white;
+    z-index: 20;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: #292929;
+    box-shadow: 0 0 15px 3px #8c8c8c59;
+  }
   .service-logo{
-    width: 340px;
+    width: 280px;
   }
   .mat-toolbar-row {
     padding-left: 0px;
   }
   .nav-font-size {
-    font-size: 16px;
+    position: relative;
+    top: 5px;
+    font-size: 17px;
+    font-weight: normal;
   }
   .top-nav-banner-img {
     position: absolute;
     right: 0;
-    width: 50%;
-    z-index: 10;
+    width: 100%;
   }
   .header-top-height {
-    margin-top: 300px;
+    padding-top: 220px;
+    background: #1f2861;
   }
   .header-font {
-    margin-top: 10px;
+    margin-top: 100px;
     font-size: 50px;
     padding-left: 70px;
     padding-right: 40px;
@@ -337,12 +365,14 @@ $animationSpeed: 30s;
   .home-art-work{
     padding-left: 10px;
     padding-right: 40px;
-    height: 80%;
+    width: 100vw;
+    z-index: 1000;
   }
   .sub-header-font{
     font-size: 21px;
-    color: #534d4d;
+    color: #ffffff;
     font-weight: 500;
+    padding-top: 15px;
     padding-left: 20px;
     padding-right: 40px;
   }
@@ -355,13 +385,13 @@ $animationSpeed: 30s;
     font-size: 18px;
     font-weight: 500;
     margin-left: 70px;
-    line-height: 50px;
+    line-height: 80px;
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5);
   }
   .intro-msg {
     padding-top: 50px;
     padding-bottom: 70px;
-    background: #f8f8f8;
+    background: #f7f8fd;
   }
   .about-screen-video{
     padding-top: 30px;
@@ -378,7 +408,7 @@ $animationSpeed: 30s;
     margin-left: -10px;
   }
   .review-section {
-    background: #000080;
+    background: #1f2861;
     padding-top: 70px;
     padding-bottom: 60px;
   }
@@ -442,29 +472,51 @@ $animationSpeed: 30s;
     opacity: 0.7;
     filter: blur(2px);
   }
+  .benefits-heading {
+    margin-top: 0px;
+    padding-top: 10px;
+    padding-bottom: 30px;
+  }
+  .benefits-section {
+    height: 520px;
+  }
+  .benefits-scd-half{
+    margin-top: 20px;
+  }
 }
 @media screen and (min-width: 375px) and (max-width: 767px) { // pixels XL, Iphones
-  .mat-toolbar {
-    position: absolute;
-    top: 5%;
+  .intro-toolbar.mat-toolbar {
+    position: fixed;
+    top: 0%;
     background: transparent;
     z-index: 20;
+    padding-top: 10px;
+    padding-bottom: 5px;
     color: white;
   }
+  .intro-toolbar1.mat-toolbar {
+    position: fixed;
+    top: 0%;
+    background: white;
+    z-index: 20;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: #292929;
+  }
   .service-logo{
-    width: 250px;
     position: absolute;
-    top: -40px;
+    top: -5px;
     left: -30px;
+    width: 260px;
   }
   .top-nav-banner-img {
     position: absolute;
     right: 0;
-    height: 15%;
-    z-index: 10;
+    width: 100%;
   }
   .header-top-height {
-    margin-top: 120px;
+    padding-top: 100px;
+    background: #1f2861;
   }
   .header-font {
     font-size: 40px;
@@ -473,7 +525,7 @@ $animationSpeed: 30s;
   }
   .sub-header-font{
     font-size: 20px;
-    color: #534d4d;
+    color: #ffffff;
     font-weight: 500;
     padding-left: 28px;
     padding-right: 40px;
@@ -494,7 +546,7 @@ $animationSpeed: 30s;
   .intro-msg {
     padding-top: 30px;
     padding-bottom:30px;
-    background: #f8f8f8;
+    background: #f7f8fd;
   }
   .about-screen-video{
     padding-top: 30px;
@@ -511,7 +563,7 @@ $animationSpeed: 30s;
     margin-left: -10px;
   }
   .review-section {
-    background: #000080;
+    background: #1f2861;
     padding-top: 30px;
     padding-bottom: 50px;
   }
@@ -576,33 +628,63 @@ $animationSpeed: 30s;
     opacity: 0.7;
     filter: blur(2px);
   }
+  .margin-sm{
+    margin-left: 22px;
+    margin-right: 22px;
+  }
+  .margin-top-80 {
+    margin-top: 40px;
+  }
+  .desk-app{
+    height: 300px;
+  }
+  .step-1-img{
+    margin-left: 15px;
+  }
+  .step-2-img{
+    margin-left: 15px;
+  }
+  .step-3-img{
+    margin-left: 15px;
+  }
 }
 @media screen and (min-width: 260px) and (max-width: 374px){ // iphone xs, moto
-  .mat-toolbar {
-    position: absolute;
-    top: 5%;
+  .intro-toolbar.mat-toolbar {
+    position: fixed;
+    top: 0%;
     background: transparent;
     z-index: 20;
+    padding-top: 10px;
+    padding-bottom: 5px;
     color: white;
   }
+  .intro-toolbar1.mat-toolbar {
+    position: fixed;
+    top: 0%;
+    background: white;
+    z-index: 20;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: #292929;
+  }
   .service-logo{
-    width: 200px;
     position: absolute;
-    top: -40px;
+    top: -5px;
     left: -30px;
+    width: 260px;
   }
   .top-nav-banner-img {
     position: absolute;
     right: 0;
-    height: 20%;
-    z-index: 10;
+    width: 100%;
   }
   .header-top-height {
-    margin-top: 160px;
+    padding-top: 100px;
+    background: #1f2861;
   }
   .header-font {
-    font-size: 40px;
-    padding-left: 70px;
+    font-size: 30px;
+    padding-left: 22px;
     padding-right: 40px;
     font-weight: 600;
   }
@@ -620,8 +702,8 @@ $animationSpeed: 30s;
     height: 180px;
   }
   .sub-header-font{
-    font-size: 20px;
-    color: #534d4d;
+    font-size: 18px;
+    color: #ffffff;
     font-weight: 500;
     padding-left: 28px;
     padding-right: 40px;
@@ -629,7 +711,7 @@ $animationSpeed: 30s;
   .intro-msg {
     padding-top: 30px;
     padding-bottom:30px;
-    background: #f8f8f8;
+    background: #f7f8fd;
   }
   .about-screen-video{
     padding-top: 30px;
@@ -646,7 +728,7 @@ $animationSpeed: 30s;
     margin-left: -10px;
   }
   .review-section {
-    background: #000080;
+    background: #1f2861;
     padding-top: 30px;
     padding-bottom: 50px;
   }
@@ -711,29 +793,62 @@ $animationSpeed: 30s;
     opacity: 0.7;
     filter: blur(2px);
   }
+  .margin-sm{
+    margin-left: 22px;
+    margin-right: 22px;
+  }
+  .margin-top-80 {
+    margin-top: 40px;
+  }
+  .desk-app{
+    height: 280px;
+  }
+  .step-1-img{
+    margin-left: 15px;
+  }
+  .step-2-img{
+    margin-left: 15px;
+  }
+  .step-3-img{
+    margin-left: 15px;
+  }
 }
 @media screen and (min-width: 768px) and (max-width: 1023px){ //ipad
-  .mat-toolbar {
-    position: absolute;
-    top: 5%;
+  .desk-app{
+    height: 500px;
+  }
+  .intro-toolbar.mat-toolbar {
+    position: fixed;
+    top: 0%;
     background: transparent;
     z-index: 20;
+    padding-top: 10px;
+    padding-bottom: 5px;
     color: white;
   }
+  .intro-toolbar1.mat-toolbar {
+    position: fixed;
+    top: 0%;
+    background: white;
+    z-index: 20;
+    padding-top: 5px;
+    padding-bottom: 50px;
+    color: #292929;
+  }
   .service-logo{
-    width: 300px;
     position: absolute;
-    top: -60px;
-    left: -35px;
+    top: -5px;
+    left: -30px;
+    width: 450px;
   }
   .top-nav-banner-img {
     position: absolute;
     right: 0;
-    height: 20%;
-    z-index: 10;
+    width: 100%;
   }
   .header-top-height {
-    margin-top: 200px;
+    padding-top: 220px;
+    background: #1f2861;
   }
   .header-font {
     font-size: 40px;
@@ -756,7 +871,7 @@ $animationSpeed: 30s;
   }
   .sub-header-font{
     font-size: 24px;
-    color: #534d4d;
+    color: #ffffff;
     font-weight: 500;
     padding-left: 28px;
     padding-right: 40px;
@@ -775,7 +890,7 @@ $animationSpeed: 30s;
     margin-top: 60px;
   }
   .review-section {
-    background: #000080;
+    background: #1f2861;
     padding-top: 30px;
     padding-bottom: 50px;
   }
@@ -793,7 +908,7 @@ $animationSpeed: 30s;
   text-align: center;
 }
 .testimonials-section {
-  background: #000080;
+  background: #1f2861;
   color: white;
   height: 450px;
   position: relative;
@@ -943,10 +1058,113 @@ $animationSpeed: 30s;
 }
 .social-link {
   padding: 10px;
-  background: #050080;
+  background: #1f2861;
   border-radius: 50%;
   cursor: pointer;
 }
 .overflow-x-hidden {
   overflow-x: hidden;
+}
+.mat-toolbar{
+  -webkit-transition: background-color 400ms linear;
+  -ms-transition: background-color 400ms linear;
+  transition: background-color 400ms linear;
+}
+
+.nav-list {
+  padding: 10px 60px 10px 60px;
+}
+.step-1-img{
+  width: 55px;
+  padding: 10px;
+  background: #ff6b37;
+  border-radius: 12px;
+}
+.step-2-img{
+  width: 55px;
+  padding: 10px 7px 10px 14px;
+  background: #2643cf;
+  border-radius: 12px;
+}
+.step-3-img{
+  width: 55px;
+  padding: 10px 10px 10px 10px;
+  background: #0a7303;
+  border-radius: 12px;
+}
+.mat-card:not([class*=mat-elevation-z]) {
+  transition: none !important;
+  box-shadow: 2px 2px 2px 0.5px lightgray !important;
+  background: #ffffff;
+}
+
+.card {
+  width: 325px;
+  border-radius: 10px;
+  padding: 10px 20px 39px 20px;
+  border: 0;
+  margin-bottom: 30px;
+}
+.card2 {
+  background: linear-gradient(to bottom right, #5f6cce, #202960);
+  box-shadow: 3px 2px 8px rgb(113 127 236);
+}
+.card h3 {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 35px;
+  font-weight: 500;
+  letter-spacing: 0px;
+  margin-bottom: 10px;
+  margin-top: 15px;
+}
+
+.card label {
+  color: white;
+  font-size: 30px;
+  margin-top: 0px;
+}
+
+.card h2 {
+  color: rgba(255, 255, 255, 0.15);
+  font-size: 38px;
+  font-weight: 900;
+  position: absolute;
+  margin-left: -6px;
+  pointer-events: none;
+}
+
+.card hr {
+  border-width: 1px;
+  border-color: rgba(255, 255, 255, 0.15);
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.card p:first-of-type {
+  margin-top: 20px;
+}
+
+.card p {
+  color: white;
+  font-size: 15px;
+}
+
+.card p:nth-of-type(9) {
+  margin-bottom: 35px;
+}
+
+.card a {
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 12px 35px 11px 35px;
+  background-color: rgba(255, 255, 255, 0.3);
+  margin-left: 40px;
+  border-radius: 6px;
+  transition: background-color 0.5s;
+}
+
+.card a:hover {
+  background-color: rgba(255, 255, 255, 0.5);
 }

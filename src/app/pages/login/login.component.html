@@ -50,6 +50,7 @@
                        <mat-error *ngIf="loginFormValidation.get('password').hasError('required')">Invalid Password</mat-error>
                      </mat-form-field>
                  </div>
+
                  <div fxLayout="row" class="margin-top-12" *ngIf="authError">
                    <div fxFlex="100%" fxLayoutAlign="center">
                      <label class="login-error">{{authError?.message}}</label>
@@ -73,7 +74,7 @@
                  </div>
                  <div fxLayout="row">
                    <div fxFlex="100%" fxLayoutAlign="center">
-                     <span style="font-size: 13px; margin-bottom: 20px">This site is best viewed with Chrome browser and firefox.</span>
+                     <span style="font-size: 13px; margin-bottom: 20px">This site is best viewed with Chrome browser and Firefox.</span>
                    </div>
                  </div>
                </div>

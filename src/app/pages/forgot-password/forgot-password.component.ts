@@ -24,6 +24,8 @@ export class ForgotPasswordComponent implements OnInit {
     this.authError = null;
   }
   sendLink() {
-    this.auth.forgotPassword(this.email);
+    if (this.fpFormValidation.valid) {
+      this.auth.forgotPassword(this.email);
+    }
   }
 }
