@@ -157,10 +157,10 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
       margin: 0,
       padding: 0,
       filename: fileName.replace(' ', '-') + '-resumearc.pdf',
-      image: {type: 'jpg', quality: 0.99},
-      html2canvas: {dpi: 192, letterRendering: true, useCORS: true},
-      jsPDF: {unit: 'pt', format: 'letter', orientation: 'portrait', scale: 0
-      }};
+      image: {type: 'jpeg', quality: 1},
+      html2canvas: {dpi: 192, scale: 4, letterRendering: true, useCors: true},
+      jsPDF: {unit: 'pt', format: 'letter', orientation: 'portrait'}
+    };
     html2pdf().from(document.getElementById(element)).set(opt).save().then((e) => {
       this.coreDataService.showSpinner = false;
       this.coreDataService.resumeDownloadedData.forEach(resumeData => {
@@ -313,8 +313,8 @@ sanitizeUrl(url) {
 verifyPdfFile(selectedElement) {
       let opt = {
         margin: 0,
-        image: {type: 'jpeg', quality: 0.99},
-        html2canvas: {dpi: 192, letterRendering: true},
+        image: {type: 'jpeg', quality: 1},
+        html2canvas: {dpi: 192, scale: 4, letterRendering: true, useCors: true},
         jsPDF: {unit: 'pt', format: 'letter', orientation: 'portrait'}
       };
       this.coreDataService.showSpinner = true;

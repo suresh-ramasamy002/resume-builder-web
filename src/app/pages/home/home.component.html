@@ -1,9 +1,9 @@
-<mat-toolbar class="navbar-bg" data-aos="zoom-up" data-aos-easing="ease-out-cubic" data-aos-duration="1200">
-    <mat-toolbar-row style="padding-left:0px">
+<mat-toolbar class="navbar-bg" data-aos="zoom-up" data-aos-easing="ease-out-cubic" data-aos-duration="1200" [ngClass]="scrollNum > 10 ? 'intro-toolbar1' : 'intro-toolbar'">
+    <mat-toolbar-row style="padding-left:0px" >
       <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
-       <i class="fa fa-bars"></i>
+       <i class="fa fa-bars chakra-color"></i>
       </button>
-      <span data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="1500"><img src="assets/images/business-logo-page.png" width="240px"/></span>
+      <span data-aos="fade-right" data-aos-easing="ease-out-cubic" data-aos-duration="1000" data-aos-once="true"><img src="assets/images/business-logo-page.png" width="240px"/></span>
       <span class="menu-spacer"></span>
       <div fxShow="true" fxHide.lt-md *ngIf="coreDataService?.userDetails?.firstName">
         <a mat-button *ngIf="coreDataService.userDetails.role == 'PRO_ADMIN_1'" mat-button [routerLink]="'/adminDashboard_protect*1_!2000128846628812'" class="font-size-15">Admin Dashboard</a>
@@ -13,257 +13,275 @@
     </mat-toolbar-row>
   </mat-toolbar>
   <mat-sidenav-container fxFlexFill>
-    <mat-sidenav #sidenav>
+    <mat-sidenav #sidenav style="z-index: 1000000">
       <mat-nav-list>
-        <a (click)="sidenav.toggle()" mat-list-item>Close</a>
-        <button mat-button (click)="logoutUser()" class="color-white font-size-15">Logout</button>
-        <label *ngIf="coreDataService?.userDetails?.firstName" class="color-white font-size-15">Hello {{coreDataService.userDetails.firstName}}</label>
+        <div fxLayoutAlign="center">
+          <label *ngIf="coreDataService?.userDetails?.firstName" class="font-size-15">Hello {{coreDataService.userDetails.firstName}}</label>
+        </div>
+        <br/>
+        <div fxLayoutAlign="center">
+          <a (click)="logoutUser()" class="font-size-15">Logout</a>
+        </div>
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content fxFlexFill>
+      <div fxLayout="row">
+        <div fxFlex="100%">
+          <img src="assets/images/vector-gradient.svg" class="top-nav-banner-img" onContextMenu="return false;">
+        </div>
+      </div>
+      <div class="header-top-height"></div>
+      <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayout.md="column" fxLayoutGap.xs="5%" fxLayoutGap.sm="5%" fxLayoutGap.md="3%" style="background: #1f2861">
+        <div fxFlex="60%" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="100%" data-aos="fade-right" data-aos-easing="ease-out-cubic" data-aos-duration="1500" data-aos-once="true">
+          <div class="margin-top-150">
+            <label class="color-white header-font">Resume Templates</label><br/>
+          </div>
+          <div>
+            <h3 class="sub-header-font">Choose your CV template, fill it out, and Export. Create and download your professional resume in a few minutes</h3>
+          </div>
+        </div>
+        <div fxFlex="40%" fxLayoutAlign="center" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="100%" data-aos="fade-left" data-aos-easing="ease-out-cubic" data-aos-duration="1500" data-aos-once="true">
+          <img src="assets/images/resumearc-illustration.svg" class="home-art-work" onContextMenu="return false;">
+        </div>
+      </div>
+      <div class="header-top-height"></div>
+      <div class="margin-top-30"></div>
+      <div fxLayout="row" fxLayoutGap.xs="6%" fxLayoutGap.sm="6%" fxLayout.xs="column" fxLayout.sm="column">
+        <div fxFlex.lg="5.5%"></div>
+        <div fxFlex="30%" fxFlex.xs="100%" fxFlex.sm="100%">
+          <div fxLayout="row" data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-duration="1000" data-aos-once="true">
+            <div fxFlex.xs="5%" fxFlex.sm="5%"></div>
+            <mat-card fxFlex="90%" fxFlex.xs="90%" fxFlex.sm="90%"  class="padding-0 mat-card-shadow">
+              <div class="container">
+                <img class="cr-pointer image" src="assets/images/template-images/template-one.png">
+                <div class="middle">
+                  <div class="text" (click)="selectedTemplate('template-one', '#343b46')">Use this template</div>
+                </div>
+              </div>
+            </mat-card>
+            <div fxFlex.xs="5%" fxFlex.sm="5%"></div>
+          </div>
+          <div fxLayout="row" class="margin-top-15" data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="1200"  data-aos-once="true">
+            <div fxFlex="100%">
+              <div fxLayout="row">
+                <div fxFlex="100%"  fxLayoutAlign="center">
+                  <label class="template-name"><i>Basic</i></label>
+                </div>
+              </div>
+              <div fxLayout="row">
+                <div fxFlex="100%"  fxLayoutAlign="center">
+                  <label class="price-ribbon blink-soft">Free</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div fxFlex="30%" fxFlex.xs="100%" fxFlex.sm="100%">
+          <div fxLayout="row" data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-duration="1000"  data-aos-once="true">
+            <div fxFlex.xs="5%" fxFlex.sm="5%"></div>
+            <mat-card fxFlex="90%" fxFlex.xs="90%" fxFlex.sm="90%"  class="padding-0 mat-card-shadow">
+              <div class="container">
+                <img class="cr-pointer image" src="assets/images/template-images/template-two.png">
+                <div class="middle">
+                  <div class="text" (click)="selectedTemplate('template-two', '#f3f3f3')">Use this template</div>
+                </div>
+              </div>
+            </mat-card>
+            <div fxFlex.xs="5%" fxFlex.sm="5%"></div>
+          </div>
+          <div fxLayout="row" class="margin-top-15" data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="1200"  data-aos-once="true">
+            <div fxFlex="100%">
+              <div fxLayout="row">
+                <div fxFlex="100%"  fxLayoutAlign="center">
+                  <label class="template-name"><i>Clean</i></label>
+                </div>
+              </div>
+              <div fxLayout="row">
+                <div fxFlex="100%"  fxLayoutAlign="center">
+                  <label class="price-ribbon blink-soft">Free</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div fxFlex="30%" fxFlex.xs="100%" fxFlex.sm="100%">
+          <div fxLayout="row" data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-duration="1000"  data-aos-once="true">
+            <div fxFlex.xs="5%" fxFlex.sm="5%"></div>
+            <mat-card fxFlex="90%" fxFlex.xs="90%" fxFlex.sm="90%"  class="padding-0 mat-card-shadow">
+              <div class="container">
+                <img class="cr-pointer image" src="assets/images/template-images/template-four.png">
+                <div class="middle">
+                  <div class="text" (click)="selectedTemplate('template-four', '#353f58')">Use this template</div>
+                </div>
+              </div>
+            </mat-card>
+            <div fxFlex.xs="5%" fxFlex.sm="5%"></div>
+          </div>
+          <div fxLayout="row" class="margin-top-15" data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="1200"  data-aos-once="true">
+            <div fxFlex="100%">
+              <div fxLayout="row">
+                <div fxFlex="100%"  fxLayoutAlign="center">
+                  <label class="template-name"><i>Simple</i></label>
+                </div>
+              </div>
+              <div fxLayout="row">
+                <div fxFlex="100%"  fxLayoutAlign="center">
+                  <label class="price-ribbon blink-soft">Free</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="margin-top-30"></div>
+      <div fxLayout="row" fxLayoutGap.xs="6%" fxLayoutGap.sm="6%" fxLayout.xs="column" fxLayout.sm="column">
+        <div fxFlex.lg="5.5%"></div>
+        <div fxFlex="30%" fxFlex.xs="100%" fxFlex.sm="100%">
+          <div fxLayout="row" data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-duration="1000"  data-aos-once="true">
+            <div fxFlex.xs="5%" fxFlex.sm="5%"></div>
+            <mat-card fxFlex="90%" fxFlex.xs="90%" fxFlex.sm="90%" class="padding-0 mat-card-shadow">
+              <div class="container">
+                <img class="cr-pointer image" src="assets/images/template-images/template-three.png">
+                <div class="middle">
+                  <div class="text" (click)="selectedTemplate('template-three', '#353f58')">Use this template</div>
+                </div>
+              </div>
+            </mat-card>
+            <div fxFlex.xs="5%" fxFlex.sm="5%"></div>
+          </div>
+          <div fxLayout="row" class="margin-top-15" data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="1200"  data-aos-once="true">
+            <div fxFlex="100%">
+              <div fxLayout="row">
+                <div fxFlex="100%"  fxLayoutAlign="center">
+                  <label class="template-name"><i>Corporate</i></label>
+                </div>
+              </div>
+              <div fxLayout="row">
+                <div fxFlex="100%"  fxLayoutAlign="center">
+                  <label class="price-ribbon blink-soft"><i class="fa fa-rupee"></i>15</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div fxFlex="30%" fxFlex.xs="100%" fxFlex.sm="100%">
+          <div fxLayout="row" data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-duration="1000"  data-aos-once="true">
+            <div fxFlex.xs="5%" fxFlex.sm="5%"></div>
+            <mat-card fxFlex="90%" fxFlex.xs="90%" fxFlex.sm="90%" class="padding-0 mat-card-shadow">
+              <div class="container">
+                <img class="cr-pointer image" src="assets/images/template-images/template-five.png">
+                <div class="middle">
+                  <div class="text" (click)="selectedTemplate('template-five', '#343b46')">Use this template</div>
+                </div>
+              </div>
+            </mat-card>
+            <div fxFlex.xs="5%" fxFlex.sm="5%"></div>
+          </div>
+          <div fxLayout="row" class="margin-top-15" data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="1200"  data-aos-once="true">
+            <div fxFlex="100%">
+              <div fxLayout="row">
+                <div fxFlex="100%"  fxLayoutAlign="center">
+                  <label class="template-name"><i>Knowledgeable</i></label>
+                </div>
+              </div>
+              <div fxLayout="row">
+                <div fxFlex="100%"  fxLayoutAlign="center">
+                  <label class="price-ribbon blink-soft"><i class="fa fa-rupee"></i>15</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div fxFlex="30%" fxFlex.xs="100%" fxFlex.sm="100%">
+          <div fxLayout="row" data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-duration="1000"  data-aos-once="true">
+            <div fxFlex.xs="5%" fxFlex.sm="5%"></div>
+            <mat-card fxFlex="90%" fxFlex.xs="90%" fxFlex.sm="90%"  class="padding-0 mat-card-shadow">
+              <div class="container">
+                <img class="cr-pointer image" src="assets/images/template-images/template-six.png">
+                <div class="middle">
+                  <div class="text" (click)="selectedTemplate('template-six', '#343b46')">Use this template</div>
+                </div>
+              </div>
+            </mat-card>
+            <div fxFlex.xs="5%" fxFlex.sm="5%"></div>
+          </div>
+          <div fxLayout="row" class="margin-top-15" data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="1200"  data-aos-once="true">
+            <div fxFlex="100%">
+              <div fxLayout="row">
+                <div fxFlex="100%" fxLayoutAlign="center">
+                  <label class="template-name"><i>Insightful</i></label>
+                </div>
+              </div>
+              <div fxLayout="row">
+                <div fxFlex="100%" fxLayoutAlign="center">
+                  <label class="price-ribbon blink-soft"><i class="fa fa-rupee"></i>15</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="margin-top-30"></div>
+      <div fxLayout="row" fxLayoutGap.xs="6%" fxLayoutGap.sm="6%" fxLayout.xs="column" fxLayout.sm="column">
+        <div fxFlex.lg="5.5%"></div>
+        <div fxFlex="30%" fxFlex.xs="100%" fxFlex.sm="100%">
+          <div fxLayout="row" data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-duration="1000"  data-aos-once="true">
+            <div fxFlex.xs="5%" fxFlex.sm="5%"></div>
+            <mat-card fxFlex="90%" fxFlex.xs="90%" fxFlex.sm="90%" class="padding-0 mat-card-shadow">
+              <div class="container">
+                <img class="cr-pointer image" src="assets/images/template-images/template-seven.png">
+                <div class="middle">
+                  <div class="text" (click)="selectedTemplate('template-seven', '#414141')">Use this template</div>
+                </div>
+              </div>
+            </mat-card>
+            <div fxFlex.xs="5%" fxFlex.sm="5%"></div>
+          </div>
+          <div fxLayout="row" class="margin-top-15" data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="1200"  data-aos-once="true">
+            <div fxFlex="100%">
+              <div fxLayout="row">
+                <div fxFlex="100%" fxLayoutAlign="center">
+                  <label class="template-name"><i>Timeline Clean</i></label>
+                </div>
+              </div>
+              <div fxLayout="row">
+                <div fxFlex="100%" fxLayoutAlign="center">
+                  <label class="price-ribbon blink-soft"><i class="fa fa-rupee"></i>15</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div fxFlex="30%" fxFlex.xs="100%" fxFlex.sm="100%">
+          <div fxLayout="row" data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-duration="1000"  data-aos-once="true">
+            <div fxFlex.xs="5%" fxFlex.sm="5%"></div>
+            <mat-card fxFlex="90%" fxFlex.xs="90%" fxFlex.sm="90%"  class="padding-0 mat-card-shadow">
+              <div class="container">
+                <img class="cr-pointer image" src="assets/images/template-images/template-eight.png">
+                <div class="middle">
+                  <div class="text" (click)="selectedTemplate('template-eight', '#343b46')">Use this template</div>
+                </div>
+              </div>
+            </mat-card>
+            <div fxFlex.xs="5%" fxFlex.sm="5%"></div>
+          </div>
+          <div fxLayout="row" class="margin-top-15" data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="1200"  data-aos-once="true">
+            <div fxFlex="100%">
+              <div fxLayout="row">
+                <div fxFlex="100%" fxLayoutAlign="center">
+                  <label class="template-name"><i>Professional</i></label>
+                </div>
+              </div>
+              <div fxLayout="row">
+                <div fxFlex="100%" fxLayoutAlign="center">
+                  <label class="price-ribbon blink-soft"><i class="fa fa-rupee"></i>15</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-bottom: 100px"></div>
     </mat-sidenav-content>
   </mat-sidenav-container>
- <div style="margin-top: 80px"></div>
-<div fxLayout="row">
-  <div fxFlex="100%" fxLayoutAlign="center">
-    <h1 style="margin-bottom: 0px">Resume Templates</h1>
-  </div>
-</div>
-<div fxLayout="row">
-  <div fxFlex="100%" fxLayoutAlign="center">
-    <h4 class="label-left-color">Choose your CV template, fill it out, and Export. Create and download your professional resume in a few minutes</h4>
-  </div>
-</div>
 
- <div fxLayout="row" fxLayoutGap="1%" fxLayoutGap.xs="6%" fxLayoutGap.sm="6%" fxLayout.xs="column" fxLayout.sm="column">
-   <div fxFlex="1%"></div>
-   <div fxFlex="23%" fxFlex.xs="100%" fxFlex.sm="100%">
-     <div fxLayout="row" data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
-       <div fxFlex.xs="5%" fxFlex.sm="5%"></div>
-       <mat-card fxFlex="100%" fxFlex.xs="90%" fxFlex.sm="90%"  class="padding-0 mat-card-shadow">
-         <div class="container">
-           <img class="cr-pointer image" src="assets/images/template-images/template-one.png">
-           <div class="middle">
-             <div class="text" (click)="selectedTemplate('template-one', '#343b46')">Use this template</div>
-           </div>
-         </div>
-       </mat-card>
-       <div fxFlex.xs="5%" fxFlex.sm="5%"></div>
-     </div>
-     <div fxLayout="row" class="margin-top-15" data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="1200">
-       <div fxFlex="100%">
-         <div fxLayout="row">
-           <div fxFlex="100%"  fxLayoutAlign="center">
-             <label class="template-name"><i>Basic</i></label>
-           </div>
-         </div>
-         <div fxLayout="row">
-           <div fxFlex="100%"  fxLayoutAlign="center">
-             <label class="price-ribbon blink-soft">Free</label>
-           </div>
-         </div>
-       </div>
-     </div>
-   </div>
-   <div fxFlex="23%" fxFlex.xs="100%" fxFlex.sm="100%">
-     <div fxLayout="row" data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
-       <div fxFlex.xs="5%" fxFlex.sm="5%"></div>
-       <mat-card fxFlex="100%" fxFlex.xs="90%" fxFlex.sm="90%"  class="padding-0 mat-card-shadow">
-         <div class="container">
-           <img class="cr-pointer image" src="assets/images/template-images/template-two.png">
-           <div class="middle">
-             <div class="text" (click)="selectedTemplate('template-two', '#f3f3f3')">Use this template</div>
-           </div>
-         </div>
-       </mat-card>
-       <div fxFlex.xs="5%" fxFlex.sm="5%"></div>
-     </div>
-     <div fxLayout="row" class="margin-top-15" data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="1200">
-       <div fxFlex="100%">
-         <div fxLayout="row">
-           <div fxFlex="100%"  fxLayoutAlign="center">
-             <label class="template-name"><i>Clean</i></label>
-           </div>
-         </div>
-         <div fxLayout="row">
-           <div fxFlex="100%"  fxLayoutAlign="center">
-             <label class="price-ribbon blink-soft">Free</label>
-           </div>
-         </div>
-       </div>
-     </div>
-   </div>
-   <div fxFlex="23%" fxFlex.xs="100%" fxFlex.sm="100%">
-     <div fxLayout="row" data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
-       <div fxFlex.xs="5%" fxFlex.sm="5%"></div>
-       <mat-card fxFlex="100%" fxFlex.xs="90%" fxFlex.sm="90%" class="padding-0 mat-card-shadow">
-         <div class="container">
-           <img class="cr-pointer image" src="assets/images/template-images/template-three.png">
-           <div class="middle">
-             <div class="text" (click)="selectedTemplate('template-three', '#353f58')">Use this template</div>
-           </div>
-         </div>
-       </mat-card>
-       <div fxFlex.xs="5%" fxFlex.sm="5%"></div>
-     </div>
-     <div fxLayout="row" class="margin-top-15" data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="1200">
-       <div fxFlex="100%">
-         <div fxLayout="row">
-           <div fxFlex="100%"  fxLayoutAlign="center">
-             <label class="template-name"><i>Corporate</i></label>
-           </div>
-         </div>
-         <div fxLayout="row">
-           <div fxFlex="100%"  fxLayoutAlign="center">
-             <label class="price-ribbon blink-soft"><i class="fa fa-rupee"></i>15</label>
-           </div>
-         </div>
-       </div>
-     </div>
-   </div>
-   <div fxFlex="23%" fxFlex.xs="100%" fxFlex.sm="100%">
-     <div fxLayout="row" data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
-       <div fxFlex.xs="5%" fxFlex.sm="5%"></div>
-       <mat-card fxFlex="100%" fxFlex.xs="90%" fxFlex.sm="90%"  class="padding-0 mat-card-shadow">
-         <div class="container">
-           <img class="cr-pointer image" src="assets/images/template-images/template-four.png">
-           <div class="middle">
-             <div class="text" (click)="selectedTemplate('template-four', '#353f58')">Use this template</div>
-           </div>
-         </div>
-       </mat-card>
-       <div fxFlex.xs="5%" fxFlex.sm="5%"></div>
-     </div>
-     <div fxLayout="row" class="margin-top-15" data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="1200">
-       <div fxFlex="100%">
-         <div fxLayout="row">
-           <div fxFlex="100%"  fxLayoutAlign="center">
-             <label class="template-name"><i>Simple</i></label>
-           </div>
-         </div>
-         <div fxLayout="row">
-           <div fxFlex="100%"  fxLayoutAlign="center">
-             <label class="price-ribbon blink-soft">Free</label>
-           </div>
-         </div>
-       </div>
-     </div>
-   </div>
- </div>
- <div class="margin-top-30"></div>
- <div fxLayout="row" fxLayoutGap="1%" fxLayoutGap.xs="6%" fxLayoutGap.sm="6%" fxLayout.xs="column" fxLayout.sm="column">
-   <div fxFlex="1%"></div>
-   <div fxFlex="23%" fxFlex.xs="100%" fxFlex.sm="100%">
-     <div fxLayout="row" data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
-       <div fxFlex.xs="5%" fxFlex.sm="5%"></div>
-       <mat-card fxFlex="100%" fxFlex.xs="90%" fxFlex.sm="90%" class="padding-0 mat-card-shadow">
-         <div class="container">
-           <img class="cr-pointer image" src="assets/images/template-images/template-five.png">
-           <div class="middle">
-             <div class="text" (click)="selectedTemplate('template-five', '#343b46')">Use this template</div>
-           </div>
-         </div>
-       </mat-card>
-       <div fxFlex.xs="5%" fxFlex.sm="5%"></div>
-     </div>
-     <div fxLayout="row" class="margin-top-15" data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="1200">
-       <div fxFlex="100%">
-         <div fxLayout="row">
-           <div fxFlex="100%"  fxLayoutAlign="center">
-             <label class="template-name"><i>Knowledgeable</i></label>
-           </div>
-         </div>
-         <div fxLayout="row">
-           <div fxFlex="100%"  fxLayoutAlign="center">
-             <label class="price-ribbon blink-soft"><i class="fa fa-rupee"></i>15</label>
-           </div>
-         </div>
-       </div>
-     </div>
-   </div>
-   <div fxFlex="23%" fxFlex.xs="100%" fxFlex.sm="100%">
-     <div fxLayout="row" data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
-       <div fxFlex.xs="5%" fxFlex.sm="5%"></div>
-       <mat-card fxFlex="100%" fxFlex.xs="90%" fxFlex.sm="90%"  class="padding-0 mat-card-shadow">
-         <div class="container">
-           <img class="cr-pointer image" src="assets/images/template-images/template-six.png">
-           <div class="middle">
-             <div class="text" (click)="selectedTemplate('template-six', '#343b46')">Use this template</div>
-           </div>
-         </div>
-       </mat-card>
-       <div fxFlex.xs="5%" fxFlex.sm="5%"></div>
-     </div>
-     <div fxLayout="row" class="margin-top-15" data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="1200">
-       <div fxFlex="100%">
-         <div fxLayout="row">
-           <div fxFlex="100%" fxLayoutAlign="center">
-             <label class="template-name"><i>Insightful</i></label>
-           </div>
-         </div>
-         <div fxLayout="row">
-           <div fxFlex="100%" fxLayoutAlign="center">
-             <label class="price-ribbon blink-soft"><i class="fa fa-rupee"></i>15</label>
-           </div>
-         </div>
-       </div>
-     </div>
-   </div>
-   <div fxFlex="23%" fxFlex.xs="100%" fxFlex.sm="100%">
-     <div fxLayout="row" data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
-       <div fxFlex.xs="5%" fxFlex.sm="5%"></div>
-       <mat-card fxFlex="100%" fxFlex.xs="90%" fxFlex.sm="90%" class="padding-0 mat-card-shadow">
-         <div class="container">
-           <img class="cr-pointer image" src="assets/images/template-images/template-seven.png">
-           <div class="middle">
-             <div class="text" (click)="selectedTemplate('template-seven', '#414141')">Use this template</div>
-           </div>
-         </div>
-       </mat-card>
-       <div fxFlex.xs="5%" fxFlex.sm="5%"></div>
-     </div>
-     <div fxLayout="row" class="margin-top-15" data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="1200">
-       <div fxFlex="100%">
-         <div fxLayout="row">
-           <div fxFlex="100%" fxLayoutAlign="center">
-             <label class="template-name"><i>Timeline Clean</i></label>
-           </div>
-         </div>
-         <div fxLayout="row">
-           <div fxFlex="100%" fxLayoutAlign="center">
-             <label class="price-ribbon blink-soft"><i class="fa fa-rupee"></i>15</label>
-           </div>
-         </div>
-       </div>
-     </div>
-   </div>
-   <div fxFlex="23%" fxFlex.xs="100%" fxFlex.sm="100%">
-     <div fxLayout="row" data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
-       <div fxFlex.xs="5%" fxFlex.sm="5%"></div>
-       <mat-card fxFlex="100%" fxFlex.xs="90%" fxFlex.sm="90%"  class="padding-0 mat-card-shadow">
-         <div class="container">
-           <img class="cr-pointer image" src="assets/images/template-images/template-eight.png">
-           <div class="middle">
-             <div class="text" (click)="selectedTemplate('template-eight', '#343b46')">Use this template</div>
-           </div>
-         </div>
-       </mat-card>
-       <div fxFlex.xs="5%" fxFlex.sm="5%"></div>
-     </div>
-     <div fxLayout="row" class="margin-top-15" data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="1200">
-       <div fxFlex="100%">
-         <div fxLayout="row">
-           <div fxFlex="100%" fxLayoutAlign="center">
-             <label class="template-name"><i>Professional</i></label>
-           </div>
-         </div>
-         <div fxLayout="row">
-           <div fxFlex="100%" fxLayoutAlign="center">
-             <label class="price-ribbon blink-soft"><i class="fa fa-rupee"></i>15</label>
-           </div>
-         </div>
-       </div>
-     </div>
-   </div>
- </div>
-<div style="margin-bottom: 200px"></div>

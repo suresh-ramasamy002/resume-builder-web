@@ -88,8 +88,8 @@
       <tr>
         <th>Name</th>
         <th>Role</th>
-        <th>City</th>
         <th>State</th>
+        <th>Country</th>
         <th>Email</th>
       </tr>
       </thead>
@@ -97,8 +97,8 @@
         <tr *ngFor="let user of this.coreDataService.userDetailsArr">
           <td>{{user.firstName + ' ' + user.lastName}}</td>
           <td>{{user.role}}</td>
-          <td>{{user.city}}</td>
-          <td>{{user.state}}</td>
+          <td>{{user?.state}}</td>
+          <td>{{user?.country}}</td>
           <td>{{user.email}}</td>
         </tr>
       </tbody>

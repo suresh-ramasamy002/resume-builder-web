@@ -102,7 +102,8 @@
           </div>
         </div>
         <div fxFlex="3%"></div>
-        <mat-card fxFlex="40%" fxFlex.sm="98%" fxFlex.xs="98%" fxLayoutAlign.xs="center" fxLayoutAlign.sm="center">
+        <div data-aos="fade-left" data-aos-easing="ease-out-cubic" data-aos-duration="1000" fxFlex="40%" fxFlex.sm="98%" fxFlex.xs="98%" fxLayoutAlign.xs="center" fxLayoutAlign.sm="center">
+        <mat-card>
           <div fxLayout="row">
             <div fxFlex="40%">
               <button mat-button [routerLink]="'/home'" style="font-size: 16px; color:#3f51b5;"><i class="fa fa-arrow-left"></i>&nbsp;<i>Back to home</i></button>
@@ -566,6 +567,7 @@
             </mat-card>
           </div>
         </mat-card>
+        </div>
       </div>
     </mat-sidenav-content>
   </mat-sidenav-container>
