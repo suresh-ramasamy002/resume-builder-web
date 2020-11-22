@@ -161,9 +161,9 @@
               <div class="div-border-bottom"></div>
             </div>
           </div>
-          <div fxLayout="row" *ngIf="coreDataService.templateData.workExp" class="margin-top-10">
+          <div fxLayout="row" *ngIf="coreDataService.templateData.workExp">
             <div fxFlex="100%">
-              <div fxLayout="row" *ngFor="let companyInfo of coreDataService.templateData.companyInfo; let i = index">
+              <div fxLayout="row" *ngFor="let companyInfo of coreDataService.templateData.companyInfo; let i = index" class="margin-top-15">
                 <div fxFlex="35%">
                   <label contenteditable="true" spellcheck="true" #year [textContent]="coreDataService.templateData.companyInfo[i].workFromTo" (blur)="coreDataService.templateData.companyInfo[i].workFromTo = year.innerText" [ngStyle]="{'font-size': (coreDataService.templateData.normalSize-1)+'px', 'font-family': coreDataService.templateData.fontFamily}" style="margin-left: 15px;" class="font-size-15">{{companyInfo.workFromTo}}</label>
                 </div>

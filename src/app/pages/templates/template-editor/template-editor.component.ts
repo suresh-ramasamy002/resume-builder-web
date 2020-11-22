@@ -208,26 +208,83 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
   }
   changeFontSize(size) {
     this.coreDataService.templateData.fontSize = Number(size);
-    switch(size) {
-      case '1':
-        this.coreDataService.templateData.titleSize = 18;
-        this.coreDataService.templateData.roleSize = 14;
-        this.coreDataService.templateData.normalSize = 12;
-        break;
-      case '2':
-        this.coreDataService.templateData.titleSize = 20;
-        this.coreDataService.templateData.roleSize = 15;
-        this.coreDataService.templateData.normalSize = 14;
-        break;
-      case '3':
-        this.coreDataService.templateData.titleSize = 20;
-        this.coreDataService.templateData.roleSize = 16;
-        this.coreDataService.templateData.normalSize = 15;
-        break;
+      if (this.coreDataService.templateData.fontFamily == 'Didot'){
+      switch(size) {
+        case '1':
+          this.coreDataService.templateData.titleSize = 20;
+          this.coreDataService.templateData.roleSize = 16;
+          this.coreDataService.templateData.normalSize = 14;
+          break;
+        case '2':
+          this.coreDataService.templateData.titleSize = 22;
+          this.coreDataService.templateData.roleSize = 17;
+          this.coreDataService.templateData.normalSize = 16;
+          break;
+        case '3':
+          this.coreDataService.templateData.titleSize = 22;
+          this.coreDataService.templateData.roleSize = 18;
+          this.coreDataService.templateData.normalSize = 17;
+          break;
+      }
+    }  else if (this.coreDataService.templateData.fontFamily == 'Arial'){
+      switch(size) {
+        case '1':
+          this.coreDataService.templateData.titleSize = 20;
+          this.coreDataService.templateData.roleSize = 17;
+          this.coreDataService.templateData.normalSize = 15;
+          break;
+        case '2':
+          this.coreDataService.templateData.titleSize = 22;
+          this.coreDataService.templateData.roleSize = 17;
+          this.coreDataService.templateData.normalSize = 16;
+          break;
+        case '3':
+          this.coreDataService.templateData.titleSize = 22;
+          this.coreDataService.templateData.roleSize = 18;
+          this.coreDataService.templateData.normalSize = 17;
+          break;
+      }
+    } else if (this.coreDataService.templateData.fontFamily == 'Verdana') {
+      switch(size) {
+        case '1':
+          this.coreDataService.templateData.titleSize = 18;
+          this.coreDataService.templateData.roleSize = 15;
+          this.coreDataService.templateData.normalSize = 13;
+          break;
+        case '2':
+          this.coreDataService.templateData.titleSize = 20;
+          this.coreDataService.templateData.roleSize = 15;
+          this.coreDataService.templateData.normalSize = 14;
+          break;
+        case '3':
+          this.coreDataService.templateData.titleSize = 20;
+          this.coreDataService.templateData.roleSize = 16;
+          this.coreDataService.templateData.normalSize = 15;
+          break;
+      }
+    } else {
+      switch(size) {
+        case '1':
+          this.coreDataService.templateData.titleSize = 20;
+          this.coreDataService.templateData.roleSize = 17;
+          this.coreDataService.templateData.normalSize = 16;
+          break;
+        case '2':
+          this.coreDataService.templateData.titleSize = 22;
+          this.coreDataService.templateData.roleSize = 18;
+          this.coreDataService.templateData.normalSize = 17;
+          break;
+        case '3':
+          this.coreDataService.templateData.titleSize = 22;
+          this.coreDataService.templateData.roleSize = 19;
+          this.coreDataService.templateData.normalSize = 18;
+          break;
+      }
     }
   }
+
   addWorkExperience() {
-    this.coreDataService.templateData.companyInfo.push({companyName: 'NAME OF YOUR COMPANY', workFromTo: 'From - To date/present', role: 'Job position', details: ['Job\'s professional history, key experience and achievements']});
+    this.coreDataService.templateData.companyInfo.push({companyName: 'NAME OF YOUR COMPANY', workFromTo: 'From - To/present', role: 'Job position', details: ['Job\'s professional history, key experience and achievements']});
   }
   deleteCompanyInfo(i) {
     this.coreDataService.templateData.companyInfo.splice(i, 1);
@@ -239,7 +296,7 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
     this.coreDataService.templateData.companyInfo[i].details.splice(j, 1);
   }
   addEducation() {
-    this.coreDataService.templateData.educationInfo.push({schoolName: 'FULL NAME OF UNIVERSITY/ORGANIZATION', department: 'Your major/Name of your course', yearFromTo: 'From - To date/present', gpa: 'GPA, some subject'});
+    this.coreDataService.templateData.educationInfo.push({schoolName: 'FULL NAME OF UNIVERSITY/ORGANIZATION', department: 'Your major/Name of your course', yearFromTo: 'From - To/present', gpa: 'GPA, some subject'});
   }
   deleteEduInfo(i) {
     this.coreDataService.templateData.educationInfo.splice(i, 1);

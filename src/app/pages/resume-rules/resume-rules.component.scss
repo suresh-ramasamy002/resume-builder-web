@@ -1,195 +1,3 @@
-mat-toolbar {
-  background: White;
-  z-index: 9990;
-  border-left: none!important;
-  border-top: none!important;
-  border-right: none!important;
-  box-shadow: 0 1px 5px 0 rgba(0,0,0,.25);
-}
-.font-size-15{
-  font-size: 15px;
-}
-mat-toolbar {
-  position: fixed;
-  position: -webkit-sticky; /* For macOS/iOS Safari */
-  top: 0; /* Sets the sticky toolbar to be on top */
-  z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
-}
-
-.container {
-  position: relative;
-}
-
-
-.middle {
-  transition: .5s ease;
-  opacity: 0;
-  position: absolute;
-  top: 90%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  text-align: center;
-}
-
-.container:hover .image {
-  opacity: 0.5;
-}
-.container:hover {
-
-}
-.container:hover .middle {
-  opacity: 1;
-}
-
-.text {
-  background-color: #3f51b5;
-  color: white;
-  font-size: 16px;
-  padding: 12px 20px;
-  cursor: pointer;
-  border-radius: 20px;
-  z-index: 10;
-}
-.mat-card-shadow {
-  border: 1px solid #ececec;
-}
-.header {
-  position:relative;
-  text-align:center;
-  background: linear-gradient(60deg, rgba(84,58,183,1) 0%, rgba(0,172,193,1) 100%);
-  color:white;
-}
-.logo {
-  width:50px;
-  fill:white;
-  padding-right:15px;
-  display:inline-block;
-  vertical-align: middle;
-}
-
-.inner-header {
-  height:30vh;
-  width:100%;
-  margin: 0;
-  padding: 0;
-}
-
-.flex { /*Flexbox for containers*/
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.waves {
-  position:relative;
-  width: 100%;
-  height:15vh;
-  margin-bottom:-7px; /*Fix for safari gap*/
-  min-height:100px;
-  max-height:150px;
-}
-
-.content {
-  position:relative;
-  height:45vh;
-  text-align:center;
-  background-color: white;
-}
-
-/* Animation */
-
-.parallax > use {
-  animation: move-forever 25s cubic-bezier(.55,.5,.45,.5)     infinite;
-}
-.parallax > use:nth-child(1) {
-  animation-delay: -2s;
-  animation-duration: 7s;
-}
-.parallax > use:nth-child(2) {
-  animation-delay: -3s;
-  animation-duration: 10s;
-}
-.parallax > use:nth-child(3) {
-  animation-delay: -4s;
-  animation-duration: 13s;
-}
-.parallax > use:nth-child(4) {
-  animation-delay: -5s;
-  animation-duration: 20s;
-}
-@keyframes move-forever {
-  0% {
-    transform: translate3d(-85px,0,0);
-  }
-  100% {
-    transform: translate3d(85px,0,0);
-  }
-}
-/*Shrinking for mobile*/
-@media (max-width: 768px) {
-  .waves {
-    height:20px;
-    min-height:20px;
-  }
-  .content {
-    height:20vh;
-  }
-  h1 {
-    font-size:24px;
-  }
-}
-.template-res-header {
-  position: absolute;
-  top: 15%;
-  left: 20px;
-}
-.template-res-subheader {
-  position: absolute;
-  top: 25%;
-  left: 20px;
-}
-.temp-res-img {
-  width: 450px;
-  position: absolute;
-  top: 10%;
-  right: 20px;
-}
-.template-res-subheader-right {
-  position: absolute;
-  top: 15%;
-  right: 20px;
-}
-.margin-top-30{
-  margin-top: 30px;
-}
-.price-ribbon {
-  margin-top: 5px;
-  padding: 5px 12px 5px 12px;
-  background: #3d62c4;
-  border-radius: 5px;
-  color: white;
-  font-size: 12px;
-}
-.template-name {
-  color: #354058;
-  font-size: 18px;
-  font-weight: 500;
-}
-.blink-soft {
-  animation: blinker 1.9s linear infinite;
-}
-@keyframes blinker {
-  50% {
-    opacity: 0;
-  }
-}
-.top-nav-banner-img {
-  position: absolute;
-  right: 0;
-  width: 100%;
-}
 @media screen and (min-width: 1900px ){ // xl screen
   .image {
     opacity: 1;
@@ -248,7 +56,7 @@ mat-toolbar {
     padding-right: 40px;
   }
 }
-  @media screen and (min-width: 1024px ) and (max-width: 1900px){ // desktop
+@media screen and (min-width: 1024px ) and (max-width: 1900px){ // desktop
   .header-top-height {
     padding-top: 120px;
     background: #1f2861;
@@ -297,14 +105,14 @@ mat-toolbar {
     padding-left: 50px;
     padding-right: 40px;
   }
-    .image {
-      opacity: 1;
-      display: block;
-      width: 100%;
-      height: 500px;
-      transition: .5s ease;
-      backface-visibility: hidden;
-    }
+  .image {
+    opacity: 1;
+    display: block;
+    width: 100%;
+    height: 500px;
+    transition: .5s ease;
+    backface-visibility: hidden;
+  }
 }
 @media screen and (min-width: 375px) and (max-width: 767px) { // pixels XL, Iphones
   .header-top-height {
@@ -441,4 +249,19 @@ mat-toolbar {
     transition: .5s ease;
     backface-visibility: hidden;
   }
+}
+.top-nav-banner-img {
+  position: absolute;
+  right: 0;
+  width: 100%;
+}
+p {
+  color: #4d5a70;
+  line-height: 1.4;
+}
+h2{
+  color: #202960;
+}
+.font-size-15{
+  font-size: 15px;
 }

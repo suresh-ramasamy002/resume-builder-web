@@ -12,6 +12,9 @@ import {IntroductionComponent} from './pages/introduction/introduction.component
 import {AdminDashboardComponent} from './pages/admin-dashboard/admin-dashboard.component';
 import {pipe} from 'rxjs';
 import { map } from 'rxjs/operators';
+import {ResumeRulesComponent} from './pages/resume-rules/resume-rules.component';
+import {HowToUseComponent} from './pages/how-to-use/how-to-use.component';
+
 export const redirectAnonymousTo = (redirect: any[]) =>
   pipe(isNotAnonymous, map(loggedIn => loggedIn || redirect));
 const redirectUnauthorizedToLogin = () => redirectAnonymousTo(['login']);
@@ -22,6 +25,8 @@ const routes: Routes = [
   {path: 'enroll', component: EnrollmentComponent},
   {path: 'userInfo', component: UserInfoComponent},
   {path: 'forgotPassword', component: ForgotPasswordComponent},
+  {path: 'howToUse', component: HowToUseComponent, canActivate: [AngularFireAuthGuard]},
+  {path: 'rulesAndTips', component: ResumeRulesComponent, canActivate: [AngularFireAuthGuard]},
   {path: 'home', component: HomeComponent, canActivate: [AngularFireAuthGuard]},
   {path: 'adminDashboard_protect*1_!2000128846628812', component: AdminDashboardComponent, canActivate: [AngularFireAuthGuard]},
   {path: 'tempEditor', component: TemplateEditorComponent, canActivate: [AngularFireAuthGuard]},

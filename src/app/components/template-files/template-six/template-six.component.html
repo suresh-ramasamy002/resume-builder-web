@@ -42,7 +42,7 @@
             <label [ngStyle]="{'font-size': (coreDataService.templateData.roleSize - 1)+'px', 'font-family': coreDataService.templateData.fontFamily, 'color': coreDataService.templateData.templateTheme}" class="label-right-color font-weight-bold">WORK<br/>EXPERIENCE</label>
           </div>
           <div fxFlex="76%">
-            <div fxLayout="row" *ngFor="let companyInfo of coreDataService.templateData.companyInfo; let i = index" style="margin-top: 12px;">
+            <div fxLayout="row" *ngFor="let companyInfo of coreDataService.templateData.companyInfo; let i = index" class="margin-top-15">
               <div fxFlex="98%">
                 <div>
                   <label contenteditable="true" spellcheck="true" #crole [textContent]="coreDataService.templateData.companyInfo[i].role" (blur)="coreDataService.templateData.companyInfo[i].role = crole.innerText" [ngStyle]="{'font-size': coreDataService.templateData.normalSize+'px', 'font-family': coreDataService.templateData.fontFamily}" class="font-weight-bold">{{companyInfo.role}}</label><br/>
@@ -64,7 +64,7 @@
             <label [ngStyle]="{'font-size': (coreDataService.templateData.roleSize - 1)+'px', 'font-family': coreDataService.templateData.fontFamily, 'color': coreDataService.templateData.templateTheme}" class="label-right-color font-weight-bold">EDUCATION</label>
           </div>
           <div fxFlex="80%">
-            <div fxLayout="row" *ngFor="let eduInfo of coreDataService.templateData.educationInfo; let i = index">
+            <div fxLayout="row" *ngFor="let eduInfo of coreDataService.templateData.educationInfo; let i = index" class="margin-top-15">
               <div fxFlex="100%">
                 <div>
                   <label contenteditable="true" spellcheck="true" #sdept [textContent]="coreDataService.templateData.educationInfo[i].department" (blur)="coreDataService.templateData.educationInfo[i].department = sdept.innerText" [ngStyle]="{'font-size': coreDataService.templateData.normalSize+'px', 'font-family': coreDataService.templateData.fontFamily}" class="font-weight-bold">{{eduInfo.department}}</label><br/>

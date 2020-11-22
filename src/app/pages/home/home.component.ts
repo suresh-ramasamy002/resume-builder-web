@@ -1,4 +1,4 @@
-import {Component, HostListener, OnInit} from '@angular/core';
+import {Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
 import {CoreDataService} from '../../services/core-data.service';
 import * as firebase from 'firebase/app';
 import {AuthService} from '../../services/auth.service';
@@ -14,6 +14,7 @@ import set = Reflect.set;
 export class HomeComponent implements OnInit {
   private aId = 'V5cCGAXOpHMTvgL2b2rccgDLt3x1';
   public scrollNum = 0;
+  @ViewChild('resumeSection') resumeSection: ElementRef;
   constructor(public coreDataService: CoreDataService, private auth: AuthService, private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
@@ -36,5 +37,7 @@ export class HomeComponent implements OnInit {
     localStorage.setItem('selectedTemplateTheme', theme);
     this.router.navigate(['/tempEditor']);
 }
-
+  goToResumeTemplates() {
+    this.resumeSection.nativeElement.scrollIntoView({behavior: 'smooth'});
+  }
 }

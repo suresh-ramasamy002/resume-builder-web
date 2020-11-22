@@ -1,0 +1,286 @@
+<mat-toolbar class="navbar-bg" data-aos="zoom-up" data-aos-easing="ease-out-cubic" data-aos-duration="1200" [ngClass]="scrollNum > 10 ? 'intro-toolbar1' : 'intro-toolbar'">
+  <mat-toolbar-row style="padding-left:0px" >
+    <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+      <i class="fa fa-bars chakra-color"></i>
+    </button>
+    <span><img src="assets/images/business-logo-page.png" width="240px"/></span>
+    <a fxHide.lt-md mat-button [routerLink]="'/home'" class="font-size-15">Resume Templates</a>&nbsp;
+    <a fxHide.lt-md mat-button (click)="goToResumeTips()" class="font-size-15">Rules & Tricks</a>&nbsp;
+<!--    <a fxHide.lt-md mat-button [routerLink]="'/howToUse'" class="font-size-15">How To Use</a>&nbsp;-->
+    <span class="menu-spacer"></span>
+    <div fxShow="true" fxHide.lt-md *ngIf="coreDataService?.userDetails?.firstName">
+      <a mat-button (click)="logoutUser()" class="font-size-15">Logout</a>&nbsp;
+      <label style="font-size:14px">Hello {{coreDataService.userDetails.firstName + ' ' + coreDataService.userDetails.lastName}}</label>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-sidenav-container fxFlexFill>
+  <mat-sidenav #sidenav style="z-index: 1000000">
+    <mat-nav-list>
+      <div fxLayoutAlign="center">
+        <label *ngIf="coreDataService?.userDetails?.firstName" class="font-size-15">Hello {{coreDataService.userDetails.firstName}}</label>
+      </div>
+      <br/>
+      <div fxLayoutAlign="center">
+        <a [routerLink]="'/home'" class="font-size-15">Resume Templates</a>
+      </div>
+      <br/>
+      <div fxLayoutAlign="center">
+        <a  (click)="goToResumeTips()" class="font-size-15">Rules & Tricks</a>
+      </div>
+      <br/>
+<!--      <div fxLayoutAlign="center">-->
+<!--        <a [routerLink]="'/howToUse'" class="font-size-15">How To Use</a>-->
+<!--      </div>-->
+<!--      <br/>-->
+      <div fxLayoutAlign="center">
+        <a (click)="logoutUser()" class="font-size-15">Logout</a>
+      </div>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content fxFlexFill>
+    <div fxLayout="row">
+      <div fxFlex="100%">
+        <img src="assets/images/vector-gradient.svg" class="top-nav-banner-img" onContextMenu="return false;">
+      </div>
+    </div>
+    <div class="header-top-height"></div>
+    <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayout.md="column" fxLayoutGap.xs="5%" fxLayoutGap.sm="5%" fxLayoutGap.md="3%" style="background: #1f2861">
+      <div fxFlex="60%" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="100%" data-aos="fade-right" data-aos-easing="ease-out-cubic" data-aos-duration="1000" data-aos-once="true">
+        <div class="margin-top-150">
+          <label class="color-white header-font">Resume Writing Rules</label><br/>
+        </div>
+        <div>
+          <h3 class="sub-header-font">20 Basic resume writing rules that'll put you ahead of the competition</h3>
+        </div>
+      </div>
+      <div fxFlex="40%" fxLayoutAlign="center" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="100%" data-aos="fade-left" data-aos-easing="ease-out-cubic" data-aos-duration="1000" data-aos-once="true">
+        <img src="assets/images/resume-tips.svg" class="home-art-work" onContextMenu="return false;">
+      </div>
+    </div>
+    <div class="header-top-height" #resumeTips></div>
+    <div>
+      <div fxLayout="row" fxLayoutAlign="center">
+        <div fxFlex="90%">
+          <p>If you’re thinking about taking a new step in your career, your resume’s probably high on your mind. When’s the last time you updated it? How will you transfer the skills from your current job or industry to a new one? How will you set yourself apart from other candidates? How long and horrible will this revision process actually be?</p>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center">
+        <div fxFlex="90%">
+          <p>Just asking these questions can be exhausting, let alone actually answering them. And, if you’re not fresh off the job search, the thought of thinking everything through and creating an interview-worthy resume can be exhausted.</p>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center">
+        <div fxFlex="90%">
+          <p>Fear not! We’ve come up with the 20 basic rules that will get you that much closer to success.</p>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center">
+        <div fxFlex="90%">
+          <h2 style="margin-bottom: 0px">1. Keep it to One Page</h2>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center">
+        <div fxFlex="90%">
+          <p>This is a biggie! If a hiring manager’s spending six seconds looking at your resume, he or she might not even get to the second page! Unless you’re applying to be an executive or a partner somewhere, one page will be sufficient and is a widely accepted “best practice.” To cut it down, remember the purpose of it—it’s not to showcase everything you’ve ever done, but rather to show that you have the background, skills, and experience for the job at hand.</p>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center">
+        <div fxFlex="90%">
+          <h2 style="margin-bottom: 0px">2. Avoid Spelling or Grammar Errors</h2>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center">
+        <div fxFlex="90%">
+          <p>Another biggie. There are some recruiters who will discount your resume the second they see a spelling or grammar error. Although it can be painful, make sure you don’t just read over your resume several times, but also that you have a friend take a peek, too.</p>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center">
+        <div fxFlex="90%">
+          <h2 style="margin-bottom: 0px">3. Watch Your Tenses</h2>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center">
+        <div fxFlex="90%">
+          <p>This is another common error that can really hurt you in the eyes of hiring managers. As a general rule, if something on your resume is in the past, use the past tense (managed, delivered, organized) and if you are still actively in the role, use the present tense (manage, deliver, organize).</p>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center">
+        <div fxFlex="90%">
+          <h2 style="margin-bottom: 0px">4. Avoid the First Person Pronouns</h2>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center">
+        <div fxFlex="90%">
+          <p>As a general practice, don’t use words like “I” or “me” or “my.” So, instead of saying “I hit and exceeded company sales quotas 100% of the time” say “Hit and exceeded sales quotas 100% of the time.”</p>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center">
+        <div fxFlex="90%">
+          <h2 style="margin-bottom: 0px">5. Send Your Resume as a PDF</h2>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center">
+        <div fxFlex="90%">
+          <p>Saving your resume as a PDF (rather than a Word and document) freezes it as an image so that you can be sure hiring managers see the same formatting as you. If you send it any other way, there’s a chance that the styling, format, font, and so on, could look different on their computer than yours.</p>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center">
+        <div fxFlex="90%">
+          <h2 style="margin-bottom: 0px">6. Label Your Resume File Correctly</h2>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center">
+        <div fxFlex="90%">
+          <p>Too many people save this important document with random or generic file names like sgks123.pdf or resume.pdf. Remember that recruiters can see the name of the file that you send them and also remember that they get tons of resumes every day. Make it super clear whose resume they should click on by saving it under a logical name like FirstName_LastName_Resume.pdf.</p>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center">
+        <div fxFlex="90%">
+          <h2 style="margin-bottom: 0px">7. Format in a Logical Structure</h2>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center">
+        <div fxFlex="90%">
+          <p>Even more important than naming the file in a logical manner is laying out your resume in a logical manner. How you lay it out really depends on where you are in your career path and what you’re looking to do next. While chronological the default, it’s not always the best way to make your case. Muse writer Lily Zhang lays out the other options that might work better for you.</p>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center">
+        <div fxFlex="90%">
+          <h2 style="margin-bottom: 0px">8. Make Sure It’s Easy to Read</h2>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center">
+        <div fxFlex="90%">
+          <p>You might be tempted to just shrink the text to get your resume to fit on a page. (Which is funny, because remember all those times in school when you made it 12.5 to make it longer? Life!) While you can adjust the size to some degree, never go below 10-point font.</p>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center">
+        <div fxFlex="90%">
+          <h2 style="margin-bottom: 0px">9. Keep it Organized and Visually Appealing</h2>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center">
+        <div fxFlex="90%">
+          <p>Remember how hiring managers usually spend just six seconds looking at your resume? Help them maximize that time by making your resume super clear and easy-to-read. You want each section bolded (maybe capitalized) and each job title bolded. Make your life easier by using a template.</p>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center">
+        <div fxFlex="90%">
+          <h2 style="margin-bottom: 0px">10. Keep it Consistent</h2>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center">
+        <div fxFlex="90%">
+          <p>Just like you want your verb tenses to be consistent throughout, it’s also important that the formatting is, too. If one title’s bold, the other titles should be bold. If one bullet point has a period at the end, the other bullet points should have that as well.</p>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center">
+        <div fxFlex="90%">
+          <h2 style="margin-bottom: 0px">11. Include Context</h2>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center">
+        <div fxFlex="90%">
+          <p>When you list out your experience, be sure to include context. What city, state (or country) did this job take place in. Did you travel and operate in multiple cities? What dates did you have that experience? Was it for five months or five years? Context matters!</p>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center">
+        <div fxFlex="90%">
+          <h2 style="margin-bottom: 0px">12. Quantify as Much as Possible</h2>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center">
+        <div fxFlex="90%">
+          <p>Anyone can say that he or she excelled at his or her last job. So, you need to prove to the hiring manager that you truly did. Numbers, percentages, and supporting facts go a long way in showing that you have a track record of success. For example, rather than saying “successfully hit sales quotas” as a bullet point in your resume you should say “successfully hit sales quotas 100% of the time and exceeded goals by 25% in the last 5 months.”</p>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center">
+        <div fxFlex="90%">
+          <h2 style="margin-bottom: 0px">13. Name Drop (and Title Drop) Like You’ve Never Done Before</h2>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center">
+        <div fxFlex="90%">
+          <p>This is your chance to brag. If you got a promotion or a raise because of your performance, you should mention it. If you worked with the CEO of the company or were a point of contact for a large, corporate customer, mention their names! This goes a long way in showing that you can run with important people. It shows that you’re confident. It shows that you’re capable. (Of course, make sure you’re presenting the facts accurately and not exaggerating.)</p>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center">
+        <div fxFlex="90%">
+          <h2 style="margin-bottom: 0px">14. Don’t Include References</h2>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center">
+        <div fxFlex="90%">
+          <p>Don’t use any of your precious space to include the names and contact info for your references (or to write things like “references available upon request”). This document’s for recruiters to decide if they want to talk to you, not your references. If they get to the point in the application process where they want to speak to these people, they will reach out to you and ask for those names. Until then, no need to mention.</p>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center">
+        <div fxFlex="90%">
+          <h2 style="margin-bottom: 0px">15. Use Your Judgement When it Comes to Creativity</h2>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center">
+        <div fxFlex="90%">
+          <p>Some industries are more creative than others. If you’re working in digital media or design or elementary school education, it might make sense for your resume to be creative and colored. If you’re applying for a job in finance, operations, or most corporate jobs, you probably want to keep it black and white and structured. Be thoughtful when it comes to your creativity (or lack thereof).</p>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center">
+        <div fxFlex="90%">
+          <h2 style="margin-bottom: 0px">16. Don’t List Everything You’ve Ever Done</h2>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center">
+        <div fxFlex="90%">
+          <p>There should be a purpose for every word. When you’re writing and editing, ask yourself this question, “Will this sentence help me get the job I want?” If not, you should consider editing that sentence or removing it.</p>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center">
+        <div fxFlex="90%">
+          <h2 style="margin-bottom: 0px">17. Think About the Person Reading Your Resume</h2>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center">
+        <div fxFlex="90%">
+          <p>It’s important to remember that there’s a real person reading this. And it’s also important to remember that it’s her job to find awesome candidates to interview and present to her boss or team. It’s also not her job to do you any favors. So you should think about her when you’re writing your resume. How can you make her job easier? How can you write your resume in such a way that she gets excited when she sees it, thinks you’re perfect for the job, and is willing to put herself out there by presenting you to her team.</p>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center">
+        <div fxFlex="90%">
+          <h2 style="margin-bottom: 0px">18. Think About What Makes You Different</h2>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center">
+        <div fxFlex="90%">
+          <p>It’s important that you be yourself during the application process (obviously putting your best foot forward). This includes what you write on your application materials. Don’t hesitate to show who you really are, your likes and interests, your personality, what makes you unique, and so on. While this definitely requires some judgment calls (for example, expressing personality when applying for a traditional role in a traditional industry might not be the best move) it could ultimately be the thing that sets you apart and gets you hired.</p>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center">
+        <div fxFlex="90%">
+          <p>After all, these are real people hiring you and they’d probably prefer to work with someone who’s enjoyable and a good culture fit. And if your personality isn’t a fit for the job, you probably wouldn’t have been happy there any way so it works out for everyone.</p>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center">
+        <div fxFlex="90%">
+          <h2 style="margin-bottom: 0px">19. Think About the Specific Job You’re Applying To</h2>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center">
+        <div fxFlex="90%">
+          <p>One of my favorite tricks to help communicate that you are the perfect person for a job is to read the job description and list out key phrases. Then, when you’re writing or editing your resume, find ways to incorporate those words and phrases from the desired job description into your resume. This can be super useful when a machine or human recruiter skims it.</p>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center">
+        <div fxFlex="90%">
+          <h2 style="margin-bottom: 0px">20. Think of This as a Storytelling Document</h2>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center">
+        <div fxFlex="90%">
+          <p>Many of the tips that I’ve mentioned all point to the general idea that your resume should clearly and concisely tell the story of “you”—helping hiring managers understand why you’re the right person for the job. This is, in fact, the entire purpose. Ultimately, when you re-read and edit it, make sure that it tells the story of your background, the skills you gained along the way, the experiences that you’ve had, and makes it crystal clear why you’ve ended up where you are today and why the role that they are hiring for is the perfect next step for you.</p>
+        </div>
+      </div>
+      <div class="margin-top-150"></div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

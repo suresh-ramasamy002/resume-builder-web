@@ -87,6 +87,8 @@ import { TemplateEightComponent } from './components/template-files/template-eig
 // import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 // import { PdfJsViewerModule } from 'ng2-pdfjs-viewer';
 import {ScrollDispatcher} from '@angular/cdk/scrolling';
+import { ResumeRulesComponent } from './pages/resume-rules/resume-rules.component';
+import { HowToUseComponent } from './pages/how-to-use/how-to-use.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -116,7 +118,9 @@ import {ScrollDispatcher} from '@angular/cdk/scrolling';
     TemplateSixComponent,
     TemplateSevenComponent,
     AdminDashboardComponent,
-    TemplateEightComponent
+    TemplateEightComponent,
+    ResumeRulesComponent,
+    HowToUseComponent
   ],
   imports: [
     HttpClientModule,

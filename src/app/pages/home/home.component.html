@@ -3,7 +3,10 @@
       <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
        <i class="fa fa-bars chakra-color"></i>
       </button>
-      <span data-aos="fade-right" data-aos-easing="ease-out-cubic" data-aos-duration="1000" data-aos-once="true"><img src="assets/images/business-logo-page.png" width="240px"/></span>
+      <span><img src="assets/images/business-logo-page.png" width="240px"/></span>
+      <a fxHide.lt-md mat-button (click)="goToResumeTemplates()" class="font-size-15">Resume Templates</a>&nbsp;
+      <a fxHide.lt-md mat-button [routerLink]="'/rulesAndTips'" class="font-size-15">Rules & Tricks</a>&nbsp;
+<!--      <a fxHide.lt-md mat-button [routerLink]="'/howToUse'" class="font-size-15">How To Use</a>&nbsp;-->
       <span class="menu-spacer"></span>
       <div fxShow="true" fxHide.lt-md *ngIf="coreDataService?.userDetails?.firstName">
         <a mat-button *ngIf="coreDataService.userDetails.role == 'PRO_ADMIN_1'" mat-button [routerLink]="'/adminDashboard_protect*1_!2000128846628812'" class="font-size-15">Admin Dashboard</a>
@@ -20,6 +23,18 @@
         </div>
         <br/>
         <div fxLayoutAlign="center">
+          <a (click)="goToResumeTemplates()" class="font-size-15">Resume Templates</a>
+        </div>
+        <br/>
+        <div fxLayoutAlign="center">
+          <a [routerLink]="'/rulesAndTips'" class="font-size-15">Rules & Tricks</a>
+        </div>
+        <br/>
+<!--        <div fxLayoutAlign="center">-->
+<!--          <a [routerLink]="'/howToUse'" class="font-size-15">How To Use</a>-->
+<!--        </div>-->
+<!--        <br/>-->
+        <div fxLayoutAlign="center">
           <a (click)="logoutUser()" class="font-size-15">Logout</a>
         </div>
       </mat-nav-list>
@@ -32,7 +47,7 @@
       </div>
       <div class="header-top-height"></div>
       <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayout.md="column" fxLayoutGap.xs="5%" fxLayoutGap.sm="5%" fxLayoutGap.md="3%" style="background: #1f2861">
-        <div fxFlex="60%" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="100%" data-aos="fade-right" data-aos-easing="ease-out-cubic" data-aos-duration="1500" data-aos-once="true">
+        <div fxFlex="60%" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="100%" data-aos="fade-right" data-aos-easing="ease-out-cubic" data-aos-duration="1000" data-aos-once="true">
           <div class="margin-top-150">
             <label class="color-white header-font">Resume Templates</label><br/>
           </div>
@@ -40,14 +55,14 @@
             <h3 class="sub-header-font">Choose your CV template, fill it out, and Export. Create and download your professional resume in a few minutes</h3>
           </div>
         </div>
-        <div fxFlex="40%" fxLayoutAlign="center" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="100%" data-aos="fade-left" data-aos-easing="ease-out-cubic" data-aos-duration="1500" data-aos-once="true">
+        <div fxFlex="40%" fxLayoutAlign="center" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="100%" data-aos="fade-left" data-aos-easing="ease-out-cubic" data-aos-duration="1000" data-aos-once="true">
           <img src="assets/images/resumearc-illustration.svg" class="home-art-work" onContextMenu="return false;">
         </div>
       </div>
-      <div class="header-top-height"></div>
+      <div class="header-top-height" #resumeSection></div>
       <div class="margin-top-30"></div>
       <div fxLayout="row" fxLayoutGap.xs="6%" fxLayoutGap.sm="6%" fxLayout.xs="column" fxLayout.sm="column">
-        <div fxFlex.lg="5.5%"></div>
+        <div fxFlex.lg="5.5%" fxFlex.xl="7%" fxFlex.lt-xl="7%"></div>
         <div fxFlex="30%" fxFlex.xs="100%" fxFlex.sm="100%">
           <div fxLayout="row" data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-duration="1000" data-aos-once="true">
             <div fxFlex.xs="5%" fxFlex.sm="5%"></div>
@@ -135,11 +150,11 @@
       </div>
       <div class="margin-top-30"></div>
       <div fxLayout="row" fxLayoutGap.xs="6%" fxLayoutGap.sm="6%" fxLayout.xs="column" fxLayout.sm="column">
-        <div fxFlex.lg="5.5%"></div>
+        <div fxFlex.lg="5.5%"  fxFlex.xl="7%" fxFlex.lt-xl="7%"></div>
         <div fxFlex="30%" fxFlex.xs="100%" fxFlex.sm="100%">
           <div fxLayout="row" data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-duration="1000"  data-aos-once="true">
             <div fxFlex.xs="5%" fxFlex.sm="5%"></div>
-            <mat-card fxFlex="90%" fxFlex.xs="90%" fxFlex.sm="90%" class="padding-0 mat-card-shadow">
+            <mat-card fxFlex="90%" fxFlex.xl="85%" fxFlex.xs="90%" fxFlex.sm="90%" class="padding-0 mat-card-shadow">
               <div class="container">
                 <img class="cr-pointer image" src="assets/images/template-images/template-three.png">
                 <div class="middle">
@@ -167,7 +182,7 @@
         <div fxFlex="30%" fxFlex.xs="100%" fxFlex.sm="100%">
           <div fxLayout="row" data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-duration="1000"  data-aos-once="true">
             <div fxFlex.xs="5%" fxFlex.sm="5%"></div>
-            <mat-card fxFlex="90%" fxFlex.xs="90%" fxFlex.sm="90%" class="padding-0 mat-card-shadow">
+            <mat-card fxFlex="90%" fxFlex.xl="85%" fxFlex.xs="90%" fxFlex.sm="90%" class="padding-0 mat-card-shadow">
               <div class="container">
                 <img class="cr-pointer image" src="assets/images/template-images/template-five.png">
                 <div class="middle">
@@ -195,7 +210,7 @@
         <div fxFlex="30%" fxFlex.xs="100%" fxFlex.sm="100%">
           <div fxLayout="row" data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-duration="1000"  data-aos-once="true">
             <div fxFlex.xs="5%" fxFlex.sm="5%"></div>
-            <mat-card fxFlex="90%" fxFlex.xs="90%" fxFlex.sm="90%"  class="padding-0 mat-card-shadow">
+            <mat-card fxFlex="90%" fxFlex.xl="85%" fxFlex.xs="90%" fxFlex.sm="90%"  class="padding-0 mat-card-shadow">
               <div class="container">
                 <img class="cr-pointer image" src="assets/images/template-images/template-six.png">
                 <div class="middle">
@@ -223,11 +238,11 @@
       </div>
       <div class="margin-top-30"></div>
       <div fxLayout="row" fxLayoutGap.xs="6%" fxLayoutGap.sm="6%" fxLayout.xs="column" fxLayout.sm="column">
-        <div fxFlex.lg="5.5%"></div>
+        <div fxFlex.lg="5.5%" fxFlex.xl="7%" fxFlex.lt-xl="7%"></div>
         <div fxFlex="30%" fxFlex.xs="100%" fxFlex.sm="100%">
           <div fxLayout="row" data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-duration="1000"  data-aos-once="true">
             <div fxFlex.xs="5%" fxFlex.sm="5%"></div>
-            <mat-card fxFlex="90%" fxFlex.xs="90%" fxFlex.sm="90%" class="padding-0 mat-card-shadow">
+            <mat-card fxFlex="90%" fxFlex.xl="85%" fxFlex.xs="90%" fxFlex.sm="90%" class="padding-0 mat-card-shadow">
               <div class="container">
                 <img class="cr-pointer image" src="assets/images/template-images/template-seven.png">
                 <div class="middle">
@@ -255,7 +270,7 @@
         <div fxFlex="30%" fxFlex.xs="100%" fxFlex.sm="100%">
           <div fxLayout="row" data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-duration="1000"  data-aos-once="true">
             <div fxFlex.xs="5%" fxFlex.sm="5%"></div>
-            <mat-card fxFlex="90%" fxFlex.xs="90%" fxFlex.sm="90%"  class="padding-0 mat-card-shadow">
+            <mat-card fxFlex="90%" fxFlex.xl="85%" fxFlex.xs="90%" fxFlex.sm="90%"  class="padding-0 mat-card-shadow">
               <div class="container">
                 <img class="cr-pointer image" src="assets/images/template-images/template-eight.png">
                 <div class="middle">
