@@ -30,6 +30,8 @@ export class TemplateCoreObj {
  additionalInfo: boolean;
  interest: boolean;
  skills: boolean;
+ language: boolean;
+ tech: boolean;
  reference: boolean;
  objectiveMsg: string;
  companyInfo: Array<CompanyInfo>;
@@ -69,7 +71,9 @@ export class TemplateCoreObj {
     additionalInfoDetails?: Array<string>,
     referenceDetails?: Array<string>,
     activitiesInfo?: Array<ActivitiesInfo>,
-    pageType?: string
+    pageType?: string,
+    language?: boolean,
+    tech?: boolean
   } = {}) {
     this.image = options.image;
     this.isImageNeeded = options.image || true;
@@ -109,5 +113,7 @@ export class TemplateCoreObj {
     this.referenceDetails = options.referenceDetails || null;
     this.activitiesInfo = options.activitiesInfo || null;
     this.pageType = options.pageType || null;
+    this.language = options.language || true;
+    this.tech = options.tech || true;
   }
 }

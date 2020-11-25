@@ -98,6 +98,13 @@
 .margin-top-5{
   margin-top:5px;
 }
+label[contenteditable="true"] {
+  min-height: 1em;
+  display: inline-block;
+  position: relative;
+  outline: none;
+  white-space: pre-line;
+}
 label[contenteditable="true"]:hover {
   border: 1px solid #ff9292;
   border-style: dotted;
@@ -106,11 +113,7 @@ label[contenteditable="true"]:hover {
 label[contenteditable="true"]:focus {
   border: 1px solid #ff9292;
   border-style: dotted;
-}
-label[contenteditable="true"] {
-  padding: 3px;
-  outline: none;
-  white-space: pre-line;
+  cursor: text;
 }
 .cr-pointer{
   cursor: pointer;
@@ -184,11 +187,11 @@ label[contenteditable="true"] {
 }
 [contenteditable=true]:empty::before {
   content: attr(placeholder);
-  color: #b1b1b1;
+  color: #949494;
 }
 [contenteditable][placeholder]:empty:before {
   content: attr(placeholder);
-  color: #bababa;
+  color: #949494;
 }
 .chakra-color {
   color: #000080;

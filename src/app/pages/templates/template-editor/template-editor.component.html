@@ -261,7 +261,8 @@
                   <ng-container *ngFor="let companyInfo of coreDataService.templateData.companyInfo; let i = index">
                     <div fxLayout="row" class="margin-top-10">
                       <div fxFlex="75%">
-                        <span class="font-weight-normal mat-body-1" style="margin-left: 20px">{{companyInfo.companyName}}</span>&nbsp;
+                        <span *ngIf="companyInfo.companyName!=null && companyInfo.companyName!= ''" class="font-weight-normal mat-body-1" style="margin-left: 20px">{{companyInfo.companyName}}</span>
+                        <span *ngIf="companyInfo.companyName==null || companyInfo.companyName== ''">Name of your company</span>&nbsp;
                         <i class="fa fa-trash cr-pointer" style="color: red" (click)="deleteCompanyInfo(i)"></i>
                       </div>
                       <div fxFlex="25%">
@@ -269,7 +270,9 @@
                       </div>
                     </div>
                     <div *ngFor="let achieve of companyInfo.details; let k = index;" class="summary-word-elipsis margin-top-5">
-                <span  class="mat-caption" ><i class="fa fa-trash cr-pointer" style="color: red" (click)="deleteAcheivement(i, k)"></i>&nbsp;{{achieve}}
+                      <span  class="mat-caption" ><i class="fa fa-trash cr-pointer" style="color: red" (click)="deleteAcheivement(i, k)"></i>&nbsp;
+                        <span *ngIf="achieve != null && achieve != ''">{{achieve}}</span>
+                        <span *ngIf="achieve == null || achieve == ''">Job's professional history, key experience and achievements</span>
                 </span>
                     </div>
                   </ng-container>
@@ -300,7 +303,8 @@
                   <ng-container *ngFor="let eduInfo of coreDataService.templateData.educationInfo; let i = index">
                     <div fxLayout="row" class="margin-top-10">
                       <div fxFlex="100%">
-                        <span class="font-weight-normal mat-body-1" style="margin-left: 20px">{{eduInfo.schoolName}}</span>&nbsp;
+                        <span *ngIf="eduInfo.schoolName == null || eduInfo.schoolName == ''" class="font-weight-normal mat-body-1" style="margin-left: 20px">Full name of University/Organization</span>
+                        <span *ngIf="eduInfo.schoolName != null && eduInfo.schoolName != ''" class="font-weight-normal mat-body-1" style="margin-left: 20px">{{eduInfo.schoolName}}</span>&nbsp;
                         <i class="fa fa-trash cr-pointer" style="color: red" (click)="deleteEduInfo(i)"></i>
                       </div>
                     </div>
@@ -333,7 +337,8 @@
                   <ng-container *ngFor="let certifiInfo of coreDataService.templateData.certificates; let i = index">
                     <div fxLayout="row" class="margin-top-10">
                       <div fxFlex="100%">
-                        <span class="font-weight-normal mat-body-1" style="margin-left: 20px">{{certifiInfo.certificateName}}</span>&nbsp;
+                        <span class="font-weight-normal mat-body-1" style="margin-left: 20px" *ngIf="certifiInfo.certificateName == null || certifiInfo.certificateName == ''">Areas of certification relevant to the position</span>
+                        <span class="font-weight-normal mat-body-1" style="margin-left: 20px" *ngIf="certifiInfo.certificateName != null && certifiInfo.certificateName != ''">{{certifiInfo.certificateName}}</span>&nbsp;
                         <i class="fa fa-trash cr-pointer" style="color: red" (click)="deleteCerficates(i)"></i>
                       </div>
                     </div>
@@ -365,7 +370,8 @@
                   <ng-container *ngFor="let honorInfo of coreDataService.templateData.honorAwardInfo; let i = index">
                     <div fxLayout="row" class="margin-top-10">
                       <div fxFlex="90%" class="summary-word-elipsis">
-                        <span class="font-weight-normal mat-body-1">{{honorInfo.award}}</span>&nbsp;
+                        <span class="font-weight-normal mat-body-1" *ngIf="honorInfo.award == null || honorInfo.award == ''">Sample award's title</span>
+                        <span class="font-weight-normal mat-body-1" *ngIf="honorInfo.award != null && honorInfo.award != ''">{{honorInfo.award}}</span>&nbsp;
                       </div>
                       <div fxFlex="10%">
                         <i class="fa fa-trash cr-pointer" style="color: red" (click)="deleteAwards(i)"></i>
@@ -399,7 +405,8 @@
                   <ng-container *ngFor="let interest of coreDataService.templateData.interestOn; let i = index">
                     <div fxLayout="row" class="margin-top-10">
                       <div fxFlex="100%">
-                        <span class="font-weight-normal mat-body-1" style="margin-left: 20px">{{interest}}</span>&nbsp;
+                        <span class="font-weight-normal mat-body-1" *ngIf="interest == null || interest == ''" style="margin-left: 20px">New Interest</span>
+                        <span class="font-weight-normal mat-body-1" style="margin-left: 20px" *ngIf="interest != null && interest != ''">{{interest}}</span>&nbsp;
                         <i class="fa fa-trash cr-pointer" style="color: red" (click)="deleteInterest(i)"></i>
                       </div>
                     </div>
@@ -409,45 +416,85 @@
               <div fxLayout="row" class="margin-top-5">
                 <mat-card class="sub-section-mat-card" fxFlex="100%">
                   <div fxLayout="row">
-                    <div fxFlex="23%" fxLayoutAlign="left center">
+                    <div fxFlex="73%" fxLayoutAlign="left center">
                       <mat-checkbox [(ngModel)]="coreDataService.templateData.skills" [checked]="coreDataService.templateData.skills" color="primary">Skills</mat-checkbox>
                       <i class="fa fa-info-circle info-icon-position" [matMenuTriggerFor]="skillsHint"></i>
                       <mat-menu #skillsHint="matMenu" class="mat-menu-msg">
                         <div fxLayout="row">
                           <div fxFlex="100%">
                             <label class="mat-caption"> Information about your hard skills and soft skills.<br/>
-                              Technical skills Example: Computer Skills(Microsoft-word, Excel etc.,), Coding Skills(C, Java, Angular etc.,), Langauge Skills(English, Tamil, Hindi etc.,) <br/>
+                              Technical skills Example: Coding Skills(C, Java, Angular etc.,)<br/>
                               Soft skills Example: Flexibility, patience and Time management</label>
                           </div>
                         </div>
                       </mat-menu>
                     </div>
-                    <div fxFlex="21%" *ngIf="coreDataService.templateData.interest">
-                      <button mat-raised-button (click)="addLanguage()" style="color: #3f51b5">+Language</button>
-                    </div>
-                    <div fxFlex="32%" *ngIf="coreDataService.templateData.interest" fxLayoutAlign="center">
+                    <div fxFlex="25%" *ngIf="coreDataService.templateData.skills">
                       <button mat-raised-button (click)="addTechSkills()" style="color: #3f51b5">+Tech/Manage</button>
-                    </div>
-                    <div fxFlex="25%" *ngIf="coreDataService.templateData.interest">
-                      <button mat-raised-button (click)="addComputerSkills()" style="color: #3f51b5">+Software</button>
                     </div>
                   </div>
                 </mat-card>
               </div>
               <div fxLayout="row" *ngIf="coreDataService.templateData.skills" class="margin-top-bottom">
-                <div fxFlex="33.33%">
-                  <ng-container *ngFor="let language of coreDataService.templateData.knownLanguage; let i = index">
-                    <label class="font-weight-normal mat-body-1" style="margin-left: 20px">{{language.skill}}&nbsp;<i class="fa fa-trash cr-pointer" style="color: red" (click)="deleteLangauge(i)"></i></label><br/>
-                  </ng-container>
-                </div>
-                <div fxFlex="33.33%">
+                <div fxFlex="100%">
                   <ng-container *ngFor="let tech of coreDataService.templateData.technicalSkills; let i = index">
-                    <label class="font-weight-normal mat-body-1" style="margin-left: 20px">{{tech.skill}}&nbsp;<i class="fa fa-trash cr-pointer" style="color: red" (click)="deleteTechSkills(i)"></i></label><br/>
+                    <label class="font-weight-normal mat-body-1" style="margin-left: 20px"><span *ngIf="tech.skill == null || tech.skill == ''">New skills</span><span *ngIf="tech.skill != null && tech.skill != ''">{{tech.skill}}</span>&nbsp;<i class="fa fa-trash cr-pointer" style="color: red" (click)="deleteTechSkills(i)"></i></label><br/>
                   </ng-container>
                 </div>
-                <div fxFlex="33.33%">
+              </div>
+              <div fxLayout="row" class="margin-top-5">
+                <mat-card class="sub-section-mat-card" fxFlex="100%">
+                  <div fxLayout="row">
+                    <div fxFlex="78%" fxLayoutAlign="left center">
+                      <mat-checkbox [(ngModel)]="coreDataService.templateData.tech" [checked]="coreDataService.templateData.tech" color="primary">Software</mat-checkbox>
+                      <i class="fa fa-info-circle info-icon-position" [matMenuTriggerFor]="techHint"></i>
+                      <mat-menu #techHint="matMenu" class="mat-menu-msg">
+                        <div fxLayout="row">
+                          <div fxFlex="100%">
+                            <label class="mat-caption"> Information about your Computer Skills.<br/>
+                             Eg:- Computer Skills(Microsoft-word, Excel etc.,),<br/></label>
+                          </div>
+                        </div>
+                      </mat-menu>
+                    </div>
+                    <div fxFlex="22%" *ngIf="coreDataService.templateData.tech">
+                      <button mat-raised-button (click)="addComputerSkills()" style="color: #3f51b5">+Software</button>
+                    </div>
+                  </div>
+                </mat-card>
+              </div>
+              <div fxLayout="row" *ngIf="coreDataService.templateData.tech" class="margin-top-bottom">
+                <div fxFlex="100%">
                   <ng-container *ngFor="let csSkills of coreDataService.templateData.computerSkills; let i = index">
-                    <label class="font-weight-normal mat-body-1" style="margin-left: 20px">{{csSkills.skill}}&nbsp;<i class="fa fa-trash cr-pointer" style="color: red" (click)="deleteCsSkills(i)"></i></label><br/>
+                    <label class="font-weight-normal mat-body-1" style="margin-left: 20px"><span *ngIf="csSkills.skill == null || csSkills.skill == ''">New skills</span><span *ngIf="csSkills.skill != null && csSkills.skill != ''">{{csSkills.skill}}</span>&nbsp;<i class="fa fa-trash cr-pointer" style="color: red" (click)="deleteCsSkills(i)"></i></label><br/>
+                  </ng-container>
+                </div>
+              </div>
+              <div fxLayout="row" class="margin-top-5">
+                <mat-card class="sub-section-mat-card" fxFlex="100%">
+                  <div fxLayout="row">
+                    <div fxFlex="77%" fxLayoutAlign="left center">
+                      <mat-checkbox [(ngModel)]="coreDataService.templateData.language" [checked]="coreDataService.templateData.language" color="primary">Languages</mat-checkbox>
+                      <i class="fa fa-info-circle info-icon-position" [matMenuTriggerFor]="langHint"></i>
+                      <mat-menu #langHint="matMenu" class="mat-menu-msg">
+                        <div fxLayout="row">
+                          <div fxFlex="100%">
+                            <label class="mat-caption"> Information about your Speaking Skills.<br/>
+                              Eg:- Language Skills(English, Tamil, Hindi etc.,),<br/></label>
+                          </div>
+                        </div>
+                      </mat-menu>
+                    </div>
+                    <div fxFlex="20%" *ngIf="coreDataService.templateData.language">
+                      <button mat-raised-button (click)="addLanguage()" style="color: #3f51b5">+Language</button>
+                    </div>
+                  </div>
+                </mat-card>
+              </div>
+              <div fxLayout="row" *ngIf="coreDataService.templateData.language" class="margin-top-bottom">
+                <div fxFlex="100%">
+                  <ng-container *ngFor="let language of coreDataService.templateData.knownLanguage; let i = index">
+                    <label class="font-weight-normal mat-body-1" style="margin-left: 20px"><span *ngIf="language.skill == null || language.skill == ''">New Language</span><span *ngIf="language.skill != null && language.skill != ''">{{language.skill}}</span>&nbsp;<i class="fa fa-trash cr-pointer" style="color: red" (click)="deleteLangauge(i)"></i></label><br/>
                   </ng-container>
                 </div>
               </div>
@@ -484,7 +531,8 @@
                   <ng-container *ngFor="let activityInfo of coreDataService.templateData.activitiesInfo; let i = index">
                     <div fxLayout="row" class="margin-top-10">
                       <div fxFlex="80%">
-                        <span class="font-weight-normal mat-body-1" style="margin-left: 20px">{{activityInfo.role}}</span>&nbsp;
+                        <span class="font-weight-normal mat-body-1" style="margin-left: 20px" *ngIf="activityInfo.role == null || activityInfo.role == ''">Sample position</span>
+                        <span class="font-weight-normal mat-body-1" style="margin-left: 20px" *ngIf="activityInfo.role != null && activityInfo.role != ''">{{activityInfo.role}}</span>&nbsp;
                         <i class="fa fa-trash cr-pointer" style="color: red" (click)="deleteActivityInfo(i)"></i>
                       </div>
                       <div fxFlex="20%">
@@ -492,7 +540,7 @@
                       </div>
                     </div>
                     <div *ngFor="let summary of activityInfo.summary; let k = index;" class="summary-word-elipsis margin-top-5">
-                      <span  class="mat-caption" ><i class="fa fa-trash cr-pointer" style="color: red" (click)="deleteActivitySummary(i, k)"></i>&nbsp;{{summary}}</span>
+                      <span  class="mat-caption" ><i class="fa fa-trash cr-pointer" style="color: red" (click)="deleteActivitySummary(i, k)"></i>&nbsp;<span *ngIf="summary == null || summary== ''">Sample activities description</span><span *ngIf="summary != null && summary!= ''">{{summary}}</span></span>
                     </div>
                   </ng-container>
                 </div>
@@ -522,7 +570,8 @@
                   <ng-container *ngFor="let addInfo of coreDataService.templateData.additionalInfoDetails; let i = index">
                     <div fxLayout="row" class="margin-top-10">
                       <div fxFlex="90%" class="summary-word-elipsis">
-                        <span class="font-weight-normal mat-body-1">{{addInfo}}</span>&nbsp;
+                        <span class="font-weight-normal mat-body-1" *ngIf="addInfo == null || addInfo == ''">Sample additional info</span>
+                        <span class="font-weight-normal mat-body-1" *ngIf="addInfo != null && addInfo != ''">{{addInfo}}</span>&nbsp;
                       </div>
                       <div fxFlex="10%">
                         <i class="fa fa-trash cr-pointer" style="color: red" (click)="deleteAdditionalInfo(i)"></i>
@@ -556,7 +605,8 @@
                   <ng-container *ngFor="let refInfo of coreDataService.templateData.referenceDetails; let i = index">
                     <div fxLayout="row" class="margin-top-10">
                       <div fxFlex="100%">
-                        <span class="font-weight-normal mat-body-1" style="margin-left: 20px">{{refInfo}}</span>&nbsp;
+                        <span class="font-weight-normal mat-body-1" style="margin-left: 20px" *ngIf="refInfo == null || refInfo == ''">Reference's content</span>
+                        <span class="font-weight-normal mat-body-1" style="margin-left: 20px" *ngIf="refInfo != null && refInfo != ''">{{refInfo}}</span>&nbsp;
                         <i class="fa fa-trash cr-pointer" style="color: red" (click)="deleteReference(i)"></i>
                       </div>
                     </div>

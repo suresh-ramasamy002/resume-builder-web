@@ -43,46 +43,46 @@ export class UserService {
       this.coreDataService.templateData = JSON.parse(localStorage.getItem('templateData'));
     } else {
       const companyInfoData: Array<CompanyInfo> = [{
-        workFromTo: 'From - To/Present',
-        companyName: 'NAME OF YOUR COMPANY',
-        role: 'Job position',
-        details: ['Job\'s professional history, key experience and achievements']
+        workFromTo: '',
+        companyName: '',
+        role: '',
+        details: ['']
       }];
       const eduInfoData: Array<EduInfo> = [{
-        yearFromTo: 'From - To/Present',
-        schoolName: 'FULL NAME OF UNIVERSITY/ORGANIZATION',
-        department: 'Your major/Name of your course',
-        gpa: 'GPA, some subject'
+        yearFromTo: '',
+        schoolName: '',
+        department: '',
+        gpa: ''
       }];
       const honorAwardsData: Array<HonorAwardsInfo> = [{
-        year: 'year',
-        award: 'Sample award\'s title'
+        year: '',
+        award: ''
       }];
-      const languageKnownData = [{skill: 'Skill 1', rate: 0}];
-      const computerSkillsData = [{skill: 'Skill 1', rate: 0}];
-      const techSkillsData = [{skill: 'Skill 1', rate: 0}];
-      const interestedData = ['Interest 1'];
-      const addnInfoData = ['Sample additional info'];
-      const refernceData = ['Reference\'s content'];
-      const certificateData: Array<Certifications> = [{certificateName: 'Areas of certification relevant to the position', year: 'year'}];
-      const activityInfoData: Array<ActivitiesInfo> = [new ActivitiesInfo({place: 'ACTIVITY ORGANIZATION', role: 'Sample position', year: 'year', summary: ['Sample activities description']})];
+      const languageKnownData = [{skill: '', rate: 0}];
+      const computerSkillsData = [{skill: '', rate: 0}];
+      const techSkillsData = [{skill: '', rate: 0}];
+      const interestedData = [''];
+      const addnInfoData = [''];
+      const refernceData = [''];
+      const certificateData: Array<Certifications> = [{certificateName: '', year: ''}];
+      const activityInfoData: Array<ActivitiesInfo> = [new ActivitiesInfo({place: '', role: '', year: '', summary: ['']})];
       this.storeTemplateData = new TemplateCoreObj({
         image: null,
         isImageNeeded: true,
-        title: 'Full Name',
+        title: '',
         titleSize: 20,
-        role: 'Job\'s Title',
+        role: '',
         roleSize: 16,
         normalSize: 14,
-        dob: 'DOB',
-        gender: 'Gender',
+        dob: '',
+        gender: '',
         templateTheme: '#292929',
         fontFamily: 'Verdana',
         fontSize: 2,
-        phone: 'Your Phone',
-        email: 'Your Email',
-        address: 'Your Address',
-        objectiveMsg: 'Fill in your Career’s Objective',
+        phone: '',
+        email: '',
+        address: '',
+        objectiveMsg: '',
         companyInfo: companyInfoData,
         educationInfo: eduInfoData,
         certificates: certificateData,
@@ -94,7 +94,9 @@ export class UserService {
         additionalInfoDetails: addnInfoData,
         referenceDetails: refernceData,
         activitiesInfo: activityInfoData,
-        pageType: 'single'
+        pageType: 'single',
+        tech: true,
+        language: true
       });
       localStorage.setItem('templateData', JSON.stringify(this.storeTemplateData));
     }

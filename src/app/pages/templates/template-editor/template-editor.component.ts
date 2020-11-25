@@ -248,7 +248,7 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
       switch(size) {
         case '1':
           this.coreDataService.templateData.titleSize = 18;
-          this.coreDataService.templateData.roleSize = 15;
+          this.coreDataService.templateData.roleSize = 14;
           this.coreDataService.templateData.normalSize = 13;
           break;
         case '2':
@@ -284,31 +284,31 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
   }
 
   addWorkExperience() {
-    this.coreDataService.templateData.companyInfo.push({companyName: 'NAME OF YOUR COMPANY', workFromTo: 'From - To/present', role: 'Job position', details: ['Job\'s professional history, key experience and achievements']});
+    this.coreDataService.templateData.companyInfo.push({companyName: '', workFromTo: '', role: '', details: ['']});
   }
   deleteCompanyInfo(i) {
     this.coreDataService.templateData.companyInfo.splice(i, 1);
   }
   addAcheivement(i) {
-    this.coreDataService.templateData.companyInfo[i].details.push('Job\'s professional history, key experience and achievements');
+    this.coreDataService.templateData.companyInfo[i].details.push('');
   }
   deleteAcheivement(i, j) {
     this.coreDataService.templateData.companyInfo[i].details.splice(j, 1);
   }
   addEducation() {
-    this.coreDataService.templateData.educationInfo.push({schoolName: 'FULL NAME OF UNIVERSITY/ORGANIZATION', department: 'Your major/Name of your course', yearFromTo: 'From - To/present', gpa: 'GPA, some subject'});
+    this.coreDataService.templateData.educationInfo.push({schoolName: '', department: '', yearFromTo: '', gpa: ''});
   }
   deleteEduInfo(i) {
     this.coreDataService.templateData.educationInfo.splice(i, 1);
   }
   addCerficates() {
-    this.coreDataService.templateData.certificates.push({certificateName: 'Areas of certification relevant to the position', year: 'Year'});
+    this.coreDataService.templateData.certificates.push({certificateName: '', year: ''});
   }
   deleteCerficates(i) {
     this.coreDataService.templateData.certificates.splice(i, 1);
   }
   addAwards() {
-    this.coreDataService.templateData.honorAwardInfo.push({year: 'Year', award: 'Sample awards\'s'});
+    this.coreDataService.templateData.honorAwardInfo.push({year: '', award: ''});
   }
   deleteAwards(i) {
     this.coreDataService.templateData.honorAwardInfo.splice(i, 1);
@@ -317,7 +317,7 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
     this.coreDataService.templateData.image = null;
   }
   addInterest() {
-    this.coreDataService.templateData.interestOn.push('New Interest');
+    this.coreDataService.templateData.interestOn.push('');
   }
   deleteInterest(i) {
     this.coreDataService.templateData.interestOn.splice(i, 1);
@@ -332,16 +332,16 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
     this.coreDataService.templateData.computerSkills.splice(i, 1);
   }
   addLanguage() {
-    this.coreDataService.templateData.knownLanguage.push({skill: 'New Skills', rate: 0});
+    this.coreDataService.templateData.knownLanguage.push({skill: '', rate: 0});
   }
   addTechSkills() {
-    this.coreDataService.templateData.technicalSkills.push({skill: 'New Skills', rate: 0});
+    this.coreDataService.templateData.technicalSkills.push({skill: '', rate: 0});
   }
   addComputerSkills() {
-    this.coreDataService.templateData.computerSkills.push({skill: 'New Skills', rate: 0});
+    this.coreDataService.templateData.computerSkills.push({skill: '', rate: 0});
   }
   addActivities() {
-    this.coreDataService.templateData.activitiesInfo.push({place: 'Activity Organization', role: 'Sample Position', year: 'From - To date/present', summary: ['Sample activities description']});
+    this.coreDataService.templateData.activitiesInfo.push({place: '', role: '', year: '', summary: ['']});
   }
   deleteActivityInfo(i) {
     this.coreDataService.templateData.activitiesInfo.splice(i, 1);
@@ -350,16 +350,16 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
     this.coreDataService.templateData.activitiesInfo[i].summary.splice(k, 1);
   }
   addActivitySummary(i) {
-    this.coreDataService.templateData.activitiesInfo[i].summary.push('New Summary');
+    this.coreDataService.templateData.activitiesInfo[i].summary.push('');
   }
   addAdditionalInfo(){
-    this.coreDataService.templateData.additionalInfoDetails.push('Sample Additional Info');
+    this.coreDataService.templateData.additionalInfoDetails.push('');
   }
   deleteAdditionalInfo(i){
     this.coreDataService.templateData.additionalInfoDetails.splice(i, 1);
   }
   addReference(){
-    this.coreDataService.templateData.referenceDetails.push('Reference\'s Content');
+    this.coreDataService.templateData.referenceDetails.push('');
   }
   deleteReference(i){
     this.coreDataService.templateData.referenceDetails.splice(i, 1);
