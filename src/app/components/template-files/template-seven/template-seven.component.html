@@ -10,7 +10,7 @@
           </div>
           <div fxLayout="row" *ngIf="coreDataService.templateData.objective" class="margin-top-15">
             <div fxFlex="95%" style="margin-left:15px;">
-              <label #objectiveMsg [textContent]="coreDataService.templateData.objectiveMsg" (blur)="coreDataService.templateData.objectiveMsg = objectiveMsg.innerText"  contenteditable="true" spellcheck="true" [ngStyle]="{'font-size': (coreDataService.templateData.normalSize-2)+'px', 'font-family': coreDataService.templateData.fontFamily, 'color': setTextColor(coreDataService.templateData.templateTheme)}" class="line-height-20" placeholder="Fill in your Career’s Objective">{{coreDataService.templateData.objectiveMsg}}</label>
+              <label #objectiveMsg [textContent]="coreDataService.templateData.objectiveMsg" (blur)="coreDataService.templateData.objectiveMsg = objectiveMsg.innerText"  contenteditable="true" spellcheck="true" [ngStyle]="{'font-size': (coreDataService.templateData.normalSize-2)+'px', 'font-family': coreDataService.templateData.fontFamily, 'color': setTextColor(coreDataService.templateData.templateTheme)}" class="line-height-1-4" placeholder="Fill in your Career’s Objective">{{coreDataService.templateData.objectiveMsg}}</label>
             </div>
           </div>
           <div fxLayout="row" *ngIf="coreDataService.templateData.education">
@@ -203,7 +203,7 @@
                     <div fxLayout="row">
                       <div fxFlex="3%"><label>-</label></div>
                       <div fxFlex="97%">
-                        <label contenteditable="true" spellcheck="true" [ngStyle]="{'font-size': (coreDataService.templateData.normalSize - 1)+'px', 'font-family': coreDataService.templateData.fontFamily}" #csumm [textContent]="coreDataService.templateData.companyInfo[i].details[k]" (blur)="coreDataService.templateData.companyInfo[i].details[k] = csumm.innerText" placeholder="Job's professional history, key experience and achievements">{{summary}}</label>
+                        <label contenteditable="true" spellcheck="true" [ngStyle]="{'font-size': (coreDataService.templateData.normalSize - 1)+'px', 'font-family': coreDataService.templateData.fontFamily}" #csumm [textContent]="coreDataService.templateData.companyInfo[i].details[k]" (blur)="coreDataService.templateData.companyInfo[i].details[k] = csumm.innerText" placeholder="Job's professional history, key experience and achievements" class="line-height-1-4">{{summary}}</label>
                       </div>
                     </div>
                   </div>
@@ -298,9 +298,11 @@
                     <label contenteditable="true" spellcheck="true" #crole [textContent]="coreDataService.templateData.activitiesInfo[i].place" (blur)="coreDataService.templateData.activitiesInfo[i].place = crole.innerText" [ngStyle]="{'font-size': coreDataService.templateData.normalSize+'px', 'font-family': coreDataService.templateData.fontFamily}" placeholder="ACTIVITY ORGANIZATION">{{activityInfo.place}}</label><span>&nbsp;/&nbsp;</span>
                     <label contenteditable="true" spellcheck="true" #year [textContent]="coreDataService.templateData.activitiesInfo[i].year" (blur)="coreDataService.templateData.activitiesInfo[i].year = year.innerText" [ngStyle]="{'font-size': coreDataService.templateData.normalSize+'px', 'font-family': coreDataService.templateData.fontFamily}" class="font-size-15" placeholder="Year">{{activityInfo.year}}</label>
                   </div>
-                  <div *ngFor="let summary of coreDataService.templateData.activitiesInfo[i].summary; let k = index" class="margin-top-5">
-                    <span>&#x25CB;</span>&nbsp;
-                    <label contenteditable="true" spellcheck="true" [ngStyle]="{'font-size': (coreDataService.templateData.normalSize - 1)+'px', 'font-family': coreDataService.templateData.fontFamily}" #csumm [textContent]="coreDataService.templateData.activitiesInfo[i].summary[k]" (blur)="coreDataService.templateData.activitiesInfo[i].summary[k] = csumm.innerText" placeholder="Sample activities description">{{summary}}</label><br/>
+                  <div *ngFor="let summary of coreDataService.templateData.activitiesInfo[i].summary; let k = index" class="margin-top-5" fxLayout="row">
+                    <div fxFlex="3%"><span>&#x25CB;</span></div>
+                    <div fxFlex="97%">
+                      <label contenteditable="true" spellcheck="true" [ngStyle]="{'font-size': (coreDataService.templateData.normalSize - 1)+'px', 'font-family': coreDataService.templateData.fontFamily}" #csumm [textContent]="coreDataService.templateData.activitiesInfo[i].summary[k]" (blur)="coreDataService.templateData.activitiesInfo[i].summary[k] = csumm.innerText" placeholder="Sample activities description" class="line-height-1-4">{{summary}}</label><br/>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -319,9 +321,9 @@
           <div fxLayout="row" *ngIf="coreDataService.templateData.additionalInfo">
             <div fxFlex="100%">
               <div fxLayout="row" *ngFor="let addInfo of coreDataService.templateData.additionalInfoDetails; let i = index" class="margin-top-15">
-                <div fxFlex="96%">
-                  <label>&#x25CB;&nbsp;</label>
-                  <label contenteditable="true" spellcheck="true" #adInfo [textContent]="coreDataService.templateData.additionalInfoDetails[i]" (blur)="coreDataService.templateData.additionalInfoDetails[i] = adInfo.innerText" [ngStyle]="{'font-size': coreDataService.templateData.normalSize+'px', 'font-family': coreDataService.templateData.fontFamily}" class="font-size-15" placeholder="Sample additional info">{{addInfo}}</label>
+                <div fxFlex="3%"><span>&#x25CB;</span></div>
+                <div fxFlex="97%">
+                  <label contenteditable="true" spellcheck="true" #adInfo [textContent]="coreDataService.templateData.additionalInfoDetails[i]" (blur)="coreDataService.templateData.additionalInfoDetails[i] = adInfo.innerText" [ngStyle]="{'font-size': coreDataService.templateData.normalSize+'px', 'font-family': coreDataService.templateData.fontFamily}" class="font-size-15 line-height-1-4" placeholder="Sample additional info">{{addInfo}}</label>
                 </div>
               </div>
             </div>
@@ -339,9 +341,9 @@
           <div fxLayout="row" *ngIf="coreDataService.templateData.reference">
             <div fxFlex="100%">
               <div fxLayout="row" *ngFor="let refInfo of coreDataService.templateData.referenceDetails; let i = index" class="margin-top-15">
-                <div fxFlex="96%">
-                  <label>&#x25CB;&nbsp;</label>
-                  <label contenteditable="true" spellcheck="true" #refInfos [textContent]="coreDataService.templateData.referenceDetails[i]" (blur)="coreDataService.templateData.referenceDetails[i] = refInfos.innerText" [ngStyle]="{'font-size': coreDataService.templateData.normalSize+'px', 'font-family': coreDataService.templateData.fontFamily}" class="font-size-15" placeholder="Reference's content">{{refInfo}}</label>
+                <div fxFlex="3%"><span>&#x25CB;</span></div>
+                <div fxFlex="97%">
+                  <label contenteditable="true" spellcheck="true" #refInfos [textContent]="coreDataService.templateData.referenceDetails[i]" (blur)="coreDataService.templateData.referenceDetails[i] = refInfos.innerText" [ngStyle]="{'font-size': coreDataService.templateData.normalSize+'px', 'font-family': coreDataService.templateData.fontFamily}" class="font-size-15" placeholder="Reference's content" class="line-height-1-4">{{refInfo}}</label>
                 </div>
               </div>
             </div>

@@ -83,6 +83,14 @@
                         </div>
                       </div>
                     </mat-card>
+          <mat-card [ngClass]="{'selected-temp': coreDataService.selectedTemplate == 'template-nine'}" class="padding-0 margin-top-15">
+            <div class="container">
+              <img class="sidebar-img cr-pointer image" src="assets/images/template-images/template-nine.png">
+              <div class="middle">
+                <div class="text" (click)="selectedTemplate('template-nine', '#343b46')">Choose</div>
+              </div>
+            </div>
+          </mat-card>
                   </div>
       </mat-nav-list>
     </mat-sidenav>
@@ -99,6 +107,7 @@
               <app-template-six id="template-six" *ngIf="coreDataService.selectedTemplate == 'template-six'" [pageType]="this.coreDataService.templateData.pageType" [isImageNeeded]="coreDataService.templateData.isImageNeeded"></app-template-six>
               <app-template-seven id="template-seven" *ngIf="coreDataService.selectedTemplate == 'template-seven'" [pageType]="this.coreDataService.templateData.pageType" [isImageNeeded]="coreDataService.templateData.isImageNeeded"></app-template-seven>
               <app-template-eight id="template-eight" *ngIf="coreDataService.selectedTemplate == 'template-eight'" [pageType]="this.coreDataService.templateData.pageType" [isImageNeeded]="coreDataService.templateData.isImageNeeded"></app-template-eight>
+              <app-template-nine id="template-nine" *ngIf="coreDataService.selectedTemplate == 'template-nine'" [pageType]="this.coreDataService.templateData.pageType" [isImageNeeded]="coreDataService.templateData.isImageNeeded"></app-template-nine>
           </div>
         </div>
         <div fxFlex="3%" fxFlex.xl="8"></div>

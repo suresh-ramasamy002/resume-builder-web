@@ -89,6 +89,7 @@ import { TemplateEightComponent } from './components/template-files/template-eig
 import {ScrollDispatcher} from '@angular/cdk/scrolling';
 import { ResumeRulesComponent } from './pages/resume-rules/resume-rules.component';
 import { HowToUseComponent } from './pages/how-to-use/how-to-use.component';
+import { TemplateNineComponent } from './components/template-files/template-nine/template-nine.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -120,7 +121,8 @@ import { HowToUseComponent } from './pages/how-to-use/how-to-use.component';
     AdminDashboardComponent,
     TemplateEightComponent,
     ResumeRulesComponent,
-    HowToUseComponent
+    HowToUseComponent,
+    TemplateNineComponent
   ],
   imports: [
     HttpClientModule,
