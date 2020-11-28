@@ -818,39 +818,6 @@ $animationSpeed: 30s;
     box-shadow: 0 0 0 0 #333, 0 0 0 0 rgba(51, 51, 51, 0);
   }
 }
-
-@keyframes check {
-  50% {
-    outline-color: #333;
-    box-shadow: 0 0 0 12px #333, 0 0 0 36px rgba(51, 51, 51, 0.2);
-  }
-  100% {
-    outline-color: #333;
-    box-shadow: 0 0 0 0 #333, 0 0 0 0 rgba(51, 51, 51, 0);
-  }
-}
-.position-relative {
-  position: relative;
-}
-.foot-link {
-  color: #8495a6;
-  margin-bottom: 8px;
-}
-.social-link {
-  padding: 10px;
-  background: #1f2861;
-  border-radius: 50%;
-  cursor: pointer;
-}
-.overflow-x-hidden {
-  overflow-x: hidden;
-}
-.mat-toolbar{
-  -webkit-transition: background-color 400ms linear;
-  -ms-transition: background-color 400ms linear;
-  transition: background-color 400ms linear;
-}
-
 .nav-list {
   padding: 10px 60px 10px 60px;
   outline: 0;
