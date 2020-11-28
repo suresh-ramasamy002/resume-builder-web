@@ -13,6 +13,9 @@
           <a mat-button class="nav-font-size" (click)="goToPricing()">Pricing</a>
         </div>
         <span class="menu-spacer"></span>
+                <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+                  <i class="fa fa-bars chakra-color"></i>
+                </button>
         <div fxShow="true" fxHide.lt-md>
           <a mat-button [routerLink]="'/enroll'" class="nav-font-size">Register</a>
           <a mat-button [routerLink]="'/login'" class="nav-font-size">Sign In</a>
@@ -20,14 +23,10 @@
       </mat-toolbar-row>
     </mat-toolbar>
     <mat-sidenav-container fxFlexFill style="background: #ffffff;">
-      <mat-sidenav #sidenav style="z-index: 30">
+      <mat-sidenav #sidenav style="z-index: 30;padding-top:100px">
         <mat-list-item>
-          <mat-nav-list class="nav-list" [disableRipple]="true"  (click)="goToAbout();">About</mat-nav-list>
-          <mat-nav-list class="nav-list" [disableRipple]="true"  (click)="goToResume();">Resume Templates</mat-nav-list>
-          <mat-nav-list class="nav-list" [disableRipple]="true"  (click)="goToBenefits();">Features</mat-nav-list>
-          <mat-nav-list class="nav-list" [disableRipple]="true"  (click)="goToAbout();">Pricing</mat-nav-list>
-          <mat-nav-list class="nav-list" [disableRipple]="true"  [routerLink]="'/enroll'">Register</mat-nav-list>
-          <mat-nav-list class="nav-list" [disableRipple]="true"  [routerLink]="'/login'">Sign In</mat-nav-list>
+          <mat-nav-list class="nav-list" [routerLink]="'/enroll'">Register</mat-nav-list>
+          <mat-nav-list class="nav-list" [routerLink]="'/login'">Sign In</mat-nav-list>
         </mat-list-item>
       </mat-sidenav>
       <mat-sidenav-content fxFlexFill>
@@ -54,12 +53,19 @@
           </div>
         </div>
         <div class="header-top-height"></div>
-        <div class="div-white"></div>
+        <div fxLayout="row" style="background: #f7f8fd; margin-top: 20px">
+          <div fxFlex="50%">
+            <img src="assets/images/bg_shape1.svg" onContextMenu="return false;">
+          </div>
+          <div fxFlex="50%">
+            <img src="assets/images/bg_shape2.svg" onContextMenu="return false;">
+          </div>
+        </div>
         <div fxLayout="row">
           <div fxFlex="100%" class="intro-msg overflow-x-hidden">
             <div fxLayout="row">
               <div fxFlex="100%" fxLayoutAlign="center" fxLayoutAlign.xs="center center" fxLayoutAlign.sm="center center" data-aos="fade-right" data-aos-easing="ease-out-cubic" data-aos-duration="1500" data-aos-once="true">
-                <h1 style="margin-bottom: 0px; font-family: Poppins,sans-serif;color: #202960" class="text-color-black xs-padding">Build an Impressive Resume with Resumearc</h1>
+                <h1 style="margin-bottom: 0px;margin-top: 0px; font-family: Poppins,sans-serif;color: #202960" class="text-color-black xs-padding">Build an Impressive Resume with Resumearc</h1>
               </div>
             </div>
             <div fxLayout="row" >
@@ -74,52 +80,52 @@
               <div fxFlex="5%" fxFlex.xs="2.5%" fxFlex.sm="2.5%" fxFlex.md="2.5%"></div>
               <mat-card fxFlex="30%" fxFlex.xs="95%" fxFlex.sm="95%" fxFlex.sm="95%" style="border-radius: 15px;" class="margin-sm">
                 <div fxLayout="row">
-                  <div fxFlex="25%" fxLayoutAlign="center">
-                    <img src="assets/images/templates.svg" class="step-1-img"/>
+                  <div fxFlex="100%" fxLayoutAlign="center">
+                    <img src="assets/images/template-step-01.svg" class="step-1-img" onContextMenu="return false;"/>
                   </div>
                 </div>
                 <div fxLayout="row">
-                  <div fxFlex="100%">
-                    <h2 style="padding-left: 15px; color: #202960; margin-bottom: 0px">Choose Template</h2>
+                  <div fxFlex="100%" fxLayoutAlign="center">
+                    <h2 style="color: #202960; margin-bottom: 0px">Choose Template</h2>
                   </div>
                 </div>
                 <div fxLayout="row">
-                  <div fxFlex="100%">
-                    <h4 style="padding-left: 15px;margin-top: 10px; color: #4d5a70; font-weight: normal" class="step-desc">You get to choose between several design options with our selection of resume templates.</h4>
+                  <div fxFlex="100%" fxLayoutAlign="center">
+                    <h4 style="margin-top: 10px; color: #4d5a70; font-weight: normal" class="step-desc">You get to choose between several design options with our selection of resume templates.</h4>
                   </div>
                 </div>
               </mat-card>
               <mat-card fxFlex="30%" fxFlex.xs="85%" fxFlex.sm="85%" fxFlex.sm="85%" style="border-radius: 15px;" class="margin-sm">
                <div fxLayout="row">
-                 <div fxFlex="25%" fxLayoutAlign="center">
-                   <img src="assets/images/resume-edit.svg" class="step-2-img"/>
+                 <div fxFlex="100%" fxLayoutAlign="center">
+                   <img src="assets/images/template-step-02.svg" class="step-2-img" onContextMenu="return false;"/>
                  </div>
                </div>
                 <div fxLayout="row">
-                  <div fxFlex="100%">
-                    <h2 style="padding-left: 15px; color: #202960; margin-bottom: 0px">Edit/Design</h2>
+                  <div fxFlex="100%" fxLayoutAlign="center">
+                    <h2 style="color: #202960; margin-bottom: 0px">Edit/Design</h2>
                   </div>
                 </div>
                 <div fxLayout="row">
-                  <div fxFlex="100%">
-                    <h4 style="padding-left: 15px;margin-top: 10px; color: #4d5a70; font-weight: normal" class="step-desc">Develop and optimize your content based on your requirements. Adding or removing a specific section based on your needs.</h4>
+                  <div fxFlex="100%" fxLayoutAlign="center">
+                    <h4 style="margin-top: 10px; color: #4d5a70; font-weight: normal" class="step-desc">Develop and optimize your content based on your requirements. Adding or removing a specific section based on your needs.</h4>
                   </div>
                 </div>
               </mat-card>
               <mat-card fxFlex="30%" fxFlex.xs="95%" fxFlex.sm="95%" fxFlex.sm="95%" style="border-radius: 15px;" class="margin-sm">
                 <div fxLayout="row">
-                  <div fxFlex="25%" fxLayoutAlign="center">
-                    <img src="assets/images/pdf-file.svg" class="step-3-img"/>
+                  <div fxFlex="100%" fxLayoutAlign="center">
+                    <img src="assets/images/template-step-03.svg" class="step-3-img" onContextMenu="return false;"/>
                   </div>
                 </div>
                 <div fxLayout="row">
-                  <div fxFlex="100%">
-                    <h2 style="padding-left: 15px; color: #202960; margin-bottom: 0px">Export PDF</h2>
+                  <div fxFlex="100%" fxLayoutAlign="center">
+                    <h2 style="color: #202960; margin-bottom: 0px">Export PDF</h2>
                   </div>
                 </div>
                 <div fxLayout="row">
-                  <div fxFlex="100%">
-                    <h4 style="padding-left: 15px;margin-top: 10px; color: #4d5a70; font-weight: normal" class="step-desc">Once your content is finished, you can export your resume in PDF and land the job you are looking for, effortlessly.</h4>
+                  <div fxFlex="100%" fxLayoutAlign="center">
+                    <h4 style="margin-top: 10px; color: #4d5a70; font-weight: normal" class="step-desc">Once your content is finished, you can export your resume in PDF and land the job you are looking for, effortlessly.</h4>
                   </div>
                 </div>
               </mat-card>
@@ -127,7 +133,7 @@
             </div>
           </div>
         </div>
-        <div class="div-white" #aboutSection></div>
+        <div #aboutSection></div>
         <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayout.md="column" fxLayoutGap.xs="5%" fxLayoutGap.sm="5%" fxLayoutGap.md="5%" class="about-screen-video overflow-x-hidden" data-aos="fade-right" data-aos-easing="ease-out-cubic" data-aos-duration="1500" data-aos-once="true">
           <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="100%" fxLayoutAlign="center center">
             <div fxFlex="15%" fxFlex.xs="10%" fxFlex.sm="10%" fxFlex.md="10%"></div>
@@ -157,7 +163,7 @@
         <div class="div-white" #resumeSection></div>
         <div fxLayout="row" fxLayoutGap="1%">
           <div fxFlex="100%" fxLayoutAlign="center" style="background: #f7f8fd;" data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-duration="1500" data-aos-once="true">
-            <h1 style="padding-top: 50px;color: #202960">Our Resume Templates</h1>
+            <h1 style=";color: #202960" class="resume-header">Our Resume Templates</h1>
           </div>
         </div>
         <div class="slider intro-msg">
@@ -220,11 +226,11 @@
             <h1 class="xs-padding benefits-heading">Benefits of Resumearc's online resume builder</h1>
           </div>
         </div>
-        <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="100%">
-          <div fxFlex="5.5%" fxFlex.xs="0%" fxFlex.sm="0%"></div>
-          <div fxFlex="33%" fxFlex.xs="100%" fxFlex.sm="100%" data-aos="fade-right" data-aos-easing="ease-out-cubic" data-aos-duration="1000" data-aos-once="true" fxLayoutAlign.lg="center" fxLayoutAlign.md="center" fxLayoutAlign.xs="left">
+        <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayout.md="column">
+          <div fxFlex="5.5%" fxFlex.xs="0%" fxFlex.sm="0%" fxFlex.md="0%"></div>
+          <div fxFlex="33%" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="100%" data-aos="fade-right" data-aos-easing="ease-out-cubic" data-aos-duration="1000" data-aos-once="true" fxLayoutAlign.lg="center" fxLayoutAlign.md="center" fxLayoutAlign.xs="left">
             <div fxLayout="row" class="xs-padding">
-              <div fxFlex="7%" fxFlex.xs="10%" fxFlex.sm="10%">
+              <div fxFlex="7%" fxFlex.xs="10%" fxFlex.sm="10%" fxFlex.md="10%" fxLayoutAlign.sm="center center">
                 <img src="assets/images/flash.svg" width="30px" style="position: relative; top: 15px"/>
               </div>
               <div fxFlex="90%">
@@ -242,9 +248,9 @@
             </div>
           </div>
           <div fxFlex="1%" fxFlex.xs="0%" fxFlex.sm="0%"></div>
-          <div fxFlex="29%" fxFlex.xs="100%" fxFlex.sm="100%" data-aos="fade-right" data-aos-easing="ease-out-cubic" data-aos-duration="1000" data-aos-once="true" fxLayoutAlign.lg="center" fxLayoutAlign.md="center" fxLayoutAlign.xs="left">
+          <div fxFlex="29%" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="100%" data-aos="fade-right" data-aos-easing="ease-out-cubic" data-aos-duration="1000" data-aos-once="true" fxLayoutAlign.lg="center" fxLayoutAlign.md="center" fxLayoutAlign.xs="left">
             <div fxLayout="row" class="xs-padding">
-              <div fxFlex="8%" fxFlex.xs="10%" fxFlex.sm="10%">
+              <div fxFlex="8%" fxFlex.xs="10%" fxFlex.sm="10%" fxFlex.md="10%" fxLayoutAlign.sm="center center">
                 <img src="assets/images/safe.svg" width="32px" style="position: relative; top: 15px"/>
               </div>
               <div fxFlex="90%">
@@ -261,9 +267,9 @@
               </div>
             </div>
           </div>
-          <div fxFlex="33%" fxFlex.xs="100%" fxFlex.sm="100%" data-aos="fade-right" data-aos-easing="ease-out-cubic" data-aos-duration="1000" data-aos-once="true" fxLayoutAlign.lg="center" fxLayoutAlign.md="center" fxLayoutAlign.xs="left">
+          <div fxFlex="33%" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="100%" data-aos="fade-right" data-aos-easing="ease-out-cubic" data-aos-duration="1000" data-aos-once="true" fxLayoutAlign.lg="center" fxLayoutAlign.md="center" fxLayoutAlign.xs="left">
             <div fxLayout="row" class="xs-padding">
-              <div fxFlex="7%" fxFlex.xs="10%" fxFlex.sm="10%">
+              <div fxFlex="7%" fxFlex.xs="10%" fxFlex.sm="10%" fxFlex.md="10%" fxLayoutAlign.sm="center center">
                 <img src="assets/images/typography.svg" width="28px" style="position: relative; top: 15px"/>&nbsp;
               </div>
               <div fxFlex="90%">
@@ -281,11 +287,11 @@
             </div>
           </div>
         </div>
-        <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="100%">
+        <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayout.md="column">
           <div fxFlex="5.5%" fxFlex.xs="0%" fxFlex.sm="0%"></div>
           <div fxFlex="27%" fxFlex.xs="100%" fxFlex.sm="100%" data-aos="fade-right" data-aos-easing="ease-out-cubic" data-aos-duration="1000" data-aos-once="true" fxLayoutAlign.lg="center" fxLayoutAlign.md="center" fxLayoutAlign.xs="left">
             <div fxLayout="row" class="xs-padding">
-              <div fxFlex="8%">
+              <div fxFlex="8%" fxLayoutAlign.sm="center center">
                 <img src="assets/images/theme.svg" width="25px" style="position: relative; top: 15px"/>
               </div>
               <div fxFlex="93%">
@@ -302,10 +308,10 @@
               </div>
             </div>
           </div>
-          <div fxFlex="6.5%" fxFlex.xs="0%" fxFlex.sm="0%"></div>
+          <div fxFlex="6.5%" fxFlex.xs="0%" fxFlex.sm="0%" fxFlex.md="0%"></div>
           <div fxFlex="20%" fxFlex.xs="100%" fxFlex.sm="100%" data-aos="fade-right" data-aos-easing="ease-out-cubic" data-aos-duration="1000" data-aos-once="true" fxLayoutAlign.lg="center" fxLayoutAlign.md="center" fxLayoutAlign.xs="left">
             <div fxLayout="row" class="xs-padding">
-              <div fxFlex="10%">
+              <div fxFlex="10%" fxLayoutAlign.sm="center center">
                 <img src="assets/images/spell-check.svg" width="25px" style="position: relative; top: 17px"/>
               </div>
               <div fxFlex="90%">
@@ -325,7 +331,7 @@
           <div fxFlex="8.7%"></div>
           <div fxFlex="33%" fxFlex.xs="100%" fxFlex.sm="100%" data-aos="fade-right" data-aos-easing="ease-out-cubic" data-aos-duration="1000" data-aos-once="true" fxLayoutAlign.lg="center" fxLayoutAlign.md="center" fxLayoutAlign.xs="left">
             <div fxLayout="row" class="xs-padding">
-              <div fxFlex="6%" fxFlex.xs="0%" fxFlex.sm="0%">
+              <div fxFlex="6%" fxFlex.xs="0%" fxFlex.sm="0%" fxFlex.md="0%" fxLayoutAlign.sm="center center">
                 <img src="assets/images/cv.svg" width="25px" style="position: relative; top: 16px"/>
               </div>
               <div fxFlex="90%">
@@ -353,7 +359,7 @@
                 <h1 style="padding-bottom: 30px;color: #202960">Our Pricing</h1>
               </div>
             </div>
-            <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" class="overflow-x-hidden">
+            <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" class="overflow-x-hidden pricing-card">
               <div fxFlex="40%" fxFlex.xs="100%" fxFlex.sm="100%" fxLayoutAlign="center" data-aos="fade-right" data-aos-easing="ease-out-cubic" data-aos-duration="1000" data-aos-once="true">
                 <div class="card card2">
                   <h3>50% Off - <s><i class="fa fa-rupee"></i>30</s></h3>
@@ -484,7 +490,7 @@
                 </div>
               </div>
               <div fxLayout="row"  fxLayoutAlign.xs="center" fxLayoutAlign.sm="center" fxLayoutAlign.md="center">
-                <div fxFlex="48%" fxFlex.xs="95%" fxFlex.sm="95%" fxFlex.md="95%" fxLayoutAlign="left" class="foot-key">
+                <div fxFlex="48%" fxFlex.xs="95%" fxFlex.sm="95%" fxFlex.md="95%" fxLayoutAlign="left" fxLayoutAlign.md="center" class="foot-key">
                   <span><label class="text-color-light-gray" style="margin-top: 0px">With Resumearc, your dream job will no longer remain a dream</label></span>
                 </div>
               </div>
@@ -573,9 +579,17 @@
               </div>
             </div>
           </div>
+          <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
+            <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="100%"  fxLayoutAlign="left" fxLayoutAlign.xs="center" fxLayoutAlign.sm="center" fxLayoutAlign.md="center">
+              <h5 class="text-color-light-gray foot-key" style="margin-bottom: 0px">Copyright © 2020 Avish technologies. All Rights Reserved.</h5>
+            </div>
+            <div fxFlex="40%" fxFlex.xs="100%" fxFlex.sm="100%" fxLayoutAlign="end" fxLayoutAlign.xs="center" fxLayoutAlign.sm="center" fxLayoutAlign.md="center">
+              <h5 class="text-color-light-gray foot-key" style="margin-bottom: 0px">Powered by</h5>
+            </div>
+          </div>
           <div fxLayout="row">
-            <div fxFlex="100%" fxLayoutAlign="left" fxLayoutAlign.xs="center" fxLayoutAlign.sm="center" fxLayoutAlign.md="center">
-              <h5 class="text-color-light-gray foot-key" style="margin-bottom: 0px">Copyright © 2020 Resumearc. All Rights Reserved.</h5>
+            <div fxFlex="90%" fxLayoutAlign="end" fxLayoutAlign.xs="center" fxLayoutAlign.sm="center">
+              <img src="assets/images/avish.png" width="30px" class="avish-logo"/>vish technologies private limited
             </div>
           </div>
         </footer>

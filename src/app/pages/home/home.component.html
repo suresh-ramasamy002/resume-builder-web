@@ -1,13 +1,13 @@
 <mat-toolbar class="navbar-bg" data-aos="zoom-up" data-aos-easing="ease-out-cubic" data-aos-duration="1200" [ngClass]="scrollNum > 10 ? 'intro-toolbar1' : 'intro-toolbar'">
     <mat-toolbar-row style="padding-left:0px" >
-      <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
-       <i class="fa fa-bars chakra-color"></i>
-      </button>
       <span><img src="assets/images/business-logo-page.png" width="240px"/></span>
       <a fxHide.lt-md mat-button (click)="goToResumeTemplates()" class="font-size-15">Resume Templates</a>&nbsp;
       <a fxHide.lt-md mat-button [routerLink]="'/rulesAndTips'" class="font-size-15">Rules & Tricks</a>&nbsp;
 <!--      <a fxHide.lt-md mat-button [routerLink]="'/howToUse'" class="font-size-15">How To Use</a>&nbsp;-->
       <span class="menu-spacer"></span>
+      <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+        <i class="fa fa-bars chakra-color"></i>
+      </button>
       <div fxShow="true" fxHide.lt-md *ngIf="coreDataService?.userDetails?.firstName">
         <a mat-button *ngIf="coreDataService.userDetails.role == 'PRO_ADMIN_1'" mat-button [routerLink]="'/adminDashboard_protect*1_!2000128846628812'" class="font-size-15">Admin Dashboard</a>
         <a mat-button (click)="logoutUser()" class="font-size-15">Logout</a>&nbsp;

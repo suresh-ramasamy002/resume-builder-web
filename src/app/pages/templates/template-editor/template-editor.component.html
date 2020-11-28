@@ -1,7 +1,7 @@
 <app-loader *ngIf="coreDataService.showSpinner"></app-loader>
 <div class="toolbar-container">
   <mat-toolbar class="example-toolbar">
-    <button mat-icon-button (click)="snav.toggle()">
+    <button mat-icon-button (click)="sidenav.toggle()">
       <img src="assets/images/cv-burger.svg" width="25px"/>
       <label style="font-size:12px;position: absolute; top:2.5px;margin-left: 5px; color: #234b5e" class="cr-pointer">Click to see all CV design's</label>
     </button>
@@ -11,7 +11,7 @@
     </div>
   </mat-toolbar>
   <mat-sidenav-container class="sidenav-container">
-    <mat-sidenav #snav [mode]="'over'">
+    <mat-sidenav #sidenav [mode]="'over'">
       <div fxLayout="row">
         <div fxFlex="100%" fxLayoutAlign="center">
           <span data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="1500"><img src="assets/images/business-logo-page.png" width="180px"/></span>

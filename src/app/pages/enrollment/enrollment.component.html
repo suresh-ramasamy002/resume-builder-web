@@ -47,7 +47,7 @@
                 <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap.lg="3.5%"  fxLayoutGap.xs="1.5%"  fxLayoutGap.sm="1.5%" class="margin-top-10">
                   <mat-form-field floatLabel="always" fxFlex="35%" fxFlex.xs="100%">
                     <mat-label class="mat-body-2 gl-mat-text-field-label">Country</mat-label>
-                    <mat-select name="country" formControlName="country" required [(ngModel)]="userDetails.country" autocomplete="off" required>
+                    <mat-select name="country" formControlName="country" required [(ngModel)]="userDetails.country" autocomplete="off" tabindex="4" required>
                       <mat-option *ngFor="let country of countryList; let index = index" [value]="country" (click)="getStateDetails(index)">{{country}}</mat-option>
                     </mat-select>
                     <mat-error  *ngIf="!enrollFormValidation.get('country').valid">Invalid Country</mat-error>

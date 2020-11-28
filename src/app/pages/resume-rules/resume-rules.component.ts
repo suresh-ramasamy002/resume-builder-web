@@ -1,5 +1,5 @@
 import {Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
-import * as firebase from 'firebase';
+import * as firebase from 'firebase/app';
 import {CoreDataService} from '../../services/core-data.service';
 import {AuthService} from '../../services/auth.service';
 import {UserService} from '../../services/user.service';

@@ -1,29 +1,18 @@
 import {Component, OnInit, HostListener, OnDestroy, ViewChild, ElementRef} from '@angular/core';
-import {TemplateRootComponent} from '../template-root.component';
 import {CoreDataService} from '../../../services/core-data.service';
 import {AuthService} from '../../../services/auth.service';
-import {ConfirmDialogComponent} from '../../../components/confirm-dialog/confirm-dialog.component';
-import {CompanyInfo} from '../../../class';
-import {EduInfo} from '../../../class';
-import {Certifications} from '../../../class';
 import {DomSanitizer} from '@angular/platform-browser';
 import html2pdf from 'html2pdf.js';
 import {UserService} from '../../../services/user.service';
 import * as firebase from 'firebase/app';
-import {HonorAwardsInfo} from '../../../class';
-import {ActivitiesInfo} from '../../../class';
-import {
-  MatDialog,
-  MatDialogRef,
-  MAT_DIALOG_DATA
-} from '@angular/material/dialog';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {FormBuilder} from '@angular/forms';
 import {ImageUploadCropComponent} from '../../../components/image-upload-crop/image-upload-crop.component';
 import {PaymentRequestComponent} from '../../../components/payment-request/payment-request.component';
 import {DownloadWarningDialogComponent} from '../../../components/download-warning-dialog/download-warning-dialog.component';
 import {FeedbackFormComponent} from '../../../components/feedback-form/feedback-form.component';
 import {PdfViewerComponent} from '../../../components/pdf-viewer/pdf-viewer.component';
-
+import {MatSidenav} from '@angular/material/sidenav';
 @Component({
   selector: 'app-template-editor',
   templateUrl: './template-editor.component.html',
@@ -33,6 +22,7 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
   private PDF_EXTENSION = '.pdf';
    @ViewChild('templateFile') template: ElementRef;
    public themeColor =  [];
+   @ViewChild('sidenav') sidenav: MatSidenav;
    private aId = 'V5cCGAXOpHMTvgL2b2rccgDLt3x1';
    public fontFamily = ['Arial', 'Book Antiqua', 'Calibri', 'Cambria', 'Didot', 'Garamond', 'Georgia', 'Helvetica', 'Times New Roman', 'Trebuchet MS', 'Verdana'];
   constructor(public coreDataService: CoreDataService, private auth: AuthService, private sanitizer: DomSanitizer, private userService: UserService, public dialog: MatDialog) {
@@ -57,7 +47,6 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
     if ('selectedTemplateTheme' in localStorage) {
       this.coreDataService.templateData.templateTheme = localStorage.getItem('selectedTemplateTheme');
     }
-    this.coreDataService.templateData.fontFamily = 'Verdana';
   }
   setThemePerTemplate(templateName) {
     this.themeColor = [];
@@ -128,7 +117,7 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
       this.exportRightNow();
     } else {
       let dialogRef = this.dialog.open(PaymentRequestComponent, {
-        width: '350px',
+        width: '420px',
         data: {amount: 1500}
       });
       dialogRef.afterClosed().subscribe(result => {
@@ -201,6 +190,7 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
     this.setThemePerTemplate(this.coreDataService.selectedTemplate);
     localStorage.setItem('selectedTemplateTheme', this.coreDataService.templateData.templateTheme);
     localStorage.setItem('selectedTemplate', this.coreDataService.selectedTemplate);
+    this.sidenav.close();
   }
   changeTheme(colorValue) {
     this.coreDataService.templateData.templateTheme = colorValue;

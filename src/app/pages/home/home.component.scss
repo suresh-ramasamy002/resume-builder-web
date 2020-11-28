@@ -322,7 +322,7 @@ mat-toolbar {
     padding-top: 10px;
     padding-bottom: 5px;
     color: white;
-    box-shadow: none;
+    box-shadow: 0 0 15px 3px #8c8c8c59;
   }
   .intro-toolbar1.mat-toolbar {
     position: fixed;
@@ -367,12 +367,22 @@ mat-toolbar {
     transition: .5s ease;
     backface-visibility: hidden;
   }
+  .mat-sidenav {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+  }
 }
 
 @media screen and (min-width: 260px) and (max-width: 374px) {   // iphone xs, moto
   .header-top-height {
     padding-top: 120px;
     background: #1f2861;
+  }
+  .mat-sidenav {
+    position: fixed;
+    top: 0;
+    bottom: 0;
   }
   .margin-top-150 {
     margin-top: 20px;
@@ -385,7 +395,7 @@ mat-toolbar {
     padding-top: 10px;
     padding-bottom: 5px;
     color: white;
-    box-shadow: none;
+    box-shadow: 0 0 15px 3px #8c8c8c59;
   }
   .intro-toolbar1.mat-toolbar {
     position: fixed;

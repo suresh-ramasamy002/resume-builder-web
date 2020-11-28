@@ -56,8 +56,16 @@ $animationSpeed: 30s;
 }
 
 @media screen and (min-width: 1024px){ // desktop
+  .resume-header {
+    padding-top: 50px;
+    padding-bottom: 100px;
+  }
+  .avish-logo{
+    position: relative;
+    top: -7px;
+  }
   .step-desc {
-    width: 300px;
+    width: 100%;
   }
   .desk-app{
     height: 600px;
@@ -143,9 +151,11 @@ $animationSpeed: 30s;
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5);
   }
   .intro-msg {
-    padding-top: 50px;
+    padding-top: 10px;
     padding-bottom: 70px;
     background: #f7f8fd;
+    position: relative;
+    top: -70px;
   }
   .about-screen-video{
     padding-top: 30px;
@@ -242,11 +252,16 @@ $animationSpeed: 30s;
   .intro-toolbar.mat-toolbar {
     position: fixed;
     top: 0%;
-    background: transparent;
+    background: white;
     z-index: 20;
     padding-top: 10px;
     padding-bottom: 5px;
     color: white;
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
+  }
+  .avish-logo{
+    position: relative;
+    top: -7px;
   }
   .intro-toolbar1.mat-toolbar {
     position: fixed;
@@ -256,6 +271,7 @@ $animationSpeed: 30s;
     padding-top: 5px;
     padding-bottom: 5px;
     color: #292929;
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
   }
   .service-logo{
     position: absolute;
@@ -392,25 +408,39 @@ $animationSpeed: 30s;
   .desk-app{
     height: 300px;
   }
-  .step-1-img{
-    margin-left: 15px;
+  .mat-sidenav {
+    position: fixed;
+    top: 0;
+    bottom: 0;
   }
-  .step-2-img{
-    margin-left: 15px;
-  }
-  .step-3-img{
-    margin-left: 15px;
+  .pricing-card {
+    padding-left: 15px;
+    padding-right: 15px;
   }
 }
 @media screen and (min-width: 260px) and (max-width: 374px){ // iphone xs, moto
+  .mat-sidenav {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+  }
+  .pricing-card {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
   .intro-toolbar.mat-toolbar {
     position: fixed;
     top: 0%;
-    background: transparent;
+    background: white;
     z-index: 20;
     padding-top: 10px;
     padding-bottom: 5px;
     color: white;
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
+  }
+  .avish-logo{
+    position: relative;
+    top: -7px;
   }
   .intro-toolbar1.mat-toolbar {
     position: fixed;
@@ -420,6 +450,7 @@ $animationSpeed: 30s;
     padding-top: 5px;
     padding-bottom: 5px;
     color: #292929;
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
   }
   .service-logo{
     position: absolute;
@@ -557,19 +588,14 @@ $animationSpeed: 30s;
   .desk-app{
     height: 280px;
   }
-  .step-1-img{
-    margin-left: 15px;
-  }
-  .step-2-img{
-    margin-left: 15px;
-  }
-  .step-3-img{
-    margin-left: 15px;
-  }
 }
 @media screen and (min-width: 768px) and (max-width: 1023px){ //ipad
   .desk-app{
     height: 500px;
+  }
+  .avish-logo{
+    position: relative;
+    top: -7px;
   }
   .intro-toolbar.mat-toolbar {
     position: fixed;
@@ -827,24 +853,7 @@ $animationSpeed: 30s;
 
 .nav-list {
   padding: 10px 60px 10px 60px;
-}
-.step-1-img{
-  width: 55px;
-  padding: 10px;
-  background: #ff6b37;
-  border-radius: 12px;
-}
-.step-2-img{
-  width: 55px;
-  padding: 10px 7px 10px 14px;
-  background: #2643cf;
-  border-radius: 12px;
-}
-.step-3-img{
-  width: 55px;
-  padding: 10px 10px 10px 10px;
-  background: #0a7303;
-  border-radius: 12px;
+  outline: 0;
 }
 .mat-card:not([class*=mat-elevation-z]) {
   transition: none !important;
