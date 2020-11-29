@@ -25,7 +25,7 @@ export class FeedbackFormComponent implements OnInit {
     }, 2000);
   }
   submitFeedBack() {
-    this.feedbacks.push({stars: this.stars, feedback: this.feedback, selectedTemplate: this.data.selectedTemplate, price: this.data.price});
+    this.feedbacks.push({stars: this.stars, feedback: this.feedback, selectedTemplate: this.data.selectedTemplate, price: this.data.price, name: this.coreDataService.userDetails.firstName + ' ' + this.coreDataService.userDetails.lastName});
     this.coreDataService.feedbacks = this.feedbacks;
     this.userService.setFeedBack(this.aId);
     this.dialogRef.close(true);

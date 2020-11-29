@@ -90,6 +90,7 @@ import {ScrollDispatcher} from '@angular/cdk/scrolling';
 import { ResumeRulesComponent } from './pages/resume-rules/resume-rules.component';
 import { HowToUseComponent } from './pages/how-to-use/how-to-use.component';
 import { TemplateNineComponent } from './components/template-files/template-nine/template-nine.component';
+import { TemplateTenComponent } from './components/template-files/template-ten/template-ten.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -122,7 +123,8 @@ import { TemplateNineComponent } from './components/template-files/template-nine
     TemplateEightComponent,
     ResumeRulesComponent,
     HowToUseComponent,
-    TemplateNineComponent
+    TemplateNineComponent,
+    TemplateTenComponent
   ],
   imports: [
     HttpClientModule,

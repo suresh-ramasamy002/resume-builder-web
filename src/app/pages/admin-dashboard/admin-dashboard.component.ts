@@ -25,9 +25,9 @@ export class AdminDashboardComponent implements OnInit {
     this.userService.getFeedbacks(this.aId);
     this.userService.getResumeDetails(this.aId);
     setTimeout(() => {
-      this.coreDataService.feedbacks.forEach(feedback => {
-        this.revenueAmount += Number(feedback.price);
-      });
+      // this.coreDataService.feedbacks.forEach(feedback => {
+      //   this.revenueAmount += Number(feedback.price);
+      // });
       this.coreDataService.userDetailsArr.forEach(user => {
         this.stateSet.add(user.state);
         this.roleSet.add(user.role);
@@ -47,6 +47,9 @@ export class AdminDashboardComponent implements OnInit {
         this.stateCountData.push({stateName: stateData, countData: count});
       });
       this.coreDataService.resumeDownloadedData.forEach(resumeData => {
+        if (resumeData.name !== 'template-one' && resumeData.name !== 'template-two' && resumeData.name !== 'template-four' && resumeData.count > 0) {
+          this.revenueAmount += (resumeData.count * 15);
+        }
         this.downloadCount += resumeData.count;
       });
     }, 1000);

@@ -3,10 +3,12 @@ export class Feedback {
   feedback: string;
   selectedTemplate: string;
   price: string;
-  constructor(stars: number, feedback: string, selectedTemplate: string, price: string) {
+  name: string;
+  constructor(stars: number, feedback: string, selectedTemplate: string, price: string, name: string) {
     this.stars = stars;
     this.feedback = feedback;
     this.selectedTemplate = selectedTemplate;
     this.price = price;
+    this.name = name;
   }
 }

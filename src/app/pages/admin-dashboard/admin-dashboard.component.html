@@ -194,12 +194,15 @@
     </div>
     <div style="height: 300px; overflow: scroll">
       <div fxLayout="row" *ngFor="let data of this.coreDataService.feedbacks; let i = index" fxLayoutGap="1%">
-        <div fxFlex="70%" fxLayoutAlign="left center">
+        <div fxFlex="60%" fxLayoutAlign="left center">
           <h5 style="margin-top: 5px;margin-bottom: 5px; color: gray" *ngIf="data.feedback != null">{{data.feedback}}</h5>
           <h5 style="margin-top: 5px;margin-bottom: 5px; color: gray" *ngIf="data.feedback == null">No Feedback was given</h5>
         </div>
         <div fxFlex="30%" fxLayoutAlign="left center">
-          <h4 style="margin-top: 5px;margin-bottom: 5px">{{data.stars + ' Stars'}}</h4>
+          <h4 style="margin-top: 5px;margin-bottom: 5px">{{data.name}}</h4>
+        </div>
+        <div fxFlex="10%" fxLayoutAlign="left center">
+          <h4 style="margin-top: 5px;margin-bottom: 5px">{{data.stars + ' Star(s)'}}</h4>
         </div>
       </div>
     </div>
