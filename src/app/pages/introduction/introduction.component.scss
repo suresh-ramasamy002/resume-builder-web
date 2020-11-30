@@ -21,12 +21,12 @@ $animationSpeed: 30s;
 
 // Styling
 .slider {
-  background: white;
-  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, .125);
+  background: #ffffff;
   height: 400px;
   overflow:hidden;
   position: relative;
   width: 100%;
+  padding-bottom: 100px;
 
   &::after {
     right: 0;
@@ -58,7 +58,7 @@ $animationSpeed: 30s;
 @media screen and (min-width: 1024px){ // desktop
   .resume-header {
     padding-top: 50px;
-    padding-bottom: 100px;
+    padding-bottom: 50px;
   }
   .avish-logo{
     position: relative;
@@ -107,6 +107,7 @@ $animationSpeed: 30s;
     top: 5px;
     font-size: 17px;
     font-weight: normal;
+    font-family: probapro-regular,sans-serif;
   }
   .top-nav-banner-img {
     position: absolute;
@@ -153,14 +154,14 @@ $animationSpeed: 30s;
   .intro-msg {
     padding-top: 10px;
     padding-bottom: 70px;
-    background: #f7f8fd;
+    background: #ffffff;
     position: relative;
     top: -70px;
   }
   .about-screen-video{
     padding-top: 30px;
     padding-bottom: 70px;
-    background: #ffffff;
+    background: #f7f8fd;
   }
   .video-bg-img {
     position: absolute;
@@ -238,7 +239,7 @@ $animationSpeed: 30s;
   }
   .benefits-heading {
     margin-top: 0px;
-    padding-top: 10px;
+    padding-top: 100px;
     padding-bottom: 30px;
   }
   .benefits-section {
@@ -316,12 +317,12 @@ $animationSpeed: 30s;
   .intro-msg {
     padding-top: 30px;
     padding-bottom:30px;
-    background: #f7f8fd;
+    background: #ffffff;
   }
   .about-screen-video{
     padding-top: 30px;
     padding-bottom: 50px;
-    background: #ffffff;
+    background: #f7f8fd;
   }
   .video-bg-img {
     position: absolute;
@@ -496,12 +497,12 @@ $animationSpeed: 30s;
   .intro-msg {
     padding-top: 30px;
     padding-bottom:30px;
-    background: #f7f8fd;
+    background: #ffffff;
   }
   .about-screen-video{
     padding-top: 30px;
     padding-bottom: 50px;
-    background: #ffffff;
+    background: #f7f8fd;
   }
   .video-bg-img {
     position: absolute;
@@ -659,7 +660,7 @@ $animationSpeed: 30s;
   .about-screen-video{
     padding-top: 30px;
     padding-bottom: 50px;
-    background: #ffffff;
+    background: #f7f8fd;
   }
   .video-bg-img {
     position: absolute;
@@ -824,7 +825,6 @@ $animationSpeed: 30s;
 }
 .mat-card:not([class*=mat-elevation-z]) {
   transition: none !important;
-  box-shadow: 2px 2px 2px 0.5px lightgray !important;
   background: #ffffff;
 }
 

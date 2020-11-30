@@ -52,8 +52,6 @@ export class AuthService {
       email: this.newUser.email,
       firstName: this.newUser.firstName,
       lastName: this.newUser.lastName,
-      country: this.newUser.country,
-      state: this.newUser.state,
       role: this.newUser.role
     });
   }
@@ -73,10 +71,7 @@ export class AuthService {
     this.userDataArray.push({
       email: this.newUser.email,
       firstName: this.newUser.firstName,
-      lastName: this.newUser.lastName,
-      country: this.newUser.country,
-      state: this.newUser.state,
-      role: this.newUser.role
+      lastName: this.newUser.lastName
     });
     return this.db.doc('/accessUserDetails/' + this.userDataId).set({
       userData: this.userDataArray
@@ -90,7 +85,7 @@ export class AuthService {
   }
   getUserData(uid) {
     this.db.collection('users').doc(uid).valueChanges().subscribe((res: EnrollUserDetails) => {
-      const userData: EnrollUserDetails = new EnrollUserDetails(res.role, res.firstName, res.lastName, res.email, res.password, res.country, res.state);
+      const userData: EnrollUserDetails = new EnrollUserDetails(res.firstName, res.lastName, res.email, res.password, res.role);
       this.coreDataService.userDetails = userData;
       this.coreDataService.showSpinner = false;
       localStorage.setItem('userDetails', JSON.stringify(this.coreDataService.userDetails));

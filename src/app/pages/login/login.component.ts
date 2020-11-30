@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
   public authError = null;
   public showLogin = false;
   @ViewChild('formRow') rows: ElementRef;
-  public userDetails: EnrollUserDetails = new EnrollUserDetails(null, null, null, null, null, null, null);
+  public userDetails: EnrollUserDetails = new EnrollUserDetails(null, null, null, null, null);
   constructor(private formBuilder: FormBuilder, private auth: AuthService, private router: Router) { }
 
   ngOnInit(): void {

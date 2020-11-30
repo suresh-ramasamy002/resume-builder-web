@@ -17,14 +17,14 @@
                     <label class="signup-label">Create an account</label>
                   </div>
                 </div>
-                <div fxLayout="row">
-                  <div fxFlex="100%" fxLayoutAlign="center">
-                    <mat-radio-group>
-                      <mat-radio-button [checked]="userDetails.role === 'Student'" (click)="userDetails.role = 'Student'" value="Student">Student</mat-radio-button>&nbsp;&nbsp;&nbsp;
-                      <mat-radio-button [checked]="userDetails.role === 'Professional'" (click)="userDetails.role = 'Professional'" value="Professional">Professional</mat-radio-button>
-                    </mat-radio-group>
-                  </div>
-                </div>
+<!--                <div fxLayout="row">-->
+<!--                  <div fxFlex="100%" fxLayoutAlign="center">-->
+<!--                    <mat-radio-group>-->
+<!--                      <mat-radio-button [checked]="userDetails.role === 'Student'" (click)="userDetails.role = 'Student'" value="Student">Student</mat-radio-button>&nbsp;&nbsp;&nbsp;-->
+<!--                      <mat-radio-button [checked]="userDetails.role === 'Professional'" (click)="userDetails.role = 'Professional'" value="Professional">Professional</mat-radio-button>-->
+<!--                    </mat-radio-group>-->
+<!--                  </div>-->
+<!--                </div>-->
                 <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap.lg="3.5%"  fxLayoutGap.xs="1.5%"  fxLayoutGap.sm="1.5%" class="signup-margin-top-25">
                   <mat-form-field floatLabel="always" fxFlex="35%"  fxFlex.xs="100%">
                     <mat-label class="mat-body-2 gl-mat-text-field-label" for="firstName">First Name</mat-label>
@@ -44,22 +44,22 @@
                     <mat-error  *ngIf="!enrollFormValidation.get('email').valid">Invalid Email</mat-error>
                   </mat-form-field>
                 </div>
-                <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap.lg="3.5%"  fxLayoutGap.xs="1.5%"  fxLayoutGap.sm="1.5%" class="margin-top-10">
-                  <mat-form-field floatLabel="always" fxFlex="35%" fxFlex.xs="100%">
-                    <mat-label class="mat-body-2 gl-mat-text-field-label">Country</mat-label>
-                    <mat-select name="country" formControlName="country" required [(ngModel)]="userDetails.country" autocomplete="off" tabindex="4" required>
-                      <mat-option *ngFor="let country of countryList; let index = index" [value]="country" (click)="getStateDetails(index)">{{country}}</mat-option>
-                    </mat-select>
-                    <mat-error  *ngIf="!enrollFormValidation.get('country').valid">Invalid Country</mat-error>
-                  </mat-form-field>
-                  <mat-form-field floatLabel="always" fxFlex="35%"  fxFlex.xs="100%">
-                    <mat-label class="mat-body-2 gl-mat-text-field-label" for="state">State</mat-label>
-                    <mat-select name="state" id="state" tabindex="5" formControlName="state" [(ngModel)]="userDetails.state" autocomplete="off" required>
-                      <mat-option *ngFor="let state of stateList; let index = index" [value]="state">{{state}}</mat-option>
-                    </mat-select>
-                    <mat-error  *ngIf="enrollFormValidation.get('state').hasError('required')">Invalid State</mat-error>
-                  </mat-form-field>
-                </div>
+<!--                <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap.lg="3.5%"  fxLayoutGap.xs="1.5%"  fxLayoutGap.sm="1.5%" class="margin-top-10">-->
+<!--                  <mat-form-field floatLabel="always" fxFlex="35%" fxFlex.xs="100%">-->
+<!--                    <mat-label class="mat-body-2 gl-mat-text-field-label">Country</mat-label>-->
+<!--                    <mat-select name="country" formControlName="country" required [(ngModel)]="userDetails.country" autocomplete="off" tabindex="4" required>-->
+<!--                      <mat-option *ngFor="let country of countryList; let index = index" [value]="country" (click)="getStateDetails(index)">{{country}}</mat-option>-->
+<!--                    </mat-select>-->
+<!--                    <mat-error  *ngIf="!enrollFormValidation.get('country').valid">Invalid Country</mat-error>-->
+<!--                  </mat-form-field>-->
+<!--                  <mat-form-field floatLabel="always" fxFlex="35%"  fxFlex.xs="100%">-->
+<!--                    <mat-label class="mat-body-2 gl-mat-text-field-label" for="state">State</mat-label>-->
+<!--                    <mat-select name="state" id="state" tabindex="5" formControlName="state" [(ngModel)]="userDetails.state" autocomplete="off" required>-->
+<!--                      <mat-option *ngFor="let state of stateList; let index = index" [value]="state">{{state}}</mat-option>-->
+<!--                    </mat-select>-->
+<!--                    <mat-error  *ngIf="enrollFormValidation.get('state').hasError('required')">Invalid State</mat-error>-->
+<!--                  </mat-form-field>-->
+<!--                </div>-->
                 <div fxLayout="row" fxLayoutAlign="center" class="margin-top-12">
                   <mat-form-field floatLabel="always" fxFlex="74%" fxFlex.xs="100%">
                     <mat-label class="mat-body-2 gl-mat-text-field-label" for="password1">Create Password</mat-label>

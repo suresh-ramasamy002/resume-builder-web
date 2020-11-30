@@ -754,7 +754,7 @@ export class EnrollmentComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild('formRow') rows: ElementRef;
   public countryList = [];
   public stateList = [];
-  public userDetails: EnrollUserDetails = new EnrollUserDetails(null, null, null, null, null, null, null);
+  public userDetails: EnrollUserDetails = new EnrollUserDetails(null, null, null, null, 'Student/Professional');
   constructor(private formBuilder: FormBuilder, private auth: AuthService) { }
 
   ngOnInit(): void {
@@ -762,14 +762,11 @@ export class EnrollmentComponent implements OnInit, OnDestroy, AfterViewInit {
     this.countryStates.countries.forEach(country => {
       this.countryList.push(country.country);
     });
-    this.userDetails.role = 'Student';
     this.authError = null;
     this.enrollFormValidation = this.formBuilder.group({
       firstName: [{value: this.userDetails.firstName}, [Validators.required]],
       lastName: [{value: this.userDetails.lastName}, [Validators.required]],
       email: [{value: this.userDetails.email}, [Validators.required, Validators.pattern('[A-Za-z0-9!#$%&\'*+/=?^_`{|}~-]+(?:\.[A-Za-z0-9!#$%&\'*+/=?^_`{|}~-]+)*@(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\.)+[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?')]],
-      country: [{value: this.userDetails.country}, [Validators.required]],
-      state: [{value: this.userDetails.state}, [Validators.required]],
       password1: [{value: this.userDetails.password}, [Validators.required, Validators.minLength(8)]],
       password2: [{value: this.pass2}, [Validators.required, Validators.minLength(8)]]
     });
