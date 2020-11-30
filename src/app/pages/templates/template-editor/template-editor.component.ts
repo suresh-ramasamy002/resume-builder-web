@@ -163,7 +163,7 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
     html2pdf().from(document.getElementById(element)).set(opt).save().then((e) => {
       this.coreDataService.showSpinner = false;
       this.coreDataService.resumeDownloadedData.forEach(resumeData => {
-        if (resumeData.name === element) {
+        if (resumeData.name === element && this.coreDataService.userDetails.role !== 'PRO_ADMIN_1' && this.coreDataService.userDetails.role !== 'CO_ADMIN_1') {
           resumeData.count++;
         }
       });
