@@ -1,91 +1,102 @@
-<div class="sk-folding-cube" [ngClass]="{'display-none': showLogin}">
-  <div class="sk-cube1 sk-cube"></div>
-  <div class="sk-cube2 sk-cube"></div>
-  <div class="sk-cube4 sk-cube"></div>
-  <div class="sk-cube3 sk-cube"></div>
-</div>
-<div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" class="login-bg" [ngClass]="{'display-none': !showLogin}">
-<div fxFlex="30%" fxFlex.xs="100%" fxFlex.sm="100%"></div>
-  <div fxFlex="40%" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="70%">
-     <form [formGroup]="loginFormValidation" (ngSubmit)="loginAcc()">
-       <fieldset  class="login-border-none">
-         <div fxLayout="row" fxLayoutAlign="center center" class="login-page-height">
-           <mat-card fxFlex="100%">
-             <div fxLayout="row"  fxLayoutAlign="center center">
-               <div fxFlex="100%" fxFlex.xs="100%" data-aos="fade-right" data-aos-easing="ease-out-cubic" data-aos-duration="500">
-                 <div fxLayout="row">
-                   <div fxFlex="100%" fxLayoutAlign="center">
-                     <a [routerLink]="'/intro'"><img src="assets/images/business-logo-page.png" width="240px"/></a>
-                   </div>
-                 </div>
-                 <div fxLayout="row" class="margin-top-15">
-                   <div fxFlex="100%" fxLayoutAlign="center">
-                     <label class="login-label">Sign In</label>
-                   </div>
-                 </div>
-                 <div fxLayout="row" fxLayoutAlign="center">
-                   <mat-form-field floatLabel="always" fxFlex="60%"  fxFlex.xs="100%">
-                     <mat-label class="mat-body-2 gl-mat-text-field-label" for="userId">Email</mat-label>
-                     <input matInput #formRow name="userId" id="userId" tabindex="1" formControlName="userName" [(ngModel)]="userName" autocomplete="off" required/>
-                     <mat-error *ngIf="!loginFormValidation.get('userName').valid">Invalid Email</mat-error>
-                   </mat-form-field>
-                 </div>
-                 <div fxLayout="row" fxLayoutAlign="center" class="margin-top-12">
-                     <mat-form-field floatLabel="always" fxFlex="60%" fxFlex.xs="100%">
-                       <mat-label class="mat-body-2 gl-mat-text-field-label" for="password">Password</mat-label>
-                       <input matInput  id="pswd" name="password" tabindex="2"  [type]="showToken ? 'text': 'password'"  #usrPwd formControlName="password" [(ngModel)]="password" autocomplete="off" required/>
-                       <span matSuffix *ngIf="!showToken" (click)="showToken =! showToken" class="gl-pointer">
+<div fxLayout="row" fxLayoutAlign="center center" class="login-page-height">
+  <div fxFlex="50%" fxFlex.xs="0%" fxFlex.sm="0%" class="login-banner" fxHide.lt-md>
+    <img src="assets/images/vector-gradient.svg" class="top-nav-banner-img" onContextMenu="return false;">
+    <img src="assets/images/resume-section-bg.png" class="resume-shape-img" onContextMenu="return false;">
+    <img src="assets/images/cases-bg.png" class="benifits-bg" onContextMenu="return false;">
+    <img src="assets/images/resume-tips.svg" class="resume-tip-bg" onContextMenu="return false;">
+    <div fxLayoutAlign="center">
+      <label class="welcome-label">Welcome</label>
+    </div>
+    <div fxLayoutAlign="center">
+      <label class="welcome-desc-label">When a piece of paper is what's gonna represent the best of you, give it everything.</label>
+    </div>
+    <div fxLayout="row">
+      <div fxFlex="50%" style="z-index: 10">
+        <a [routerLink]="'/intro'"><img src="assets/images/business-logo-page.png" width="240px"/></a>
+      </div>
+      <div fxFlex="47%" style="z-index: 10" fxLayoutAlign="end center">
+        <a [routerLink]="'/intro'" class="color-white outline-none"><i class="fa fa-home"></i>&nbsp;Home</a>
+      </div>
+    </div>
+  </div>
+  <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="100%">
+    <div>
+      <img src="assets/images/cases-bg.png" class="benifits-bg" onContextMenu="return false;" fxShow.gt-sm fxHide.lt-md>
+      <img src="assets/images/resume-section-bg.png" class="resume-shape-img" onContextMenu="return false;" fxHide.gt-sm>
+      <img src="assets/images/cases-bg.png" class="benifits-bg-mob" onContextMenu="return false;" fxHide.gt-sm>
+      <img src="assets/images/data-bg.png" class="resume-tip-bg-mob" onContextMenu="return false;" fxHide.gt-sm>
+      <div fxLayout="row" fxHide.gt-sm>
+        <div fxFlex="100%" fxLayoutAlign="center">
+          <a [routerLink]="'/intro'"><img src="assets/images/business-logo-page.png" width="240px"/></a>
+        </div>
+      </div>
+    <form [formGroup]="loginFormValidation" (ngSubmit)="loginAcc()">
+      <fieldset  class="login-border-none">
+        <div fxLayout="row">
+          <div fxFlex="100%" fxFlex.xs="100%" data-aos="fade-right" data-aos-easing="ease-out-cubic" data-aos-duration="500">
+            <div fxLayout="row" class="margin-top-15">
+              <div fxFlex="100%" fxLayoutAlign="center">
+                <label class="login-label chakra-color">Sign In</label>
+              </div>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="center">
+              <mat-form-field floatLabel="always" fxFlex="40%"  fxFlex.xs="100%">
+                <mat-label class="mat-body-2 gl-mat-text-field-label" for="userId">Email</mat-label>
+                <input matInput #formRow name="userId" id="userId" tabindex="1" formControlName="userName" [(ngModel)]="userName" autocomplete="off" required/>
+                <mat-error *ngIf="!loginFormValidation.get('userName').valid">Invalid Email</mat-error>
+              </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="center" class="margin-top-12">
+              <mat-form-field floatLabel="always" fxFlex="40%" fxFlex.xs="100%">
+                <mat-label class="mat-body-2 gl-mat-text-field-label" for="password">Password</mat-label>
+                <input matInput  id="pswd" name="password" tabindex="2"  [type]="showToken ? 'text': 'password'"  #usrPwd formControlName="password" [(ngModel)]="password" autocomplete="off" required/>
+                <span matSuffix *ngIf="!showToken" (click)="showToken =! showToken" class="gl-pointer">
                 <svg aria-hidden="true" class="stUf5b" fill="currentColor" focusable="false" width="24px" height="24px" viewBox="0 0 24 24" style="fill: gray">
                   <path d="M12,7c-2.48,0-4.5,2.02-4.5,4.5S9.52,16,12,16s4.5-2.02,4.5-4.5S14.48,7,12,7z M12,14.2c-1.49,0-2.7-1.21-2.7-2.7 c0-1.49,1.21-2.7,2.7-2.7s2.7,1.21,2.7,2.7C14.7,12.99,13.49,14.2,12,14.2z"></path>
                   <path d="M12,4C7,4,2.73,7.11,1,11.5C2.73,15.89,7,19,12,19s9.27-3.11,11-7.5C21.27,7.11,17,4,12,4z M12,17 c-3.79,0-7.17-2.13-8.82-5.5C4.83,8.13,8.21,6,12,6s7.17,2.13,8.82,5.5C19.17,14.87,15.79,17,12,17z"></path>
                 </svg>
               </span>
-                       <span matSuffix *ngIf="showToken" (click)="showToken =! showToken" class="gl-pointer">
+                <span matSuffix *ngIf="showToken" (click)="showToken =! showToken" class="gl-pointer">
                 <svg aria-hidden="true" class="stUf5b" fill="currentColor" focusable="false" width="24px" height="24px" viewBox="0 0 24 24" style="fill: gray">
                 <path d="M10.58,7.25l1.56,1.56c1.38,0.07,2.47,1.17,2.54,2.54l1.56,1.56C16.4,12.47,16.5,12,16.5,11.5C16.5,9.02,14.48,7,12,7 C11.5,7,11.03,7.1,10.58,7.25z"></path>
                   <path d="M12,6c3.79,0,7.17,2.13,8.82,5.5c-0.64,1.32-1.56,2.44-2.66,3.33l1.42,1.42c1.51-1.26,2.7-2.89,3.43-4.74 C21.27,7.11,17,4,12,4c-1.4,0-2.73,0.25-3.98,0.7L9.63,6.3C10.4,6.12,11.19,6,12,6z"></path>
                 <path d="M16.43,15.93l-1.25-1.25l-1.27-1.27l-3.82-3.82L8.82,8.32L7.57,7.07L6.09,5.59L3.31,2.81L1.89,4.22l2.53,2.53 C2.92,8.02,1.73,9.64,1,11.5C2.73,15.89,7,19,12,19c1.4,0,2.73-0.25,3.98-0.7l4.3,4.3l1.41-1.41l-3.78-3.78L16.43,15.93z M11.86,14.19c-1.38-0.07-2.47-1.17-2.54-2.54L11.86,14.19z M12,17c-3.79,0-7.17-2.13-8.82-5.5c0.64-1.32,1.56-2.44,2.66-3.33 l1.91,1.91C7.6,10.53,7.5,11,7.5,11.5c0,2.48,2.02,4.5,4.5,4.5c0.5,0,0.97-0.1,1.42-0.25l0.95,0.95C13.6,16.88,12.81,17,12,17z"></path>
                </svg>
               </span>
-                       <mat-error *ngIf="loginFormValidation.get('password').hasError('required')">Invalid Password</mat-error>
-                     </mat-form-field>
-                 </div>
+                <mat-error *ngIf="loginFormValidation.get('password').hasError('required')">Invalid Password</mat-error>
+              </mat-form-field>
+            </div>
 
-                 <div fxLayout="row" class="margin-top-12" *ngIf="authError">
-                   <div fxFlex="100%" fxLayoutAlign="center">
-                     <label class="login-error">{{authError?.message}}</label>
-                   </div>
-                 </div>
-                 <div fxLayout="row" class="margin-top-12">
-                 <div fxFlex="100%" fxLayoutAlign="center">
-                   <button mat-raised-button color="primary" class="login-btn" tabindex="3">login</button>
-                 </div>
-                 </div>
-                 <div fxLayout="row">
-                   <div fxFlex="100%" fxLayoutAlign="center">
-                     <button mat-button color="primary" (click)="forgotPassword()">Forgot Password?</button>
-                   </div>
-                 </div>
-                 <div fxLayout="row">
-                   <div fxFlex="100%" fxLayoutAlign="center">
-                     <label class="margin-top-12">Don't have Account?</label>
-                     <button mat-button color="primary" style="margin-top: 3.5px" [routerLink]="'/enroll'" tabindex="5">Register here</button>
-                   </div>
-                 </div>
-                 <div fxLayout="row">
-                   <div fxFlex="100%" fxLayoutAlign="center">
-                     <span style="font-size: 13px; margin-bottom: 20px">This site is best viewed with Chrome browser and Firefox.</span>
-                   </div>
-                 </div>
-               </div>
-<!--               <div fxFlex="30%" fxLayoutAlign="end" fxHide fxShow.lg="true" fxShow.md="true" data-aos="flip-right" data-aos-easing="ease-out-cubic" data-aos-duration="1000">-->
-<!--                 <img src="./assets/images/login-banner.jpg" width="380px" height="100%">-->
-<!--               </div>-->
-             </div>
-           </mat-card>
-         </div>
-       </fieldset>
-     </form>
+            <div fxLayout="row" class="margin-top-12" *ngIf="authError">
+              <div fxFlex="100%" fxLayoutAlign="center">
+                <label class="login-error">{{authError?.message}}</label>
+              </div>
+            </div>
+            <div fxLayout="row" class="margin-top-12">
+              <div fxFlex="100%" fxLayoutAlign="center">
+                <button mat-raised-button color="primary" class="login-btn" tabindex="3">login</button>
+              </div>
+            </div>
+            <div fxLayout="row">
+              <div fxFlex="100%" fxLayoutAlign="center">
+                <button mat-button color="primary" (click)="forgotPassword()">Forgot Password?</button>
+              </div>
+            </div>
+            <div fxLayout="row">
+              <div fxFlex="100%" fxLayoutAlign="center">
+                <label class="margin-top-12">Don't have Account?</label>
+                <button mat-button color="primary" style="margin-top: 3.5px" [routerLink]="'/enroll'" tabindex="5">Register here</button>
+              </div>
+            </div>
+                <div fxLayout="row" class="margin-top-5">
+                  <div fxFlex="100%" fxLayoutAlign="center">
+                    <span style="font-size: 13px; margin-bottom: 20px">This site is best viewed with Chrome browser and Firefox.</span>
+                  </div>
+                </div>
+          </div>
+        </div>
+      </fieldset>
+    </form>
   </div>
-  <div fxFlex="30%" fxFlex.xs="100%" fxFlex.sm="100%"></div>
+</div>
 </div>

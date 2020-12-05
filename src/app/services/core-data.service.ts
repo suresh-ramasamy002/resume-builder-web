@@ -12,7 +12,15 @@ export class CoreDataService {
  private $selectedTemplate: string = null;
  private $userDetailsArr: Array<EnrollUserDetails> = [];
  private $resumeDownloadedData: Array<ResumeDownloadProperty> = [];
+ private $hideSeparater: boolean = false;
 
+
+  get hideSeparater(): boolean{
+    return this.$hideSeparater;
+  }
+  set hideSeparater(value: boolean) {
+    this.$hideSeparater = value;
+  }
   get resumeDownloadedData(): Array<ResumeDownloadProperty> {
     return this.$resumeDownloadedData;
   }

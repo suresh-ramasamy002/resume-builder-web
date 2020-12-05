@@ -7,6 +7,7 @@ import {BehaviorSubject, Observable} from 'rxjs';
 import * as firebase from 'firebase/app';
 import {CoreDataService} from './core-data.service';
 import {AdminUserData} from '../class/api-model/response';
+import { auth } from 'firebase/app';
 import set = Reflect.set;
 @Injectable({
   providedIn: 'root'
@@ -46,7 +47,42 @@ export class AuthService {
        this.evtAuthErr.next(error);
     });
   }
-
+ async signInWithGoogle() {
+    this.getAdminUserDetails();
+    const provider = new auth.FacebookAuthProvider();
+    const credentials = await this.afu.signInWithPopup(provider);
+    return this.updateUserData(credentials.user);
+  }
+  updateUserData(user) {
+    this.getAndSetUserDataGoogle(user);
+    return this.db.doc('/users/' + user.uid).set({
+      email: user.email,
+      firstName: user.displayName,
+      lastName: '',
+      role: 'Student/Professional'
+    }).then(() => {
+      this.router.navigate(['/home']);
+    });
+   }
+  getAndSetUserDataGoogle(user) {
+    let index = 0;
+    this.userDataArray.forEach(userData => {
+      if (userData.email == user.email) {
+        index++;
+      }
+    });
+    if(index == 0) {
+      this.userDataArray.push({
+        email: user.email,
+        firstName: user.displayName,
+        lastName: '',
+        role: 'Student/Professional'
+      });
+      return this.db.doc('/accessUserDetails/' + this.userDataId).set({
+        userData: this.userDataArray
+      });
+    }
+  }
   insertUserData(user: firebase.User) {
     return this.db.doc('/users/' + user.uid).set({
       email: this.newUser.email,
@@ -71,7 +107,8 @@ export class AuthService {
     this.userDataArray.push({
       email: this.newUser.email,
       firstName: this.newUser.firstName,
-      lastName: this.newUser.lastName
+      lastName: this.newUser.lastName,
+      role: 'Student/Professional'
     });
     return this.db.doc('/accessUserDetails/' + this.userDataId).set({
       userData: this.userDataArray

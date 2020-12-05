@@ -1,5 +1,6 @@
 <div fxLayout="row">
-  <mat-card fxFlex="100%">
+  <mat-card fxFlex="100%" [ngStyle]="{'height':pageHeight}">
+    <div class="page-break-1" *ngIf="pageType!='single' && !coreDataService.hideSeparater"></div>
     <div class="temp-padding-inside">
     <div fxLayout="row">
       <div fxFlex="40%" style="margin-left: 15px">
@@ -37,9 +38,15 @@
         </div>
       </div>
     </div>
-      <div fxLayout="row" class="margin-top-15" *ngIf="coreDataService.templateData.objective">
-        <div fxFlex="100%">
+      <div fxLayout="row" [ngStyle]="{'margin-top': summaryMargin + 'px'}" *ngIf="coreDataService.templateData.objective" class="temp">
+        <div fxFlex="80%">
           <label [ngStyle]="{'font-size': coreDataService.templateData.roleSize+'px', 'font-family': coreDataService.templateData.fontFamily, 'color': coreDataService.templateData.templateTheme}" class="label-right-color" style="margin-left: 15px;">SUMMARY</label>
+        </div>
+        <div fxFlex="15%" fxLayoutAlign="end" class="position-relative">
+          <label class="temp-move">
+            <i class="fa fa-arrow-circle-up mat-primary fa-arrow" (click)="moveSummary('top')" [ngClass]="{'temp-move-opacity': summaryMargin == 15}"></i>&nbsp;&nbsp;
+            <i class="fa fa-arrow-circle-down mat-primary fa-arrow" (click)="moveSummary('bottom')"></i>
+          </label>
         </div>
       </div>
       <div fxLayout="row" *ngIf="coreDataService.templateData.objective">
@@ -52,9 +59,15 @@
           <label #objectiveMsg [textContent]="coreDataService.templateData.objectiveMsg" (blur)="coreDataService.templateData.objectiveMsg = objectiveMsg.innerText"  contenteditable="true" spellcheck="true" [ngStyle]="{'font-size': coreDataService.templateData.normalSize+'px', 'font-family': coreDataService.templateData.fontFamily}" class="line-height-1-4" placeholder="Fill in your Career’s Objective">{{coreDataService.templateData.objectiveMsg}}</label>
         </div>
       </div>
-      <div fxLayout="row" class="margin-top-22" *ngIf="coreDataService.templateData.workExp">
-        <div fxFlex="100%">
+      <div fxLayout="row" [ngStyle]="{'margin-top': workExpMargin + 'px'}" *ngIf="coreDataService.templateData.workExp" class="temp">
+        <div fxFlex="80%">
           <label [ngStyle]="{'font-size': coreDataService.templateData.roleSize+'px', 'font-family': coreDataService.templateData.fontFamily, 'color': coreDataService.templateData.templateTheme}" class="label-right-color" style="margin-left: 15px;">WORK EXPERIENCE</label>
+        </div>
+        <div fxFlex="15%" fxLayoutAlign="end" class="position-relative">
+          <label class="temp-move">
+            <i class="fa fa-arrow-circle-up mat-primary fa-arrow" (click)="moveWorkExp('top')" [ngClass]="{'temp-move-opacity': workExpMargin == 15}"></i>&nbsp;&nbsp;
+            <i class="fa fa-arrow-circle-down mat-primary fa-arrow" (click)="moveWorkExp('bottom')"></i>
+          </label>
         </div>
       </div>
       <div fxLayout="row" *ngIf="coreDataService.templateData.workExp">
@@ -85,9 +98,15 @@
             </div>
           </div>
       </div>
-      <div fxLayout="row" class="margin-top-22" *ngIf="coreDataService.templateData.education">
-        <div fxFlex="100%">
+      <div fxLayout="row" [ngStyle]="{'margin-top': educationMargin + 'px'}" *ngIf="coreDataService.templateData.education" class="temp">
+        <div fxFlex="80%">
           <label [ngStyle]="{'font-size': coreDataService.templateData.roleSize+'px', 'font-family': coreDataService.templateData.fontFamily, 'color': coreDataService.templateData.templateTheme}" class="label-right-color" style="margin-left: 15px;">EDUCATION</label>
+        </div>
+        <div fxFlex="15%" fxLayoutAlign="end" class="position-relative">
+          <label class="temp-move">
+            <i class="fa fa-arrow-circle-up mat-primary fa-arrow" (click)="moveEducation('top')" [ngClass]="{'temp-move-opacity': educationMargin == 15}"></i>&nbsp;&nbsp;
+            <i class="fa fa-arrow-circle-down mat-primary fa-arrow" (click)="moveEducation('bottom')"></i>
+          </label>
         </div>
       </div>
       <div fxLayout="row" *ngIf="coreDataService.templateData.education">
@@ -115,9 +134,15 @@
           </div>
         </div>
       </div>
-      <div fxLayout="row" class="margin-top-22" *ngIf="coreDataService.templateData.skills || coreDataService.templateData.tech || coreDataService.templateData.language">
-        <div fxFlex="100%">
+      <div fxLayout="row" [ngStyle]="{'margin-top': skillsMargin + 'px'}" *ngIf="coreDataService.templateData.skills || coreDataService.templateData.tech || coreDataService.templateData.language" class="temp">
+        <div fxFlex="80%">
           <label [ngStyle]="{'font-size': coreDataService.templateData.roleSize+'px', 'font-family': coreDataService.templateData.fontFamily, 'color': coreDataService.templateData.templateTheme}" class="label-right-color" style="margin-left: 15px;">SKILLS</label>
+        </div>
+        <div fxFlex="15%" fxLayoutAlign="end" class="position-relative">
+          <label class="temp-move">
+            <i class="fa fa-arrow-circle-up mat-primary fa-arrow" (click)="moveSkills('top')" [ngClass]="{'temp-move-opacity': skillsMargin == 15}"></i>&nbsp;&nbsp;
+            <i class="fa fa-arrow-circle-down mat-primary fa-arrow" (click)="moveSkills('bottom')"></i>
+          </label>
         </div>
       </div>
       <div fxLayout="row" *ngIf="coreDataService.templateData.skills || coreDataService.templateData.tech || coreDataService.templateData.language">
@@ -169,9 +194,15 @@
           </div>
         </div>
       </div>
-      <div fxLayout="row" class="margin-top-22" *ngIf="coreDataService.templateData.certifications">
-        <div fxFlex="100%">
+      <div fxLayout="row" [ngStyle]="{'margin-top': certificateMargin + 'px'}" *ngIf="coreDataService.templateData.certifications" class="temp">
+        <div fxFlex="80%">
           <label [ngStyle]="{'font-size': coreDataService.templateData.roleSize+'px', 'font-family': coreDataService.templateData.fontFamily, 'color': coreDataService.templateData.templateTheme}" class="label-right-color" style="margin-left: 15px;">CERTIFICATIONS</label>
+        </div>
+        <div fxFlex="15%" fxLayoutAlign="end" class="position-relative">
+          <label class="temp-move">
+            <i class="fa fa-arrow-circle-up mat-primary fa-arrow" (click)="moveCertificates('top')" [ngClass]="{'temp-move-opacity': certificateMargin == 15}"></i>&nbsp;&nbsp;
+            <i class="fa fa-arrow-circle-down mat-primary fa-arrow" (click)="moveCertificates('bottom')"></i>
+          </label>
         </div>
       </div>
       <div fxLayout="row" *ngIf="coreDataService.templateData.certifications">
@@ -193,9 +224,15 @@
           </div>
         </div>
       </div>
-      <div fxLayout="row" class="margin-top-22" *ngIf="coreDataService.templateData.honorReward">
-        <div fxFlex="100%">
+      <div fxLayout="row" [ngStyle]="{'margin-top': honorMargin + 'px'}" *ngIf="coreDataService.templateData.honorReward" class="temp">
+        <div fxFlex="80%">
           <label [ngStyle]="{'font-size': coreDataService.templateData.roleSize+'px', 'font-family': coreDataService.templateData.fontFamily, 'color': coreDataService.templateData.templateTheme}" class="label-right-color" style="margin-left: 15px;">HONORS & AWARDS</label>
+        </div>
+        <div fxFlex="15%" fxLayoutAlign="end" class="position-relative">
+          <label class="temp-move">
+            <i class="fa fa-arrow-circle-up mat-primary fa-arrow" (click)="moveHonor('top')" [ngClass]="{'temp-move-opacity': honorMargin== 15}"></i>&nbsp;&nbsp;
+            <i class="fa fa-arrow-circle-down mat-primary fa-arrow" (click)="moveHonor('bottom')"></i>
+          </label>
         </div>
       </div>
       <div fxLayout="row" *ngIf="coreDataService.templateData.honorReward">
@@ -217,9 +254,15 @@
           </div>
         </div>
       </div>
-      <div fxLayout="row" class="margin-top-22" *ngIf="coreDataService.templateData.interest">
-        <div fxFlex="100%">
+      <div fxLayout="row" [ngStyle]="{'margin-top': interestMargin + 'px'}" *ngIf="coreDataService.templateData.interest" class="temp">
+        <div fxFlex="80%">
           <label [ngStyle]="{'font-size': coreDataService.templateData.roleSize+'px', 'font-family': coreDataService.templateData.fontFamily, 'color': coreDataService.templateData.templateTheme}" class="label-right-color" style="margin-left: 15px;">INTERESTS</label>
+        </div>
+        <div fxFlex="15%" fxLayoutAlign="end" class="position-relative">
+          <label class="temp-move">
+            <i class="fa fa-arrow-circle-up mat-primary fa-arrow" (click)="moveInterest('top')" [ngClass]="{'temp-move-opacity': interestMargin== 15}"></i>&nbsp;&nbsp;
+            <i class="fa fa-arrow-circle-down mat-primary fa-arrow" (click)="moveInterest('bottom')"></i>
+          </label>
         </div>
       </div>
       <div fxLayout="row" *ngIf="coreDataService.templateData.interest">
@@ -239,9 +282,15 @@
           </div>
         </div>
       </div>
-      <div fxLayout="row" class="margin-top-22" *ngIf="coreDataService.templateData.activities">
-        <div fxFlex="100%">
+      <div fxLayout="row" [ngStyle]="{'margin-top': activityMargin + 'px'}" *ngIf="coreDataService.templateData.activities" class="temp">
+        <div fxFlex="80%">
           <label [ngStyle]="{'font-size': coreDataService.templateData.roleSize+'px', 'font-family': coreDataService.templateData.fontFamily, 'color': coreDataService.templateData.templateTheme}" class="label-right-color" style="margin-left: 15px;">ACTIVITIES</label>
+        </div>
+        <div fxFlex="15%" fxLayoutAlign="end" class="position-relative">
+          <label class="temp-move">
+            <i class="fa fa-arrow-circle-up mat-primary fa-arrow" (click)="moveActivity('top')" [ngClass]="{'temp-move-opacity': activityMargin== 15}"></i>&nbsp;&nbsp;
+            <i class="fa fa-arrow-circle-down mat-primary fa-arrow" (click)="moveActivity('bottom')"></i>
+          </label>
         </div>
       </div>
       <div fxLayout="row" *ngIf="coreDataService.templateData.activities">
@@ -272,9 +321,15 @@
           </div>
         </div>
       </div>
-      <div fxLayout="row" class="margin-top-22" *ngIf="coreDataService.templateData.additionalInfo">
-        <div fxFlex="100%">
+      <div fxLayout="row" [ngStyle]="{'margin-top': additionalInfoMargin + 'px'}" *ngIf="coreDataService.templateData.additionalInfo" class="temp">
+        <div fxFlex="80%">
           <label [ngStyle]="{'font-size': coreDataService.templateData.roleSize+'px', 'font-family': coreDataService.templateData.fontFamily, 'color': coreDataService.templateData.templateTheme}" class="label-right-color" style="margin-left: 15px;">ADDITIONAL INFORMATION</label>
+        </div>
+        <div fxFlex="15%" fxLayoutAlign="end" class="position-relative">
+          <label class="temp-move">
+            <i class="fa fa-arrow-circle-up mat-primary fa-arrow" (click)="moveAdditionalInfo('top')" [ngClass]="{'temp-move-opacity': additionalInfoMargin== 15}"></i>&nbsp;&nbsp;
+            <i class="fa fa-arrow-circle-down mat-primary fa-arrow" (click)="moveAdditionalInfo('bottom')"></i>
+          </label>
         </div>
       </div>
       <div fxLayout="row" *ngIf="coreDataService.templateData.additionalInfo">
@@ -292,9 +347,15 @@
           </div>
         </div>
       </div>
-      <div fxLayout="row" class="margin-top-22" *ngIf="coreDataService.templateData.reference">
-        <div fxFlex="100%">
+      <div fxLayout="row" [ngStyle]="{'margin-top': referenceMargin + 'px'}" *ngIf="coreDataService.templateData.reference" class="temp">
+        <div fxFlex="80%">
           <label [ngStyle]="{'font-size': coreDataService.templateData.roleSize+'px', 'font-family': coreDataService.templateData.fontFamily, 'color': coreDataService.templateData.templateTheme}" class="label-right-color" style="margin-left: 15px;">REFERENCE</label>
+        </div>
+        <div fxFlex="15%" fxLayoutAlign="end" class="position-relative">
+          <label class="temp-move">
+            <i class="fa fa-arrow-circle-up mat-primary fa-arrow" (click)="moveReference('top')" [ngClass]="{'temp-move-opacity': referenceMargin== 15}"></i>&nbsp;&nbsp;
+            <i class="fa fa-arrow-circle-down mat-primary fa-arrow" (click)="moveReference('bottom')"></i>
+          </label>
         </div>
       </div>
       <div fxLayout="row" *ngIf="coreDataService.templateData.reference">
@@ -315,23 +376,3 @@
     </div>
   </mat-card>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--<div fxLayout="row">-->
-<!--  <div fxFlex="20%"></div>-->
-<!--  <mat-card fxFlex="60%">-->
-
-<!--  </mat-card>-->
-<!--  <div fxFlex="20%"></div>-->
-<!--</div>-->

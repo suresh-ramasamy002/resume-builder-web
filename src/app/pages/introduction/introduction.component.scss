@@ -21,13 +21,13 @@ $animationSpeed: 30s;
 
 // Styling
 .slider {
-  background: #ffffff;
+  background: transparent;
   height: 400px;
   overflow:hidden;
   position: relative;
   width: 100%;
-  padding-bottom: 100px;
-
+  padding-top: 50px;
+  padding-bottom: 150px;
   &::after {
     right: 0;
     top: 0;
@@ -54,28 +54,114 @@ $animationSpeed: 30s;
 .margin-top-40{
   margin-top: 40px;
 }
+.text-color-light-gray {
+  color: gray;
+  font-weight: 400;
+  text-align: center;
+}
 
-@media screen and (min-width: 1024px){ // desktop
-  .resume-header {
-    padding-top: 50px;
-    padding-bottom: 50px;
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nav-font-size {
+  margin-top: 5px;
+  font-size: 16px;
+}
+.icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 20px;
+  color: #333;
+  background: white;
+  box-shadow: 0 0 0px 0px rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  transition: 250ms color;
+  -webkit-transition: 250ms color;
+  -moz-transition: 250ms color;
+  -ms-transition: 250ms color;
+  -o-transition: 250ms color;
+  animation-name: wave;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes wave {
+  0% {box-shadow: 0 0 0px 0px rgba(8, 202, 220, 0.5);}
+  100% {box-shadow: 0 0 0px 15px rgba(8, 202, 220, 0);}
+}
+@-webkit-keyframes check {
+  50% {
+    outline-color: #08cadc;
+    box-shadow: 0 0 0 12px #333, 0 0 0 36px #08cadc;
   }
-  .avish-logo{
-    position: relative;
-    top: -7px;
+  100% {
+    outline-color: #08cadc;
+    box-shadow: 0 0 0 0 #333, 0 0 0 0 #08cadc;
   }
-  .step-desc {
+}
+.nav-list {
+  padding: 10px 60px 10px 60px;
+  outline: 0;
+}
+.mat-card:not([class*=mat-elevation-z]) {
+  transition: none !important;
+  background: white;
+  box-shadow: none !important;
+}
+
+.container-bg{
+  background: #1f2641;
+  //height: 8000px;
+}
+  .margin-sm{
+    margin-left: 22px;
+    margin-right: 22px;
+  }
+.top-nav-banner-img {
+  position: absolute;
+  right: 0;
+  width: 100%;
+}
+.footer {
+  padding-top: 30px;
+  padding-bottom: 50px;
+}
+@media screen and (min-width: 1024px){
+.intro-home-icon {
+  margin-top: 220px;
+  margin-bottom: 200px;
+}
+  .about-screen {
+    margin-top: 160px;
+    margin-bottom: 150px;
+  }
+  .home-shape-top {
+    position: absolute;
+    width: 48%;
+    height: 200px;
+    top: 150px;
+    z-index: 1;
+  }
+  .home-shape-1 {
+    position: absolute;
     width: 100%;
+    height: 700px;
+    top: 900px;
   }
-  .desk-app{
-    height: 600px;
-  }
-  .margin-top-80 {
-    margin-top: 80px;
-  }
-  .div-white{
-    height: 100px;
-    background: white;
+  .home-art-work{
+    padding-left: 10px;
+    padding-right: 40px;
+    width: 100vw;
+    z-index: 1000;
   }
   .intro-toolbar.mat-toolbar {
     position: fixed;
@@ -96,160 +182,123 @@ $animationSpeed: 30s;
     color: #292929;
     box-shadow: 0 0 15px 3px #8c8c8c59;
   }
-  .service-logo{
-    width: 280px;
-  }
-  .mat-toolbar-row {
-    padding-left: 0px;
-  }
-  .nav-font-size {
-    position: relative;
-    top: 5px;
-    font-size: 17px;
-    font-weight: normal;
-    font-family: probapro-regular,sans-serif;
-  }
-  .top-nav-banner-img {
-    position: absolute;
-    right: 0;
-    width: 100%;
-  }
-  .header-top-height {
-    padding-top: 220px;
-    background: #1f2861;
-  }
   .header-font {
-    margin-top: 100px;
+    margin-top: 120px;
     font-size: 50px;
     padding-left: 70px;
     padding-right: 40px;
     font-weight: 600;
   }
-  .home-art-work{
-    padding-left: 10px;
-    padding-right: 40px;
-    width: 100vw;
-    z-index: 1000;
-  }
   .sub-header-font{
     font-size: 21px;
-    color: #ffffff;
+    color: #aab2cd;
     font-weight: 500;
     padding-top: 15px;
     padding-left: 20px;
     padding-right: 40px;
   }
   .build_resume-btn{
-    background: #ff8924;
-    padding: 18px 36px;
+    -webkit-box-shadow: 0 3px 32px rgba(236,117,81,.54);
+    background-image: -webkit-gradient(linear,left top,right top,from(#ed8a4c),to(#ea485c));
+    padding: 14px 30px;
     color: white;
     text-decoration: none;
-    border-radius: 30px;
+    border-radius: 10px;
     font-size: 18px;
     font-weight: 500;
     margin-left: 70px;
     line-height: 80px;
-    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5);
   }
-  .intro-msg {
-    padding-top: 10px;
-    padding-bottom: 70px;
-    background: #ffffff;
-    position: relative;
-    top: -70px;
-  }
-  .about-screen-video{
-    padding-top: 30px;
-    padding-bottom: 70px;
-    background: #f7f8fd;
-  }
-  .video-bg-img {
+    .service-logo{
+      width: 280px;
+    }
+  .margin-top-80 {
+        margin-top: 80px;
+      }
+  .about-shape-1{
     position: absolute;
-    width: 44%;
+    width: 100%;
+    height: 200px;
+    top: 1700px;
+    opacity: 0.4;
+  }
+  .resume-shape-img {
+    position: absolute;
+    width: 100%;
+    height: 600px;
+    top: 2200px;
+    object-fit: cover;
+  }
+  .benifits-bg{
+    position: absolute;
+    left: 30%;
+    width: 50%;
+    height: 800px;
+    top: 3000px;
+  }
+  .benifits-bg-1{
+    position: absolute;
+    right: 0%;
+    width: 30%;
+    height: 450px;
+    top: 2700px;
+  }
+  .icon-wrapper {
+    width: 100px;
+    height: 100px;
+  }
+  .icon-wrapper img {
+    width: 40px;
+  }
+  .in-margin-top-50 {
+    margin-top: 40px;
+  }
+    .desk-app{
+      height: 650px;
+    }
+  .our-pricing {
     margin-top: 100px;
+    margin-bottom: 40px;
   }
-  .video-js{
-    margin-top: 160px;
-    margin-left: -10px;
-  }
-  .review-section {
-    background: #1f2861;
-    padding-top: 70px;
-    padding-bottom: 60px;
-  }
-  .footer {
-    padding-top: 30px;
-    padding-bottom: 50px;
-  }
-  .foot-key{
-    text-align: left;
-    margin-left: 50px;
-  }
-  .margin-top-30 {
-    margin-top: 30px;
-  }
-  .testi-mon-1 {
+  .testimonals-bg-1 {
     position: absolute;
-    top: 120px;
-    left: 420px;
-    z-index: 20;
-    opacity: 0.7;
-    filter: blur(2px);
+    width: 100%;
+    height: 650px;
+    top: 4200px;
   }
-  .testi-mon-2 {
-    position: absolute;
-    top: 320px;
-    left: 160px;
-    z-index: 20;
-    opacity: 0.7;
-    filter: blur(2px);
-  }
-  .testi-mon-3 {
-    position: absolute;
-    top: 120px;
-    left: 1020px;
-    z-index: 20;
-    opacity: 0.7;
-    filter: blur(2px);
-  }
-  .testi-mon-4 {
-    position: absolute;
-    top: 520px;
-    left: 360px;
-    z-index: 20;
-    opacity: 0.7;
-    filter: blur(2px);
-  }
-  .testi-mon-5 {
-    position: absolute;
-    top: 320px;
-    left: 1260px;
-    z-index: 20;
-    opacity: 0.7;
-    filter: blur(2px);
-  }
-  .testi-mon-6 {
-    position: absolute;
-    position: absolute;
-    top: 520px;
-    left: 1060px;
-    z-index: 20;
-    opacity: 0.7;
-    filter: blur(2px);
-  }
-  .benefits-heading {
-    margin-top: 0px;
-    padding-top: 100px;
-    padding-bottom: 30px;
-  }
-  .benefits-section {
-    height: 520px;
-  }
-  .benefits-scd-half{
-    margin-top: 20px;
+  .foot-key {
+    padding-left: 50px;
   }
 }
-@media screen and (min-width: 375px) and (max-width: 767px) { // pixels XL, Iphones
+
+@media screen and (min-width: 375px) and (max-width: 767px) {
+  .intro-home-icon {
+    margin-top: 150px;
+    margin-bottom: 150px;
+  }
+  .about-screen {
+    margin-top: 80px;
+    margin-bottom: 80px;
+  }
+  .home-shape-top {
+    position: absolute;
+    width: 100%;
+    height: 200px;
+    top: 150px;
+    z-index: 1;
+    object-fit: cover;
+  }
+  .home-shape-1 {
+    position: absolute;
+    width: 100%;
+    height: 350px;
+    top: 800px;
+    object-fit: cover;
+  }
+  .home-art-work{
+    height: 240px;
+    z-index: 3;
+  }
   .intro-toolbar.mat-toolbar {
     position: fixed;
     top: 0%;
@@ -260,10 +309,6 @@ $animationSpeed: 30s;
     color: white;
     box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
   }
-  .avish-logo{
-    position: relative;
-    top: -7px;
-  }
   .intro-toolbar1.mat-toolbar {
     position: fixed;
     top: 0%;
@@ -273,21 +318,6 @@ $animationSpeed: 30s;
     padding-bottom: 5px;
     color: #292929;
     box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
-  }
-  .service-logo{
-    position: absolute;
-    top: -5px;
-    left: -30px;
-    width: 260px;
-  }
-  .top-nav-banner-img {
-    position: absolute;
-    right: 0;
-    width: 100%;
-  }
-  .header-top-height {
-    padding-top: 100px;
-    background: #1f2861;
   }
   .header-font {
     font-size: 40px;
@@ -296,138 +326,105 @@ $animationSpeed: 30s;
   }
   .sub-header-font{
     font-size: 20px;
-    color: #ffffff;
+    color: #aab2cd;
     font-weight: 500;
     padding-left: 28px;
     padding-right: 40px;
   }
   .build_resume-btn{
-    background: #ff8924;
-    padding: 14px 36px;
+    -webkit-box-shadow: 0 3px 32px rgba(236,117,81,.54);
+    background-image: -webkit-gradient(linear,left top,right top,from(#ed8a4c),to(#ea485c));
+    padding: 12px 30px;
     color: white;
     text-decoration: none;
-    border-radius: 30px;
-    font-size: 20px;
+    border-radius: 10px;
+    font-size: 18px;
     font-weight: 500;
-    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5);
+    line-height: 60px;
   }
-  .home-art-work{
-    height: 240px;
-  }
-  .intro-msg {
-    padding-top: 30px;
-    padding-bottom:30px;
-    background: #ffffff;
-  }
-  .about-screen-video{
-    padding-top: 30px;
-    padding-bottom: 50px;
-    background: #f7f8fd;
-  }
-  .video-bg-img {
-    position: absolute;
-    width: 100%;
-    margin-top: 20px;
-  }
-  .video-js{
-    margin-top: 60px;
-    margin-left: -10px;
-  }
-  .review-section {
-    background: #1f2861;
-    padding-top: 30px;
-    padding-bottom: 50px;
-  }
-  .footer {
-    padding-top: 30px;
-    padding-bottom: 50px;
-  }
-  .foot-key{
-    margin-left: 0px;
+  .service-logo{
+    width: 280px;
   }
   .xs-padding {
-    padding-left: 15px;
-  }
-  .margin-top-30{
-    margin-top: 30px;
-  }
-  .testi-mon-1 {
-    position: absolute;
-    top: 80px;
-    left: 60px;
-    z-index: 20;
-    opacity: 0.7;
-    filter: blur(2px);
-  }
-  .testi-mon-2 {
-    position: absolute;
-    top: 180px;
-    left: 120px;
-    z-index: 20;
-    opacity: 0.7;
-    filter: blur(2px);
-  }
-  .testi-mon-3 {
-    position: absolute;
-    top: 120px;
-    left: 300px;
-    z-index: 20;
-    opacity: 0.7;
-    filter: blur(2px);
-  }
-  .testi-mon-4 {
-    position: absolute;
-    top: 520px;
-    left: 160px;
-    z-index: 20;
-    opacity: 0.7;
-    filter: blur(2px);
-  }
-  .testi-mon-5 {
-    position: absolute;
-    top: 320px;
-    left: 260px;
-    z-index: 20;
-    opacity: 0.7;
-    filter: blur(2px);
-  }
-  .testi-mon-6 {
-    position: absolute;
-    top: 320px;
-    left: 60px;
-    z-index: 20;
-    opacity: 0.7;
-    filter: blur(2px);
-  }
-  .margin-sm{
-    margin-left: 22px;
-    margin-right: 22px;
+    padding-left: 20px;
   }
   .margin-top-80 {
     margin-top: 40px;
   }
+  .about-shape-1{
+    position: absolute;
+    width: 100%;
+    height: 100px;
+    top: 2550px;
+    object-fit: cover;
+    opacity: 0.6;
+  }
+  .resume-shape-img {
+    position: absolute;
+    width: 100%;
+    height: 600px;
+    top: 2700px;
+    object-fit: cover;
+  }
+  .icon-wrapper {
+    width: 50px;
+    height: 50px;
+    margin-top: 15px;
+  }
+  .icon-wrapper img {
+    width: 25px;
+  }
+  .benifits-bg{
+    position: absolute;
+    left: 0%;
+    width: 100%;
+    height: 800px;
+    top: 3400px;
+  }
+  .benifits-bg-1{
+    position: absolute;
+    right: 5%;
+    width: 30%;
+    height: 250px;
+    top: 3230px;
+  }
   .desk-app{
     height: 300px;
   }
-  .mat-sidenav {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-  }
-  .pricing-card {
-    padding-left: 15px;
-    padding-right: 15px;
+  .testimonals-bg-1 {
+    position: absolute;
+    width: 100%;
+    height: 350px;
+    top: 5500px;
   }
 }
-@media screen and (min-width: 260px) and (max-width: 374px){ // iphone xs, moto
-  .mat-sidenav {
-    position: fixed;
-    top: 0;
-    bottom: 0;
+
+@media screen and (min-width: 260px) and (max-width: 374px) {
+  .intro-home-icon {
+    margin-top: 150px;
+    margin-bottom: 150px;
   }
-  .pricing-card {
-    padding-left: 15px;
-    padding-right: 15px;
+  .about-screen {
+    margin-top: 80px;
+    margin-bottom: 80px;
+  }
+  .home-shape-1 {
+    position: absolute;
+    width: 100%;
+    height: 350px;
+    top: 800px;
+  }
+  .home-art-work{
+    height: 190px;
+    z-index: 3;
+  }
+  .home-shape-top {
+    position: absolute;
+    width: 100%;
+    height: 200px;
+    top: 150px;
+    z-index: 1;
+    object-fit: cover;
   }
   .intro-toolbar.mat-toolbar {
     position: fixed;
@@ -439,10 +436,6 @@ $animationSpeed: 30s;
     color: white;
     box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
   }
-  .avish-logo{
-    position: relative;
-    top: -7px;
-  }
   .intro-toolbar1.mat-toolbar {
     position: fixed;
     top: 0%;
@@ -453,150 +446,106 @@ $animationSpeed: 30s;
     color: #292929;
     box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
   }
-  .service-logo{
-    position: absolute;
-    top: -5px;
-    left: -30px;
-    width: 260px;
-  }
-  .top-nav-banner-img {
-    position: absolute;
-    right: 0;
-    width: 100%;
-  }
-  .header-top-height {
-    padding-top: 100px;
-    background: #1f2861;
-  }
   .header-font {
     font-size: 30px;
     padding-left: 22px;
     padding-right: 40px;
     font-weight: 600;
   }
-  .build_resume-btn{
-    background: #ff8924;
-    padding: 14px 36px;
-    color: white;
-    text-decoration: none;
-    border-radius: 30px;
-    font-size: 20px;
-    font-weight: 500;
-    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5);
-  }
-  .home-art-work{
-    height: 180px;
-  }
   .sub-header-font{
     font-size: 18px;
-    color: #ffffff;
+    color: #aab2cd;
     font-weight: 500;
     padding-left: 28px;
     padding-right: 40px;
   }
-  .intro-msg {
-    padding-top: 30px;
-    padding-bottom:30px;
-    background: #ffffff;
+  .build_resume-btn{
+    -webkit-box-shadow: 0 3px 32px rgba(236,117,81,.54);
+    background-image: -webkit-gradient(linear,left top,right top,from(#ed8a4c),to(#ea485c));
+    padding: 12px 30px;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 60px;
   }
-  .about-screen-video{
-    padding-top: 30px;
-    padding-bottom: 50px;
-    background: #f7f8fd;
-  }
-  .video-bg-img {
-    position: absolute;
-    width: 100%;
-    margin-top: 20px;
-  }
-  .video-js{
-    margin-top: 60px;
-    margin-left: -10px;
-  }
-  .review-section {
-    background: #1f2861;
-    padding-top: 30px;
-    padding-bottom: 50px;
-  }
-  .footer {
-    padding-top: 30px;
-    padding-bottom: 50px;
-  }
-  .foot-key{
-    margin-left: 0px;
+  .service-logo{
+    width: 280px;
   }
   .xs-padding {
-    padding-left: 15px;
-  }
-  .margin-top-30{
-    margin-top: 30px;
-  }
-  .testi-mon-1 {
-    position: absolute;
-    top: 80px;
-    left: 60px;
-    z-index: 20;
-    opacity: 0.7;
-    filter: blur(2px);
-  }
-  .testi-mon-2 {
-    position: absolute;
-    top: 180px;
-    left: 120px;
-    z-index: 20;
-    opacity: 0.7;
-    filter: blur(2px);
-  }
-  .testi-mon-3 {
-    position: absolute;
-    top: 120px;
-    left: 280px;
-    z-index: 20;
-    opacity: 0.7;
-    filter: blur(2px);
-  }
-  .testi-mon-4 {
-    position: absolute;
-    top: 520px;
-    left: 160px;
-    z-index: 20;
-    opacity: 0.7;
-    filter: blur(2px);
-  }
-  .testi-mon-5 {
-    position: absolute;
-    top: 320px;
-    left: 260px;
-    z-index: 20;
-    opacity: 0.7;
-    filter: blur(2px);
-  }
-  .testi-mon-6 {
-    position: absolute;
-    top: 320px;
-    left: 60px;
-    z-index: 20;
-    opacity: 0.7;
-    filter: blur(2px);
-  }
-  .margin-sm{
-    margin-left: 22px;
-    margin-right: 22px;
-  }
+        padding-left: 20px;
+      }
   .margin-top-80 {
     margin-top: 40px;
+  }
+  .about-shape-1{
+    position: absolute;
+    width: 100%;
+    height: 100px;
+    top: 2550px;
+    object-fit: cover;
+    opacity: 0.6;
+  }
+  .resume-shape-img {
+    position: absolute;
+    width: 100%;
+    height: 600px;
+    top: 2200px;
+    object-fit: cover;
+  }
+  .icon-wrapper {
+    width: 50px;
+    height: 50px;
+    margin-top: 15px;
+  }
+  .icon-wrapper img {
+    width: 25px;
+  }
+  .benifits-bg{
+    position: absolute;
+    left: 30%;
+    width: 50%;
+    height: 800px;
+    top: 3000px;
+  }
+  .benifits-bg-1{
+    position: absolute;
+    right: 0%;
+    width: 30%;
+    height: 450px;
+    top: 2700px;
   }
   .desk-app{
     height: 280px;
   }
-}
-@media screen and (min-width: 768px) and (max-width: 1023px){ //ipad
-  .desk-app{
-    height: 500px;
+  .testimonals-bg-1 {
+    position: absolute;
+    width: 100%;
+    height: 350px;
+    top: 5500px;
   }
-  .avish-logo{
-    position: relative;
-    top: -7px;
+}
+
+
+@media screen and (min-width: 768px) and (max-width: 1023px){
+  .intro-home-icon {
+    margin-top: 180px;
+    margin-bottom: 150px;
+  }
+  .about-screen {
+    margin-top: 120px;
+    margin-bottom: 120px;
+  }
+  .home-shape-1 {
+    position: absolute;
+    width: 100%;
+    height: 450px;
+    top: 900px;
+  }
+  .home-art-work{
+    height: 450px;
+    z-index: 3;
   }
   .intro-toolbar.mat-toolbar {
     position: fixed;
@@ -616,215 +565,81 @@ $animationSpeed: 30s;
     padding-bottom: 50px;
     color: #292929;
   }
-  .service-logo{
-    position: absolute;
-    top: -5px;
-    left: -30px;
-    width: 450px;
-  }
-  .top-nav-banner-img {
-    position: absolute;
-    right: 0;
-    width: 100%;
-  }
-  .header-top-height {
-    padding-top: 220px;
-    background: #1f2861;
-  }
   .header-font {
     font-size: 40px;
     padding-left: 40px;
     padding-right: 40px;
     font-weight: 600;
   }
-  .build_resume-btn{
-    background: #ff8924;
-    padding: 14px 36px;
-    color: white;
-    text-decoration: none;
-    border-radius: 30px;
-    font-size: 20px;
-    font-weight: 500;
-    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5);
-  }
-  .home-art-work{
-    height: 450px;
-  }
   .sub-header-font{
     font-size: 24px;
-    color: #ffffff;
+    color: #aab2cd;
     font-weight: 500;
     padding-left: 28px;
     padding-right: 40px;
   }
-  .about-screen-video{
-    padding-top: 30px;
-    padding-bottom: 50px;
-    background: #f7f8fd;
+  .build_resume-btn{
+    -webkit-box-shadow: 0 3px 32px rgba(236,117,81,.54);
+    background-image: -webkit-gradient(linear,left top,right top,from(#ed8a4c),to(#ea485c));
+    padding: 12px 30px;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 60px;
   }
-  .video-bg-img {
+  .service-logo{
+    width: 280px;
+  }
+  .margin-top-80 {
+    margin-top: 80px;
+  }
+  .about-shape-1{
     position: absolute;
     width: 100%;
-    margin-top: 20px;
+    height: 100px;
+    top: 1500px;
+    opacity: 0.3;
   }
-  .video-js{
-    margin-top: 60px;
+  .resume-shape-img {
+    position: absolute;
+    width: 100%;
+    height: 600px;
+    top: 2200px;
+    object-fit: cover;
   }
-  .review-section {
-    background: #1f2861;
-    padding-top: 30px;
-    padding-bottom: 50px;
+  .icon-wrapper{
+    width: 80px;
+    height: 80px;
   }
-  .footer {
-    padding-top: 30px;
-    padding-bottom: 50px;
+  .icon-wrapper img {
+    width: 40px;
   }
-  .margin-top-30{
-    margin-top: 30px;
+  .benifits-bg{
+    position: absolute;
+    left: 30%;
+    width: 50%;
+    height: 800px;
+    top: 3000px;
   }
-}
-.text-color-light-gray {
-  color: gray;
-  font-weight: 400;
-  text-align: center;
-}
-.testimonials-section {
-  background: #1f2861;
-  color: white;
-  height: 450px;
-  position: relative;
-  overflow: hidden;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-flow: row nowrap;
-  -ms-flex-flow: row nowrap;
-  flex-flow: row nowrap;
-  -webkit-box-align: end;
-  -webkit-align-items: flex-end;
-  -ms-flex-align: end;
-  align-items: flex-end;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-}
-.slider__nav {
-  width: 12px;
-  height: 12px;
-  margin: 80px 12px;
-  border-radius: 50%;
-  z-index: 10;
-  outline: 6px solid #fff;
-  outline-offset: -6px;
-  box-shadow: 0 0 0 0 #333, 0 0 0 0 rgba(51, 51, 51, 0);
-  cursor: pointer;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
-.slider__nav:checked {
-  -webkit-animation: check 0.4s linear forwards;
-  animation: check 0.4s linear forwards;
-}
-.slider__nav:checked:nth-of-type(1) ~ .slider__inner {
-  left: 0%;
-}
-.slider__nav:checked:nth-of-type(2) ~ .slider__inner {
-  left: -100%;
-}
-.slider__nav:checked:nth-of-type(3) ~ .slider__inner {
-  left: -200%;
-}
-.slider__nav:checked:nth-of-type(4) ~ .slider__inner {
-  left: -300%;
-}
-.slider__nav:checked:nth-of-type(5) ~ .slider__inner {
-  left: -400%;
-}
-.slider__inner {
-  position: absolute;
-  top: 80px;
-  left: 0;
-  width: 500%;
-  height: auto;
-  -webkit-transition: left 0.4s;
-  transition: left 0.4s;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-flow: row nowrap;
-  -ms-flex-flow: row nowrap;
-  flex-flow: row nowrap;
-}
-.slider__contents {
-  height: 100%;
-  text-align: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  -webkit-flex-flow: column nowrap;
-  -ms-flex-flow: column nowrap;
-  flex-flow: column nowrap;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-}
-.slider__caption {
-  font-size: 14px;
-  color: white;
-  opacity: .5;
-  font-family: 'Roboto';
-  font-weight: bold;
-}
-.slider__txt {
-  font-size: 22px;
-  font-weight: bold;
-  font-family: 'Roboto';
-  line-height: 1.7;
-  color: white;
-  margin-top: -20px;
-  margin-bottom: 20px;
-  max-width: 750px;
-}
-.quote-style {
-  font-family: 'Arial';
-  font-weight: bold;
-  font-size: 30px;
-  color: #ec2027;
-  margin-bottom: 25px;
-}
-
-@-webkit-keyframes check {
-  50% {
-    outline-color: #333;
-    box-shadow: 0 0 0 12px #333, 0 0 0 36px rgba(51, 51, 51, 0.2);
+  .benifits-bg-1{
+    position: absolute;
+    right: 0%;
+    width: 30%;
+    height: 450px;
+    top: 2800px;
   }
-  100% {
-    outline-color: #333;
-    box-shadow: 0 0 0 0 #333, 0 0 0 0 rgba(51, 51, 51, 0);
+  .desk-app{
+    height: 500px;
   }
-}
-.nav-list {
-  padding: 10px 60px 10px 60px;
-  outline: 0;
-}
-.mat-card:not([class*=mat-elevation-z]) {
-  transition: none !important;
-  background: #ffffff;
+  .home-shape-top {
+    position: absolute;
+    width: 100%;
+    height: 200px;
+    top: 150px;
+    z-index: 1;
+    object-fit: cover;
+  }
 }
 

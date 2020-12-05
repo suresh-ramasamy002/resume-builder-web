@@ -103,11 +103,11 @@
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
-      <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" style="background: #f1f4f8">
+      <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" style="background: #bdbdbd">
         <div fxFlex="3%" fxFlex.xl="8"></div>
           <div fxFlex="54%" fxFlex.xl="50%" fxFlex.sm="98%" fxFlex.xs="98%" fxLayoutAlign.xs="center" fxLayoutAlign.sm="center" data-aos="fade-right" data-aos-easing="ease-out-cubic" data-aos-duration="1000" style="margin-top: 20px;">
             <div class="temp-container">
-              <app-template-one id="template-one" *ngIf="coreDataService.selectedTemplate == 'template-one'"></app-template-one>
+              <app-template-one id="template-one" *ngIf="coreDataService.selectedTemplate == 'template-one'" [pageType]="this.coreDataService.templateData.pageType" [isImageNeeded]="coreDataService.templateData.isImageNeeded"></app-template-one>
               <app-template-two id="template-two" *ngIf="coreDataService.selectedTemplate == 'template-two'" [pageType]="this.coreDataService.templateData.pageType" [isImageNeeded]="coreDataService.templateData.isImageNeeded"></app-template-two>
               <app-template-three id="template-three" *ngIf="coreDataService.selectedTemplate == 'template-three'" [pageType]="this.coreDataService.templateData.pageType" [isImageNeeded]="coreDataService.templateData.isImageNeeded"></app-template-three>
               <app-template-four id="template-four" *ngIf="coreDataService.selectedTemplate == 'template-four'" [pageType]="this.coreDataService.templateData.pageType" [isImageNeeded]="coreDataService.templateData.isImageNeeded"></app-template-four>

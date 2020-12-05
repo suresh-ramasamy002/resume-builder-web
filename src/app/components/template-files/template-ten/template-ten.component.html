@@ -1,5 +1,6 @@
 <div fxLayout="row">
   <mat-card fxFlex="100%">
+    <div class="page-break-1" *ngIf="pageType!='single' && !coreDataService.hideSeparater"></div>
     <div fxLayout="row">
       <div fxFlex="100%" [ngStyle]="{'height':pageHeight}">
         <div fxLayout="row">
@@ -19,10 +20,16 @@
         </div>
         <div fxLayout="row" fxLayoutGap="0.3%">
           <div fxFlex="32%">
-            <div fxLayout="row" style="padding-left: 15px;padding-top:20px">
-              <div fxFlex="99%" [ngStyle]="{'border-bottom': '1px solid #d8d8d8'}" fxLayoutAlign="left center">
+            <div fxLayout="row" style="padding-left: 15px;" class="temp" [ngStyle]="{'margin-top': summaryMargin + 'px'}">
+              <div fxFlex="70%" [ngStyle]="{'border-bottom': '1px solid #d8d8d8'}" fxLayoutAlign="left center">
                 <span [ngStyle]="{'background': coreDataService.templateData.templateTheme}" style="padding: 6px 9px 6px 9px; border-radius: 50px"><i class="fa fa-user" aria-hidden="true" style="color: white;font-size: 18px"></i></span>&nbsp;
                 <label [ngStyle]="{'font-size': coreDataService.templateData.roleSize+'px', 'font-family': coreDataService.templateData.fontFamily, 'color': coreDataService.templateData.templateTheme}" class="label-right-color m-b-0 font-weight-bold">Personal Info</label>
+              </div>
+              <div fxFlex="29%" fxLayoutAlign="end" class="position-relative" [ngStyle]="{'border-bottom': '1px solid #d8d8d8'}">
+                <label class="temp-move">
+                  <i class="fa fa-arrow-circle-up mat-primary fa-arrow" (click)="moveSummary('top')" [ngClass]="{'temp-move-opacity': summaryMargin == 20}"></i>&nbsp;&nbsp;
+                  <i class="fa fa-arrow-circle-down mat-primary fa-arrow" (click)="moveSummary('bottom')"></i>
+                </label>
               </div>
             </div>
             <div fxLayout="row">
@@ -55,10 +62,16 @@
                 <label #address [textContent]="coreDataService.templateData.address" (blur)="coreDataService.templateData.address = address.innerText" contenteditable="true" spellcheck="true" [ngStyle]="{'font-size': (coreDataService.templateData.normalSize)+'px', 'font-family': coreDataService.templateData.fontFamily}" class="label-right-color" placeholder="Your Address">{{coreDataService.templateData.address}}</label>
               </div>
             </div>
-            <div fxLayout="row" style="padding-left: 15px;padding-top:20px" *ngIf="coreDataService.templateData.skills">
-              <div fxFlex="99%" [ngStyle]="{'border-bottom': '1px solid #d8d8d8'}" fxLayoutAlign="left center">
+            <div fxLayout="row" style="padding-left: 15px;" [ngStyle]="{'margin-top': skillsMargin + 'px'}" *ngIf="coreDataService.templateData.skills" class="temp">
+              <div fxFlex="70%" [ngStyle]="{'border-bottom': '1px solid #d8d8d8'}" fxLayoutAlign="left center">
                 <span [ngStyle]="{'background': coreDataService.templateData.templateTheme}" style="padding: 7px 5px 6px 9px;border-radius: 50px"><i class="fa fa-puzzle-piece" aria-hidden="true" style="color: white;font-size: 18px"></i></span>&nbsp;
                 <label [ngStyle]="{'font-size': coreDataService.templateData.roleSize+'px', 'font-family': coreDataService.templateData.fontFamily, 'color': coreDataService.templateData.templateTheme}" class="label-right-color m-b-0 font-weight-bold">Skills</label>
+              </div>
+              <div fxFlex="29%" fxLayoutAlign="end" class="position-relative" [ngStyle]="{'border-bottom': '1px solid #d8d8d8'}">
+                <label class="temp-move">
+                  <i class="fa fa-arrow-circle-up mat-primary fa-arrow" (click)="moveSkills('top')" [ngClass]="{'temp-move-opacity': skillsMargin == 20}"></i>&nbsp;&nbsp;
+                  <i class="fa fa-arrow-circle-down mat-primary fa-arrow" (click)="moveSkills('bottom')"></i>
+                </label>
               </div>
             </div>
             <div fxLayout="row" *ngIf="coreDataService.templateData.skills" style="padding-left: 15px">
@@ -70,10 +83,16 @@
                 </div>
               </div>
             </div>
-            <div fxLayout="row" style="padding-left: 15px;padding-top:20px" *ngIf="coreDataService.templateData.tech">
-              <div fxFlex="99%" [ngStyle]="{'border-bottom': '1px solid #d8d8d8'}" fxLayoutAlign="left center">
+            <div fxLayout="row" style="padding-left: 15px;" [ngStyle]="{'margin-top': techMargin + 'px'}" *ngIf="coreDataService.templateData.tech" class="temp">
+              <div fxFlex="70%" [ngStyle]="{'border-bottom': '1px solid #d8d8d8'}" fxLayoutAlign="left center">
                 <span [ngStyle]="{'background': coreDataService.templateData.templateTheme}" style="padding: 8px 8px 6px 8px; border-radius: 50px"><i class="fa fa-desktop" aria-hidden="true" style="color: white;font-size: 16px"></i></span>&nbsp;
                 <label [ngStyle]="{'font-size': coreDataService.templateData.roleSize+'px', 'font-family': coreDataService.templateData.fontFamily, 'color': coreDataService.templateData.templateTheme}" class="label-right-color m-b-0 font-weight-bold">Software</label>
+              </div>
+              <div fxFlex="29%" fxLayoutAlign="end" class="position-relative" [ngStyle]="{'border-bottom': '1px solid #d8d8d8'}">
+                <label class="temp-move">
+                  <i class="fa fa-arrow-circle-up mat-primary fa-arrow" (click)="moveTechSkills('top')" [ngClass]="{'temp-move-opacity': techMargin == 20}"></i>&nbsp;&nbsp;
+                  <i class="fa fa-arrow-circle-down mat-primary fa-arrow" (click)="moveTechSkills('bottom')"></i>
+                </label>
               </div>
             </div>
             <div fxLayout="row"  style="margin-top: 10px;padding-left: 15px;" *ngIf="coreDataService.templateData.tech">
@@ -106,10 +125,16 @@
                 </div>
               </div>
             </div>
-            <div fxLayout="row" style="padding-left: 15px;padding-top:20px" *ngIf="coreDataService.templateData.language">
-              <div fxFlex="99%" [ngStyle]="{'border-bottom': '1px solid #d8d8d8'}" fxLayoutAlign="left center">
+            <div fxLayout="row" style="padding-left: 15px;" *ngIf="coreDataService.templateData.language" class="temp" [ngStyle]="{'margin-top': langMargin + 'px'}">
+              <div fxFlex="70%" [ngStyle]="{'border-bottom': '1px solid #d8d8d8'}" fxLayoutAlign="left center">
                 <span [ngStyle]="{'background': coreDataService.templateData.templateTheme}" style="padding: 8px 8px 6px 8px; border-radius: 50px"><i class="fa fa-flag" aria-hidden="true" style="color: white;font-size: 16px"></i></span>&nbsp;
                 <label [ngStyle]="{'font-size': coreDataService.templateData.roleSize+'px', 'font-family': coreDataService.templateData.fontFamily, 'color': coreDataService.templateData.templateTheme}" class="label-right-color m-b-0 font-weight-bold">Languages</label>
+              </div>
+              <div fxFlex="29%" fxLayoutAlign="end" class="position-relative" [ngStyle]="{'border-bottom': '1px solid #d8d8d8'}">
+                <label class="temp-move">
+                  <i class="fa fa-arrow-circle-up mat-primary fa-arrow" (click)="moveLangSkills('top')" [ngClass]="{'temp-move-opacity': langMargin == 20}"></i>&nbsp;&nbsp;
+                  <i class="fa fa-arrow-circle-down mat-primary fa-arrow" (click)="moveLangSkills('bottom')"></i>
+                </label>
               </div>
             </div>
             <div *ngIf="coreDataService.templateData.language" style="margin-top: 10px;padding-left: 15px;">
@@ -144,10 +169,16 @@
                 </div>
               </div>
             </div>
-            <div fxLayout="row" style="padding-left: 15px;padding-top:20px" *ngIf="coreDataService.templateData.interest">
-              <div fxFlex="99%" [ngStyle]="{'border-bottom': '1px solid #d8d8d8'}" fxLayoutAlign="left center">
+            <div fxLayout="row" style="padding-left: 15px;" [ngStyle]="{'margin-top': interestMargin + 'px'}" *ngIf="coreDataService.templateData.interest" class="temp">
+              <div fxFlex="70%" [ngStyle]="{'border-bottom': '1px solid #d8d8d8'}" fxLayoutAlign="left center">
                 <span [ngStyle]="{'background': coreDataService.templateData.templateTheme}" style="padding: 6px 7px 5px 7px; border-radius: 50px"><i class="fa fa-thumbs-up" aria-hidden="true" style="color: white;font-size: 18px"></i></span>&nbsp;
                 <label [ngStyle]="{'font-size': coreDataService.templateData.roleSize+'px', 'font-family': coreDataService.templateData.fontFamily, 'color': coreDataService.templateData.templateTheme}" class="label-right-color m-b-0 font-weight-bold">Interests</label>
+              </div>
+              <div fxFlex="29%" fxLayoutAlign="end" class="position-relative" [ngStyle]="{'border-bottom': '1px solid #d8d8d8'}">
+                <label class="temp-move">
+                  <i class="fa fa-arrow-circle-up mat-primary fa-arrow" (click)="moveInterest('top')" [ngClass]="{'temp-move-opacity': interestMargin == 20}"></i>&nbsp;&nbsp;
+                  <i class="fa fa-arrow-circle-down mat-primary fa-arrow" (click)="moveInterest('bottom')"></i>
+                </label>
               </div>
             </div>
             <div fxLayout="row" *ngIf="coreDataService.templateData.interest" style="padding-left: 15px;padding-top:10px">
@@ -162,10 +193,16 @@
             </div>
           </div>
           <div fxFlex="65%">
-            <div fxLayout="row" style="padding-left: 15px;padding-top:20px" *ngIf="coreDataService.templateData.workExp">
-              <div fxFlex="99%" [ngStyle]="{'border-bottom': '1px solid #d8d8d8'}" fxLayoutAlign="left center">
+            <div fxLayout="row" style="padding-left: 15px;" [ngStyle]="{'margin-top': workExpMargin + 'px'}" *ngIf="coreDataService.templateData.workExp" class="temp">
+              <div fxFlex="80%" [ngStyle]="{'border-bottom': '1px solid #d8d8d8'}" fxLayoutAlign="left center">
                 <span [ngStyle]="{'background': coreDataService.templateData.templateTheme}" style="padding: 7px 8px 5px 8px; border-radius: 50px"><img src="assets/images/template-icons/black-suitcase.svg" style="width: 14px"/></span>&nbsp;
                 <label [ngStyle]="{'font-size': coreDataService.templateData.roleSize+'px', 'font-family': coreDataService.templateData.fontFamily, 'color': coreDataService.templateData.templateTheme}" class="label-right-color m-b-0 font-weight-bold">Work Experience</label>
+              </div>
+              <div fxFlex="19%" fxLayoutAlign="end" class="position-relative" [ngStyle]="{'border-bottom': '1px solid #d8d8d8'}">
+                <label class="temp-move">
+                  <i class="fa fa-arrow-circle-up mat-primary fa-arrow" (click)="moveWorkExp('top')" [ngClass]="{'temp-move-opacity': workExpMargin == 20}"></i>&nbsp;&nbsp;
+                  <i class="fa fa-arrow-circle-down mat-primary fa-arrow" (click)="moveWorkExp('bottom')"></i>
+                </label>
               </div>
             </div>
             <div fxLayout="row" *ngIf="coreDataService.templateData.workExp">
@@ -191,10 +228,16 @@
                 </div>
               </div>
             </div>
-            <div fxLayout="row" style="padding-left: 15px;padding-top:20px" *ngIf="coreDataService.templateData.education">
-              <div fxFlex="99%" [ngStyle]="{'border-bottom': '1px solid #d8d8d8'}" fxLayoutAlign="left center">
+            <div fxLayout="row" style="padding-left: 15px;" [ngStyle]="{'margin-top': educationMargin + 'px'}" *ngIf="coreDataService.templateData.education" class="temp">
+              <div fxFlex="80%" [ngStyle]="{'border-bottom': '1px solid #d8d8d8'}" fxLayoutAlign="left center">
                 <span [ngStyle]="{'background': coreDataService.templateData.templateTheme}" style="padding: 7px 6px 1px 6px; border-radius: 50px"><img src="assets/images/template-icons/education.svg" style="width: 20px" /></span>&nbsp;
                 <label [ngStyle]="{'font-size': coreDataService.templateData.roleSize+'px', 'font-family': coreDataService.templateData.fontFamily, 'color': coreDataService.templateData.templateTheme}" class="label-right-color m-b-0 font-weight-bold">Education</label>
+              </div>
+              <div fxFlex="19%" fxLayoutAlign="end" class="position-relative" [ngStyle]="{'border-bottom': '1px solid #d8d8d8'}">
+                <label class="temp-move">
+                  <i class="fa fa-arrow-circle-up mat-primary fa-arrow" (click)="moveEducation('top')" [ngClass]="{'temp-move-opacity': educationMargin == 20}"></i>&nbsp;&nbsp;
+                  <i class="fa fa-arrow-circle-down mat-primary fa-arrow" (click)="moveEducation('bottom')"></i>
+                </label>
               </div>
             </div>
             <div fxLayout="row" *ngIf="coreDataService.templateData.education">
@@ -217,10 +260,16 @@
                 </div>
               </div>
             </div>
-            <div fxLayout="row" style="padding-left: 15px;padding-top:20px" *ngIf="coreDataService.templateData.certifications">
-              <div fxFlex="99%" [ngStyle]="{'border-bottom': '1px solid #d8d8d8'}" fxLayoutAlign="left center">
+            <div fxLayout="row" style="padding-left: 15px;" [ngStyle]="{'margin-top': certificateMargin + 'px'}" *ngIf="coreDataService.templateData.certifications" class="temp">
+              <div fxFlex="80%" [ngStyle]="{'border-bottom': '1px solid #d8d8d8'}" fxLayoutAlign="left center">
                 <span [ngStyle]="{'background': coreDataService.templateData.templateTheme}" style="padding: 6px 7px 5px 7px; border-radius: 50px"><i class="fa fa-certificate" aria-hidden="true" style="color: white;font-size: 18px"></i></span>&nbsp;
                 <label [ngStyle]="{'font-size': coreDataService.templateData.roleSize+'px', 'font-family': coreDataService.templateData.fontFamily, 'color': coreDataService.templateData.templateTheme}" class="label-right-color m-b-0 font-weight-bold">Certifications</label>
+              </div>
+              <div fxFlex="19%" fxLayoutAlign="end" class="position-relative" [ngStyle]="{'border-bottom': '1px solid #d8d8d8'}">
+                <label class="temp-move">
+                  <i class="fa fa-arrow-circle-up mat-primary fa-arrow" (click)="moveCertificates('top')" [ngClass]="{'temp-move-opacity': certificateMargin == 20}"></i>&nbsp;&nbsp;
+                  <i class="fa fa-arrow-circle-down mat-primary fa-arrow" (click)="moveCertificates('bottom')"></i>
+                </label>
               </div>
             </div>
             <div fxLayout="row" *ngIf="coreDataService.templateData.certifications">
@@ -237,10 +286,16 @@
                 </div>
               </div>
             </div>
-            <div fxLayout="row" style="padding-left: 15px;padding-top:20px" *ngIf="coreDataService.templateData.honorReward">
-              <div fxFlex="99%" [ngStyle]="{'border-bottom': '1px solid #d8d8d8'}" fxLayoutAlign="left center">
+            <div fxLayout="row" style="padding-left: 15px;" [ngStyle]="{'margin-top': honorMargin + 'px'}" *ngIf="coreDataService.templateData.honorReward" class="temp">
+              <div fxFlex="80%" [ngStyle]="{'border-bottom': '1px solid #d8d8d8'}" fxLayoutAlign="left center">
                 <span [ngStyle]="{'background': coreDataService.templateData.templateTheme}" style="padding: 6px 7px 5px 7px; border-radius: 50px"><i class="fa fa-trophy" aria-hidden="true" style="color: white;font-size: 18px"></i></span>&nbsp;
                 <label [ngStyle]="{'font-size': coreDataService.templateData.roleSize+'px', 'font-family': coreDataService.templateData.fontFamily, 'color': coreDataService.templateData.templateTheme}" class="label-right-color m-b-0 font-weight-bold">Honors & Awards</label>
+              </div>
+              <div fxFlex="19%" fxLayoutAlign="end" class="position-relative" [ngStyle]="{'border-bottom': '1px solid #d8d8d8'}">
+                <label class="temp-move">
+                  <i class="fa fa-arrow-circle-up mat-primary fa-arrow" (click)="moveHonor('top')" [ngClass]="{'temp-move-opacity': honorMargin == 20}"></i>&nbsp;&nbsp;
+                  <i class="fa fa-arrow-circle-down mat-primary fa-arrow" (click)="moveHonor('bottom')"></i>
+                </label>
               </div>
             </div>
             <div fxLayout="row" *ngIf="coreDataService.templateData.honorReward">
@@ -257,10 +312,16 @@
                 </div>
               </div>
             </div>
-            <div fxLayout="row" style="padding-left: 15px;padding-top:20px" *ngIf="coreDataService.templateData.activities">
-              <div fxFlex="99%" [ngStyle]="{'border-bottom': '1px solid #d8d8d8'}" fxLayoutAlign="left center">
+            <div fxLayout="row" style="padding-left: 15px;" [ngStyle]="{'margin-top': activityMargin + 'px'}" *ngIf="coreDataService.templateData.activities" class="temp">
+              <div fxFlex="80%" [ngStyle]="{'border-bottom': '1px solid #d8d8d8'}" fxLayoutAlign="left center">
                 <span [ngStyle]="{'background': coreDataService.templateData.templateTheme}" style="padding: 6px 7px 5px 7px; border-radius: 50px"><i class="fa fa-tasks" aria-hidden="true" style="color: white;font-size: 16px"></i></span>&nbsp;
                 <label [ngStyle]="{'font-size': coreDataService.templateData.roleSize+'px', 'font-family': coreDataService.templateData.fontFamily, 'color': coreDataService.templateData.templateTheme}" class="label-right-color m-b-0 font-weight-bold">Activities</label>
+              </div>
+              <div fxFlex="19%" fxLayoutAlign="end" class="position-relative" [ngStyle]="{'border-bottom': '1px solid #d8d8d8'}">
+                <label class="temp-move">
+                  <i class="fa fa-arrow-circle-up mat-primary fa-arrow" (click)="moveActivity('top')" [ngClass]="{'temp-move-opacity': activityMargin == 20}"></i>&nbsp;&nbsp;
+                  <i class="fa fa-arrow-circle-down mat-primary fa-arrow" (click)="moveActivity('bottom')"></i>
+                </label>
               </div>
             </div>
             <div fxLayout="row" *ngIf="coreDataService.templateData.activities">
@@ -286,10 +347,16 @@
                 </div>
               </div>
             </div>
-            <div fxLayout="row" style="padding-left: 15px;padding-top:20px" *ngIf="coreDataService.templateData.additionalInfo">
-              <div fxFlex="99%" [ngStyle]="{'border-bottom': '1px solid #d8d8d8'}" fxLayoutAlign="left center">
+            <div fxLayout="row" style="padding-left: 15px;" [ngStyle]="{'margin-top': additionalInfoMargin + 'px'}" *ngIf="coreDataService.templateData.additionalInfo" class="temp">
+              <div fxFlex="80%" [ngStyle]="{'border-bottom': '1px solid #d8d8d8'}" fxLayoutAlign="left center">
                 <span [ngStyle]="{'background': coreDataService.templateData.templateTheme}" style="padding: 5px 7px 5px 7px; border-radius: 50px"><i class="fa fa-info-circle" aria-hidden="true" style="color: white;font-size: 16px"></i></span>&nbsp;
                 <label [ngStyle]="{'font-size': coreDataService.templateData.roleSize+'px', 'font-family': coreDataService.templateData.fontFamily, 'color': coreDataService.templateData.templateTheme}" class="label-right-color m-b-0 font-weight-bold">Additional Information</label>
+              </div>
+              <div fxFlex="19%" fxLayoutAlign="end" class="position-relative" [ngStyle]="{'border-bottom': '1px solid #d8d8d8'}">
+                <label class="temp-move">
+                  <i class="fa fa-arrow-circle-up mat-primary fa-arrow" (click)="moveAdditionalInfo('top')" [ngClass]="{'temp-move-opacity': additionalInfoMargin == 20}"></i>&nbsp;&nbsp;
+                  <i class="fa fa-arrow-circle-down mat-primary fa-arrow" (click)="moveAdditionalInfo('bottom')"></i>
+                </label>
               </div>
             </div>
             <div fxLayout="row" *ngIf="coreDataService.templateData.additionalInfo" style="padding-left: 15px;margin-top:5px">
@@ -302,10 +369,16 @@
                 </div>
               </div>
             </div>
-            <div fxLayout="row" style="padding-left: 15px;padding-top:20px" *ngIf="coreDataService.templateData.reference">
-              <div fxFlex="99%" [ngStyle]="{'border-bottom': '1px solid #d8d8d8'}" fxLayoutAlign="left center">
+            <div fxLayout="row" style="padding-left: 15px;" [ngStyle]="{'margin-top': referenceMargin + 'px'}" *ngIf="coreDataService.templateData.reference" class="temp">
+              <div fxFlex="80%" [ngStyle]="{'border-bottom': '1px solid #d8d8d8'}" fxLayoutAlign="left center">
                 <span [ngStyle]="{'background': coreDataService.templateData.templateTheme}" style="padding: 5px 7px 5px 7px; border-radius: 50px"><i class="fa fa-user-circle" aria-hidden="true" style="color: white;font-size: 16px"></i></span>&nbsp;
                 <label [ngStyle]="{'font-size': coreDataService.templateData.roleSize+'px', 'font-family': coreDataService.templateData.fontFamily, 'color': coreDataService.templateData.templateTheme}" class="label-right-color m-b-0 font-weight-bold">Reference</label>
+              </div>
+              <div fxFlex="19%" fxLayoutAlign="end" class="position-relative" [ngStyle]="{'border-bottom': '1px solid #d8d8d8'}">
+                <label class="temp-move">
+                  <i class="fa fa-arrow-circle-up mat-primary fa-arrow" (click)="moveReference('top')" [ngClass]="{'temp-move-opacity': referenceMargin == 20}"></i>&nbsp;&nbsp;
+                  <i class="fa fa-arrow-circle-down mat-primary fa-arrow" (click)="moveReference('bottom')"></i>
+                </label>
               </div>
             </div>
             <div fxLayout="row" *ngIf="coreDataService.templateData.reference" style="padding-left: 15px;margin-top:5px">

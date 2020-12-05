@@ -53,4 +53,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
   forgotPassword() {
     this.router.navigate(['/forgotPassword']);
   }
+  signInWithGoogle() {
+    this.auth.signInWithGoogle();
+  }
 }

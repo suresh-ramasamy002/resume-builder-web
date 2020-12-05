@@ -141,10 +141,13 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
     let dialogRef = this.dialog.open(DownloadWarningDialogComponent, {
         width: '400px'
       });
-      dialogRef.afterClosed().subscribe(result => {
+    this.coreDataService.hideSeparater = true;
+    dialogRef.afterClosed().subscribe(result => {
         if (result) {
           this.openPaymentDialog();
-        } else {}
+        } else {
+          this.coreDataService.hideSeparater = false;
+        }
       });
   }
   exportRightNow() {
@@ -152,26 +155,30 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
     this.exportHtmlTableDataToPdf(this.coreDataService.selectedTemplate, this.coreDataService.templateData.title);
   }
   exportHtmlTableDataToPdf(element, fileName: string) {
-    let opt = {
-      margin: 0,
-      padding: 0,
-      filename: fileName.replace(' ', '-') + '-resumearc.pdf',
-      image: {type: 'jpeg', quality: 1},
-      html2canvas: {dpi: 192, scale: 4, letterRendering: true, useCors: true},
-      jsPDF: {unit: 'pt', format: 'letter', orientation: 'portrait'}
-    };
-    html2pdf().from(document.getElementById(element)).set(opt).save().then((e) => {
-      this.coreDataService.showSpinner = false;
-      this.coreDataService.resumeDownloadedData.forEach(resumeData => {
-        if (resumeData.name === element && this.coreDataService.userDetails.role !== 'PRO_ADMIN_1' && this.coreDataService.userDetails.role !== 'CO_ADMIN_1') {
-          resumeData.count++;
+    this.coreDataService.hideSeparater = true;
+    setTimeout(() => {
+      let opt = {
+        margin: 0,
+        padding: 0,
+        filename: fileName.replace(' ', '-') + '-resumearc.pdf',
+        image: {type: 'jpeg', quality: 1},
+        html2canvas: {dpi: 192, scale: 4, letterRendering: true, useCors: true},
+        jsPDF: {unit: 'pt', format: 'letter', orientation: 'portrait'}
+      };
+      html2pdf().from(document.getElementById(element)).set(opt).save().then((e) => {
+        this.coreDataService.resumeDownloadedData.forEach(resumeData => {
+          if (resumeData.name === element && this.coreDataService.userDetails.role !== 'PRO_ADMIN_1' && this.coreDataService.userDetails.role !== 'CO_ADMIN_1') {
+            resumeData.count++;
+          }
+        });
+        this.userService.setResumeDetails(this.aId);
+        this.coreDataService.showSpinner = false;
+        this.coreDataService.hideSeparater = false;
+        if (this.coreDataService.userDetails.role !== 'PRO_ADMIN_1' && this.coreDataService.userDetails.role !== 'CO_ADMIN_1') {
+          this.openFeedbackDialog();
         }
       });
-      this.userService.setResumeDetails(this.aId);
-      if (this.coreDataService.userDetails.role !== 'PRO_ADMIN_1' && this.coreDataService.userDetails.role !== 'CO_ADMIN_1') {
-        this.openFeedbackDialog();
-      }
-    });
+    }, 100);
   }
   openFeedbackDialog() {
     let amt = (this.coreDataService.selectedTemplate !== 'template-one' && this.coreDataService.selectedTemplate !== 'template-two' && this.coreDataService.selectedTemplate !== 'template-four') ? 15 : 0;
@@ -368,24 +375,30 @@ sanitizeUrl(url) {
  return this.sanitizer.bypassSecurityTrustResourceUrl(url);
 }
 verifyPdfFile(selectedElement) {
-      let opt = {
-        margin: 0,
-        image: {type: 'jpeg', quality: 1},
-        html2canvas: {dpi: 192, scale: 4, letterRendering: true, useCors: true},
-        jsPDF: {unit: 'pt', format: 'letter', orientation: 'portrait'}
-      };
-      this.coreDataService.showSpinner = true;
-      html2pdf().from(document.getElementById(selectedElement)).set(opt).toPdf().get('pdf').then((pdf) => {
-        let dialogRef = this.dialog.open(PdfViewerComponent, {
-          width: '96vw',
-          maxWidth: '96vw',
-          data: {src: pdf.output('bloburl')}
-        });
-        dialogRef.afterClosed().subscribe(result => {
-          if (result) {
-          } else {}
-        });
-      });
+     this.coreDataService.hideSeparater = true;
+     this.coreDataService.showSpinner = true;
+     setTimeout(() => {
+       let opt = {
+         margin: 0,
+         image: {type: 'jpeg', quality: 1},
+         html2canvas: {dpi: 192, scale: 4, letterRendering: true, useCors: true},
+         jsPDF: {unit: 'pt', format: 'letter', orientation: 'portrait'}
+       };
+       html2pdf().from(document.getElementById(selectedElement)).set(opt).toPdf().get('pdf').then((pdf) => {
+         let dialogRef = this.dialog.open(PdfViewerComponent, {
+           width: '96vw',
+           maxWidth: '96vw',
+           data: {src: pdf.output('bloburl')}
+         });
+         dialogRef.afterClosed().subscribe(result => {
+           if (result) {
+             this.coreDataService.hideSeparater = false;
+           } else {
+             this.coreDataService.hideSeparater = false;
+           }
+         });
+       });
+     }, 100);
     }
 }
 
