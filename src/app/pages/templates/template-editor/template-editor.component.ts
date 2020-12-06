@@ -127,6 +127,7 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
       this.exportRightNow();
     } else {
       let dialogRef = this.dialog.open(PaymentRequestComponent, {
+        disableClose: true,
         width: '420px',
         data: {amount: 1500}
       });
@@ -174,7 +175,7 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
         this.userService.setResumeDetails(this.aId);
         this.coreDataService.showSpinner = false;
         this.coreDataService.hideSeparater = false;
-        if (this.coreDataService.userDetails.role !== 'PRO_ADMIN_1' && this.coreDataService.userDetails.role !== 'CO_ADMIN_1') {
+        if (this.coreDataService.userDetails.role !== 'PRO_ADMIN_1') {
           this.openFeedbackDialog();
         }
       });
@@ -183,6 +184,7 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
   openFeedbackDialog() {
     let amt = (this.coreDataService.selectedTemplate !== 'template-one' && this.coreDataService.selectedTemplate !== 'template-two' && this.coreDataService.selectedTemplate !== 'template-four') ? 15 : 0;
     let dialogRef = this.dialog.open(FeedbackFormComponent, {
+      disableClose: true,
       width: '350px',
       data: {selectedTemplate: this.coreDataService.selectedTemplate, price: amt}
     });
