@@ -13,6 +13,7 @@ import {DownloadWarningDialogComponent} from '../../../components/download-warni
 import {FeedbackFormComponent} from '../../../components/feedback-form/feedback-form.component';
 import {PdfViewerComponent} from '../../../components/pdf-viewer/pdf-viewer.component';
 import {MatSidenav} from '@angular/material/sidenav';
+declare let Razorpay: any;
 @Component({
   selector: 'app-template-editor',
   templateUrl: './template-editor.component.html',
@@ -25,6 +26,21 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
    @ViewChild('sidenav') sidenav: MatSidenav;
    private aId = 'V5cCGAXOpHMTvgL2b2rccgDLt3x1';
    public fontFamily = ['Arial', 'Book Antiqua', 'Calibri', 'Cambria', 'Didot', 'Garamond', 'Georgia', 'Helvetica', 'Times New Roman', 'Trebuchet MS', 'Verdana'];
+   public options = {
+    key: 'rzp_live_0Tyq3jzKCHpjDf',
+    amount: '1500',
+    currency: 'INR',
+    name: 'Resumearc',
+    description: 'One Time Transaction',
+    image: 'assets/images/payment-logo.png',
+    handler: ((response) => {
+     this.saveToDB(response);
+    }),
+    theme: {
+      color: '#34457F'
+    }
+  };
+  private rzp1 = new Razorpay(this.options);
   constructor(public coreDataService: CoreDataService, private auth: AuthService, private sanitizer: DomSanitizer, private userService: UserService, public dialog: MatDialog) {
 
   }
@@ -126,16 +142,18 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
     if (this.coreDataService.userDetails.role === 'PRO_ADMIN_1' || this.coreDataService.userDetails.role === 'CO_ADMIN_1' || this.coreDataService.selectedTemplate === 'template-one' || this.coreDataService.selectedTemplate === 'template-two' || this.coreDataService.selectedTemplate === 'template-four') {
       this.exportRightNow();
     } else {
-      let dialogRef = this.dialog.open(PaymentRequestComponent, {
-        disableClose: true,
-        width: '420px',
-        data: {amount: 1500}
-      });
-      dialogRef.afterClosed().subscribe(result => {
-        if (result) {
-          this.exportHtmlTableDataToPdf(this.coreDataService.selectedTemplate, this.coreDataService.templateData.title);
-        }
-      });
+      let razorpay = new Razorpay(this.options);
+      razorpay.open();
+      // let dialogRef = this.dialog.open(PaymentRequestComponent, {
+      //   disableClose: true,
+      //   width: '420px',
+      //   data: {amount: 1500}
+      // });
+      // dialogRef.afterClosed().subscribe(result => {
+      //   if (result) {
+      //     this.exportHtmlTableDataToPdf(this.coreDataService.selectedTemplate, this.coreDataService.templateData.title);
+      //   }
+      // });
     }
   }
   exportToPdf() {
@@ -145,7 +163,7 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
     this.coreDataService.hideSeparater = true;
     dialogRef.afterClosed().subscribe(result => {
         if (result) {
-          this.openPaymentDialog();
+           this.openPaymentDialog();
         } else {
           this.coreDataService.hideSeparater = false;
         }
@@ -402,5 +420,17 @@ verifyPdfFile(selectedElement) {
        });
      }, 100);
     }
+  saveToDB(response) {
+    console.log(response);
+    let userPaymentsData = {
+      name: this.coreDataService.userDetails.firstName,
+      email: this.coreDataService.userDetails.email,
+      amount: 15,
+      paymentData: response
+    };
+    this.userService.sendPaymentDetails(firebase.auth().currentUser.uid, userPaymentsData);
+    this.coreDataService.showSpinner = true;
+    this.exportHtmlTableDataToPdf(this.coreDataService.selectedTemplate, this.coreDataService.templateData.title);
+  }
 }
 

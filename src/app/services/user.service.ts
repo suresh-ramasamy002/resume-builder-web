@@ -121,4 +121,9 @@ export class UserService {
       resumeDownloaded: this.coreDataService.resumeDownloadedData
     });
   }
+  sendPaymentDetails(uid, userPayments) {
+    return this.db.doc('/resumePayments/' + uid).set({
+      payments: userPayments
+    });
+  }
 }
