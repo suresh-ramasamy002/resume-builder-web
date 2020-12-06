@@ -39,13 +39,7 @@ ngOnChanges(changes: SimpleChanges) {
     } else {
       this.pageHeight = '2132px';
     }
-    var elem = document.getElementById('mainContainer');
-    elem.addEventListener('keydown', this.onMousemove, false);
   }
-  onMousemove(e) {
-    console.log(document.getElementById('mainContainer').scrollHeight);
-  }
-
   setTextColor(bgColor) {
     let color = '#292929';
     switch (bgColor) {

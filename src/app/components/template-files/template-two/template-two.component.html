@@ -242,10 +242,10 @@
           <div fxLayout="row" *ngIf="coreDataService.templateData.certifications">
             <div fxFlex="100%">
               <div fxLayout="row" *ngFor="let certifiInfo of coreDataService.templateData.certificates; let i = index" class="margin-top-15">
-                <div fxFlex="30%">
+                <div fxFlex="20%">
                   <label contenteditable="true" spellcheck="true" #cfyear [textContent]="coreDataService.templateData.certificates[i].year" (blur)="coreDataService.templateData.certificates[i].year = cfyear.innerText" [ngStyle]="{'font-size': coreDataService.templateData.normalSize+'px', 'font-family': coreDataService.templateData.fontFamily}" style="margin-left: 15px;" class="font-size-15" placeholder="Year">{{certifiInfo.year}}</label>
                 </div>
-                <div fxFlex="67%">
+                <div fxFlex="76%">
                   <div>
                     <label contenteditable="true" spellcheck="true" #cfname [textContent]="coreDataService.templateData.certificates[i].certificateName" (blur)="coreDataService.templateData.certificates[i].certificateName = cfname.innerText" [ngStyle]="{'font-size': coreDataService.templateData.normalSize+'px', 'font-family': coreDataService.templateData.fontFamily}" maxlength="50" placeholder="Areas of certification relevant to the position">{{certifiInfo.certificateName}}</label><br/>
                   </div>
@@ -272,7 +272,7 @@
           <div fxLayout="row" *ngIf="coreDataService.templateData.honorReward">
             <div fxFlex="100%">
               <div fxLayout="row" *ngFor="let rewardInfo of coreDataService.templateData.honorAwardInfo; let i = index" class="margin-top-15" style="margin-left: 15px;">
-                <div fxFlex="20%">
+                <div fxFlex="18%">
                   <label contenteditable="true" spellcheck="true" #rwyear [textContent]="coreDataService.templateData.honorAwardInfo[i].year" (blur)="coreDataService.templateData.honorAwardInfo[i].year = rwyear.innerText" [ngStyle]="{'font-size': coreDataService.templateData.normalSize+'px', 'font-family': coreDataService.templateData.fontFamily}" class="font-size-15" placeholder="Year">{{rewardInfo.year}}</label>
                 </div>
                 <div fxFlex="76%">

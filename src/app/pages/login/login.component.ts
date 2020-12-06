@@ -39,9 +39,9 @@ export class LoginComponent implements OnInit, AfterViewInit {
     localStorage.removeItem('selectedTemplateTheme');
   }
   ngAfterViewInit() {
-    setTimeout(() => {
-      this.rows.nativeElement.focus();
-    }, 10);
+    // setTimeout(() => {
+    //   this.rows.nativeElement.focus();
+    // }, 10);
   }
   loginAcc() {
     if (this.loginFormValidation.valid) {

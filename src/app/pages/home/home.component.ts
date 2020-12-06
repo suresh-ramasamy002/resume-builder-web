@@ -18,6 +18,9 @@ export class HomeComponent implements OnInit {
   constructor(public coreDataService: CoreDataService, private auth: AuthService, private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
+    setTimeout(() => {
+      this.coreDataService.showSpinner = false;
+    }, 100);
     this.auth.getUserData(firebase.auth().currentUser.uid);
     this.userService.getUserResumeData(firebase.auth().currentUser.uid);
     this.userService.getResumeDetails(this.aId);

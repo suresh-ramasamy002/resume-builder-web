@@ -49,8 +49,9 @@ export class AuthService {
   }
  async signInWithGoogle() {
     this.getAdminUserDetails();
-    const provider = new auth.FacebookAuthProvider();
+    const provider = new auth.GoogleAuthProvider();
     const credentials = await this.afu.signInWithPopup(provider);
+    this.coreDataService.showSpinner = true;
     return this.updateUserData(credentials.user);
   }
   updateUserData(user) {

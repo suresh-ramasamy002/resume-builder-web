@@ -94,7 +94,7 @@ export class UserService {
         additionalInfoDetails: addnInfoData,
         referenceDetails: refernceData,
         activitiesInfo: activityInfoData,
-        pageType: 'single',
+        pageType: 'multi',
         tech: true,
         language: true
       });
