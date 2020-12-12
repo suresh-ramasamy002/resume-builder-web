@@ -46,6 +46,8 @@ export class TemplateCoreObj {
  referenceDetails: Array<string>;
  activitiesInfo: Array<ActivitiesInfo>;
  pageType: string;
+ linkedIn: string;
+ gitHub: string;
   constructor(options: { image?: any, isImageNeeded?: boolean, title?: string, titleSize?: number, role?: string, roleSize?: number, normalSize?: number, dob?: string, gender?: string, templateTheme?: string,  fontSize?: number, fontFamily?: string, objective?: boolean,
     workExp?: boolean,
     honorReward?: boolean,
@@ -73,7 +75,9 @@ export class TemplateCoreObj {
     activitiesInfo?: Array<ActivitiesInfo>,
     pageType?: string,
     language?: boolean,
-    tech?: boolean
+    tech?: boolean,
+    linkedIn?: string,
+    gitHub?: string
   } = {}) {
     this.image = options.image;
     this.isImageNeeded = options.image || true;
@@ -115,5 +119,7 @@ export class TemplateCoreObj {
     this.pageType = options.pageType || null;
     this.language = options.language || true;
     this.tech = options.tech || true;
+    this.linkedIn = options.linkedIn || null;
+    this.gitHub = options.gitHub || null;
   }
 }

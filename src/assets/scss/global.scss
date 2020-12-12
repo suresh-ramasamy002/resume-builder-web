@@ -9,8 +9,11 @@
   z-index: 9;
 }
 .temp-container {
-  height: 90vh;
+  height: 100vh;
   overflow-y: scroll;
+  padding: 10px;
+  background: #525659;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   &::-webkit-scrollbar {
     width: 0px;
     height: 0px;
@@ -105,16 +108,16 @@ label[contenteditable="true"] {
   outline: none;
   white-space: pre-line;
 }
-label[contenteditable="true"]:hover {
-  border: 1px solid #ff9292;
-  border-style: dotted;
-}
-
-label[contenteditable="true"]:focus {
-  border: 1px solid #ff9292;
-  border-style: dotted;
-  cursor: text;
-}
+//label[contenteditable="true"]:hover {
+//  border: 1px solid #ff9292;
+//  border-style: dotted;
+//}
+//
+//label[contenteditable="true"]:focus {
+//  border: 1px solid #ff9292;
+//  border-style: dotted;
+//  cursor: text;
+//}
 .cr-pointer{
   cursor: pointer;
 }
@@ -332,7 +335,7 @@ label[contenteditable="true"]:focus {
   height: 0px;
   left: 0px;
   right: 0px;
-  border: 4px solid #bdbdbd;
+  border: 4px solid #525659;
 }
 
 
@@ -441,4 +444,32 @@ section {
 .fa-arrow {
   position: relative;
   font-size: 20px;
+}
+.scroll-y {
+  overflow-y: scroll;
+  padding: 10px;
+  background: #525659;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  &::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+  }
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: #f9f9f9;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 0.2rem;
+  }
+
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: #c1c1c1;
+  }
+}
+.text-color-gray {
+  color: #545454;
 }

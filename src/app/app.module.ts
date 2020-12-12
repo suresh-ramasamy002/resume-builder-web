@@ -91,6 +91,8 @@ import { ResumeRulesComponent } from './pages/resume-rules/resume-rules.componen
 import { HowToUseComponent } from './pages/how-to-use/how-to-use.component';
 import { TemplateNineComponent } from './components/template-files/template-nine/template-nine.component';
 import { TemplateTenComponent } from './components/template-files/template-ten/template-ten.component';
+import { ResumeBuilderComponent } from './pages/resume-builder/resume-builder.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 @NgModule({
   declarations: [
     AppComponent,
@@ -124,7 +126,8 @@ import { TemplateTenComponent } from './components/template-files/template-ten/t
     ResumeRulesComponent,
     HowToUseComponent,
     TemplateNineComponent,
-    TemplateTenComponent
+    TemplateTenComponent,
+    ResumeBuilderComponent
   ],
   imports: [
     HttpClientModule,
@@ -169,6 +172,7 @@ import { TemplateTenComponent } from './components/template-files/template-ten/t
     MatRippleModule, ReactiveFormsModule,
     AngularFireFunctionsModule,
     PdfViewerModule,
+    DragDropModule
     // NgxExtendedPdfViewerModule,
     // PdfJsViewerModule
   ],

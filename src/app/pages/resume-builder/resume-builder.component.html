@@ -1,0 +1,1255 @@
+<div fxLayout="row">
+  <div fxFlex="15%" class="builder-side-menu builder-height" data-aos="fade-right" data-aos-easing="ease-out-cubic" data-aos-duration="800">
+    <img src="assets/images/resume-section-bg.png" class="top-nav-banner-img" onContextMenu="return false;">
+    <div fxLayout="row">
+      <div fxFlex="100%" style="background: white">
+        <img src="assets/images/business-logo-page.png" width="100%" style="z-index: 1000"/>
+      </div>
+    </div>
+    <div fxLayout="row">
+      <div fxFlex="100%" class="build-side-nav-tile" [ngClass]="{'build-side-nav-tile-selected': sectionName != 'Resume Templates' && sectionName != 'Custom Design'}" (click)="sectionName = 'Personal Info'" fxLayoutAlign="left center">
+        <a><img src="assets/images/resume-edit.svg" width="18px" style="position: relative;top: 3px"/>&nbsp;&nbsp;&nbsp;&nbsp;Write your resume</a>
+      </div>
+    </div>
+    <div [ngStyle]="{'background': sectionName != 'Resume Templates' && sectionName != 'Custom Design' ? '#00000080': 'transparent'}">
+    <div fxLayout="row">
+      <div fxFlex="100%" class="build-side-nav-sub-tile" [ngClass]="{'build-side-nav-sub-tile-selected': sectionName == 'Personal Info'}" (click)="sectionName = 'Personal Info'">
+        <a>Personal Info</a>
+      </div>
+    </div>
+    <div fxLayout="row">
+      <div fxFlex="100%" class="build-side-nav-sub-tile" [ngClass]="{'build-side-nav-sub-tile-selected': sectionName == 'Summary'}" (click)="sectionName = 'Summary'">
+        <a>Summary</a>
+      </div>
+    </div>
+    <div fxLayout="row">
+      <div fxFlex="100%" class="build-side-nav-sub-tile" [ngClass]="{'build-side-nav-sub-tile-selected': sectionName == 'Work Experience'}" (click)="sectionName = 'Work Experience'">
+        <a>Work Experience</a>
+      </div>
+    </div>
+    <div fxLayout="row">
+      <div fxFlex="100%" class="build-side-nav-sub-tile" [ngClass]="{'build-side-nav-sub-tile-selected': sectionName == 'Education'}" (click)="sectionName = 'Education'">
+        <a>Education</a>
+      </div>
+    </div>
+    <div fxLayout="row">
+      <div fxFlex="100%" class="build-side-nav-sub-tile" [ngClass]="{'build-side-nav-sub-tile-selected': sectionName == 'Skills'}" (click)="sectionName = 'Skills'">
+        <a>Skills</a>
+      </div>
+    </div>
+      <div fxLayout="row">
+        <div fxFlex="100%" class="build-side-nav-sub-tile" [ngClass]="{'build-side-nav-sub-tile-selected': sectionName == 'Software'}" (click)="sectionName = 'Software'">
+          <a>Software</a>
+        </div>
+      </div>
+      <div fxLayout="row">
+        <div fxFlex="100%" class="build-side-nav-sub-tile" [ngClass]="{'build-side-nav-sub-tile-selected': sectionName == 'Languages'}" (click)="sectionName = 'Languages'">
+          <a>Languages</a>
+        </div>
+      </div>
+      <div fxLayout="row">
+        <div fxFlex="100%" class="build-side-nav-sub-tile" [ngClass]="{'build-side-nav-sub-tile-selected': sectionName == 'Certifications'}" (click)="sectionName = 'Certifications'">
+          <a>Certifications</a>
+        </div>
+      </div>
+      <div fxLayout="row">
+        <div fxFlex="100%" class="build-side-nav-sub-tile" [ngClass]="{'build-side-nav-sub-tile-selected': sectionName == 'Honors'}" (click)="sectionName = 'Honors'">
+          <a>Honors & Awards</a>
+        </div>
+      </div>
+      <div fxLayout="row">
+        <div fxFlex="100%" class="build-side-nav-sub-tile" [ngClass]="{'build-side-nav-sub-tile-selected': sectionName == 'Interests'}" (click)="sectionName = 'Interests'">
+          <a>Interests</a>
+        </div>
+      </div>
+      <div fxLayout="row">
+        <div fxFlex="100%" class="build-side-nav-sub-tile" [ngClass]="{'build-side-nav-sub-tile-selected': sectionName == 'Activities'}" (click)="sectionName = 'Activities'">
+          <a>Activities</a>
+        </div>
+      </div>
+      <div fxLayout="row">
+        <div fxFlex="100%" class="build-side-nav-sub-tile" [ngClass]="{'build-side-nav-sub-tile-selected': sectionName == 'Additional Info'}" (click)="sectionName = 'Additional Info'">
+          <a>Additional Info</a>
+        </div>
+      </div>
+      <div fxLayout="row">
+        <div fxFlex="100%" class="build-side-nav-sub-tile" [ngClass]="{'build-side-nav-sub-tile-selected': sectionName == 'Reference'}" (click)="sectionName = 'Reference'">
+          <a>Reference</a>
+        </div>
+      </div>
+    </div>
+    <div fxLayout="row">
+      <div fxFlex="100%" class="build-side-nav-tile" [ngClass]="{'build-side-nav-tile-selected': sectionName == 'Resume Templates'}" (click)="sectionName = 'Resume Templates'">
+        <a><img src="assets/images/temp-layout-white.svg" width="18px" style="position: relative;top: 3px"/>&nbsp;&nbsp;&nbsp;&nbsp;Templates</a>
+      </div>
+    </div>
+    <div fxLayout="row">
+      <div fxFlex="100%" class="build-side-nav-tile" [ngClass]="{'build-side-nav-tile-selected': sectionName == 'Custom Design'}" (click)="sectionName = 'Custom Design'">
+        <a><img src="assets/images/paint-palette-white.svg" width="18px" style="position: relative;top: 3px"/>&nbsp;&nbsp;&nbsp;&nbsp;Customize Design</a>
+      </div>
+    </div>
+  </div>
+  <div fxFlex="40%" style="background: #ffffff;border-right: 1px solid #e8e8e8;" class="builder-height scroll-y" data-aos="zoom-out" data-aos-easing="ease-out-cubic" data-aos-duration="800">
+    <div fxLayout="row" *ngIf="sectionName == 'Custom Design'">
+      <div fxFlex="100%">
+        <div fxLayout="row">
+          <div fxFlex="8%"></div>
+          <div fxFlex="90%" style="margin-top: 50px">
+            <img src="assets/images/paint-palette.svg" width="26px" style="position: relative;top: 3px"/>&nbsp;&nbsp;<span class="font-weight-bold" style="color: #1f2741; font-size: 20px">Customize Design</span>
+          </div>
+          <div fxFlex="2%"></div>
+        </div>
+        <div fxLayout="row" style="margin-top: 30px">
+          <div fxFlex="8%"></div>
+          <div fxFlex="90%">
+            <h2 class="margin-top-5">Themes</h2>
+          </div>
+        </div>
+        <div fxLayout="row">
+          <div fxFlex="8%"></div>
+          <div fxFlex="90%">
+            <h4 class="margin-top-5">Popular Colors</h4>
+          </div>
+        </div>
+        <div class="theme-container-theme" fxLayout="row">
+          <div fxFlex="7%"></div>
+          <div *ngFor="let color of themeColor; let index = index" class="color cr-pointer" [ngStyle]="{backgroundColor: color.value}" (click)="changeTheme(color.value)">
+            <i class="fa fa-check" style="position: relative; top: 12px; left: 10px; font-size: 25px" *ngIf="coreDataService.templateData.templateTheme == color.value" [ngStyle]="{'color': setTickColor(color.value)}"></i>
+          </div>
+        </div>
+        <div fxLayout="row" class="margin-top-15">
+          <div fxFlex="8%"></div>
+          <div fxFlex="90%">
+            <h4 class="margin-top-5">All Colors</h4>
+          </div>
+        </div>
+        <div class="theme-container-theme" fxLayout="row">
+          <div fxFlex="7%"></div>
+          <div *ngFor="let color of otherColors; let index = index" class="color cr-pointer" [ngStyle]="{backgroundColor: color.value}" (click)="changeTheme(color.value)">
+            <i class="fa fa-check" style="position: relative; top: 12px; left: 10px; font-size: 25px" *ngIf="coreDataService.templateData.templateTheme == color.value" [ngStyle]="{'color': setTickColor(color.value)}"></i>
+          </div>
+        </div>
+        <div class="theme-container-theme" fxLayout="row">
+          <div fxFlex="7%"></div>
+          <div *ngFor="let color of otherColors1; let index = index" class="color cr-pointer" [ngStyle]="{backgroundColor: color.value}" (click)="changeTheme(color.value)">
+            <i class="fa fa-check" style="position: relative; top: 12px; left: 10px; font-size: 25px" *ngIf="coreDataService.templateData.templateTheme == color.value" [ngStyle]="{'color': setTickColor(color.value)}"></i>
+          </div>
+        </div>
+        <div fxLayout="row" style="margin-top: 25px">
+          <div fxFlex="8%"></div>
+          <div fxFlex="90%">
+            <h2 class="margin-top-5">Fonts</h2>
+          </div>
+        </div>
+        <div fxLayout="row"  fxLayoutAlign="center" *ngIf="coreDataService?.templateData?.fontFamily != null" class="margin-top-10">
+          <mat-form-field appearance="outline" fxFlex="85%">
+            <mat-select [(ngModel)]="coreDataService.templateData.fontFamily" (selectionChange)="changeFontSize('2')">
+              <mat-option *ngFor="let fonts of fontFamily" [value]="fonts">{{fonts}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div fxLayout="row" style="margin-top: 25px">
+          <div fxFlex="8%"></div>
+          <div fxFlex="90%">
+            <h2 class="margin-top-5">Font Sizes</h2>
+          </div>
+        </div>
+        <div fxLayout="row" class="margin-top-10">
+          <div fxFlex="6%"></div>
+          <div fxFlex="10%" fxLayoutAlign="center center" (click)="changeFontSize('1')"><label [ngClass]="{'font-size-ui': coreDataService.templateData.fontSize == 1}" style="font-size: 14px;" class="cr-pointer">A</label></div>
+          <div fxFlex="10%" fxLayoutAlign="center center" (click)="changeFontSize('2')"><label [ngClass]="{'font-size-ui': coreDataService.templateData.fontSize == 2}" style="font-size: 16px;" class="cr-pointer">A</label></div>
+          <div fxFlex="10%" fxLayoutAlign="center center" (click)="changeFontSize('3')"><label [ngClass]="{'font-size-ui': coreDataService.templateData.fontSize == 3}" style="font-size: 18px;" class="cr-pointer">A</label></div>
+        </div>
+      </div>
+    </div>
+    <div fxLayout="row" *ngIf="sectionName == 'Personal Info'">
+      <div fxFlex="100%">
+        <div fxLayout="row">
+          <div fxFlex="8%"></div>
+          <div fxFlex="90%" style="margin-top: 50px">
+            <i class="fa fa-user" style="color: #1f2741;font-size: 18px"></i>&nbsp;&nbsp;<span class="font-weight-bold" style="color: #1f2741; font-size: 20px">Personal Info</span>
+          </div>
+          <div fxFlex="2%"></div>
+        </div>
+        <div fxLayout="row">
+          <div fxFlex="8%"></div>
+          <div fxFlex="90%" style="margin-top: 10px">
+            <span style="color: #292929; font-size: 14px"><i>First, include your full name and contact details(Job's title, Address, GitHub, LinkedIn are optional)</i></span>
+          </div>
+          <div fxFlex="2%"></div>
+        </div>
+        <div fxLayout="row"  style="margin-top: 30px" fxLayoutGap="3%">
+          <div fxFlex="5%"></div>
+         <mat-form-field fxFlex="45%" appearance="outline" floatLabel="always">
+           <mat-label>Name</mat-label>
+           <input matInput [(ngModel)]="coreDataService.templateData.title" />
+         </mat-form-field>
+          <mat-form-field fxFlex="45%" appearance="outline" floatLabel="always">
+            <mat-label>Job Title</mat-label>
+            <input matInput [(ngModel)]="coreDataService.templateData.role"/>
+          </mat-form-field>
+          <div fxFlex="5%"></div>
+        </div>
+        <div fxLayout="row" fxLayoutGap="3%">
+          <div fxFlex="5%"></div>
+          <mat-form-field fxFlex="90%" appearance="outline" floatLabel="always">
+            <mat-label>Email</mat-label>
+            <input matInput [(ngModel)]="coreDataService.templateData.email"/>
+          </mat-form-field>
+          <div fxFlex="5%"></div>
+        </div>
+        <div fxLayout="row" fxLayoutGap="3%">
+          <div fxFlex="5%"></div>
+          <mat-form-field fxFlex="90%" appearance="outline" floatLabel="always">
+            <mat-label>Phone</mat-label>
+            <input matInput [(ngModel)]="coreDataService.templateData.phone"/>
+          </mat-form-field>
+          <div fxFlex="5%"></div>
+        </div>
+        <div fxLayout="row" fxLayoutGap="3%">
+          <div fxFlex="5%"></div>
+          <mat-form-field fxFlex="90%" appearance="outline" floatLabel="always">
+            <mat-label>Address</mat-label>
+            <textarea matInput [(ngModel)]="coreDataService.templateData.address" rows="5"></textarea>
+          </mat-form-field>
+          <div fxFlex="5%"></div>
+        </div>
+        <div fxLayout="row" fxLayoutGap="3%">
+          <div fxFlex="5%"></div>
+          <mat-form-field fxFlex="90%" appearance="outline" floatLabel="always">
+            <mat-label>LinkedIn</mat-label>
+            <input matInput [(ngModel)]="coreDataService.templateData.linkedIn"/>
+          </mat-form-field>
+          <div fxFlex="5%"></div>
+        </div>
+        <div fxLayout="row" fxLayoutGap="3%">
+          <div fxFlex="5%"></div>
+          <mat-form-field fxFlex="90%" appearance="outline" floatLabel="always">
+            <mat-label>GitHub</mat-label>
+            <input matInput [(ngModel)]="coreDataService.templateData.gitHub"/>
+          </mat-form-field>
+          <div fxFlex="5%"></div>
+        </div>
+        <div fxLayout="row" fxLayoutGap="3%" class="margin-top-15">
+          <div fxFlex="5%"></div>
+          <div fxFlex="90%" fxLayoutAlign="end">
+            <button mat-raised-button color="primary" (click)="sectionName = 'Summary'">Next Section</button>
+          </div>
+          <div fxFlex="5%"></div>
+        </div>
+      </div>
+    </div>
+    <div fxLayout="row" *ngIf="sectionName == 'Summary'">
+      <div fxFlex="100%">
+        <div fxLayout="row">
+          <div fxFlex="8%"></div>
+          <div fxFlex="45%" style="margin-top: 50px" fxLayoutAlign="left center">
+            <i class="fa fa-list" style="color: #1f2741;font-size: 18px"></i>&nbsp;&nbsp;<span class="font-weight-bold" style="color: #1f2741; font-size: 20px">Summary</span>
+          </div>
+          <div fxFlex="40%" style="margin-top: 50px" fxLayoutAlign="end center">
+          <mat-slide-toggle [checked]="coreDataService.templateData.objective" (change)="coreDataService.templateData.objective = $event.checked" color="primary">Show Section</mat-slide-toggle>
+          </div>
+          <div fxFlex="2%"></div>
+        </div>
+        <div fxLayout="row">
+          <div fxFlex="8%"></div>
+          <div fxFlex="90%" style="margin-top: 10px" fxLayoutAlign="left center">
+            <span style="color: #292929; font-size: 14px"><i>Describe 2–3 key skills and achievements</i></span>
+          </div>
+          <div fxFlex="2%"></div>
+        </div>
+        <div fxLayout="row" fxLayoutGap="3%" style="margin-top: 30px">
+          <div fxFlex="5%"></div>
+          <mat-form-field fxFlex="90%" appearance="outline" floatLabel="always">
+            <mat-label>Summary</mat-label>
+            <textarea matInput [(ngModel)]="coreDataService.templateData.objectiveMsg" rows="20"></textarea>
+          </mat-form-field>
+          <div fxFlex="5%"></div>
+        </div>
+        <div fxLayout="row" fxLayoutGap="3%" class="margin-top-15">
+          <div fxFlex="5%"></div>
+          <div fxFlex="90%" fxLayoutAlign="end">
+            <button mat-stroked-button color="primary" (click)="sectionName = 'Personal Info'">Back</button>
+            <button mat-raised-button color="primary" (click)="sectionName = 'Work Experience'" class="m-l-1">Next Section</button>
+          </div>
+          <div fxFlex="5%"></div>
+        </div>
+      </div>
+    </div>
+    <div fxLayout="row" *ngIf="sectionName == 'Work Experience'">
+      <div fxFlex="100%">
+        <div fxLayout="row">
+          <div fxFlex="8%"></div>
+          <div fxFlex="45%" style="margin-top: 50px" fxLayoutAlign="left center">
+            <i class="fa fa-suitcase" style="color: #1f2741;font-size: 18px"></i>&nbsp;&nbsp;<span class="font-weight-bold" style="color: #1f2741; font-size: 20px">Work Experience</span>
+          </div>
+          <div fxFlex="40%" style="margin-top: 50px" fxLayoutAlign="end center">
+            <mat-slide-toggle [checked]="coreDataService.templateData.workExp" (change)="coreDataService.templateData.workExp = $event.checked" color="primary">Show Section</mat-slide-toggle>
+          </div>
+          <div fxFlex="2%"></div>
+        </div>
+        <div fxLayout="row">
+          <div fxFlex="8%"></div>
+          <div fxFlex="90%" style="margin-top: 10px" fxLayoutAlign="left center">
+            <span style="color: #292929; font-size: 14px"><i>Start with your current or most recent job and work backward from there.</i></span>
+          </div>
+          <div fxFlex="2%"></div>
+        </div>
+        <div fxLayout="row" style="margin-top: 30px">
+          <div fxFlex="5%"></div>
+          <div fxFlex="90%">
+            <mat-accordion [multi]="false" cdkDropList cdkDropListLockAxis="y" cdkDropListOrientation="Vertical" (cdkDropListDropped)="SwapWorkExp($event)">
+              <mat-expansion-panel *ngFor="let workExp of coreDataService.templateData.companyInfo; let i = index" [expanded]="workExpIndex == i" (click)="workExpIndex = i" cdkDrag cdkDragHandle style="cursor: move">
+                <mat-expansion-panel-header class="expansion" [collapsedHeight]="'50px'" [expandedHeight]="'50px'">
+                  <mat-panel-title>
+                    <div fxLayout="row">
+                      <div fxFlex="100%" fxLayoutAlign="center center">&nbsp;&nbsp;
+                        <img src="assets/images/drag.svg" width="10px">
+                        <h3 *ngIf="workExp.companyName == null || workExp.companyName == ''" class="m-l-1">{{'Position ' + (i+1)}}</h3>
+                        <h3 *ngIf="workExp.companyName != null && workExp.companyName != ''" class="m-l-1">{{workExp.companyName}}</h3>
+                        <i class="fa fa-trash cr-pointer font-size-16px m-l-1" style="color: red" (click)="deleteCompanyInfo(i)"></i>
+                      </div>
+                    </div>
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div fxLayout="row"  style="margin-top: 30px" fxLayoutGap="3%">
+                  <mat-form-field fxFlex="50%" appearance="outline" floatLabel="always">
+                    <mat-label>Employer</mat-label>
+                    <input matInput [(ngModel)]="workExp.companyName" />
+                  </mat-form-field>
+                  <mat-form-field fxFlex="50%" appearance="outline" floatLabel="always">
+                    <mat-label>Job Title</mat-label>
+                    <input matInput [(ngModel)]="workExp.role"/>
+                  </mat-form-field>
+                </div>
+                <div fxLayout="row"fxLayoutGap="3%">
+                  <mat-form-field fxFlex="32%" appearance="outline" floatLabel="always">
+                    <mat-label>Start Date</mat-label>
+                    <mat-select [(ngModel)]="workExp.startDate" [(value)]="workExp.startDate" (selectionChange)="setWorkHistoryDate(workExp.isPresent, i)">
+                      <mat-option *ngFor="let date of year" [value]="date"><span>{{date}}</span></mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  <mat-form-field fxFlex="32%" appearance="outline" floatLabel="always">
+                    <mat-label>Month</mat-label>
+                    <mat-select [(ngModel)]="workExp.startMonth" [(value)]="workExp.startMonth" (selectionChange)="setWorkHistoryDate(workExp.isPresent, i)">
+                      <mat-option *ngFor="let month of monthStr" [value]="month"><span>{{month}}</span></mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  <div fxFlex="30%" fxLayoutAlign="center center">
+                    <mat-checkbox [checked]="workExp.isPresent" (change)="setWorkHistoryDate($event.checked, i)" color="primary">I currently work here</mat-checkbox>
+                  </div>
+                </div>
+                <div fxLayout="row"fxLayoutGap="3%" *ngIf="!workExp.isPresent">
+                  <mat-form-field fxFlex="32%" appearance="outline" floatLabel="always">
+                    <mat-label>End Date</mat-label>
+                    <mat-select [(ngModel)]="workExp.endDate" [(value)]="workExp.endDate" (selectionChange)="setWorkHistoryDateWithEnd(i)">
+                      <mat-option *ngFor="let date of year" [value]="date"><span>{{date}}</span></mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  <mat-form-field fxFlex="32%" appearance="outline" floatLabel="always">
+                    <mat-label>Month</mat-label>
+                    <mat-select [(ngModel)]="workExp.endMonth" [(value)]="workExp.endMonth" (selectionChange)="setWorkHistoryDateWithEnd(i)">
+                      <mat-option *ngFor="let month of monthStr" [value]="month"><span>{{month}}</span></mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <div fxLayout="row" *ngFor="let acheive of workExp.details; let j = index">
+                  <mat-form-field fxFlex="90%" appearance="outline" floatLabel="always">
+                    <mat-label>What did you do?</mat-label>
+                    <textarea matInput rows="3" [ngModel]="workExp.details[j]" (focusout)="workExp.details[j] = $event.target.value" placeholder="Job's professional history, key experience and achievements"></textarea>
+                  </mat-form-field>
+                  <div fxFlex="10%" fxLayoutAlign="center center">
+                    <i class="fa fa-trash cr-pointer" style="color: red;font-size: 14px" (click)="deleteAcheivement(i, j)"></i>
+                  </div>
+                </div>
+                <div fxLayout="row">
+                  <div fxFlex="100%" fxLayoutAlign="left center">
+                    <i class="fa fa-plus cr-pointer" style="color: #3f51b5" (click)="addAcheivement(i)"></i>&nbsp;<span class="mat-body-1 cr-pointer" (click)="addAcheivement(i)" style="color: #3f51b5">Add More</span>
+                  </div>
+                </div>
+              </mat-expansion-panel>
+            </mat-accordion>
+          </div>
+          <div fxFlex="5%"></div>
+        </div>
+        <div fxLayout="row" class="margin-top-10">
+          <div fxFlex="5%"></div>
+          <div fxFlex="90%" fxLayoutAlign="end">
+            <button mat-stroked-button (click)="addWorkExperience()" style="color: #3f51b5">+Add Work Experience</button>
+          </div>
+          <div fxFlex="5%"></div>
+        </div>
+        <div fxLayout="row" fxLayoutGap="3%" style="margin-top: 25px">
+          <div fxFlex="5%"></div>
+          <div fxFlex="87%" fxLayoutAlign="end">
+            <button mat-stroked-button color="primary" (click)="sectionName = 'Summary'">Back</button>
+            <button mat-raised-button color="primary" (click)="sectionName = 'Education'" class="m-l-1">Next Section</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div fxLayout="row" *ngIf="sectionName == 'Education'">
+      <div fxFlex="100%">
+        <div fxLayout="row">
+          <div fxFlex="8%"></div>
+          <div fxFlex="45%" style="margin-top: 50px">
+            <i class="fa fa-graduation-cap" style="color: #1f2741;font-size: 20px"></i>&nbsp;&nbsp;<span class="font-weight-bold" style="color: #1f2741; font-size: 20px">Education</span>
+          </div>
+          <div fxFlex="40%" style="margin-top: 50px" fxLayoutAlign="end center">
+            <mat-slide-toggle [checked]="coreDataService.templateData.education" (change)="coreDataService.templateData.education = $event.checked" color="primary">Show Section</mat-slide-toggle>
+          </div>
+          <div fxFlex="2%"></div>
+        </div>
+        <div fxLayout="row">
+          <div fxFlex="8%"></div>
+          <div fxFlex="90%" style="margin-top: 10px">
+            <span style="color: #292929; font-size: 14px"><i>If you have higher education, skip your high school. Still studying? Include it too!</i></span>
+          </div>
+          <div fxFlex="2%"></div>
+        </div>
+        <div fxLayout="row" style="margin-top: 30px">
+          <div fxFlex="5%"></div>
+          <div fxFlex="90%">
+            <mat-accordion [multi]="false" cdkDropList cdkDropListLockAxis="y" cdkDropListOrientation="Vertical" (cdkDropListDropped)="SwapEducation($event)">
+              <mat-expansion-panel *ngFor="let edu of coreDataService.templateData.educationInfo; let i = index" [expanded]="educationIndex == i" (click)="educationIndex = i" cdkDrag cdkDragHandle style="cursor: move">
+                <mat-expansion-panel-header class="expansion" [collapsedHeight]="'50px'" [expandedHeight]="'50px'">
+                  <mat-panel-title>
+                    <div fxLayout="row">
+                      <div fxFlex="100%" fxLayoutAlign="center center">
+                        <img src="assets/images/drag.svg" width="10px">
+                        <h3 *ngIf="edu.schoolName == null || edu.schoolName == ''" class="m-l-1">{{'Education ' + (i+1)}}</h3>
+                        <h3 *ngIf="edu.schoolName != null && edu.schoolName != ''" class="m-l-1">{{edu.schoolName}}</h3>
+                        <i class="fa fa-trash cr-pointer font-size-16px m-l-1" style="color: red" (click)="deleteEduInfo(i)"></i>
+                      </div>
+                    </div>
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div fxLayout="row"  style="margin-top: 30px">
+                  <mat-form-field fxFlex="100%" appearance="outline" floatLabel="always">
+                    <mat-label>School Name</mat-label>
+                    <input matInput [(ngModel)]="edu.schoolName" />
+                  </mat-form-field>
+                </div>
+                <div fxLayout="row" fxLayoutGap="3%">
+                  <mat-form-field fxFlex="50%" appearance="outline" floatLabel="always">
+                    <mat-label>Degree</mat-label>
+                    <input matInput [(ngModel)]="edu.course" (focusout)="setEduDegree(i)"/>
+                  </mat-form-field>
+                  <mat-form-field fxFlex="50%" appearance="outline" floatLabel="always">
+                    <mat-label>Field Of Study</mat-label>
+                    <input matInput [(ngModel)]="edu.dept" (focusout)="setEduDegree(i)"/>
+                  </mat-form-field>
+                </div>
+                <div fxLayout="row"fxLayoutGap="3%">
+                  <mat-form-field fxFlex="32%" appearance="outline" floatLabel="always">
+                    <mat-label>Start Date</mat-label>
+                    <mat-select [(ngModel)]="edu.startDate" [(value)]="edu.startDate" (selectionChange)="setEducationDate(edu.isPresent, i)">
+                      <mat-option *ngFor="let date of year" [value]="date"><span>{{date}}</span></mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  <mat-form-field fxFlex="32%" appearance="outline" floatLabel="always">
+                    <mat-label>Month</mat-label>
+                    <mat-select [(ngModel)]="edu.startMonth" [(value)]="edu.startMonth" (selectionChange)="setEducationDate(edu.isPresent, i)">
+                      <mat-option *ngFor="let month of monthStr" [value]="month"><span>{{month}}</span></mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  <div fxFlex="20%" fxLayoutAlign="center center">
+                    <mat-checkbox [checked]="edu.isPresent" (change)="setEducationDate($event.checked, i)" color="primary">Present</mat-checkbox>
+                  </div>
+                </div>
+                <div fxLayout="row"fxLayoutGap="3%" *ngIf="!edu.isPresent">
+                  <mat-form-field fxFlex="32%" appearance="outline" floatLabel="always">
+                    <mat-label>End Date</mat-label>
+                    <mat-select [(ngModel)]="edu.endDate" [(value)]="edu.endDate" (selectionChange)="setEducationDateWithEnd(i)">
+                      <mat-option *ngFor="let date of year" [value]="date"><span>{{date}}</span></mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  <mat-form-field fxFlex="32%" appearance="outline" floatLabel="always">
+                    <mat-label>Month</mat-label>
+                    <mat-select [(ngModel)]="edu.endMonth" [(value)]="edu.endMonth" (selectionChange)="setEducationDateWithEnd(i)">
+                      <mat-option *ngFor="let month of monthStr" [value]="month"><span>{{month}}</span></mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <div fxLayout="row" >
+                  <mat-form-field fxFlex="25%" appearance="outline" floatLabel="always">
+                    <mat-label>GPA</mat-label>
+                    <input matInput [(ngModel)]="edu.gpaStatus" (focusout)="setGpaFormat(i)" />
+                  </mat-form-field>
+                  <mat-form-field fxFlex="20%" appearance="outline" floatLabel="always">
+                    <mat-select [(ngModel)]="edu.gpaFormat" [(value)]="edu.gpaFormat" (selectionChange)="setGpaFormat(i)">
+                      <mat-option [value]="''"></mat-option>
+                      <mat-option value="/10"><span>/10</span></mat-option>
+                      <mat-option value="%"><span>%</span></mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </mat-expansion-panel>
+            </mat-accordion>
+          </div>
+          <div fxFlex="5%"></div>
+        </div>
+        <div fxLayout="row" class="margin-top-10">
+          <div fxFlex="5%"></div>
+          <div fxFlex="90%" fxLayoutAlign="end">
+            <button mat-stroked-button (click)="addEducation()" style="color: #3f51b5">+Add Education</button>
+          </div>
+          <div fxFlex="5%"></div>
+        </div>
+        <div fxLayout="row" fxLayoutGap="3%" style="margin-top: 25px">
+          <div fxFlex="5%"></div>
+          <div fxFlex="87%" fxLayoutAlign="end">
+            <button mat-stroked-button color="primary" (click)="sectionName = 'Work Experience'">Back</button>
+            <button mat-raised-button color="primary" (click)="sectionName = 'Skills'" class="m-l-1">Next Section</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div fxLayout="row" *ngIf="sectionName == 'Skills'">
+      <div fxFlex="100%">
+        <div fxLayout="row">
+          <div fxFlex="8%"></div>
+          <div fxFlex="45%" style="margin-top: 50px">
+            <i class="fa fa-puzzle-piece" style="color: #1f2741;font-size: 20px"></i>&nbsp;&nbsp;<span class="font-weight-bold" style="color: #1f2741; font-size: 20px">Skills</span>
+          </div>
+          <div fxFlex="40%" style="margin-top: 50px" fxLayoutAlign="end center">
+            <mat-slide-toggle [checked]="coreDataService.templateData.skills" (change)="coreDataService.templateData.skills = $event.checked" color="primary">Show Section</mat-slide-toggle>
+          </div>
+          <div fxFlex="2%"></div>
+        </div>
+        <div fxLayout="row">
+          <div fxFlex="8%"></div>
+          <div fxFlex="90%" style="margin-top: 10px">
+            <span style="color: #292929; font-size: 14px"><i>Highlight your key skills. Focus on what’s most important. Aim for up to 8 skills. Use the rating scale to grab attention.</i></span>
+          </div>
+          <div fxFlex="2%"></div>
+        </div>
+        <div fxLayout="row" style="margin-top: 30px">
+          <div fxFlex="5%"></div>
+          <div fxFlex="90%" cdkDropList cdkDropListLockAxis="y" cdkDropListOrientation="Vertical" (cdkDropListDropped)="SwapSkills($event)">
+            <div fxLayout="row" *ngFor="let skills of coreDataService.templateData.technicalSkills; let i = index"  cdkDrag cdkDragHandle>
+              <div fxFlex="100%" fxLayoutAlign="left center" class="m-l-1">
+                <img src="assets/images/drag.svg" width="10px" style="cursor: move">
+              <mat-form-field appearance="outline" floatLabel="always" class="m-l-1">
+                <mat-label>{{'Skills ' + (i+1)}}</mat-label>
+                <input matInput [(ngModel)]="skills.skill" />
+                <div matSuffix>
+                  <div class="star-rating">
+                    <input type="radio" [id]="'5-starstech-'+i" [name]="'tech'+i" value="5" [(ngModel)]="skills.rate"/>
+                    <label [for]="'5-starstech-'+i" class="star">&#9733;</label>
+                    <input type="radio" [id]="'4-starstech-'+i" [name]="'tech'+i" value="4" [(ngModel)]="skills.rate"/>
+                    <label [for]="'4-starstech-'+i" class="star">&#9733;</label>
+                    <input type="radio" [id]="'3-starstech-'+i" [name]="'tech'+i" value="3" [(ngModel)]="skills.rate"/>
+                    <label [for]="'3-starstech-'+i" class="star">&#9733;</label>
+                    <input type="radio" [id]="'2-starstech-'+i" [name]="'tech'+i" value="2" [(ngModel)]="skills.rate"/>
+                    <label [for]="'2-starstech-'+i" class="star">&#9733;</label>
+                    <input type="radio" [id]="'1-starstech-'+i" [name]="'tech'+i" value="1" [(ngModel)]="skills.rate"/>
+                    <label [for]="'1-starstech-'+i" class="star">&#9733;</label>
+                  </div>
+                </div>
+              </mat-form-field>
+                <i class="fa fa-trash cr-pointer m-l-1" style="color: red" (click)="deleteTechSkills(i)"></i>
+              </div>
+            </div>
+          </div>
+          <div fxFlex="5%"></div>
+        </div>
+        <div fxLayout="row" class="margin-top-15">
+          <div fxFlex="66%" fxLayoutAlign="end">
+            <button mat-stroked-button (click)="addTechSkills()" style="color: #3f51b5">+New Skills</button>
+          </div>
+        </div>
+        <div fxLayout="row" fxLayoutGap="3%" style="margin-top: 25px">
+          <div fxFlex="5%"></div>
+          <div fxFlex="87%" fxLayoutAlign="end">
+            <button mat-stroked-button color="primary" (click)="sectionName = 'Education'">Back</button>
+            <button mat-raised-button color="primary" (click)="sectionName = 'Software'" class="m-l-1">Next Section</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div fxLayout="row" *ngIf="sectionName == 'Software'">
+      <div fxFlex="100%">
+        <div fxLayout="row">
+          <div fxFlex="8%"></div>
+          <div fxFlex="45%" style="margin-top: 50px">
+            <i class="fa fa-desktop" style="color: #1f2741;font-size: 20px"></i>&nbsp;&nbsp;<span class="font-weight-bold" style="color: #1f2741; font-size: 20px">Software</span>
+          </div>
+          <div fxFlex="40%" style="margin-top: 50px" fxLayoutAlign="end center">
+            <mat-slide-toggle [checked]="coreDataService.templateData.tech" (change)="coreDataService.templateData.tech = $event.checked" color="primary">Show Section</mat-slide-toggle>
+          </div>
+          <div fxFlex="2%"></div>
+        </div>
+        <div fxLayout="row">
+          <div fxFlex="8%"></div>
+          <div fxFlex="90%" style="margin-top: 10px">
+            <span style="color: #292929; font-size: 14px"><i>List the software you have worked with(Microsoft Excel, Webstorm etc.,)</i></span>
+          </div>
+          <div fxFlex="2%"></div>
+        </div>
+        <div fxLayout="row" style="margin-top: 30px">
+          <div fxFlex="5%"></div>
+          <div fxFlex="90%" cdkDropList cdkDropListLockAxis="y" cdkDropListOrientation="Vertical" (cdkDropListDropped)="SwapComputerSkills($event)">
+            <div fxLayout="row" *ngFor="let skills of coreDataService.templateData.computerSkills; let i = index"  cdkDrag cdkDragHandle>
+              <div fxFlex="100%" fxLayoutAlign="left center" class="m-l-1">
+                <img src="assets/images/drag.svg" width="10px" style="cursor: move">
+                <mat-form-field appearance="outline" floatLabel="always" class="m-l-1">
+                  <mat-label>{{'Skills ' + (i+1)}}</mat-label>
+                  <input matInput [(ngModel)]="skills.skill" />
+                  <div matSuffix>
+                    <div class="star-rating">
+                      <input type="radio" [id]="'5-starstechs-'+i" [name]="'techs'+i" value="5" [(ngModel)]="skills.rate"/>
+                      <label [for]="'5-starstechs-'+i" class="star">&#9733;</label>
+                      <input type="radio" [id]="'4-starstechs-'+i" [name]="'techs'+i" value="4" [(ngModel)]="skills.rate"/>
+                      <label [for]="'4-starstechs-'+i" class="star">&#9733;</label>
+                      <input type="radio" [id]="'3-starstechs-'+i" [name]="'techs'+i" value="3" [(ngModel)]="skills.rate"/>
+                      <label [for]="'3-starstechs-'+i" class="star">&#9733;</label>
+                      <input type="radio" [id]="'2-starstechs-'+i" [name]="'techs'+i" value="2" [(ngModel)]="skills.rate"/>
+                      <label [for]="'2-starstechs-'+i" class="star">&#9733;</label>
+                      <input type="radio" [id]="'1-starstechs-'+i" [name]="'techs'+i" value="1" [(ngModel)]="skills.rate"/>
+                      <label [for]="'1-starstechs-'+i" class="star">&#9733;</label>
+                    </div>
+                  </div>
+                </mat-form-field>
+                <i class="fa fa-trash cr-pointer m-l-1" style="color: red" (click)="deleteCsSkills(i)"></i>
+              </div>
+            </div>
+          </div>
+          <div fxFlex="5%"></div>
+        </div>
+        <div fxLayout="row" class="margin-top-15">
+          <div fxFlex="66%" fxLayoutAlign="end">
+            <button mat-stroked-button (click)="addComputerSkills()" style="color: #3f51b5">+New Skills</button>
+          </div>
+        </div>
+        <div fxLayout="row" fxLayoutGap="3%" style="margin-top: 25px">
+          <div fxFlex="5%"></div>
+          <div fxFlex="87%" fxLayoutAlign="end">
+            <button mat-stroked-button color="primary" (click)="sectionName = 'Skills'">Back</button>
+            <button mat-raised-button color="primary" (click)="sectionName = 'Languages'" class="m-l-1">Next Section</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div fxLayout="row" *ngIf="sectionName == 'Languages'">
+      <div fxFlex="100%">
+        <div fxLayout="row">
+          <div fxFlex="8%"></div>
+          <div fxFlex="45%" style="margin-top: 50px">
+            <i class="fa fa-flag" style="color: #1f2741;font-size: 20px"></i>&nbsp;&nbsp;<span class="font-weight-bold" style="color: #1f2741; font-size: 20px">Languages</span>
+          </div>
+          <div fxFlex="40%" style="margin-top: 50px" fxLayoutAlign="end center">
+            <mat-slide-toggle [checked]="coreDataService.templateData.language" (change)="coreDataService.templateData.language = $event.checked" color="primary">Show Section</mat-slide-toggle>
+          </div>
+          <div fxFlex="2%"></div>
+        </div>
+        <div fxLayout="row">
+          <div fxFlex="8%"></div>
+          <div fxFlex="90%" style="margin-top: 10px">
+            <span style="color: #292929; font-size: 14px"><i>If you know foreign languages, make sure to include them</i></span>
+          </div>
+          <div fxFlex="2%"></div>
+        </div>
+        <div fxLayout="row" style="margin-top: 30px">
+          <div fxFlex="5%"></div>
+          <div fxFlex="90%" cdkDropList cdkDropListLockAxis="y" cdkDropListOrientation="Vertical" (cdkDropListDropped)="SwapLangSkills($event)">
+            <div fxLayout="row" *ngFor="let skills of coreDataService.templateData.knownLanguage; let i = index"  cdkDrag cdkDragHandle>
+              <div fxFlex="100%" fxLayoutAlign="left center" class="m-l-1">
+                <img src="assets/images/drag.svg" width="10px" style="cursor: move">
+                <mat-form-field appearance="outline" floatLabel="always" class="m-l-1">
+                  <mat-label>{{'Skills ' + (i+1)}}</mat-label>
+                  <input matInput [(ngModel)]="skills.skill" />
+                  <div matSuffix>
+                    <div class="star-rating">
+                      <input type="radio" [id]="'5-starslang-'+i" [name]="'lang'+i" value="5" [(ngModel)]="skills.rate"/>
+                      <label [for]="'5-starslang-'+i" class="star">&#9733;</label>
+                      <input type="radio" [id]="'4-starslang-'+i" [name]="'lang'+i" value="4" [(ngModel)]="skills.rate"/>
+                      <label [for]="'4-starslang-'+i" class="star">&#9733;</label>
+                      <input type="radio" [id]="'3-starslang-'+i" [name]="'lang'+i" value="3" [(ngModel)]="skills.rate"/>
+                      <label [for]="'3-starslang-'+i" class="star">&#9733;</label>
+                      <input type="radio" [id]="'2-starslang-'+i" [name]="'lang'+i" value="2" [(ngModel)]="skills.rate"/>
+                      <label [for]="'2-starslang-'+i" class="star">&#9733;</label>
+                      <input type="radio" [id]="'1-starslang-'+i" [name]="'lang'+i" value="1" [(ngModel)]="skills.rate"/>
+                      <label [for]="'1-starslang-'+i" class="star">&#9733;</label>
+                    </div>
+                  </div>
+                </mat-form-field>
+                <i class="fa fa-trash cr-pointer m-l-1" style="color: red" (click)="deleteLangauge(i)"></i>
+              </div>
+            </div>
+          </div>
+          <div fxFlex="5%"></div>
+        </div>
+        <div fxLayout="row" class="margin-top-15">
+          <div fxFlex="66%" fxLayoutAlign="end">
+            <button mat-stroked-button (click)="addLanguage()" style="color: #3f51b5">+New Language</button>
+          </div>
+        </div>
+        <div fxLayout="row" fxLayoutGap="3%" style="margin-top: 25px">
+          <div fxFlex="5%"></div>
+          <div fxFlex="87%" fxLayoutAlign="end">
+            <button mat-stroked-button color="primary" (click)="sectionName = 'Software'">Back</button>
+            <button mat-raised-button color="primary" (click)="sectionName = 'Certifications'" class="m-l-1">Next Section</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div fxLayout="row" *ngIf="sectionName == 'Certifications'">
+      <div fxFlex="100%">
+        <div fxLayout="row">
+          <div fxFlex="8%"></div>
+          <div fxFlex="45%" style="margin-top: 50px" fxLayoutAlign="left center">
+            <i class="fa fa-certificate" style="color: #1f2741;font-size: 20px"></i>&nbsp;&nbsp;<span class="font-weight-bold" style="color: #1f2741; font-size: 20px">Certifications</span>
+          </div>
+          <div fxFlex="40%" style="margin-top: 50px" fxLayoutAlign="end center">
+            <mat-slide-toggle [checked]="coreDataService.templateData.certifications" (change)="coreDataService.templateData.certifications = $event.checked" color="primary">Show Section</mat-slide-toggle>
+          </div>
+          <div fxFlex="2%"></div>
+        </div>
+        <div fxLayout="row">
+          <div fxFlex="8%"></div>
+          <div fxFlex="90%" style="margin-top: 10px" fxLayoutAlign="left center">
+            <span style="color: #292929; font-size: 14px"><i>List relevant certificates you have</i></span>
+          </div>
+          <div fxFlex="2%"></div>
+        </div>
+        <div fxLayout="row" style="margin-top: 30px">
+          <div fxFlex="5%"></div>
+          <div fxFlex="90%">
+            <mat-accordion [multi]="false" cdkDropList cdkDropListLockAxis="y" cdkDropListOrientation="Vertical" (cdkDropListDropped)="SwapCertificates($event)">
+              <mat-expansion-panel *ngFor="let certificate of coreDataService.templateData.certificates; let i = index" [expanded]="certifiIndex == i" (click)="certifiIndex = i" cdkDrag cdkDragHandle style="cursor: move">
+                <mat-expansion-panel-header class="expansion" [collapsedHeight]="'50px'" [expandedHeight]="'50px'">
+                  <mat-panel-title>
+                    <div fxLayout="row">
+                      <div fxFlex="100%" fxLayoutAlign="center center">&nbsp;&nbsp;
+                        <img src="assets/images/drag.svg" width="10px">
+                        <h3 *ngIf="certificate.certificateName == null || certificate.certificateName == ''" class="m-l-1">{{'Certificate ' + (i+1)}}</h3>
+                        <h3 *ngIf="certificate.certificateName != null && certificate.certificateName != ''" class="m-l-1">{{certificate.certificateName}}</h3>
+                        <i class="fa fa-trash cr-pointer font-size-16px m-l-1" style="color: red" (click)="deleteCerficates(i)"></i>
+                      </div>
+                    </div>
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div fxLayout="row">
+                  <mat-form-field fxFlex="100%" appearance="outline" floatLabel="always">
+                    <mat-label>Certificate</mat-label>
+                    <input matInput [(ngModel)]="certificate.certificateName"/>
+                  </mat-form-field>
+                </div>
+                <div fxLayout="row"fxLayoutGap="3%">
+                  <mat-form-field fxFlex="32%" appearance="outline" floatLabel="always">
+                    <mat-label>Start Date</mat-label>
+                    <mat-select [(ngModel)]="certificate.fromDate" [(value)]="certificate.fromDate" (selectionChange)="setCertificateDate(i)">
+                      <mat-option></mat-option>
+                      <mat-option *ngFor="let date of year" [value]="date"><span>{{date}}</span></mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  <mat-form-field fxFlex="32%" appearance="outline" floatLabel="always">
+                    <mat-label>End Date</mat-label>
+                    <mat-select [(ngModel)]="certificate.toDate" [(value)]="certificate.toDate" (selectionChange)="setCertificateDate(i)">
+                      <mat-option></mat-option>
+                      <mat-option *ngFor="let date of year" [value]="date"><span>{{date}}</span></mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </mat-expansion-panel>
+            </mat-accordion>
+          </div>
+          <div fxFlex="5%"></div>
+        </div>
+        <div fxLayout="row" class="margin-top-15">
+          <div fxFlex="5%"></div>
+          <div fxFlex="90%" fxLayoutAlign="end">
+            <button mat-stroked-button (click)="addCerficates()" style="color: #3f51b5">+Add Certificates</button>
+          </div>
+          <div fxFlex="5%"></div>
+        </div>
+        <div fxLayout="row" fxLayoutGap="3%" style="margin-top: 25px">
+          <div fxFlex="5%"></div>
+          <div fxFlex="87%" fxLayoutAlign="end">
+            <button mat-stroked-button color="primary" (click)="sectionName = 'Languages'">Back</button>
+            <button mat-raised-button color="primary" (click)="sectionName = 'Honors'" class="m-l-1">Next Section</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div fxLayout="row" *ngIf="sectionName == 'Honors'">
+      <div fxFlex="100%">
+        <div fxLayout="row">
+          <div fxFlex="8%"></div>
+          <div fxFlex="45%" style="margin-top: 50px" fxLayoutAlign="left center">
+            <i class="fa fa-trophy" style="color: #1f2741;font-size: 20px"></i>&nbsp;&nbsp;<span class="font-weight-bold" style="color: #1f2741; font-size: 20px">Honors & Awards</span>
+          </div>
+          <div fxFlex="40%" style="margin-top: 50px" fxLayoutAlign="end center">
+            <mat-slide-toggle [checked]="coreDataService.templateData.honorReward" (change)="coreDataService.templateData.honorReward = $event.checked" color="primary">Show Section</mat-slide-toggle>
+          </div>
+          <div fxFlex="2%"></div>
+        </div>
+        <div fxLayout="row">
+          <div fxFlex="8%"></div>
+          <div fxFlex="90%" style="margin-top: 10px" fxLayoutAlign="left center">
+            <span style="color: #292929; font-size: 14px"><i>If you’ve won any awards, show them off!</i></span>
+          </div>
+          <div fxFlex="2%"></div>
+        </div>
+        <div fxLayout="row" style="margin-top: 30px">
+          <div fxFlex="5%"></div>
+          <div fxFlex="90%">
+            <mat-accordion [multi]="false" cdkDropList cdkDropListLockAxis="y" cdkDropListOrientation="Vertical" (cdkDropListDropped)="SwapHonors($event)">
+              <mat-expansion-panel *ngFor="let honor of coreDataService.templateData.honorAwardInfo; let i = index" [expanded]="certifiIndex == i" (click)="certifiIndex = i" cdkDrag cdkDragHandle style="cursor: move">
+                <mat-expansion-panel-header class="expansion" [collapsedHeight]="'50px'" [expandedHeight]="'50px'">
+                  <mat-panel-title>
+                    <div fxLayout="row">
+                      <div fxFlex="100%" fxLayoutAlign="center center">&nbsp;&nbsp;
+                        <img src="assets/images/drag.svg" width="10px">
+                        <h3 *ngIf="honor.award == null || honor.award == ''" class="m-l-1">{{'Award ' + (i+1)}}</h3>
+                        <h3 *ngIf="honor.award != null && honor.award != ''" class="m-l-1">{{honor.award}}</h3>
+                        <i class="fa fa-trash cr-pointer font-size-16px m-l-1" style="color: red" (click)="deleteAwards(i)"></i>
+                      </div>
+                    </div>
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div fxLayout="row" fxLayoutGap="3%">
+                  <mat-form-field fxFlex="25%" appearance="outline" floatLabel="always">
+                    <mat-label>Year</mat-label>
+                    <mat-select [(ngModel)]="honor.year" [(value)]="honor.year">
+                      <mat-option></mat-option>
+                      <mat-option *ngFor="let date of year" [value]="date"><span>{{date}}</span></mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  <mat-form-field fxFlex="100%" appearance="outline" floatLabel="always">
+                    <mat-label>Award Title</mat-label>
+                    <textarea matInput [(ngModel)]="honor.award"></textarea>
+                  </mat-form-field>
+                </div>
+              </mat-expansion-panel>
+            </mat-accordion>
+          </div>
+          <div fxFlex="5%"></div>
+        </div>
+        <div fxLayout="row" class="margin-top-15">
+          <div fxFlex="5%"></div>
+          <div fxFlex="90%" fxLayoutAlign="end">
+            <button mat-stroked-button (click)="addAwards()" style="color: #3f51b5">+Add Award</button>
+          </div>
+          <div fxFlex="5%"></div>
+        </div>
+        <div fxLayout="row" fxLayoutGap="3%" style="margin-top: 25px">
+          <div fxFlex="5%"></div>
+          <div fxFlex="87%" fxLayoutAlign="end">
+            <button mat-stroked-button color="primary" (click)="sectionName = 'Certifications'">Back</button>
+            <button mat-raised-button color="primary" (click)="sectionName = 'Interests'" class="m-l-1">Next Section</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div fxLayout="row" *ngIf="sectionName == 'Interests'">
+      <div fxFlex="100%">
+        <div fxLayout="row">
+          <div fxFlex="8%"></div>
+          <div fxFlex="45%" style="margin-top: 50px" fxLayoutAlign="left center">
+            <i class="fa fa-thumbs-up" style="color: #1f2741;font-size: 20px"></i>&nbsp;&nbsp;<span class="font-weight-bold" style="color: #1f2741; font-size: 20px">Interests</span>
+          </div>
+          <div fxFlex="40%" style="margin-top: 50px" fxLayoutAlign="end center">
+            <mat-slide-toggle [checked]="coreDataService.templateData.interest" (change)="coreDataService.templateData.interest = $event.checked" color="primary">Show Section</mat-slide-toggle>
+          </div>
+          <div fxFlex="2%"></div>
+        </div>
+        <div fxLayout="row">
+          <div fxFlex="8%"></div>
+          <div fxFlex="90%" style="margin-top: 10px" fxLayoutAlign="left center">
+            <span style="color: #292929; font-size: 14px"><i>List your hobbies and interests. Be specific! Don’t just write "reading, traveling, music"</i></span>
+          </div>
+          <div fxFlex="2%"></div>
+        </div>
+        <div fxLayout="row" style="margin-top: 30px">
+          <div fxFlex="100%" cdkDropList cdkDropListLockAxis="y" cdkDropListOrientation="Vertical" (cdkDropListDropped)="SwapInterest($event)">
+            <div fxLayout="row" *ngFor="let interest of coreDataService.templateData.interestOn; let  i = index" cdkDrag cdkDragHandle style="cursor: move">
+              <div fxFlex="60%" fxLayoutAlign="center center">
+                <img src="assets/images/drag.svg" width="10px">
+                <mat-form-field appearance="outline" floatLabel="always" class="m-l-1">
+                  <mat-label>{{'Interest' + (i+1)}}</mat-label>
+                  <input matInput [ngModel]="coreDataService.templateData.interestOn[i]" (focusout)="coreDataService.templateData.interestOn[i] = $event.target.value"/>
+                </mat-form-field>
+                <i class="fa fa-trash cr-pointer m-l-1" style="color: red" (click)="deleteInterest(i)"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div fxLayout="row" class="margin-top-15">
+          <div fxFlex="5%"></div>
+          <div fxFlex="47%" fxLayoutAlign="end">
+            <button mat-stroked-button (click)="addInterest()" style="color: #3f51b5">+Add Interest</button>
+          </div>
+          <div fxFlex="5%"></div>
+        </div>
+        <div fxLayout="row" fxLayoutGap="3%" style="margin-top: 25px">
+          <div fxFlex="5%"></div>
+          <div fxFlex="87%" fxLayoutAlign="end">
+            <button mat-stroked-button color="primary" (click)="sectionName = 'Honors'">Back</button>
+            <button mat-raised-button color="primary" (click)="sectionName = 'Activities'" class="m-l-1">Next Section</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div fxLayout="row" *ngIf="sectionName == 'Activities'">
+      <div fxFlex="100%">
+        <div fxLayout="row">
+          <div fxFlex="8%"></div>
+          <div fxFlex="45%" style="margin-top: 50px" fxLayoutAlign="left center">
+            <i class="fa fa-tasks" style="color: #1f2741;font-size: 18px"></i>&nbsp;&nbsp;<span class="font-weight-bold" style="color: #1f2741; font-size: 20px">Activities</span>
+          </div>
+          <div fxFlex="40%" style="margin-top: 50px" fxLayoutAlign="end center">
+            <mat-slide-toggle [checked]="coreDataService.templateData.activities" (change)="coreDataService.templateData.activities = $event.checked" color="primary">Show Section</mat-slide-toggle>
+          </div>
+          <div fxFlex="2%"></div>
+        </div>
+        <div fxLayout="row">
+          <div fxFlex="8%"></div>
+          <div fxFlex="90%" style="margin-top: 10px" fxLayoutAlign="left center">
+            <span style="color: #292929; font-size: 14px"><i>Activities are those things which are not directly related to the jobs you have done, but which show certain abilities and personal characteristics which may help you get the job.</i></span>
+          </div>
+          <div fxFlex="2%"></div>
+        </div>
+        <div fxLayout="row" style="margin-top: 30px">
+          <div fxFlex="5%"></div>
+          <div fxFlex="90%">
+            <mat-accordion [multi]="false" cdkDropList cdkDropListLockAxis="y" cdkDropListOrientation="Vertical" (cdkDropListDropped)="SwapActivities($event)">
+              <mat-expansion-panel *ngFor="let activity of coreDataService.templateData.activitiesInfo; let i = index" [expanded]="activityIndex == i" (click)="activityIndex = i" cdkDrag cdkDragHandle style="cursor: move">
+                <mat-expansion-panel-header class="expansion" [collapsedHeight]="'50px'" [expandedHeight]="'50px'">
+                  <mat-panel-title>
+                    <div fxLayout="row">
+                      <div fxFlex="100%" fxLayoutAlign="center center">&nbsp;&nbsp;
+                        <img src="assets/images/drag.svg" width="10px">
+                        <h3 *ngIf="activity.role == null || activity.role == ''" class="m-l-1">{{'Position ' + (i+1)}}</h3>
+                        <h3 *ngIf="activity.role != null && activity.role != ''" class="m-l-1">{{activity.role}}</h3>
+                        <i class="fa fa-trash cr-pointer font-size-16px m-l-1" style="color: red" (click)="deleteActivityInfo(i)"></i>
+                      </div>
+                    </div>
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div fxLayout="row"  style="margin-top: 30px" fxLayoutGap="3%">
+                  <mat-form-field fxFlex="50%" appearance="outline" floatLabel="always">
+                    <mat-label>Position</mat-label>
+                    <input matInput [(ngModel)]="activity.role" />
+                  </mat-form-field>
+                  <mat-form-field fxFlex="50%" appearance="outline" floatLabel="always">
+                    <mat-label>Activity Organization</mat-label>
+                    <input matInput [(ngModel)]="activity.place"/>
+                  </mat-form-field>
+                </div>
+                <div fxLayout="row"fxLayoutGap="3%">
+                  <mat-form-field fxFlex="32%" appearance="outline" floatLabel="always">
+                    <mat-label>Start Date</mat-label>
+                    <mat-select [(ngModel)]="activity.startDate" [(value)]="activity.startDate" (selectionChange)="setActivityDate(activity.isPresent, i)">
+                      <mat-option *ngFor="let date of year" [value]="date"><span>{{date}}</span></mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  <mat-form-field fxFlex="32%" appearance="outline" floatLabel="always">
+                    <mat-label>Month</mat-label>
+                    <mat-select [(ngModel)]="activity.startMonth" [(value)]="activity.startMonth" (selectionChange)="setActivityDate(activity.isPresent, i)">
+                      <mat-option *ngFor="let month of monthStr" [value]="month"><span>{{month}}</span></mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  <div fxFlex="30%" fxLayoutAlign="center center">
+                    <mat-checkbox [checked]="activity.isPresent" (change)="setActivityDate($event.checked, i)" color="primary">Present</mat-checkbox>
+                  </div>
+                </div>
+                <div fxLayout="row"fxLayoutGap="3%" *ngIf="!activity.isPresent">
+                  <mat-form-field fxFlex="32%" appearance="outline" floatLabel="always">
+                    <mat-label>End Date</mat-label>
+                    <mat-select [(ngModel)]="activity.endDate" [(value)]="activity.endDate" (selectionChange)="setActivityDateWithEnd(i)">
+                      <mat-option *ngFor="let date of year" [value]="date"><span>{{date}}</span></mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  <mat-form-field fxFlex="32%" appearance="outline" floatLabel="always">
+                    <mat-label>Month</mat-label>
+                    <mat-select [(ngModel)]="activity.endMonth" [(value)]="activity.endMonth" (selectionChange)="setActivityDateWithEnd(i)">
+                      <mat-option *ngFor="let month of monthStr" [value]="month"><span>{{month}}</span></mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <div fxLayout="row" *ngFor="let acheive of activity.summary; let j = index">
+                  <mat-form-field fxFlex="90%" appearance="outline" floatLabel="always">
+                    <mat-label>What did you do?</mat-label>
+                    <textarea matInput rows="3" [ngModel]="activity.summary[j]" (focusout)="activity.summary[j] = $event.target.value"></textarea>
+                  </mat-form-field>
+                  <div fxFlex="10%" fxLayoutAlign="center center">
+                    <i class="fa fa-trash cr-pointer" style="color: red;font-size: 14px" (click)="deleteActivitySummary(i, j)"></i>
+                  </div>
+                </div>
+                <div fxLayout="row">
+                  <div fxFlex="100%" fxLayoutAlign="left center">
+                    <i class="fa fa-plus cr-pointer" style="color: #3f51b5" (click)="addActivitySummary(i)"></i>&nbsp;<span class="mat-body-1 cr-pointer" (click)="addActivitySummary(i)" style="color: #3f51b5">Add More</span>
+                  </div>
+                </div>
+              </mat-expansion-panel>
+            </mat-accordion>
+          </div>
+          <div fxFlex="5%"></div>
+        </div>
+        <div fxLayout="row" class="margin-top-10">
+          <div fxFlex="5%"></div>
+          <div fxFlex="90%" fxLayoutAlign="end">
+            <button mat-stroked-button (click)="addActivities()" style="color: #3f51b5">+Add Activities</button>
+          </div>
+          <div fxFlex="5%"></div>
+        </div>
+        <div fxLayout="row" fxLayoutGap="3%" style="margin-top: 25px">
+          <div fxFlex="5%"></div>
+          <div fxFlex="87%" fxLayoutAlign="end">
+            <button mat-stroked-button color="primary" (click)="sectionName = 'Interests'">Back</button>
+            <button mat-raised-button color="primary" (click)="sectionName = 'Additional Info'" class="m-l-1">Next Section</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div fxLayout="row" *ngIf="sectionName == 'Additional Info'">
+      <div fxFlex="100%">
+        <div fxLayout="row">
+          <div fxFlex="8%"></div>
+          <div fxFlex="45%" style="margin-top: 50px" fxLayoutAlign="left center">
+            <i class="fa fa-info-circle" style="color: #1f2741;font-size: 18px"></i>&nbsp;&nbsp;<span class="font-weight-bold" style="color: #1f2741; font-size: 20px">Additional Information</span>
+          </div>
+          <div fxFlex="40%" style="margin-top: 50px" fxLayoutAlign="end center">
+            <mat-slide-toggle [checked]="coreDataService.templateData.additionalInfo" (change)="coreDataService.templateData.additionalInfo = $event.checked" color="primary">Show Section</mat-slide-toggle>
+          </div>
+          <div fxFlex="2%"></div>
+        </div>
+        <div fxLayout="row">
+          <div fxFlex="8%"></div>
+          <div fxFlex="90%" style="margin-top: 10px" fxLayoutAlign="left center">
+            <span style="color: #292929; font-size: 14px"><i>Enter more information about you.</i></span>
+          </div>
+          <div fxFlex="2%"></div>
+        </div>
+          <div fxLayout="row" style="margin-top: 30px">
+            <div fxFlex="8%"></div>
+            <div fxFlex="90%">
+              <div fxLayout="row" *ngFor="let addInfo of coreDataService.templateData.additionalInfoDetails; let i = index">
+                <mat-form-field appearance="outline" floatLabel="always" fxFlex="80%">
+                  <mat-label>Additional Info</mat-label>
+                  <textarea matInput [ngModel]="coreDataService.templateData.additionalInfoDetails[i]" (focusout)="coreDataService.templateData.additionalInfoDetails[i] = $event.target.value"></textarea>
+                </mat-form-field>
+                  <div fxFlex="5%" fxLayoutAlign="center center">
+                    <i class="fa fa-trash cr-pointer m-l-1" style="color: red" (click)="deleteAdditionalInfo(i)"></i>
+                  </div>
+              </div>
+            </div>
+            <div fxFlex="2%"></div>
+          </div>
+        <div fxLayout="row" class="margin-top-15">
+          <div fxFlex="80%" fxLayoutAlign="end">
+            <button mat-stroked-button (click)="addAdditionalInfo()" style="color: #3f51b5">+Additional Info</button>
+          </div>
+        </div>
+        <div fxLayout="row" fxLayoutGap="3%" style="margin-top: 25px">
+          <div fxFlex="5%"></div>
+          <div fxFlex="87%" fxLayoutAlign="end">
+            <button mat-stroked-button color="primary" (click)="sectionName = 'Activities'">Back</button>
+            <button mat-raised-button color="primary" (click)="sectionName = 'Reference'" class="m-l-1">Next Section</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div fxLayout="row" *ngIf="sectionName == 'Reference'">
+      <div fxFlex="100%">
+        <div fxLayout="row">
+          <div fxFlex="8%"></div>
+          <div fxFlex="45%" style="margin-top: 50px" fxLayoutAlign="left center">
+            <i class="fa fa-info-circle" style="color: #1f2741;font-size: 18px"></i>&nbsp;&nbsp;<span class="font-weight-bold" style="color: #1f2741; font-size: 20px">Reference</span>
+          </div>
+          <div fxFlex="40%" style="margin-top: 50px" fxLayoutAlign="end center">
+            <mat-slide-toggle [checked]="coreDataService.templateData.reference" (change)="coreDataService.templateData.reference = $event.checked" color="primary">Show Section</mat-slide-toggle>
+          </div>
+          <div fxFlex="2%"></div>
+        </div>
+        <div fxLayout="row">
+          <div fxFlex="8%"></div>
+          <div fxFlex="90%" style="margin-top: 10px" fxLayoutAlign="left center">
+            <span style="color: #292929; font-size: 14px"><i>List your references.</i></span>
+          </div>
+          <div fxFlex="2%"></div>
+        </div>
+        <div fxLayout="row" style="margin-top: 30px">
+          <div fxFlex="8%"></div>
+          <div fxFlex="90%">
+            <div fxLayout="row" *ngFor="let addInfo of coreDataService.templateData.referenceDetails; let i = index">
+              <mat-form-field appearance="outline" floatLabel="always" fxFlex="80%">
+                <mat-label>{{'Reference'+ (i + 1)}}</mat-label>
+                <textarea matInput [ngModel]="coreDataService.templateData.referenceDetails[i]" (focusout)="coreDataService.templateData.referenceDetails[i] = $event.target.value"></textarea>
+              </mat-form-field>
+              <div fxFlex="5%" fxLayoutAlign="center center">
+                <i class="fa fa-trash cr-pointer m-l-1" style="color: red" (click)="deleteReference(i)"></i>
+              </div>
+            </div>
+          </div>
+          <div fxFlex="2%"></div>
+        </div>
+        <div fxLayout="row" class="margin-top-15">
+          <div fxFlex="80%" fxLayoutAlign="end">
+            <button mat-stroked-button (click)="addReference()" style="color: #3f51b5">+Reference</button>
+          </div>
+        </div>
+        <div fxLayout="row" fxLayoutGap="3%" style="margin-top: 25px">
+          <div fxFlex="5%"></div>
+          <div fxFlex="87%" fxLayoutAlign="end">
+            <button mat-stroked-button color="primary" (click)="sectionName = 'Additional Info'">Back</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div fxLayout="row" *ngIf="sectionName == 'Resume Templates'">
+      <div fxFlex="100%">
+        <div fxLayout="row">
+          <div fxFlex="8%"></div>
+          <div fxFlex="90%" style="margin-top: 20px" fxLayoutAlign="left center">
+            <h2><img src="assets/images/temp-layout.svg" width="22px" style="position: relative;top: 3px"/>&nbsp;&nbsp;<span class="font-weight-bold" style="color: #1f2741;">Templates</span></h2>
+          </div>
+        </div>
+        <div fxLayout="row" style="margin-top: 30px">
+          <div fxFlex="5%"></div>
+          <div fxFlex="90%">
+            <mat-grid-list cols="3" rowHeight="13rem" [gutterSize]="'20px'">
+              <mat-grid-tile [ngClass]="{'selected-temp': coreDataService.selectedTemplate == 'template-one'}">
+                <mat-card class="custom-shadow padding-0">
+                  <div class="container">
+                    <img class="sidebar-img cr-pointer image" src="assets/images/template-images/template-one.png">
+                    <div class="middle">
+                      <div class="text" (click)="selectedTemplate('template-one', '#343b46')">Choose</div>
+                    </div>
+                  </div>
+                </mat-card>
+              </mat-grid-tile>
+              <mat-grid-tile [ngClass]="{'selected-temp': coreDataService.selectedTemplate == 'template-two'}">
+                <mat-card class="padding-0 margin-top-15">
+                  <div class="container">
+                    <img class="sidebar-img cr-pointer image" src="assets/images/template-images/template-two.png">
+                    <div class="middle">
+                      <div class="text" (click)="selectedTemplate('template-two', '#f3f3f3')">Choose</div>
+                    </div>
+                  </div>
+                </mat-card>
+              </mat-grid-tile>
+              <mat-grid-tile  [ngClass]="{'selected-temp': coreDataService.selectedTemplate == 'template-three'}">
+                <mat-card class="padding-0 margin-top-15">
+                  <div class="container">
+                    <img class="sidebar-img cr-pointer image" src="assets/images/template-images/template-three.png">
+                    <div class="middle">
+                      <div class="text" (click)="selectedTemplate('template-three', '#353f58')">Choose</div>
+                    </div>
+                  </div>
+                </mat-card>
+              </mat-grid-tile>
+              <mat-grid-tile [ngClass]="{'selected-temp': coreDataService.selectedTemplate == 'template-four'}">
+                <mat-card  class="padding-0 margin-top-15">
+                  <div class="container">
+                    <img class="sidebar-img cr-pointer image" src="assets/images/template-images/template-four.png">
+                    <div class="middle">
+                      <div class="text" (click)="selectedTemplate('template-four', '#353f58')">Choose</div>
+                    </div>
+                  </div>
+                </mat-card>
+              </mat-grid-tile>
+              <mat-grid-tile [ngClass]="{'selected-temp': coreDataService.selectedTemplate == 'template-five'}">
+                <mat-card class="padding-0 margin-top-15">
+                  <div class="container">
+                    <img class="sidebar-img cr-pointer image" src="assets/images/template-images/template-five.png">
+                    <div class="middle">
+                      <div class="text" (click)="selectedTemplate('template-five', '#343b46')">Choose</div>
+                    </div>
+                  </div>
+                </mat-card>
+              </mat-grid-tile>
+              <mat-grid-tile [ngClass]="{'selected-temp': coreDataService.selectedTemplate == 'template-six'}">
+                <mat-card class="padding-0 margin-top-15">
+                  <div class="container">
+                    <img class="sidebar-img cr-pointer image" src="assets/images/template-images/template-six.png">
+                    <div class="middle">
+                      <div class="text" (click)="selectedTemplate('template-six', '#343b46')">Choose</div>
+                    </div>
+                  </div>
+                </mat-card>
+              </mat-grid-tile>
+              <mat-grid-tile [ngClass]="{'selected-temp': coreDataService.selectedTemplate == 'template-seven'}">
+                <mat-card  class="padding-0 margin-top-15">
+                  <div class="container">
+                    <img class="sidebar-img cr-pointer image" src="assets/images/template-images/template-seven.png">
+                    <div class="middle">
+                      <div class="text" (click)="selectedTemplate('template-seven', '#414141')">Choose</div>
+                    </div>
+                  </div>
+                </mat-card>
+              </mat-grid-tile>
+              <mat-grid-tile [ngClass]="{'selected-temp': coreDataService.selectedTemplate == 'template-eight'}">
+                <mat-card class="padding-0 margin-top-15">
+                  <div class="container">
+                    <img class="sidebar-img cr-pointer image" src="assets/images/template-images/template-eight.png">
+                    <div class="middle">
+                      <div class="text" (click)="selectedTemplate('template-eight', '#343b46')">Choose</div>
+                    </div>
+                  </div>
+                </mat-card>
+              </mat-grid-tile>
+              <mat-grid-tile  [ngClass]="{'selected-temp': coreDataService.selectedTemplate == 'template-nine'}">
+                <mat-card class="padding-0 margin-top-15">
+                  <div class="container">
+                    <img class="sidebar-img cr-pointer image" src="assets/images/template-images/template-nine.png">
+                    <div class="middle">
+                      <div class="text" (click)="selectedTemplate('template-nine', '#343b46')">Choose</div>
+                    </div>
+                  </div>
+                </mat-card>
+              </mat-grid-tile>
+              <mat-grid-tile [ngClass]="{'selected-temp': coreDataService.selectedTemplate == 'template-ten'}">
+                <mat-card class="padding-0 margin-top-15">
+                  <div class="container">
+                    <img class="sidebar-img cr-pointer image" src="assets/images/template-images/template-ten.png">
+                    <div class="middle">
+                      <div class="text" (click)="selectedTemplate('template-ten', '#343b46')">Choose</div>
+                    </div>
+                  </div>
+                </mat-card>
+              </mat-grid-tile>
+            </mat-grid-list>
+          </div>
+          <div fxFlex="5%"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div fxFlex="1%" fxFlex.xl="8" style="background: #f9fafd"></div>
+  <div fxFlex="45%" style="background: #f9fafd;zoom:0.8" data-aos="fade-left" data-aos-easing="ease-out-cubic" data-aos-duration="800">
+    <div fxLayout="row">
+      <div fxFlex="25%" fxLayoutAlign="left center" style="margin-top: 40px; margin-bottom: 30px">
+        <div fxLayout="row">
+          <div fxFlex="100%" fxLayoutAlign="left center">
+            <a class="chakra-color" [routerLink]="'/home'" style="outline: 0;text-decoration: none"><i class="fa fa-arrow-left"></i>&nbsp;Back To Home</a>
+          </div>
+        </div>
+      </div>
+      <div fxFlex="75%" fxLayoutAlign="end center" style="margin-top: 40px; margin-bottom: 30px">
+        <mat-radio-group [(ngModel)]="coreDataService.templateData.pageType">
+          <mat-radio-button [checked]="coreDataService.templateData.pageType == 'single'" value="single">1 Page Resume</mat-radio-button>&nbsp;&nbsp;
+          <mat-radio-button [checked]="coreDataService.templateData.pageType == 'multi'" value="multi">2 Pages Resume</mat-radio-button>
+        </mat-radio-group>
+        <button mat-stroked-button (click)="verifyPdfFile(coreDataService.selectedTemplate)" color="primary" style="border: 1px solid #3f51b5" class="m-l-1">Preview</button>
+        <button mat-raised-button (click)="exportToPdf()" color="primary" style="margin-left:12px">Download PDF</button>
+      </div>
+    </div>
+    <div class="temp-container" style="margin-top: 20px;">
+      <app-template-one id="template-one" *ngIf="coreDataService.selectedTemplate == 'template-one'" [pageType]="this.coreDataService.templateData.pageType" [isImageNeeded]="coreDataService.templateData.isImageNeeded"></app-template-one>
+      <app-template-two id="template-two" *ngIf="coreDataService.selectedTemplate == 'template-two'" [pageType]="this.coreDataService.templateData.pageType" [isImageNeeded]="coreDataService.templateData.isImageNeeded"></app-template-two>
+      <app-template-three id="template-three" *ngIf="coreDataService.selectedTemplate == 'template-three'" [pageType]="this.coreDataService.templateData.pageType" [isImageNeeded]="coreDataService.templateData.isImageNeeded"></app-template-three>
+      <app-template-four id="template-four" *ngIf="coreDataService.selectedTemplate == 'template-four'" [pageType]="this.coreDataService.templateData.pageType" [isImageNeeded]="coreDataService.templateData.isImageNeeded"></app-template-four>
+      <app-template-five id="template-five" *ngIf="coreDataService.selectedTemplate == 'template-five'" [pageType]="this.coreDataService.templateData.pageType" [isImageNeeded]="coreDataService.templateData.isImageNeeded"></app-template-five>
+      <app-template-six id="template-six" *ngIf="coreDataService.selectedTemplate == 'template-six'" [pageType]="this.coreDataService.templateData.pageType" [isImageNeeded]="coreDataService.templateData.isImageNeeded"></app-template-six>
+      <app-template-seven id="template-seven" *ngIf="coreDataService.selectedTemplate == 'template-seven'" [pageType]="this.coreDataService.templateData.pageType" [isImageNeeded]="coreDataService.templateData.isImageNeeded"></app-template-seven>
+      <app-template-eight id="template-eight" *ngIf="coreDataService.selectedTemplate == 'template-eight'" [pageType]="this.coreDataService.templateData.pageType" [isImageNeeded]="coreDataService.templateData.isImageNeeded"></app-template-eight>
+      <app-template-nine id="template-nine" *ngIf="coreDataService.selectedTemplate == 'template-nine'" [pageType]="this.coreDataService.templateData.pageType" [isImageNeeded]="coreDataService.templateData.isImageNeeded"></app-template-nine>
+      <app-template-ten id="template-ten" *ngIf="coreDataService.selectedTemplate == 'template-ten'" [pageType]="this.coreDataService.templateData.pageType" [isImageNeeded]="coreDataService.templateData.isImageNeeded"></app-template-ten>
+    </div>
+  </div>
+  <div fxFlex="1%" fxFlex.xl="8" style="background: #f9fafd"></div>
+</div>

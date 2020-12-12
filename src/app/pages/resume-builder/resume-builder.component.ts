@@ -1,32 +1,32 @@
-import {Component, OnInit, HostListener, OnDestroy, ViewChild, ElementRef} from '@angular/core';
-import {CoreDataService} from '../../../services/core-data.service';
-import {AuthService} from '../../../services/auth.service';
-import {DomSanitizer} from '@angular/platform-browser';
-import html2pdf from 'html2pdf.js';
-import {UserService} from '../../../services/user.service';
-import * as firebase from 'firebase/app';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import {FormBuilder} from '@angular/forms';
-import {ImageUploadCropComponent} from '../../../components/image-upload-crop/image-upload-crop.component';
-import {PaymentRequestComponent} from '../../../components/payment-request/payment-request.component';
-import {DownloadWarningDialogComponent} from '../../../components/download-warning-dialog/download-warning-dialog.component';
-import {FeedbackFormComponent} from '../../../components/feedback-form/feedback-form.component';
-import {PdfViewerComponent} from '../../../components/pdf-viewer/pdf-viewer.component';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {CoreDataService} from '../../services/core-data.service';
 import {MatSidenav} from '@angular/material/sidenav';
+import {AuthService} from '../../services/auth.service';
+import {DomSanitizer} from '@angular/platform-browser';
+import {UserService} from '../../services/user.service';
+import {MatDialog} from '@angular/material/dialog';
+import * as firebase from 'firebase/app';
+import {DownloadWarningDialogComponent} from '../../components/download-warning-dialog/download-warning-dialog.component';
+import {FeedbackFormComponent} from '../../components/feedback-form/feedback-form.component';
+import {PdfViewerComponent} from '../../components/pdf-viewer/pdf-viewer.component';
 declare let Razorpay: any;
+import html2pdf from 'html2pdf.js';
+import {ConfirmDialogComponent} from '../../components/confirm-dialog/confirm-dialog.component';
+import {CdkDragDrop, moveItemInArray, CdkDragStart} from '@angular/cdk/drag-drop';
 @Component({
-  selector: 'app-template-editor',
-  templateUrl: './template-editor.component.html',
-  styleUrls: ['./template-editor.component.scss']
+  selector: 'app-resume-builder',
+  templateUrl: './resume-builder.component.html',
+  styleUrls: ['./resume-builder.component.scss']
 })
-export class TemplateEditorComponent implements OnInit, OnDestroy {
+export class ResumeBuilderComponent implements OnInit {
+   public sectionName = null;
   private PDF_EXTENSION = '.pdf';
-   @ViewChild('templateFile') template: ElementRef;
-   public themeColor =  [];
-   @ViewChild('sidenav') sidenav: MatSidenav;
-   private aId = 'V5cCGAXOpHMTvgL2b2rccgDLt3x1';
-   public fontFamily = ['Arial', 'Book Antiqua', 'Calibri', 'Cambria', 'Didot', 'Garamond', 'Georgia', 'Helvetica', 'Times New Roman', 'Trebuchet MS', 'Verdana'];
-   public options = {
+  @ViewChild('templateFile') template: ElementRef;
+  public themeColor =  [];
+  @ViewChild('sidenav') sidenav: MatSidenav;
+  private aId = 'V5cCGAXOpHMTvgL2b2rccgDLt3x1';
+  public fontFamily = ['Arial', 'Book Antiqua', 'Calibri', 'Cambria', 'Didot', 'Garamond', 'Georgia', 'Helvetica', 'Times New Roman', 'Trebuchet MS', 'Verdana'];
+  public options = {
     key: 'rzp_live_0Tyq3jzKCHpjDf',
     amount: '1500',
     currency: 'INR',
@@ -34,17 +34,51 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
     description: 'One Time Transaction',
     image: 'assets/images/payment-logo.png',
     handler: ((response) => {
-     this.saveToDB(response);
+      this.saveToDB(response);
     }),
     theme: {
       color: '#34457F'
     }
   };
+  public workExpIndex = 0;
+  public educationIndex = 0;
   private rzp1 = new Razorpay(this.options);
+  public monthStr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  public year = [];
+  public enableWorkExpDrag = false;
+  public certifiIndex = 0;
+  public activityIndex = 0;
+  public otherColors = [
+    {name: 'lightgray', value: '#d7d7d7'},
+    {name: 'semigray', value: '#bbbcbf'},
+    {name: 'gray', value: '#8c9096'},
+    {name: 'darkgray', value: '#454c57'},
+    {name: 'black', value: '#000000'},
+    {name: 'lightgreen', value: '#9dd82a'},
+    {name: 'semigreen', value: '#339120'},
+    {name: 'green', value: '#025923'},
+    {name: 'navyGreen', value: '#007c73'}
+  ];
+  public otherColors1 = [
+    {name: 'darkgreen', value: '#00494d'},
+    {name: 'lightskyblue', value: '#04b4ff'},
+    {name: 'skyblue', value: '#009bdf'},
+    {name: 'semiblue', value: '#0075a7'},
+    {name: 'blue', value: '#003d74'},
+    {name: 'purple', value: '#542494'},
+    {name: 'lightpurple', value: '#731c92'},
+    {name: 'red', value: '#bf271f'},
+    {name: 'darkred', value: '#7d1914'}
+  ];
   constructor(public coreDataService: CoreDataService, private auth: AuthService, private sanitizer: DomSanitizer, private userService: UserService, public dialog: MatDialog) {
 
   }
   ngOnInit(): void {
+    this.sectionName = 'Personal Info';
+    this.year = [];
+    for (let i = 2025; i >= 1900; i--) {
+      this.year.push(i + '');
+    }
     this.userService.getResumeDetails(this.aId);
     if ('selectedTemplate' in localStorage) {
       this.coreDataService.selectedTemplate = localStorage.getItem('selectedTemplate');
@@ -122,13 +156,13 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
   }
   setTickColor(colorVal) {
     let color = '#292929';
-   switch(colorVal) {
-     case '#343b46': color = '#ffffff';
-     break;
-     case '#353f58': color = '#ffffff';
-     break;
-     case '#414141': color = '#ffffff';
-       break;
+    switch(colorVal) {
+      case '#343b46': color = '#ffffff';
+        break;
+      case '#353f58': color = '#ffffff';
+        break;
+      case '#414141': color = '#ffffff';
+        break;
     }
     return color;
   }
@@ -158,16 +192,16 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
   }
   exportToPdf() {
     let dialogRef = this.dialog.open(DownloadWarningDialogComponent, {
-        width: '400px'
-      });
+      width: '400px'
+    });
     this.coreDataService.hideSeparater = true;
     dialogRef.afterClosed().subscribe(result => {
-        if (result) {
-           this.openPaymentDialog();
-        } else {
-          this.coreDataService.hideSeparater = false;
-        }
-      });
+      if (result) {
+        this.openPaymentDialog();
+      } else {
+        this.coreDataService.hideSeparater = false;
+      }
+    });
   }
   exportRightNow() {
     this.coreDataService.showSpinner = true;
@@ -227,7 +261,6 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
     this.setThemePerTemplate(this.coreDataService.selectedTemplate);
     localStorage.setItem('selectedTemplateTheme', this.coreDataService.templateData.templateTheme);
     localStorage.setItem('selectedTemplate', this.coreDataService.selectedTemplate);
-    this.sidenav.close();
   }
   changeTheme(colorValue) {
     this.coreDataService.templateData.templateTheme = colorValue;
@@ -235,7 +268,7 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
   }
   changeFontSize(size) {
     this.coreDataService.templateData.fontSize = Number(size);
-      if (this.coreDataService.templateData.fontFamily == 'Didot'){
+    if (this.coreDataService.templateData.fontFamily == 'Didot'){
       switch(size) {
         case '1':
           this.coreDataService.templateData.titleSize = 20;
@@ -314,7 +347,17 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
     this.coreDataService.templateData.companyInfo.push({companyName: '', workFromTo: '', role: '', details: [''], isPresent: false, startDate: null, endDate: null, endMonth: null, startMonth: null});
   }
   deleteCompanyInfo(i) {
-    this.coreDataService.templateData.companyInfo.splice(i, 1);
+    this.workExpIndex = null;
+    let dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '450px',
+      data: {message: 'Are you sure do you want to delete work experience?'}
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.coreDataService.templateData.companyInfo.splice(i, 1);
+      } else {
+      }
+    });
   }
   addAcheivement(i) {
     this.coreDataService.templateData.companyInfo[i].details.push('');
@@ -323,30 +366,56 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
     this.coreDataService.templateData.companyInfo[i].details.splice(j, 1);
   }
   addEducation() {
-    this.coreDataService.templateData.educationInfo.push({schoolName: '', department: '', yearFromTo: '', gpa: '',     course: '',
+    this.coreDataService.templateData.educationInfo.push({schoolName: '', department: '', yearFromTo: '', gpa: '', course: '',
       dept: '',
       startDate: null,
       endDate: null,
       endMonth: null,
-      startMonth: null,
-      isPresent: false,
-      gpaFormat: '/10',
+      startMonth: null, isPresent: false,  gpaFormat: '/10',
       gpaStatus: null});
   }
   deleteEduInfo(i) {
-    this.coreDataService.templateData.educationInfo.splice(i, 1);
+    this.educationIndex = null;
+    let dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '450px',
+      data: {message: 'Are you sure do you want to delete education?'}
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.coreDataService.templateData.educationInfo.splice(i, 1);
+      } else {
+      }
+    });
   }
   addCerficates() {
     this.coreDataService.templateData.certificates.push({certificateName: '', year: '', toDate: '', fromDate: ''});
   }
   deleteCerficates(i) {
-    this.coreDataService.templateData.certificates.splice(i, 1);
+    let dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '450px',
+      data: {message: 'Are you sure do you want to delete certificate?'}
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.coreDataService.templateData.certificates.splice(i, 1);
+      } else {
+      }
+    });
   }
   addAwards() {
     this.coreDataService.templateData.honorAwardInfo.push({year: '', award: ''});
   }
   deleteAwards(i) {
-    this.coreDataService.templateData.honorAwardInfo.splice(i, 1);
+    let dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '450px',
+      data: {message: 'Are you sure do you want to delete Award?'}
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.coreDataService.templateData.honorAwardInfo.splice(i, 1);
+      } else {
+      }
+    });
   }
   removeImage() {
     this.coreDataService.templateData.image = null;
@@ -376,14 +445,23 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
     this.coreDataService.templateData.computerSkills.push({skill: '', rate: 0});
   }
   addActivities() {
-    this.coreDataService.templateData.activitiesInfo.push({place: '', role: '', year: '', summary: [''],  isPresent: false,
+    this.coreDataService.templateData.activitiesInfo.push({place: '', role: '', year: '', summary: [''], isPresent: false,
       startDate: null,
       endDate: null,
       endMonth: null,
       startMonth: null});
   }
   deleteActivityInfo(i) {
-    this.coreDataService.templateData.activitiesInfo.splice(i, 1);
+    let dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '450px',
+      data: {message: 'Are you sure do you want to delete activity?'}
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.coreDataService.templateData.activitiesInfo.splice(i, 1);
+      } else {
+      }
+    });
   }
   deleteActivitySummary(i, k) {
     this.coreDataService.templateData.activitiesInfo[i].summary.splice(k, 1);
@@ -403,35 +481,35 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
   deleteReference(i){
     this.coreDataService.templateData.referenceDetails.splice(i, 1);
   }
-sanitizeUrl(url) {
- return this.sanitizer.bypassSecurityTrustResourceUrl(url);
-}
-verifyPdfFile(selectedElement) {
-     this.coreDataService.hideSeparater = true;
-     this.coreDataService.showSpinner = true;
-     setTimeout(() => {
-       let opt = {
-         margin: 0,
-         image: {type: 'jpeg', quality: 1},
-         html2canvas: {dpi: 192, scale: 4, letterRendering: true, useCors: true},
-         jsPDF: {unit: 'pt', format: 'letter', orientation: 'portrait'}
-       };
-       html2pdf().from(document.getElementById(selectedElement)).set(opt).toPdf().get('pdf').then((pdf) => {
-         let dialogRef = this.dialog.open(PdfViewerComponent, {
-           width: '96vw',
-           maxWidth: '96vw',
-           data: {src: pdf.output('bloburl')}
-         });
-         dialogRef.afterClosed().subscribe(result => {
-           if (result) {
-             this.coreDataService.hideSeparater = false;
-           } else {
-             this.coreDataService.hideSeparater = false;
-           }
-         });
-       });
-     }, 100);
-    }
+  sanitizeUrl(url) {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
+  verifyPdfFile(selectedElement) {
+    this.coreDataService.hideSeparater = true;
+    this.coreDataService.showSpinner = true;
+    setTimeout(() => {
+      let opt = {
+        margin: 0,
+        image: {type: 'jpeg', quality: 1},
+        html2canvas: {dpi: 192, scale: 4, letterRendering: true, useCors: true},
+        jsPDF: {unit: 'pt', format: 'letter', orientation: 'portrait'}
+      };
+      html2pdf().from(document.getElementById(selectedElement)).set(opt).toPdf().get('pdf').then((pdf) => {
+        let dialogRef = this.dialog.open(PdfViewerComponent, {
+          width: '96vw',
+          maxWidth: '96vw',
+          data: {src: pdf.output('bloburl')}
+        });
+        dialogRef.afterClosed().subscribe(result => {
+          if (result) {
+            this.coreDataService.hideSeparater = false;
+          } else {
+            this.coreDataService.hideSeparater = false;
+          }
+        });
+      });
+    }, 100);
+  }
   saveToDB(response) {
     console.log(response);
     let userPaymentsData = {
@@ -444,5 +522,100 @@ verifyPdfFile(selectedElement) {
     this.coreDataService.showSpinner = true;
     this.exportHtmlTableDataToPdf(this.coreDataService.selectedTemplate, this.coreDataService.templateData.title);
   }
+  setWorkHistoryDate(checked, i) {
+    this.coreDataService.templateData.companyInfo[i].isPresent = checked;
+    if (checked) {
+      this.coreDataService.templateData.companyInfo[i].endMonth = null;
+      this.coreDataService.templateData.companyInfo[i].endDate = null;
+      this.coreDataService.templateData.companyInfo[i].workFromTo = this.coreDataService.templateData.companyInfo[i].startMonth + ' ' + this.coreDataService.templateData.companyInfo[i].startDate + ' - Present';
+    } else {
+      this.coreDataService.templateData.companyInfo[i].workFromTo = this.coreDataService.templateData.companyInfo[i].startMonth + ' ' + this.coreDataService.templateData.companyInfo[i].startDate;
+    }
+  }
+  setWorkHistoryDateWithEnd(i) {
+    if (this.coreDataService.templateData.companyInfo[i].endMonth != null && this.coreDataService.templateData.companyInfo[i].endDate != null) {
+      this.coreDataService.templateData.companyInfo[i].workFromTo = this.coreDataService.templateData.companyInfo[i].startMonth + ' ' + this.coreDataService.templateData.companyInfo[i].startDate + ' - ' + this.coreDataService.templateData.companyInfo[i].endMonth + ' ' + this.coreDataService.templateData.companyInfo[i].endDate;
+    }
+  }
+  SwapWorkExp(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.coreDataService.templateData.companyInfo, event.previousIndex, event.currentIndex);
+    this.workExpIndex = null;
+  }
+  SwapEducation(event) {
+    moveItemInArray(this.coreDataService.templateData.educationInfo, event.previousIndex, event.currentIndex);
+    this.educationIndex = null;
+  }
+  SwapWorkExpSummary(i, event) {
+    moveItemInArray(this.coreDataService.templateData.companyInfo[i].details, event.previousIndex, event.currentIndex);
+  }
+  setEduDegree(i) {
+    if(this.coreDataService.templateData.educationInfo[i].course != null && this.coreDataService.templateData.educationInfo[i].dept != null) {
+      this.coreDataService.templateData.educationInfo[i].department = this.coreDataService.templateData.educationInfo[i].course + ', ' + this.coreDataService.templateData.educationInfo[i].dept;
+    }
+  }
+  setEducationDate(checked, i) {
+    this.coreDataService.templateData.educationInfo[i].isPresent = checked;
+    if (checked) {
+      this.coreDataService.templateData.educationInfo[i].endMonth = null;
+      this.coreDataService.templateData.educationInfo[i].endDate = null;
+      this.coreDataService.templateData.educationInfo[i].yearFromTo = this.coreDataService.templateData.educationInfo[i].startMonth + ' ' + this.coreDataService.templateData.educationInfo[i].startDate + ' - Present';
+    } else {
+      this.coreDataService.templateData.educationInfo[i].yearFromTo = this.coreDataService.templateData.educationInfo[i].startMonth + ' ' + this.coreDataService.templateData.educationInfo[i].startDate;
+    }
+  }
+  setEducationDateWithEnd(i) {
+    if (this.coreDataService.templateData.educationInfo[i].endMonth != null && this.coreDataService.templateData.educationInfo[i].endDate != null) {
+      this.coreDataService.templateData.educationInfo[i].yearFromTo = this.coreDataService.templateData.educationInfo[i].startMonth + ' ' + this.coreDataService.templateData.educationInfo[i].startDate + ' - ' + this.coreDataService.templateData.educationInfo[i].endMonth + ' ' + this.coreDataService.templateData.educationInfo[i].endDate;
+    }
+  }
+  SwapSkills(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.coreDataService.templateData.technicalSkills, event.previousIndex, event.currentIndex);
+  }
+  SwapComputerSkills(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.coreDataService.templateData.computerSkills, event.previousIndex, event.currentIndex);
+  }
+  SwapLangSkills(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.coreDataService.templateData.knownLanguage, event.previousIndex, event.currentIndex);
+  }
+  SwapCertificates(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.coreDataService.templateData.certificates, event.previousIndex, event.currentIndex);
+  }
+  setCertificateDate(i) {
+    if (this.coreDataService.templateData.certificates[i].fromDate != null && this.coreDataService.templateData.certificates[i].toDate == null) {
+      this.coreDataService.templateData.certificates[i].year = this.coreDataService.templateData.certificates[i].fromDate;
+    } else if (this.coreDataService.templateData.certificates[i].fromDate == null && this.coreDataService.templateData.certificates[i].toDate != null) {
+      this.coreDataService.templateData.certificates[i].year = this.coreDataService.templateData.certificates[i].toDate;
+    } else if (this.coreDataService.templateData.certificates[i].fromDate != null && this.coreDataService.templateData.certificates[i].toDate != null) {
+      this.coreDataService.templateData.certificates[i].year = this.coreDataService.templateData.certificates[i].fromDate + ' - ' + this.coreDataService.templateData.certificates[i].toDate;
+    } else {
+      this.coreDataService.templateData.certificates[i].year = null;
+    }
+  }
+  SwapHonors(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.coreDataService.templateData.honorAwardInfo, event.previousIndex, event.currentIndex);
+  }
+  SwapInterest(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.coreDataService.templateData.interestOn, event.previousIndex, event.currentIndex);
+  }
+  setActivityDate(checked, i) {
+    this.coreDataService.templateData.activitiesInfo[i].isPresent = checked;
+    if (checked) {
+      this.coreDataService.templateData.activitiesInfo[i].endMonth = null;
+      this.coreDataService.templateData.activitiesInfo[i].endDate = null;
+      this.coreDataService.templateData.activitiesInfo[i].year = this.coreDataService.templateData.activitiesInfo[i].startMonth + ' ' + this.coreDataService.templateData.activitiesInfo[i].startDate + ' - Present';
+    } else {
+      this.coreDataService.templateData.activitiesInfo[i].year = this.coreDataService.templateData.activitiesInfo[i].startMonth + ' ' + this.coreDataService.templateData.activitiesInfo[i].startDate;
+    }
+  }
+  setActivityDateWithEnd(i) {
+    if (this.coreDataService.templateData.activitiesInfo[i].endMonth != null && this.coreDataService.templateData.activitiesInfo[i].endDate != null) {
+      this.coreDataService.templateData.activitiesInfo[i].year = this.coreDataService.templateData.activitiesInfo[i].startMonth + ' ' + this.coreDataService.templateData.activitiesInfo[i].startDate + ' - ' + this.coreDataService.templateData.activitiesInfo[i].endMonth + ' ' + this.coreDataService.templateData.activitiesInfo[i].endDate;
+    }
+  }
+  SwapActivities(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.coreDataService.templateData.activitiesInfo, event.previousIndex, event.currentIndex);
+  }
+  setGpaFormat(i) {
+    this.coreDataService.templateData.educationInfo[i].gpa = this.coreDataService.templateData.educationInfo[i].gpaStatus + '' + this.coreDataService.templateData.educationInfo[i].gpaFormat;
+  }
 }
-

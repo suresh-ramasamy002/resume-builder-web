@@ -49,6 +49,34 @@ export class TemplateEightComponent implements OnInit {
         break;
       case '#414141': color = '#FFFFFF';
         break;
+      case '#339120': color = '#FFFFFF';
+        break;
+      case '#025923': color = '#FFFFFF';
+        break;
+      case '#007c73': color = '#FFFFFF';
+        break;
+      case '#00494d': color = '#FFFFFF';
+        break;
+      case '#04b4ff': color = '#FFFFFF';
+        break;
+      case '#009bdf': color = '#FFFFFF';
+        break;
+      case '#0075a7': color = '#FFFFFF';
+        break;
+      case '#003d74': color = '#FFFFFF';
+        break;
+      case '#542494': color = '#FFFFFF';
+        break;
+      case '#731c92': color = '#FFFFFF';
+        break;
+      case '#bf271f': color = '#FFFFFF';
+        break;
+      case '#7d1914': color = '#FFFFFF';
+        break;
+      case '#454c57': color = '#FFFFFF';
+        break;
+      case '#000000': color = '#FFFFFF';
+        break;
     }
     return color;
   }

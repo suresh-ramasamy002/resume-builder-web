@@ -25,3 +25,6 @@
 .star-rating label:hover ~ label {
   color: #353f58;
 }
+.custom-shadow-temp.mat-card {
+  box-shadow: none !important;
+}

@@ -46,13 +46,27 @@ export class UserService {
         workFromTo: '',
         companyName: '',
         role: '',
-        details: ['']
+        details: [''],
+        isPresent: false,
+        startDate: null,
+        endDate: null,
+        endMonth: null,
+        startMonth: null
       }];
       const eduInfoData: Array<EduInfo> = [{
         yearFromTo: '',
         schoolName: '',
         department: '',
-        gpa: ''
+        gpa: '',
+        course: '',
+        dept: '',
+        startDate: null,
+        endDate: null,
+        endMonth: null,
+        startMonth: null,
+        isPresent: false,
+        gpaFormat: '/10',
+        gpaStatus: null
       }];
       const honorAwardsData: Array<HonorAwardsInfo> = [{
         year: '',
@@ -64,7 +78,7 @@ export class UserService {
       const interestedData = [''];
       const addnInfoData = [''];
       const refernceData = [''];
-      const certificateData: Array<Certifications> = [{certificateName: '', year: ''}];
+      const certificateData: Array<Certifications> = [{certificateName: '', year: '', toDate: '', fromDate: ''}];
       const activityInfoData: Array<ActivitiesInfo> = [new ActivitiesInfo({place: '', role: '', year: '', summary: ['']})];
       this.storeTemplateData = new TemplateCoreObj({
         image: null,
@@ -96,7 +110,9 @@ export class UserService {
         activitiesInfo: activityInfoData,
         pageType: 'multi',
         tech: true,
-        language: true
+        language: true,
+        linkedIn: null,
+        gitHub: null
       });
       localStorage.setItem('templateData', JSON.stringify(this.storeTemplateData));
     }

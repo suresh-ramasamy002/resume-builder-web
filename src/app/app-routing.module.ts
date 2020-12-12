@@ -14,6 +14,7 @@ import {pipe} from 'rxjs';
 import { map } from 'rxjs/operators';
 import {ResumeRulesComponent} from './pages/resume-rules/resume-rules.component';
 import {HowToUseComponent} from './pages/how-to-use/how-to-use.component';
+import {ResumeBuilderComponent} from './pages/resume-builder/resume-builder.component';
 
 export const redirectAnonymousTo = (redirect: any[]) =>
   pipe(isNotAnonymous, map(loggedIn => loggedIn || redirect));
@@ -29,7 +30,8 @@ const routes: Routes = [
   {path: 'rulesAndTips', component: ResumeRulesComponent, canActivate: [AngularFireAuthGuard]},
   {path: 'home', component: HomeComponent, canActivate: [AngularFireAuthGuard]},
   {path: 'adminDashboard_protect*1_!2000128846628812', component: AdminDashboardComponent, canActivate: [AngularFireAuthGuard]},
-  {path: 'tempEditor', component: TemplateEditorComponent, canActivate: [AngularFireAuthGuard]},
+  {path: 'tempEditor', component: ResumeBuilderComponent, canActivate: [AngularFireAuthGuard]},
+  {path: 'resumeBuilder', component: ResumeBuilderComponent, canActivate: [AngularFireAuthGuard]},
   {path: '**', redirectTo: '/' }
 ];
 
