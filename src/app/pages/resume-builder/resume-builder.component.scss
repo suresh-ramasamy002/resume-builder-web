@@ -1,6 +1,7 @@
 .builder-height{
   height: 100vh;
   overflow: scroll;
+  scrollbar-width: thin;
 }
 .builder-side-menu{
   background: #1f2741;
@@ -200,4 +201,8 @@ mat-label {
 }
 .mat-select{
   padding-top: 5px;
+}
+.zoom-level{
+  transform: scale(0.5);
+  transform-origin: 50% 0;
 }

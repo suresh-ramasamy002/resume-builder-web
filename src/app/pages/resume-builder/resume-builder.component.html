@@ -1219,26 +1219,32 @@
       </div>
     </div>
   </div>
-  <div fxFlex="1%" fxFlex.xl="8" style="background: #f9fafd"></div>
-  <div fxFlex="45%" style="background: #f9fafd;zoom:0.8" data-aos="fade-left" data-aos-easing="ease-out-cubic" data-aos-duration="800">
+  <div fxFlex="1%" fxFlex.xl="1%" style="background: #f9fafd"></div>
+  <div fxFlex="45%" style="background: #f9fafd;height: 100vh; overflow: hidden" data-aos="fade-left" data-aos-easing="ease-out-cubic" data-aos-duration="800" class="zoom-level">
     <div fxLayout="row">
-      <div fxFlex="25%" fxLayoutAlign="left center" style="margin-top: 40px; margin-bottom: 30px">
+      <div fxFlex="25%" fxLayoutAlign="left center" style="margin-top: 30px; margin-bottom: 30px;transform: scale(0.9);">
         <div fxLayout="row">
           <div fxFlex="100%" fxLayoutAlign="left center">
             <a class="chakra-color" [routerLink]="'/home'" style="outline: 0;text-decoration: none"><i class="fa fa-arrow-left"></i>&nbsp;Back To Home</a>
           </div>
         </div>
       </div>
-      <div fxFlex="75%" fxLayoutAlign="end center" style="margin-top: 40px; margin-bottom: 30px">
+      <div fxFlex="75%" fxLayoutAlign="end" style="margin-top: 20px; margin-bottom: 10px;transform: scale(0.9);">
+        <div>
+        <button mat-stroked-button (click)="verifyPdfFile(coreDataService.selectedTemplate)" color="primary" style="border: 1px solid #3f51b5" class="m-l-1"><i class="fa fa-eye"></i>&nbsp;Preview</button>
+        <button mat-raised-button (click)="exportToPdf()" color="primary" style="margin-left:12px"><i class="fa fa-download"></i>&nbsp;Download PDF</button>
+      </div>
+      </div>
+    </div>
+    <div fxLayout="row">
+      <div fxFlex="100%" fxLayoutAlign="center center" style="margin-bottom: 5px; transform: scale(0.85);">
         <mat-radio-group [(ngModel)]="coreDataService.templateData.pageType">
           <mat-radio-button [checked]="coreDataService.templateData.pageType == 'single'" value="single">1 Page Resume</mat-radio-button>&nbsp;&nbsp;
           <mat-radio-button [checked]="coreDataService.templateData.pageType == 'multi'" value="multi">2 Pages Resume</mat-radio-button>
         </mat-radio-group>
-        <button mat-stroked-button (click)="verifyPdfFile(coreDataService.selectedTemplate)" color="primary" style="border: 1px solid #3f51b5" class="m-l-1">Preview</button>
-        <button mat-raised-button (click)="exportToPdf()" color="primary" style="margin-left:12px">Download PDF</button>
       </div>
     </div>
-    <div class="temp-container" style="margin-top: 20px;">
+    <div class="temp-container" style="margin-top: 20px;width: 54vw;height: 110vh;transform-origin: 14% 0%;transform: scale(0.7);">
       <app-template-one id="template-one" *ngIf="coreDataService.selectedTemplate == 'template-one'" [pageType]="this.coreDataService.templateData.pageType" [isImageNeeded]="coreDataService.templateData.isImageNeeded"></app-template-one>
       <app-template-two id="template-two" *ngIf="coreDataService.selectedTemplate == 'template-two'" [pageType]="this.coreDataService.templateData.pageType" [isImageNeeded]="coreDataService.templateData.isImageNeeded"></app-template-two>
       <app-template-three id="template-three" *ngIf="coreDataService.selectedTemplate == 'template-three'" [pageType]="this.coreDataService.templateData.pageType" [isImageNeeded]="coreDataService.templateData.isImageNeeded"></app-template-three>
@@ -1251,5 +1257,5 @@
       <app-template-ten id="template-ten" *ngIf="coreDataService.selectedTemplate == 'template-ten'" [pageType]="this.coreDataService.templateData.pageType" [isImageNeeded]="coreDataService.templateData.isImageNeeded"></app-template-ten>
     </div>
   </div>
-  <div fxFlex="1%" fxFlex.xl="8" style="background: #f9fafd"></div>
+  <div fxFlex="1%" fxFlex.xl="1%" style="background: #f9fafd"></div>
 </div>
