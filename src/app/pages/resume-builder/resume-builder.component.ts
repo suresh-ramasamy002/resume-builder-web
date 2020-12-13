@@ -350,7 +350,7 @@ export class ResumeBuilderComponent implements OnInit {
     this.workExpIndex = null;
     let dialogRef = this.dialog.open(ConfirmDialogComponent, {
       width: '450px',
-      data: {message: 'Are you sure do you want to delete work experience?'}
+      data: {heading: 'Do you want to remove this entry?', message: 'If you remove this position all your changes will be lost.'}
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
@@ -378,7 +378,7 @@ export class ResumeBuilderComponent implements OnInit {
     this.educationIndex = null;
     let dialogRef = this.dialog.open(ConfirmDialogComponent, {
       width: '450px',
-      data: {message: 'Are you sure do you want to delete education?'}
+      data: {heading: 'Do you want to remove this entry?', message: 'If you remove this position all your changes will be lost.'}
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
@@ -393,7 +393,7 @@ export class ResumeBuilderComponent implements OnInit {
   deleteCerficates(i) {
     let dialogRef = this.dialog.open(ConfirmDialogComponent, {
       width: '450px',
-      data: {message: 'Are you sure do you want to delete certificate?'}
+      data: {heading: 'Do you want to remove this entry?', message: 'If you remove this position all your changes will be lost.'}
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
@@ -408,7 +408,7 @@ export class ResumeBuilderComponent implements OnInit {
   deleteAwards(i) {
     let dialogRef = this.dialog.open(ConfirmDialogComponent, {
       width: '450px',
-      data: {message: 'Are you sure do you want to delete Award?'}
+      data: {heading: 'Do you want to remove this entry?', message: 'If you remove this position all your changes will be lost.'}
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
@@ -454,7 +454,7 @@ export class ResumeBuilderComponent implements OnInit {
   deleteActivityInfo(i) {
     let dialogRef = this.dialog.open(ConfirmDialogComponent, {
       width: '450px',
-      data: {message: 'Are you sure do you want to delete activity?'}
+      data: {heading: 'Do you want to remove this entry?', message: 'If you remove this position all your changes will be lost.'}
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
@@ -549,8 +549,10 @@ export class ResumeBuilderComponent implements OnInit {
     moveItemInArray(this.coreDataService.templateData.companyInfo[i].details, event.previousIndex, event.currentIndex);
   }
   setEduDegree(i) {
-    if(this.coreDataService.templateData.educationInfo[i].course != null && this.coreDataService.templateData.educationInfo[i].dept != null) {
+    if(this.coreDataService.templateData.educationInfo[i].course != null && this.coreDataService.templateData.educationInfo[i].dept != null && this.coreDataService.templateData.educationInfo[i].course != '' && this.coreDataService.templateData.educationInfo[i].dept != '') {
       this.coreDataService.templateData.educationInfo[i].department = this.coreDataService.templateData.educationInfo[i].course + ', ' + this.coreDataService.templateData.educationInfo[i].dept;
+    } else {
+      this.coreDataService.templateData.educationInfo[i].department = '';
     }
   }
   setEducationDate(checked, i) {
@@ -617,5 +619,149 @@ export class ResumeBuilderComponent implements OnInit {
   }
   setGpaFormat(i) {
     this.coreDataService.templateData.educationInfo[i].gpa = this.coreDataService.templateData.educationInfo[i].gpaStatus + '' + this.coreDataService.templateData.educationInfo[i].gpaFormat;
+  }
+  hideWorkExp() {
+    let dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '450px',
+      data: {heading: 'Do you want to hide this section?', message: 'Your changes have been saved. You can add this section once again later.'}
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.coreDataService.templateData.workExp = false;
+      } else {
+      }
+    });
+  }
+  hideEduExp() {
+    let dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '450px',
+      data: {heading: 'Do you want to hide this section?', message: 'Your changes have been saved. You can add this section once again later.'}
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.coreDataService.templateData.education = false;
+      } else {
+      }
+    });
+  }
+  hideSkills() {
+    let dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '450px',
+      data: {heading: 'Do you want to hide this section?', message: 'Your changes have been saved. You can add this section once again later.'}
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.coreDataService.templateData.skills = false;
+      } else {
+      }
+    });
+  }
+  hideSummary() {
+    let dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '450px',
+      data: {heading: 'Do you want to hide this section?', message: 'Your changes have been saved. You can add this section once again later.'}
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.coreDataService.templateData.objective = false;
+      } else {
+      }
+    });
+  }
+  hideSoftware() {
+    let dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '450px',
+      data: {heading: 'Do you want to hide this section?', message: 'Your changes have been saved. You can add this section once again later.'}
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.coreDataService.templateData.tech = false;
+      } else {
+      }
+    });
+  }
+  hideLanguages() {
+    let dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '450px',
+      data: {heading: 'Do you want to hide this section?', message: 'Your changes have been saved. You can add this section once again later.'}
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.coreDataService.templateData.language = false;
+      } else {
+      }
+    });
+  }
+  hideCertificates() {
+    let dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '450px',
+      data: {heading: 'Do you want to hide this section?', message: 'Your changes have been saved. You can add this section once again later.'}
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.coreDataService.templateData.certifications = false;
+      } else {
+      }
+    });
+  }
+  hideHonors() {
+    let dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '450px',
+      data: {heading: 'Do you want to hide this section?', message: 'Your changes have been saved. You can add this section once again later.'}
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.coreDataService.templateData.honorReward = false;
+      } else {
+      }
+    });
+  }
+  hideInterest() {
+    let dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '450px',
+      data: {heading: 'Do you want to hide this section?', message: 'Your changes have been saved. You can add this section once again later.'}
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.coreDataService.templateData.interest = false;
+      } else {
+      }
+    });
+  }
+  hideActivities() {
+    let dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '450px',
+      data: {heading: 'Do you want to hide this section?', message: 'Your changes have been saved. You can add this section once again later.'}
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.coreDataService.templateData.activities = false;
+      } else {
+      }
+    });
+  }
+  hideAdditionalInfo() {
+    let dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '450px',
+      data: {heading: 'Do you want to hide this section?', message: 'Your changes have been saved. You can add this section once again later.'}
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.coreDataService.templateData.additionalInfo = false;
+      } else {
+      }
+    });
+  }
+  hideReference() {
+    let dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '450px',
+      data: {heading: 'Do you want to hide this section?', message: 'Your changes have been saved. You can add this section once again later.'}
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.coreDataService.templateData.reference = false;
+      } else {
+      }
+    });
   }
 }

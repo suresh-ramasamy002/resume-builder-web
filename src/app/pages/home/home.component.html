@@ -11,7 +11,7 @@
       <div fxShow="true" fxHide.lt-md *ngIf="coreDataService?.userDetails?.firstName">
         <a mat-button *ngIf="coreDataService.userDetails.role == 'PRO_ADMIN_1'" mat-button [routerLink]="'/adminDashboard_protect*1_!2000128846628812'" class="font-size-15">Admin Dashboard</a>
         <a mat-button (click)="logoutUser()" class="font-size-15">Logout</a>&nbsp;
-        <label style="font-size:14px">Hello {{coreDataService.userDetails.firstName + ' ' + coreDataService.userDetails.lastName}}</label>
+        <label style="font-size:14px;font-family: Work Sans, sans-serif;">Hello {{coreDataService.userDetails.firstName + ' ' + coreDataService.userDetails.lastName}}</label>
       </div>
     </mat-toolbar-row>
   </mat-toolbar>
@@ -52,7 +52,7 @@
             <label class="color-white header-font">Resume Templates</label><br/>
           </div>
           <div>
-            <h3 class="sub-header-font">Choose your CV template, fill it out, and Export. Create and download your professional resume in a few minutes</h3>
+            <h3 class="sub-header-font">Choose your CV template, fill it out, and Export. Create and download your professional resume in minutes</h3>
           </div>
         </div>
         <div fxFlex="40%" fxLayoutAlign="center" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="100%" data-aos="fade-left" data-aos-easing="ease-out-cubic" data-aos-duration="1000" data-aos-once="true">

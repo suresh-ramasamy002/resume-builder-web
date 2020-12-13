@@ -89,7 +89,7 @@
       </div>
     </div>
   </div>
-  <div fxFlex="37.5%" style="background: #ffffff;border-right: 1px solid #e8e8e8;" class="builder-height scroll-y" data-aos="zoom-out" data-aos-easing="ease-out-cubic" data-aos-duration="800">
+  <div fxFlex="37.5%" style="background: #ffffff;border-right: 1px solid #e8e8e8;" class="builder-height scroll-y" data-aos="fade-down" data-aos-easing="ease-out-cubic" data-aos-duration="800">
     <div fxLayout="row" *ngIf="sectionName == 'Custom Design'">
       <div fxFlex="100%">
         <div fxLayout="row">
@@ -244,11 +244,8 @@
       <div fxFlex="100%">
         <div fxLayout="row">
           <div fxFlex="8%"></div>
-          <div fxFlex="45%" style="margin-top: 50px" fxLayoutAlign="left center">
+          <div fxFlex="85%" style="margin-top: 50px" fxLayoutAlign="left center">
             <i class="fa fa-list" style="color: #1f2741;font-size: 18px"></i>&nbsp;&nbsp;<span class="font-weight-bold" style="color: #1f2741; font-size: 20px">Summary</span>
-          </div>
-          <div fxFlex="40%" style="margin-top: 50px" fxLayoutAlign="end center">
-          <mat-slide-toggle [checked]="coreDataService.templateData.objective" (change)="coreDataService.templateData.objective = $event.checked" color="primary">Show Section</mat-slide-toggle>
           </div>
           <div fxFlex="2%"></div>
         </div>
@@ -259,7 +256,36 @@
           </div>
           <div fxFlex="2%"></div>
         </div>
-        <div fxLayout="row" fxLayoutGap="3%" style="margin-top: 30px">
+        <div fxLayout="row" class="margin-top-15" fxLayoutGap="1%">
+          <div fxFlex="8%"></div>
+          <div fxFlex="90%">
+            <button class="hide-button" *ngIf="coreDataService.templateData.objective" (click)="hideSummary()"><i class="fa fa-eye-slash"></i>&nbsp;Hide Section</button>
+            <button class="show-button" *ngIf="!coreDataService.templateData.objective" (click)="coreDataService.templateData.objective = true;"><i class="fa fa-eye"></i>&nbsp;Show Section</button>
+            <button class="hide-button m-l-1" [matMenuTriggerFor]="summaryInfoTips"><i class="fa fa-lightbulb"></i>&nbsp;Tips</button>
+            <mat-menu #summaryInfoTips="matMenu">
+              <div fxLayout="row">
+                <div fxFlex="100%">
+                  <h4 style="color: #2c3d73;font-family: Work Sans,sans-serif; margin-bottom: 10px">EXPERT INSIGHTS</h4>
+                  <h5 class="text-color-light-gray font-weight-normal mat-caption font-family-label font-family-label" style="margin-top: 0px">Shortcut: If you don’t have time to tailor your entire resume for a specific job application, at least change this section so that it matches the opportunity.</h5>
+                  <div style="background: #e8ebec;padding-top: 10px;padding-right: 15px; padding-bottom: 10px">
+                    <ul>
+                      <li class="mat-caption font-family-label font-family-label">Write a career overview so that hiring managers can immediately see the value that you bring.</li>
+                      <li class="mat-caption font-family-label font-family-label" style="margin-top: 5px">Make your summary sound stronger by writing it in the present tense. Focus on what you can do for a company, rather than what you did in the past.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </mat-menu>
+          </div>
+        </div>
+        <div fxLayout="row" class="margin-top-15" *ngIf="!coreDataService.templateData.objective">
+          <div fxFlex="9%"></div>
+          <div fxFlex="84%">
+            <label class="mat-caption font-family-label" style="color: #2c3d73;font-family: Work Sans,sans-serif;"><i class="fa fa-info-circle"></i>&nbsp;This Section is hidden. Please click <b>'Show Section'</b> if you want to enable this section</label>
+          </div>
+          <div fxFlex="9%"></div>
+        </div>
+        <div fxLayout="row" fxLayoutGap="3%" style="margin-top: 20px">
           <div fxFlex="5%"></div>
           <mat-form-field fxFlex="90%" appearance="outline" floatLabel="always">
             <mat-label>Summary</mat-label>
@@ -281,36 +307,61 @@
       <div fxFlex="100%">
         <div fxLayout="row">
           <div fxFlex="8%"></div>
-          <div fxFlex="45%" style="margin-top: 50px" fxLayoutAlign="left center">
+          <div fxFlex="85%" style="margin-top: 50px" fxLayoutAlign="left center">
             <i class="fa fa-suitcase" style="color: #1f2741;font-size: 18px"></i>&nbsp;&nbsp;<span class="font-weight-bold" style="color: #1f2741; font-size: 20px">Work Experience</span>
-          </div>
-          <div fxFlex="40%" style="margin-top: 50px" fxLayoutAlign="end center">
-            <mat-slide-toggle [checked]="coreDataService.templateData.workExp" (change)="coreDataService.templateData.workExp = $event.checked" color="primary">Show Section</mat-slide-toggle>
           </div>
           <div fxFlex="2%"></div>
         </div>
         <div fxLayout="row">
           <div fxFlex="8%"></div>
-          <div fxFlex="90%" style="margin-top: 10px" fxLayoutAlign="left center">
+          <div fxFlex="82%" style="margin-top: 10px" fxLayoutAlign="left center">
             <span style="color: #292929; font-size: 14px"><i>Start with your current or most recent job and work backward from there.</i></span>
           </div>
-          <div fxFlex="2%"></div>
+          <div fxFlex="8%"></div>
         </div>
-        <div fxLayout="row" style="margin-top: 30px">
+        <div fxLayout="row" class="margin-top-15" fxLayoutGap="1%">
+          <div fxFlex="8%"></div>
+          <div fxFlex="90%">
+           <button class="hide-button" *ngIf="coreDataService.templateData.workExp" (click)="hideWorkExp()"><i class="fa fa-eye-slash"></i>&nbsp;Hide Section</button>
+            <button class="show-button" *ngIf="!coreDataService.templateData.workExp" (click)="coreDataService.templateData.workExp = true;"><i class="fa fa-eye"></i>&nbsp;Show Section</button>
+            <button class="hide-button m-l-1" [matMenuTriggerFor]="WorkInfoTips"><i class="fa fa-lightbulb"></i>&nbsp;Tips</button>
+            <mat-menu #WorkInfoTips="matMenu">
+              <div fxLayout="row">
+                <div fxFlex="100%">
+                  <h4 style="color: #2c3d73;font-family: Work Sans,sans-serif; margin-bottom: 10px">EXPERT INSIGHTS</h4>
+                  <h5 class="text-color-light-gray font-weight-normal mat-caption font-family-label" style="margin-top: 0px">Hiring managers will scan this information looking for career progression, i.e.- how long you've stayed in each job, your growth and promotions, whether you've worked for similar companies and whether you have gaps in employment.</h5>
+                  <div style="background: #e8ebec;padding-top: 10px;padding-right: 15px; padding-bottom: 10px">
+                    <ul>
+                      <li class="mat-caption font-family-label">Enter basic information about your previous jobs so employers can see where you've worked.</li>
+                      <li class="mat-caption font-family-label" style="margin-top: 5px">Don't abbreviate job titles. Using your full title looks more professional and is easier for managers to understand.</li>
+                      <li class="mat-caption font-family-label" style="margin-top: 5px">Include start and end dates for each position. Leaving off dates will make employers think you're hiding something.</li>
+                      <li class="mat-caption font-family-label" style="margin-top: 5px">Can't remember your exact start date or job title? Don't worry - enter your best guess and come back to edit it later, once you've confirmed the information.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </mat-menu>
+          </div>
+        </div>
+        <div fxLayout="row" class="margin-top-15" *ngIf="!coreDataService.templateData.workExp">
+          <div fxFlex="9%"></div>
+          <div fxFlex="83%">
+            <label class="mat-caption font-family-label" style="color: #2c3d73;font-family: Work Sans,sans-serif;"><i class="fa fa-info-circle"></i>&nbsp;This Section is hidden. Please click <b>'Show Section'</b> if you want to enable this section</label>
+          </div>
+          <div fxFlex="9%"></div>
+        </div>
+        <div fxLayout="row" style="margin-top: 20px">
           <div fxFlex="5%"></div>
           <div fxFlex="90%">
             <mat-accordion [multi]="false" cdkDropList cdkDropListLockAxis="y" cdkDropListOrientation="Vertical" (cdkDropListDropped)="SwapWorkExp($event)">
-              <mat-expansion-panel *ngFor="let workExp of coreDataService.templateData.companyInfo; let i = index" [expanded]="workExpIndex == i" (click)="workExpIndex = i" cdkDrag cdkDragHandle style="cursor: move">
+              <mat-expansion-panel *ngFor="let workExp of coreDataService.templateData.companyInfo; let i = index" [expanded]="workExpIndex == i" (click)="workExpIndex = i" cdkDrag cdkDragHandle>
                 <mat-expansion-panel-header class="expansion" [collapsedHeight]="'50px'" [expandedHeight]="'50px'">
-                  <mat-panel-title>
-                    <div fxLayout="row">
-                      <div fxFlex="100%" fxLayoutAlign="center center">&nbsp;&nbsp;
-                        <img src="assets/images/drag.svg" width="10px">
-                        <h3 *ngIf="workExp.companyName == null || workExp.companyName == ''" class="m-l-1">{{'Position ' + (i+1)}}</h3>
-                        <h3 *ngIf="workExp.companyName != null && workExp.companyName != ''" class="m-l-1">{{workExp.companyName}}</h3>
-                        <i class="fa fa-trash cr-pointer font-size-16px m-l-1" style="color: red" (click)="deleteCompanyInfo(i)"></i>
-                      </div>
-                    </div>
+                  <mat-panel-title style="font-family: Work Sans,sans-serif">
+                        <img src="assets/images/drag.svg" width="10px" style="cursor: move">
+                        <h3 class="m-l-1">{{'Position ' + (i+1)}}</h3>
+                         <div>
+                           <button class="hide-button m-l-1 margin-top-15" (click)="deleteCompanyInfo(i)" style="width: 170px" *ngIf="coreDataService.templateData.companyInfo.length > 1"><i class="fa fa-trash cr-pointer font-size-16px"></i>&nbsp; Remove Position</button>
+                         </div>
                   </mat-panel-title>
                 </mat-expansion-panel-header>
                 <div fxLayout="row"  style="margin-top: 30px" fxLayoutGap="3%">
@@ -376,7 +427,7 @@
         <div fxLayout="row" class="margin-top-10">
           <div fxFlex="5%"></div>
           <div fxFlex="90%" fxLayoutAlign="end">
-            <button mat-stroked-button (click)="addWorkExperience()" style="color: #3f51b5">+Add Work Experience</button>
+            <button mat-stroked-button (click)="addWorkExperience()">+Add Work Experience</button>
           </div>
           <div fxFlex="5%"></div>
         </div>
@@ -393,11 +444,8 @@
       <div fxFlex="100%">
         <div fxLayout="row">
           <div fxFlex="8%"></div>
-          <div fxFlex="45%" style="margin-top: 50px">
+          <div fxFlex="85%" style="margin-top: 50px">
             <i class="fa fa-graduation-cap" style="color: #1f2741;font-size: 20px"></i>&nbsp;&nbsp;<span class="font-weight-bold" style="color: #1f2741; font-size: 20px">Education</span>
-          </div>
-          <div fxFlex="40%" style="margin-top: 50px" fxLayoutAlign="end center">
-            <mat-slide-toggle [checked]="coreDataService.templateData.education" (change)="coreDataService.templateData.education = $event.checked" color="primary">Show Section</mat-slide-toggle>
           </div>
           <div fxFlex="2%"></div>
         </div>
@@ -408,19 +456,50 @@
           </div>
           <div fxFlex="2%"></div>
         </div>
-        <div fxLayout="row" style="margin-top: 30px">
+        <div fxLayout="row" class="margin-top-15" fxLayoutGap="1%">
+          <div fxFlex="8%"></div>
+          <div fxFlex="90%">
+            <button class="hide-button" *ngIf="coreDataService.templateData.education" (click)="hideEduExp()"><i class="fa fa-eye-slash"></i>&nbsp;Hide Section</button>
+            <button class="show-button" *ngIf="!coreDataService.templateData.education" (click)="coreDataService.templateData.education = true;"><i class="fa fa-eye"></i>&nbsp;Show Section</button>
+            <button class="hide-button m-l-1" [matMenuTriggerFor]="eduInfoTips"><i class="fa fa-lightbulb"></i>&nbsp;Tips</button>
+            <mat-menu #eduInfoTips="matMenu">
+              <div fxLayout="row">
+                <div fxFlex="100%">
+                  <h4 style="color: #2c3d73;font-family: Work Sans,sans-serif; margin-bottom: 10px">EXPERT INSIGHTS</h4>
+                  <h5 class="text-color-light-gray font-weight-normal mat-caption font-family-label" style="margin-top: 0px">Ageism in the workforce still exists. If your degree is over ten years old, consider removing the date.</h5>
+                  <div style="background: #e8ebec;padding-top: 10px;padding-right: 15px; padding-bottom: 10px">
+                    <ul>
+                      <li class="mat-caption font-family-label">List the schools you've attended and any degrees you've earned, starting with your most recent.</li>
+                      <li class="mat-caption font-family-label" style="margin-top: 5px">List high school only if you didn't go to college.</li>
+                      <li class="mat-caption font-family-label" style="margin-top: 5px">Certifications and training programs should be included in a separate section.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </mat-menu>
+          </div>
+        </div>
+        <div fxLayout="row" class="margin-top-15" *ngIf="!coreDataService.templateData.education">
+          <div fxFlex="9%"></div>
+          <div fxFlex="84%">
+            <label class="mat-caption font-family-label" style="color: #2c3d73;font-family: Work Sans,sans-serif;"><i class="fa fa-info-circle"></i>&nbsp;This Section is hidden. Please click <b>'Show Section'</b> if you want to enable this section</label>
+          </div>
+          <div fxFlex="9%"></div>
+        </div>
+        <div fxLayout="row" style="margin-top: 20px">
           <div fxFlex="5%"></div>
           <div fxFlex="90%">
             <mat-accordion [multi]="false" cdkDropList cdkDropListLockAxis="y" cdkDropListOrientation="Vertical" (cdkDropListDropped)="SwapEducation($event)">
-              <mat-expansion-panel *ngFor="let edu of coreDataService.templateData.educationInfo; let i = index" [expanded]="educationIndex == i" (click)="educationIndex = i" cdkDrag cdkDragHandle style="cursor: move">
+              <mat-expansion-panel *ngFor="let edu of coreDataService.templateData.educationInfo; let i = index" [expanded]="educationIndex == i" (click)="educationIndex = i" cdkDrag cdkDragHandle>
                 <mat-expansion-panel-header class="expansion" [collapsedHeight]="'50px'" [expandedHeight]="'50px'">
                   <mat-panel-title>
                     <div fxLayout="row">
                       <div fxFlex="100%" fxLayoutAlign="center center">
-                        <img src="assets/images/drag.svg" width="10px">
-                        <h3 *ngIf="edu.schoolName == null || edu.schoolName == ''" class="m-l-1">{{'Education ' + (i+1)}}</h3>
-                        <h3 *ngIf="edu.schoolName != null && edu.schoolName != ''" class="m-l-1">{{edu.schoolName}}</h3>
-                        <i class="fa fa-trash cr-pointer font-size-16px m-l-1" style="color: red" (click)="deleteEduInfo(i)"></i>
+                        <img src="assets/images/drag.svg" width="10px" style="cursor: move">
+                        <h3 class="m-l-1">{{'Degree ' + (i+1)}}</h3>
+                        <div>
+                          <button class="hide-button m-l-1" (click)="deleteEduInfo(i)" style="width: 170px" *ngIf="coreDataService.templateData.educationInfo.length > 1"><i class="fa fa-trash cr-pointer font-size-16px"></i>&nbsp; Remove Degree</button>
+                        </div>
                       </div>
                     </div>
                   </mat-panel-title>
@@ -493,7 +572,7 @@
         <div fxLayout="row" class="margin-top-10">
           <div fxFlex="5%"></div>
           <div fxFlex="90%" fxLayoutAlign="end">
-            <button mat-stroked-button (click)="addEducation()" style="color: #3f51b5">+Add Education</button>
+            <button mat-stroked-button (click)="addEducation()">+Add Education</button>
           </div>
           <div fxFlex="5%"></div>
         </div>
@@ -510,22 +589,49 @@
       <div fxFlex="100%">
         <div fxLayout="row">
           <div fxFlex="8%"></div>
-          <div fxFlex="45%" style="margin-top: 50px">
+          <div fxFlex="85%" style="margin-top: 50px">
             <i class="fa fa-puzzle-piece" style="color: #1f2741;font-size: 20px"></i>&nbsp;&nbsp;<span class="font-weight-bold" style="color: #1f2741; font-size: 20px">Skills</span>
-          </div>
-          <div fxFlex="40%" style="margin-top: 50px" fxLayoutAlign="end center">
-            <mat-slide-toggle [checked]="coreDataService.templateData.skills" (change)="coreDataService.templateData.skills = $event.checked" color="primary">Show Section</mat-slide-toggle>
           </div>
           <div fxFlex="2%"></div>
         </div>
         <div fxLayout="row">
           <div fxFlex="8%"></div>
-          <div fxFlex="90%" style="margin-top: 10px">
+          <div fxFlex="84%" style="margin-top: 10px">
             <span style="color: #292929; font-size: 14px"><i>Highlight your key skills. Focus on what’s most important. Aim for up to 8 skills. Use the rating scale to grab attention.</i></span>
           </div>
-          <div fxFlex="2%"></div>
+          <div fxFlex="8%"></div>
         </div>
-        <div fxLayout="row" style="margin-top: 30px">
+        <div fxLayout="row" class="margin-top-15" fxLayoutGap="1%">
+          <div fxFlex="8%"></div>
+          <div fxFlex="90%">
+            <button class="hide-button" *ngIf="coreDataService.templateData.skills" (click)="hideSkills()"><i class="fa fa-eye-slash"></i>&nbsp;Hide Section</button>
+            <button class="show-button" *ngIf="!coreDataService.templateData.skills" (click)="coreDataService.templateData.skills = true;"><i class="fa fa-eye"></i>&nbsp;Show Section</button>
+            <button class="hide-button m-l-1" [matMenuTriggerFor]="skillsInfoTips"><i class="fa fa-lightbulb"></i>&nbsp;Tips</button>
+            <mat-menu #skillsInfoTips="matMenu">
+              <div fxLayout="row">
+                <div fxFlex="100%">
+                  <h4 style="color: #2c3d73;font-family: Work Sans,sans-serif; margin-bottom: 10px">EXPERT INSIGHTS</h4>
+                  <h5 class="text-color-light-gray font-weight-normal mat-caption font-family-label" style="margin-top: 0px">The gatekeeper sorting resumes that come in is not always the direct hiring manger, so keep your resume language at a middle school level. This ensures that everyone in the hiring process can easily digest it.</h5>
+                  <div style="background: #e8ebec;padding-top: 10px;padding-right: 15px; padding-bottom: 10px">
+                    <ul>
+                      <li class="mat-caption font-family-label">Highlight 6-8 skills that are most relevant to your desired job.</li>
+                      <li class="mat-caption font-family-label" style="margin-top: 5px">If you don’t have much experience, consider listing soft skills like "Fast learner", "Highly dependable" or "Excellent attention to detail".</li>
+                      <li class="mat-caption font-family-label" style="margin-top: 5px">Not sure which skills to include? Emphasize the skills that are required in the job description.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </mat-menu>
+          </div>
+        </div>
+        <div fxLayout="row" class="margin-top-15" *ngIf="!coreDataService.templateData.skills">
+          <div fxFlex="9%"></div>
+          <div fxFlex="84%">
+            <label class="mat-caption font-family-label" style="color: #2c3d73;font-family: Work Sans,sans-serif;"><i class="fa fa-info-circle"></i>&nbsp;This Section is hidden. Please click <b>'Show Section'</b> if you want to enable this section</label>
+          </div>
+          <div fxFlex="9%"></div>
+        </div>
+        <div fxLayout="row" style="margin-top: 20px">
           <div fxFlex="5%"></div>
           <div fxFlex="90%" cdkDropList cdkDropListLockAxis="y" cdkDropListOrientation="Vertical" (cdkDropListDropped)="SwapSkills($event)">
             <div fxLayout="row" *ngFor="let skills of coreDataService.templateData.technicalSkills; let i = index"  cdkDrag cdkDragHandle>
@@ -549,15 +655,15 @@
                   </div>
                 </div>
               </mat-form-field>
-                <i class="fa fa-trash cr-pointer m-l-1" style="color: red" (click)="deleteTechSkills(i)"></i>
+                <button class="hide-button m-l-1" (click)="deleteTechSkills(i)" style="width: 120px" *ngIf="coreDataService.templateData.technicalSkills.length > 1"><i class="fa fa-trash cr-pointer font-size-16px"></i>&nbsp; Remove</button>
               </div>
             </div>
           </div>
           <div fxFlex="5%"></div>
         </div>
         <div fxLayout="row" class="margin-top-15">
-          <div fxFlex="66%" fxLayoutAlign="end">
-            <button mat-stroked-button (click)="addTechSkills()" style="color: #3f51b5">+New Skills</button>
+          <div fxFlex="70%" fxLayoutAlign="end">
+            <button mat-stroked-button (click)="addTechSkills()">+New Skills</button>
           </div>
         </div>
         <div fxLayout="row" fxLayoutGap="3%" style="margin-top: 25px">
@@ -573,11 +679,8 @@
       <div fxFlex="100%">
         <div fxLayout="row">
           <div fxFlex="8%"></div>
-          <div fxFlex="45%" style="margin-top: 50px">
+          <div fxFlex="85%" style="margin-top: 50px">
             <i class="fa fa-desktop" style="color: #1f2741;font-size: 20px"></i>&nbsp;&nbsp;<span class="font-weight-bold" style="color: #1f2741; font-size: 20px">Software</span>
-          </div>
-          <div fxFlex="40%" style="margin-top: 50px" fxLayoutAlign="end center">
-            <mat-slide-toggle [checked]="coreDataService.templateData.tech" (change)="coreDataService.templateData.tech = $event.checked" color="primary">Show Section</mat-slide-toggle>
           </div>
           <div fxFlex="2%"></div>
         </div>
@@ -588,7 +691,36 @@
           </div>
           <div fxFlex="2%"></div>
         </div>
-        <div fxLayout="row" style="margin-top: 30px">
+        <div fxLayout="row" class="margin-top-15" fxLayoutGap="1%">
+          <div fxFlex="7%"></div>
+          <div fxFlex="90%">
+            <button class="hide-button" *ngIf="coreDataService.templateData.tech" (click)="hideSoftware()"><i class="fa fa-eye-slash"></i>&nbsp;Hide Section</button>
+            <button class="show-button" *ngIf="!coreDataService.templateData.tech" (click)="coreDataService.templateData.tech = true;"><i class="fa fa-eye"></i>&nbsp;Show Section</button>
+            <button class="hide-button m-l-1" [matMenuTriggerFor]="techInfoTips"><i class="fa fa-lightbulb"></i>&nbsp;Tips</button>
+            <mat-menu #techInfoTips="matMenu">
+              <div fxLayout="row">
+                <div fxFlex="100%">
+                  <h4 style="color: #2c3d73;font-family: Work Sans,sans-serif; margin-bottom: 10px">EXPERT INSIGHTS</h4>
+                  <h5 class="text-color-light-gray font-weight-normal mat-caption font-family-label" style="margin-top: 0px">List the software you have worked with</h5>
+                  <div style="background: #e8ebec;padding-top: 10px;padding-right: 15px; padding-bottom: 10px">
+                    <ul>
+                      <li class="mat-caption font-family-label">Highlight 4-6 software skills that are most relevant to your desired job.</li>
+                      <li class="mat-caption font-family-label" style="margin-top: 5px">Eg:- Computer Skills(Microsoft Word, Excel etc.,),</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </mat-menu>
+          </div>
+        </div>
+        <div fxLayout="row" class="margin-top-15" *ngIf="!coreDataService.templateData.tech">
+          <div fxFlex="9%"></div>
+          <div fxFlex="84%">
+            <label class="mat-caption font-family-label" style="color: #2c3d73;font-family: Work Sans,sans-serif;"><i class="fa fa-info-circle"></i>&nbsp;This Section is hidden. Please click <b>'Show Section'</b> if you want to enable this section</label>
+          </div>
+          <div fxFlex="9%"></div>
+        </div>
+        <div fxLayout="row" style="margin-top: 20px">
           <div fxFlex="5%"></div>
           <div fxFlex="90%" cdkDropList cdkDropListLockAxis="y" cdkDropListOrientation="Vertical" (cdkDropListDropped)="SwapComputerSkills($event)">
             <div fxLayout="row" *ngFor="let skills of coreDataService.templateData.computerSkills; let i = index"  cdkDrag cdkDragHandle>
@@ -612,15 +744,15 @@
                     </div>
                   </div>
                 </mat-form-field>
-                <i class="fa fa-trash cr-pointer m-l-1" style="color: red" (click)="deleteCsSkills(i)"></i>
+                <button class="hide-button m-l-1" (click)="deleteCsSkills(i)" style="width: 120px" *ngIf="coreDataService.templateData.computerSkills.length > 1"><i class="fa fa-trash cr-pointer font-size-16px"></i>&nbsp; Remove</button>
               </div>
             </div>
           </div>
           <div fxFlex="5%"></div>
         </div>
         <div fxLayout="row" class="margin-top-15">
-          <div fxFlex="66%" fxLayoutAlign="end">
-            <button mat-stroked-button (click)="addComputerSkills()" style="color: #3f51b5">+New Skills</button>
+          <div fxFlex="70%" fxLayoutAlign="end">
+            <button mat-stroked-button (click)="addComputerSkills()">+New Skills</button>
           </div>
         </div>
         <div fxLayout="row" fxLayoutGap="3%" style="margin-top: 25px">
@@ -636,11 +768,8 @@
       <div fxFlex="100%">
         <div fxLayout="row">
           <div fxFlex="8%"></div>
-          <div fxFlex="45%" style="margin-top: 50px">
+          <div fxFlex="85%" style="margin-top: 50px">
             <i class="fa fa-flag" style="color: #1f2741;font-size: 20px"></i>&nbsp;&nbsp;<span class="font-weight-bold" style="color: #1f2741; font-size: 20px">Languages</span>
-          </div>
-          <div fxFlex="40%" style="margin-top: 50px" fxLayoutAlign="end center">
-            <mat-slide-toggle [checked]="coreDataService.templateData.language" (change)="coreDataService.templateData.language = $event.checked" color="primary">Show Section</mat-slide-toggle>
           </div>
           <div fxFlex="2%"></div>
         </div>
@@ -651,7 +780,21 @@
           </div>
           <div fxFlex="2%"></div>
         </div>
-        <div fxLayout="row" style="margin-top: 30px">
+        <div fxLayout="row" class="margin-top-15" fxLayoutGap="1%">
+          <div fxFlex="7%"></div>
+          <div fxFlex="90%">
+            <button class="hide-button" *ngIf="coreDataService.templateData.language" (click)="hideLanguages()"><i class="fa fa-eye-slash"></i>&nbsp;Hide Section</button>
+            <button class="show-button" *ngIf="!coreDataService.templateData.language" (click)="coreDataService.templateData.language = true;"><i class="fa fa-eye"></i>&nbsp;Show Section</button>
+          </div>
+        </div>
+        <div fxLayout="row" class="margin-top-15" *ngIf="!coreDataService.templateData.language">
+          <div fxFlex="9%"></div>
+          <div fxFlex="84%">
+            <label class="mat-caption font-family-label" style="color: #2c3d73;font-family: Work Sans,sans-serif;"><i class="fa fa-info-circle"></i>&nbsp;This Section is hidden. Please click <b>'Show Section'</b> if you want to enable this section</label>
+          </div>
+          <div fxFlex="9%"></div>
+        </div>
+        <div fxLayout="row" style="margin-top: 20px">
           <div fxFlex="5%"></div>
           <div fxFlex="90%" cdkDropList cdkDropListLockAxis="y" cdkDropListOrientation="Vertical" (cdkDropListDropped)="SwapLangSkills($event)">
             <div fxLayout="row" *ngFor="let skills of coreDataService.templateData.knownLanguage; let i = index"  cdkDrag cdkDragHandle>
@@ -675,15 +818,15 @@
                     </div>
                   </div>
                 </mat-form-field>
-                <i class="fa fa-trash cr-pointer m-l-1" style="color: red" (click)="deleteLangauge(i)"></i>
+                <button class="hide-button m-l-1" (click)="deleteLangauge(i)" style="width: 120px" *ngIf="coreDataService.templateData.knownLanguage.length > 1"><i class="fa fa-trash cr-pointer font-size-16px"></i>&nbsp; Remove</button>
               </div>
             </div>
           </div>
           <div fxFlex="5%"></div>
         </div>
         <div fxLayout="row" class="margin-top-15">
-          <div fxFlex="66%" fxLayoutAlign="end">
-            <button mat-stroked-button (click)="addLanguage()" style="color: #3f51b5">+New Language</button>
+          <div fxFlex="70%" fxLayoutAlign="end">
+            <button mat-stroked-button (click)="addLanguage()">+New Language</button>
           </div>
         </div>
         <div fxLayout="row" fxLayoutGap="3%" style="margin-top: 25px">
@@ -699,11 +842,8 @@
       <div fxFlex="100%">
         <div fxLayout="row">
           <div fxFlex="8%"></div>
-          <div fxFlex="45%" style="margin-top: 50px" fxLayoutAlign="left center">
+          <div fxFlex="85%" style="margin-top: 50px" fxLayoutAlign="left center">
             <i class="fa fa-certificate" style="color: #1f2741;font-size: 20px"></i>&nbsp;&nbsp;<span class="font-weight-bold" style="color: #1f2741; font-size: 20px">Certifications</span>
-          </div>
-          <div fxFlex="40%" style="margin-top: 50px" fxLayoutAlign="end center">
-            <mat-slide-toggle [checked]="coreDataService.templateData.certifications" (change)="coreDataService.templateData.certifications = $event.checked" color="primary">Show Section</mat-slide-toggle>
           </div>
           <div fxFlex="2%"></div>
         </div>
@@ -714,19 +854,34 @@
           </div>
           <div fxFlex="2%"></div>
         </div>
-        <div fxLayout="row" style="margin-top: 30px">
+        <div fxLayout="row" class="margin-top-15" fxLayoutGap="1%">
+          <div fxFlex="7%"></div>
+          <div fxFlex="90%">
+            <button class="hide-button" *ngIf="coreDataService.templateData.certifications" (click)="hideCertificates()"><i class="fa fa-eye-slash"></i>&nbsp;Hide Section</button>
+            <button class="show-button" *ngIf="!coreDataService.templateData.certifications" (click)="coreDataService.templateData.certifications = true;"><i class="fa fa-eye"></i>&nbsp;Show Section</button>
+          </div>
+        </div>
+        <div fxLayout="row" class="margin-top-15" *ngIf="!coreDataService.templateData.certifications">
+          <div fxFlex="9%"></div>
+          <div fxFlex="84%">
+            <label class="mat-caption font-family-label" style="color: #2c3d73;font-family: Work Sans,sans-serif;"><i class="fa fa-info-circle"></i>&nbsp;This Section is hidden. Please click <b>'Show Section'</b> if you want to enable this section</label>
+          </div>
+          <div fxFlex="9%"></div>
+        </div>
+        <div fxLayout="row" style="margin-top: 20px">
           <div fxFlex="5%"></div>
           <div fxFlex="90%">
             <mat-accordion [multi]="false" cdkDropList cdkDropListLockAxis="y" cdkDropListOrientation="Vertical" (cdkDropListDropped)="SwapCertificates($event)">
-              <mat-expansion-panel *ngFor="let certificate of coreDataService.templateData.certificates; let i = index" [expanded]="certifiIndex == i" (click)="certifiIndex = i" cdkDrag cdkDragHandle style="cursor: move">
+              <mat-expansion-panel *ngFor="let certificate of coreDataService.templateData.certificates; let i = index" [expanded]="certifiIndex == i" (click)="certifiIndex = i" cdkDrag cdkDragHandle>
                 <mat-expansion-panel-header class="expansion" [collapsedHeight]="'50px'" [expandedHeight]="'50px'">
-                  <mat-panel-title>
+                  <mat-panel-title class="font-family-label">
                     <div fxLayout="row">
                       <div fxFlex="100%" fxLayoutAlign="center center">&nbsp;&nbsp;
-                        <img src="assets/images/drag.svg" width="10px">
-                        <h3 *ngIf="certificate.certificateName == null || certificate.certificateName == ''" class="m-l-1">{{'Certificate ' + (i+1)}}</h3>
-                        <h3 *ngIf="certificate.certificateName != null && certificate.certificateName != ''" class="m-l-1">{{certificate.certificateName}}</h3>
-                        <i class="fa fa-trash cr-pointer font-size-16px m-l-1" style="color: red" (click)="deleteCerficates(i)"></i>
+                        <img src="assets/images/drag.svg" width="10px" style="cursor: move">
+                        <h3 class="m-l-1">{{'Certificate ' + (i+1)}}</h3>
+                        <div>
+                          <button class="hide-button m-l-1" (click)="deleteCerficates(i)" style="width: 120px" *ngIf="coreDataService.templateData.certificates.length > 1"><i class="fa fa-trash cr-pointer font-size-16px"></i>&nbsp; Remove</button>
+                        </div>
                       </div>
                     </div>
                   </mat-panel-title>
@@ -761,7 +916,7 @@
         <div fxLayout="row" class="margin-top-15">
           <div fxFlex="5%"></div>
           <div fxFlex="90%" fxLayoutAlign="end">
-            <button mat-stroked-button (click)="addCerficates()" style="color: #3f51b5">+Add Certificates</button>
+            <button mat-stroked-button (click)="addCerficates()">+Add Certificates</button>
           </div>
           <div fxFlex="5%"></div>
         </div>
@@ -778,11 +933,8 @@
       <div fxFlex="100%">
         <div fxLayout="row">
           <div fxFlex="8%"></div>
-          <div fxFlex="45%" style="margin-top: 50px" fxLayoutAlign="left center">
+          <div fxFlex="85%" style="margin-top: 50px" fxLayoutAlign="left center">
             <i class="fa fa-trophy" style="color: #1f2741;font-size: 20px"></i>&nbsp;&nbsp;<span class="font-weight-bold" style="color: #1f2741; font-size: 20px">Honors & Awards</span>
-          </div>
-          <div fxFlex="40%" style="margin-top: 50px" fxLayoutAlign="end center">
-            <mat-slide-toggle [checked]="coreDataService.templateData.honorReward" (change)="coreDataService.templateData.honorReward = $event.checked" color="primary">Show Section</mat-slide-toggle>
           </div>
           <div fxFlex="2%"></div>
         </div>
@@ -793,19 +945,34 @@
           </div>
           <div fxFlex="2%"></div>
         </div>
-        <div fxLayout="row" style="margin-top: 30px">
+        <div fxLayout="row" class="margin-top-15" fxLayoutGap="1%">
+          <div fxFlex="7%"></div>
+          <div fxFlex="90%">
+            <button class="hide-button" *ngIf="coreDataService.templateData.honorReward" (click)="hideHonors()"><i class="fa fa-eye-slash"></i>&nbsp;Hide Section</button>
+            <button class="show-button" *ngIf="!coreDataService.templateData.honorReward" (click)="coreDataService.templateData.honorReward = true;"><i class="fa fa-eye"></i>&nbsp;Show Section</button>
+          </div>
+        </div>
+        <div fxLayout="row" class="margin-top-15" *ngIf="!coreDataService.templateData.honorReward">
+          <div fxFlex="9%"></div>
+          <div fxFlex="84%">
+            <label class="mat-caption font-family-label" style="color: #2c3d73;font-family: Work Sans,sans-serif;"><i class="fa fa-info-circle"></i>&nbsp;This Section is hidden. Please click <b>'Show Section'</b> if you want to enable this section</label>
+          </div>
+          <div fxFlex="9%"></div>
+        </div>
+        <div fxLayout="row" style="margin-top:20px">
           <div fxFlex="5%"></div>
           <div fxFlex="90%">
             <mat-accordion [multi]="false" cdkDropList cdkDropListLockAxis="y" cdkDropListOrientation="Vertical" (cdkDropListDropped)="SwapHonors($event)">
-              <mat-expansion-panel *ngFor="let honor of coreDataService.templateData.honorAwardInfo; let i = index" [expanded]="certifiIndex == i" (click)="certifiIndex = i" cdkDrag cdkDragHandle style="cursor: move">
+              <mat-expansion-panel *ngFor="let honor of coreDataService.templateData.honorAwardInfo; let i = index" [expanded]="certifiIndex == i" (click)="certifiIndex = i" cdkDrag cdkDragHandle>
                 <mat-expansion-panel-header class="expansion" [collapsedHeight]="'50px'" [expandedHeight]="'50px'">
-                  <mat-panel-title>
+                  <mat-panel-title class="font-family-label">
                     <div fxLayout="row">
                       <div fxFlex="100%" fxLayoutAlign="center center">&nbsp;&nbsp;
-                        <img src="assets/images/drag.svg" width="10px">
-                        <h3 *ngIf="honor.award == null || honor.award == ''" class="m-l-1">{{'Award ' + (i+1)}}</h3>
-                        <h3 *ngIf="honor.award != null && honor.award != ''" class="m-l-1">{{honor.award}}</h3>
-                        <i class="fa fa-trash cr-pointer font-size-16px m-l-1" style="color: red" (click)="deleteAwards(i)"></i>
+                        <img src="assets/images/drag.svg" width="10px" style="cursor: move">
+                        <h3 class="m-l-1">{{'Award ' + (i+1)}}</h3>
+                        <div>
+                          <button class="hide-button m-l-1" (click)="deleteAwards(i)" style="width: 120px" *ngIf="coreDataService.templateData.honorAwardInfo.length > 1"><i class="fa fa-trash cr-pointer font-size-16px"></i>&nbsp; Remove</button>
+                        </div>
                       </div>
                     </div>
                   </mat-panel-title>
@@ -831,7 +998,7 @@
         <div fxLayout="row" class="margin-top-15">
           <div fxFlex="5%"></div>
           <div fxFlex="90%" fxLayoutAlign="end">
-            <button mat-stroked-button (click)="addAwards()" style="color: #3f51b5">+Add Award</button>
+            <button mat-stroked-button (click)="addAwards()">+Add Award</button>
           </div>
           <div fxFlex="5%"></div>
         </div>
@@ -848,11 +1015,8 @@
       <div fxFlex="100%">
         <div fxLayout="row">
           <div fxFlex="8%"></div>
-          <div fxFlex="45%" style="margin-top: 50px" fxLayoutAlign="left center">
+          <div fxFlex="85%" style="margin-top: 50px" fxLayoutAlign="left center">
             <i class="fa fa-thumbs-up" style="color: #1f2741;font-size: 20px"></i>&nbsp;&nbsp;<span class="font-weight-bold" style="color: #1f2741; font-size: 20px">Interests</span>
-          </div>
-          <div fxFlex="40%" style="margin-top: 50px" fxLayoutAlign="end center">
-            <mat-slide-toggle [checked]="coreDataService.templateData.interest" (change)="coreDataService.templateData.interest = $event.checked" color="primary">Show Section</mat-slide-toggle>
           </div>
           <div fxFlex="2%"></div>
         </div>
@@ -863,24 +1027,38 @@
           </div>
           <div fxFlex="2%"></div>
         </div>
+        <div fxLayout="row" class="margin-top-15" fxLayoutGap="1%">
+          <div fxFlex="7%"></div>
+          <div fxFlex="90%">
+            <button class="hide-button" *ngIf="coreDataService.templateData.interest" (click)="hideInterest()"><i class="fa fa-eye-slash"></i>&nbsp;Hide Section</button>
+            <button class="show-button" *ngIf="!coreDataService.templateData.interest" (click)="coreDataService.templateData.interest = true;"><i class="fa fa-eye"></i>&nbsp;Show Section</button>
+          </div>
+        </div>
+        <div fxLayout="row" class="margin-top-15" *ngIf="!coreDataService.templateData.interest">
+          <div fxFlex="9%"></div>
+          <div fxFlex="84%">
+            <label class="mat-caption font-family-label" style="color: #2c3d73;font-family: Work Sans,sans-serif;"><i class="fa fa-info-circle"></i>&nbsp;This Section is hidden. Please click <b>'Show Section'</b> if you want to enable this section</label>
+          </div>
+          <div fxFlex="9%"></div>
+        </div>
         <div fxLayout="row" style="margin-top: 30px">
           <div fxFlex="100%" cdkDropList cdkDropListLockAxis="y" cdkDropListOrientation="Vertical" (cdkDropListDropped)="SwapInterest($event)">
             <div fxLayout="row" *ngFor="let interest of coreDataService.templateData.interestOn; let  i = index" cdkDrag cdkDragHandle style="cursor: move">
-              <div fxFlex="60%" fxLayoutAlign="center center">
+              <div fxFlex="100%" fxLayoutAlign="center center">
                 <img src="assets/images/drag.svg" width="10px">
-                <mat-form-field appearance="outline" floatLabel="always" class="m-l-1">
+                <mat-form-field appearance="outline" floatLabel="always" class="m-l-1" fxFlex="55%">
                   <mat-label>{{'Interest' + (i+1)}}</mat-label>
                   <input matInput [ngModel]="coreDataService.templateData.interestOn[i]" (focusout)="coreDataService.templateData.interestOn[i] = $event.target.value"/>
                 </mat-form-field>
-                <i class="fa fa-trash cr-pointer m-l-1" style="color: red" (click)="deleteInterest(i)"></i>
+                <button class="hide-button m-l-1" (click)="deleteInterest(i)" style="width: 120px" *ngIf="coreDataService.templateData.interestOn.length > 1"><i class="fa fa-trash cr-pointer font-size-16px"></i>&nbsp; Remove</button>
               </div>
             </div>
           </div>
         </div>
         <div fxLayout="row" class="margin-top-15">
           <div fxFlex="5%"></div>
-          <div fxFlex="47%" fxLayoutAlign="end">
-            <button mat-stroked-button (click)="addInterest()" style="color: #3f51b5">+Add Interest</button>
+          <div fxFlex="62%" fxLayoutAlign="end">
+            <button mat-stroked-button (click)="addInterest()">+Add Interest</button>
           </div>
           <div fxFlex="5%"></div>
         </div>
@@ -897,11 +1075,8 @@
       <div fxFlex="100%">
         <div fxLayout="row">
           <div fxFlex="8%"></div>
-          <div fxFlex="45%" style="margin-top: 50px" fxLayoutAlign="left center">
+          <div fxFlex="85%" style="margin-top: 50px" fxLayoutAlign="left center">
             <i class="fa fa-tasks" style="color: #1f2741;font-size: 18px"></i>&nbsp;&nbsp;<span class="font-weight-bold" style="color: #1f2741; font-size: 20px">Activities</span>
-          </div>
-          <div fxFlex="40%" style="margin-top: 50px" fxLayoutAlign="end center">
-            <mat-slide-toggle [checked]="coreDataService.templateData.activities" (change)="coreDataService.templateData.activities = $event.checked" color="primary">Show Section</mat-slide-toggle>
           </div>
           <div fxFlex="2%"></div>
         </div>
@@ -912,19 +1087,34 @@
           </div>
           <div fxFlex="2%"></div>
         </div>
-        <div fxLayout="row" style="margin-top: 30px">
+        <div fxLayout="row" class="margin-top-15" fxLayoutGap="1%">
+          <div fxFlex="7%"></div>
+          <div fxFlex="90%">
+            <button class="hide-button" *ngIf="coreDataService.templateData.activities" (click)="hideActivities()"><i class="fa fa-eye-slash"></i>&nbsp;Hide Section</button>
+            <button class="show-button" *ngIf="!coreDataService.templateData.activities" (click)="coreDataService.templateData.activities = true;"><i class="fa fa-eye"></i>&nbsp;Show Section</button>
+          </div>
+        </div>
+        <div fxLayout="row" class="margin-top-15" *ngIf="!coreDataService.templateData.activities">
+          <div fxFlex="9%"></div>
+          <div fxFlex="84%">
+            <label class="mat-caption font-family-label" style="color: #2c3d73;font-family: Work Sans,sans-serif;"><i class="fa fa-info-circle"></i>&nbsp;This Section is hidden. Please click <b>'Show Section'</b> if you want to enable this section</label>
+          </div>
+          <div fxFlex="9%"></div>
+        </div>
+        <div fxLayout="row" style="margin-top: 20px">
           <div fxFlex="5%"></div>
           <div fxFlex="90%">
             <mat-accordion [multi]="false" cdkDropList cdkDropListLockAxis="y" cdkDropListOrientation="Vertical" (cdkDropListDropped)="SwapActivities($event)">
-              <mat-expansion-panel *ngFor="let activity of coreDataService.templateData.activitiesInfo; let i = index" [expanded]="activityIndex == i" (click)="activityIndex = i" cdkDrag cdkDragHandle style="cursor: move">
+              <mat-expansion-panel *ngFor="let activity of coreDataService.templateData.activitiesInfo; let i = index" [expanded]="activityIndex == i" (click)="activityIndex = i" cdkDrag cdkDragHandle>
                 <mat-expansion-panel-header class="expansion" [collapsedHeight]="'50px'" [expandedHeight]="'50px'">
-                  <mat-panel-title>
+                  <mat-panel-title class="font-family-label">
                     <div fxLayout="row">
                       <div fxFlex="100%" fxLayoutAlign="center center">&nbsp;&nbsp;
-                        <img src="assets/images/drag.svg" width="10px">
-                        <h3 *ngIf="activity.role == null || activity.role == ''" class="m-l-1">{{'Position ' + (i+1)}}</h3>
-                        <h3 *ngIf="activity.role != null && activity.role != ''" class="m-l-1">{{activity.role}}</h3>
-                        <i class="fa fa-trash cr-pointer font-size-16px m-l-1" style="color: red" (click)="deleteActivityInfo(i)"></i>
+                        <img src="assets/images/drag.svg" width="10px" style="cursor: move">
+                        <h3 class="m-l-1">{{'Activity ' + (i+1)}}</h3>
+                        <div>
+                          <button class="hide-button m-l-1" (click)="deleteActivityInfo(i)" style="width: 120px" *ngIf="coreDataService.templateData.activitiesInfo.length > 1"><i class="fa fa-trash cr-pointer font-size-16px"></i>&nbsp; Remove</button>
+                        </div>
                       </div>
                     </div>
                   </mat-panel-title>
@@ -992,7 +1182,7 @@
         <div fxLayout="row" class="margin-top-10">
           <div fxFlex="5%"></div>
           <div fxFlex="90%" fxLayoutAlign="end">
-            <button mat-stroked-button (click)="addActivities()" style="color: #3f51b5">+Add Activities</button>
+            <button mat-stroked-button (click)="addActivities()">+Add Activities</button>
           </div>
           <div fxFlex="5%"></div>
         </div>
@@ -1009,11 +1199,8 @@
       <div fxFlex="100%">
         <div fxLayout="row">
           <div fxFlex="8%"></div>
-          <div fxFlex="45%" style="margin-top: 50px" fxLayoutAlign="left center">
+          <div fxFlex="85%" style="margin-top: 50px" fxLayoutAlign="left center">
             <i class="fa fa-info-circle" style="color: #1f2741;font-size: 18px"></i>&nbsp;&nbsp;<span class="font-weight-bold" style="color: #1f2741; font-size: 20px">Additional Information</span>
-          </div>
-          <div fxFlex="40%" style="margin-top: 50px" fxLayoutAlign="end center">
-            <mat-slide-toggle [checked]="coreDataService.templateData.additionalInfo" (change)="coreDataService.templateData.additionalInfo = $event.checked" color="primary">Show Section</mat-slide-toggle>
           </div>
           <div fxFlex="2%"></div>
         </div>
@@ -1024,24 +1211,38 @@
           </div>
           <div fxFlex="2%"></div>
         </div>
-          <div fxLayout="row" style="margin-top: 30px">
+        <div fxLayout="row" class="margin-top-15" fxLayoutGap="1%">
+          <div fxFlex="7%"></div>
+          <div fxFlex="90%">
+            <button class="hide-button" *ngIf="coreDataService.templateData.additionalInfo" (click)="hideAdditionalInfo()"><i class="fa fa-eye-slash"></i>&nbsp;Hide Section</button>
+            <button class="show-button" *ngIf="!coreDataService.templateData.additionalInfo" (click)="coreDataService.templateData.additionalInfo = true;"><i class="fa fa-eye"></i>&nbsp;Show Section</button>
+          </div>
+        </div>
+        <div fxLayout="row" class="margin-top-15" *ngIf="!coreDataService.templateData.additionalInfo">
+          <div fxFlex="9%"></div>
+          <div fxFlex="84%">
+            <label class="mat-caption font-family-label" style="color: #2c3d73;font-family: Work Sans,sans-serif;"><i class="fa fa-info-circle"></i>&nbsp;This Section is hidden. Please click <b>'Show Section'</b> if you want to enable this section</label>
+          </div>
+          <div fxFlex="9%"></div>
+        </div>
+          <div fxLayout="row" style="margin-top: 20px">
             <div fxFlex="8%"></div>
             <div fxFlex="90%">
               <div fxLayout="row" *ngFor="let addInfo of coreDataService.templateData.additionalInfoDetails; let i = index">
-                <mat-form-field appearance="outline" floatLabel="always" fxFlex="80%">
+                <mat-form-field appearance="outline" floatLabel="always" fxFlex="70%">
                   <mat-label>Additional Info</mat-label>
                   <textarea matInput [ngModel]="coreDataService.templateData.additionalInfoDetails[i]" (focusout)="coreDataService.templateData.additionalInfoDetails[i] = $event.target.value"></textarea>
                 </mat-form-field>
-                  <div fxFlex="5%" fxLayoutAlign="center center">
-                    <i class="fa fa-trash cr-pointer m-l-1" style="color: red" (click)="deleteAdditionalInfo(i)"></i>
+                  <div fxFlex="30%" fxLayoutAlign="center center">
+                    <button class="hide-button m-l-1" (click)="deleteAdditionalInfo(i)" style="width: 120px" *ngIf="coreDataService.templateData.additionalInfoDetails.length > 1"><i class="fa fa-trash cr-pointer font-size-16px"></i>&nbsp; Remove</button>
                   </div>
               </div>
             </div>
             <div fxFlex="2%"></div>
           </div>
         <div fxLayout="row" class="margin-top-15">
-          <div fxFlex="80%" fxLayoutAlign="end">
-            <button mat-stroked-button (click)="addAdditionalInfo()" style="color: #3f51b5">+Additional Info</button>
+          <div fxFlex="71%" fxLayoutAlign="end">
+            <button mat-stroked-button (click)="addAdditionalInfo()">+Additional Info</button>
           </div>
         </div>
         <div fxLayout="row" fxLayoutGap="3%" style="margin-top: 25px">
@@ -1072,24 +1273,38 @@
           </div>
           <div fxFlex="2%"></div>
         </div>
-        <div fxLayout="row" style="margin-top: 30px">
+        <div fxLayout="row" class="margin-top-15" fxLayoutGap="1%">
+          <div fxFlex="7%"></div>
+          <div fxFlex="90%">
+            <button class="hide-button" *ngIf="coreDataService.templateData.reference" (click)="hideReference()"><i class="fa fa-eye-slash"></i>&nbsp;Hide Section</button>
+            <button class="show-button" *ngIf="!coreDataService.templateData.reference" (click)="coreDataService.templateData.reference = true;"><i class="fa fa-eye"></i>&nbsp;Show Section</button>
+          </div>
+        </div>
+        <div fxLayout="row" class="margin-top-15" *ngIf="!coreDataService.templateData.reference">
+          <div fxFlex="9%"></div>
+          <div fxFlex="84%">
+            <label class="mat-caption font-family-label" style="color: #2c3d73;font-family: Work Sans,sans-serif;"><i class="fa fa-info-circle"></i>&nbsp;This Section is hidden. Please click <b>'Show Section'</b> if you want to enable this section</label>
+          </div>
+          <div fxFlex="9%"></div>
+        </div>
+        <div fxLayout="row" style="margin-top: 20px">
           <div fxFlex="8%"></div>
           <div fxFlex="90%">
             <div fxLayout="row" *ngFor="let addInfo of coreDataService.templateData.referenceDetails; let i = index">
-              <mat-form-field appearance="outline" floatLabel="always" fxFlex="80%">
+              <mat-form-field appearance="outline" floatLabel="always" fxFlex="70%">
                 <mat-label>{{'Reference'+ (i + 1)}}</mat-label>
                 <textarea matInput [ngModel]="coreDataService.templateData.referenceDetails[i]" (focusout)="coreDataService.templateData.referenceDetails[i] = $event.target.value"></textarea>
               </mat-form-field>
-              <div fxFlex="5%" fxLayoutAlign="center center">
-                <i class="fa fa-trash cr-pointer m-l-1" style="color: red" (click)="deleteReference(i)"></i>
+              <div fxFlex="30%" fxLayoutAlign="center center">
+                <button class="hide-button m-l-1" (click)="deleteReference(i)" style="width: 120px" *ngIf="coreDataService.templateData.referenceDetails.length > 1"><i class="fa fa-trash cr-pointer font-size-16px"></i>&nbsp; Remove</button>
               </div>
             </div>
           </div>
           <div fxFlex="2%"></div>
         </div>
         <div fxLayout="row" class="margin-top-15">
-          <div fxFlex="80%" fxLayoutAlign="end">
-            <button mat-stroked-button (click)="addReference()" style="color: #3f51b5">+Reference</button>
+          <div fxFlex="71%" fxLayoutAlign="end">
+            <button mat-stroked-button (click)="addReference()">+Reference</button>
           </div>
         </div>
         <div fxLayout="row" fxLayoutGap="3%" style="margin-top: 25px">
@@ -1220,7 +1435,7 @@
     </div>
   </div>
   <div fxFlex="1%" fxFlex.xl="1%" style="background: #f9fafd"></div>
-  <div fxFlex="45%" style="background: #f9fafd;height: 100vh; overflow: hidden" data-aos="fade-left" data-aos-easing="ease-out-cubic" data-aos-duration="800" class="zoom-level">
+  <div fxFlex="45%" style="background: #f9fafd;height: 100vh; overflow: hidden"data-aos="fade-left" data-aos-easing="ease-out-cubic" data-aos-duration="800">
     <div fxLayout="row">
       <div fxFlex="25%" fxLayoutAlign="left center" style="margin-top: 30px; margin-bottom: 30px;transform: scale(0.9);">
         <div fxLayout="row">
