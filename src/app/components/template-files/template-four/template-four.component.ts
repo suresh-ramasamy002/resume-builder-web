@@ -28,17 +28,17 @@ export class TemplateFourComponent implements OnInit {
 
   ngOnChanges(changes: SimpleChanges) {
     if (this.pageType === 'single') {
-      this.pageHeight = '27.9cm';
+      this.pageHeight = '29.68cm';
     } else {
-      this.pageHeight = '55.8cm';
+      this.pageHeight = '59.38cm';
     }
   }
 
   ngOnInit(): void {
     if (this.pageType === 'single') {
-      this.pageHeight = '27.9cm';
+      this.pageHeight = '29.68cm';
     } else {
-      this.pageHeight = '55.8cm';
+      this.pageHeight = '59.38cm';
     }
   }
 

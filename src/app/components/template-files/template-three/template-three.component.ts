@@ -26,27 +26,19 @@ export class TemplateThreeComponent implements OnInit, OnChanges {
   public langMargin = 15;
   constructor(public coreDataService: CoreDataService , private sanitizer: DomSanitizer) {
   }
-ngOnChanges(changes: SimpleChanges) {
-  if (this.pageType === 'single' && this.coreDataService.templateData.isImageNeeded) {
-    this.pageHeight = '24.2cm';
-  } else if (this.pageType === 'multi' && this.coreDataService.templateData.isImageNeeded) {
-    this.pageHeight = '52.12cm';
-  } else if (this.pageType === 'single' && !this.coreDataService.templateData.isImageNeeded) {
-    this.pageHeight = '25.21cm';
-  } else if (this.pageType === 'multi' && !this.coreDataService.templateData.isImageNeeded) {
-    this.pageHeight = '53.20cm';
+  ngOnChanges(changes: SimpleChanges) {
+    if (this.pageType === 'single') {
+      this.pageHeight = '29.68cm';
+    } else {
+      this.pageHeight = '59.38cm';
+    }
   }
-}
 
   ngOnInit(): void {
-    if (this.pageType === 'single' && this.coreDataService.templateData.isImageNeeded) {
-      this.pageHeight = '24.2cm';
-    } else if (this.pageType === 'multi' && this.coreDataService.templateData.isImageNeeded) {
-      this.pageHeight = '52.12cm';
-    } else if (this.pageType === 'single' && !this.coreDataService.templateData.isImageNeeded) {
-      this.pageHeight = '25.21cm';
-    } else if (this.pageType === 'multi' && !this.coreDataService.templateData.isImageNeeded) {
-      this.pageHeight = '53.20cm';
+    if (this.pageType === 'single') {
+      this.pageHeight = '29.68cm';
+    } else {
+      this.pageHeight = '59.38cm';
     }
   }
   setTextColor(bgColor) {
@@ -142,5 +134,18 @@ ngOnChanges(changes: SimpleChanges) {
     } else if (pos === 'bottom') {
       this.langMargin += 10;
     }
+  }
+  setSectionHeight(){
+    let height = null;
+    if (this.pageType === 'single' && this.coreDataService.templateData.role != null && this.coreDataService.templateData.role != '') {
+      height = '25.9cm';
+    } else if(this.pageType === 'multi' && this.coreDataService.templateData.role != null && this.coreDataService.templateData.role != ''){
+      height = '55.65cm';
+    } else if (this.pageType === 'single' && (this.coreDataService.templateData.role == null || this.coreDataService.templateData.role == '')) {
+      height = '27cm';
+    } else if(this.pageType === 'multi' && (this.coreDataService.templateData.role == null || this.coreDataService.templateData.role == '')){
+      height = '56.7cm';
+    }
+    return height;
   }
 }

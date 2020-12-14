@@ -1044,9 +1044,10 @@
         <div fxLayout="row" style="margin-top: 30px">
           <div fxFlex="100%" cdkDropList cdkDropListLockAxis="y" cdkDropListOrientation="Vertical" (cdkDropListDropped)="SwapInterest($event)">
             <div fxLayout="row" *ngFor="let interest of coreDataService.templateData.interestOn; let  i = index" cdkDrag cdkDragHandle style="cursor: move">
-              <div fxFlex="100%" fxLayoutAlign="center center">
+              <div fxFlex="9%"></div>
+              <div fxFlex="90%" fxLayoutAlign="left center">
                 <img src="assets/images/drag.svg" width="10px">
-                <mat-form-field appearance="outline" floatLabel="always" class="m-l-1" fxFlex="55%">
+                <mat-form-field appearance="outline" floatLabel="always" class="m-l-1" fxFlex="59%">
                   <mat-label>{{'Interest' + (i+1)}}</mat-label>
                   <input matInput [ngModel]="coreDataService.templateData.interestOn[i]" (focusout)="coreDataService.templateData.interestOn[i] = $event.target.value"/>
                 </mat-form-field>

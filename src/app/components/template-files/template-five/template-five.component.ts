@@ -26,18 +26,17 @@ export class TemplateFiveComponent implements OnInit, OnChanges {
   constructor(public coreDataService: CoreDataService, private sanitizer: DomSanitizer) { }
   ngOnChanges(changes: SimpleChanges) {
     if (this.pageType === 'single') {
-      this.pageHeight = '26.9cm';
+      this.pageHeight = '28cm';
     } else {
-      this.pageHeight = '54.8cm';
+      this.pageHeight = '58cm';
     }
-    console.log(this.pageHeight);
   }
 
   ngOnInit(): void {
     if (this.pageType === 'single') {
-      this.pageHeight = '26.9cm';
+      this.pageHeight = '28cm';
     } else {
-      this.pageHeight = '54.8cm';
+      this.pageHeight = '58cm';
     }
   }
 

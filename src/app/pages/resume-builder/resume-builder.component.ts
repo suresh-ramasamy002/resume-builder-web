@@ -216,7 +216,7 @@ export class ResumeBuilderComponent implements OnInit {
         filename: fileName.replace(' ', '-') + '-resumearc.pdf',
         image: {type: 'jpeg', quality: 1},
         html2canvas: {dpi: 192, scale: 4, letterRendering: true, useCors: true},
-        jsPDF: {unit: 'pt', format: 'letter', orientation: 'portrait'}
+        jsPDF: {unit: 'pt', format: 'a4', orientation: 'portrait'}
       };
       html2pdf().from(document.getElementById(element)).set(opt).save().then((e) => {
         this.coreDataService.resumeDownloadedData.forEach(resumeData => {
@@ -492,7 +492,7 @@ export class ResumeBuilderComponent implements OnInit {
         margin: 0,
         image: {type: 'jpeg', quality: 1},
         html2canvas: {dpi: 192, scale: 4, letterRendering: true, useCors: true},
-        jsPDF: {unit: 'pt', format: 'letter', orientation: 'portrait'}
+        jsPDF: {unit: 'pt', format: 'a4', orientation: 'portrait'}
       };
       html2pdf().from(document.getElementById(selectedElement)).set(opt).toPdf().get('pdf').then((pdf) => {
         let dialogRef = this.dialog.open(PdfViewerComponent, {

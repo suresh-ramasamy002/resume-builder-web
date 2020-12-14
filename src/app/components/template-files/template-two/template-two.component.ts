@@ -25,19 +25,19 @@ export class TemplateTwoComponent implements OnInit, OnChanges {
 pageHeight: string;
   constructor(public coreDataService: CoreDataService , private sanitizer: DomSanitizer) {
   }
-ngOnChanges(changes: SimpleChanges) {
+  ngOnChanges(changes: SimpleChanges) {
     if (this.pageType === 'single') {
-      this.pageHeight = '1066px';
+      this.pageHeight = '29.68cm';
     } else {
-      this.pageHeight = '2132px';
+      this.pageHeight = '59.38cm';
     }
-}
+  }
 
   ngOnInit(): void {
     if (this.pageType === 'single') {
-      this.pageHeight = '1066px';
+      this.pageHeight = '29.68cm';
     } else {
-      this.pageHeight = '2132px';
+      this.pageHeight = '59.38cm';
     }
   }
   setTextColor(bgColor) {

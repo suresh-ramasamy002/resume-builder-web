@@ -1,7 +1,7 @@
 <div fxLayout="row">
   <mat-card fxFlex="100%" class="padding-0 custom-shadow-temp">
     <div class="page-break-1" *ngIf="pageType!='single' && !coreDataService.hideSeparater"></div>
-    <div>
+    <div [ngStyle]="{height: this.pageHeight}">
       <div fxLayout="row">
         <div fxFlex="100%" [ngStyle]="{height: coreDataService.templateData.role != null && coreDataService.templateData.role != '' ? '140px': '100px', 'background': coreDataService.templateData.templateTheme}">
           <div fxLayout="row">
@@ -226,7 +226,7 @@
             </div>
           </div>
         </div>
-        <div fxFlex="35%" [ngStyle]="{'background': '#f3f3f3', height: this.pageHeight}" style="padding-left: 10px">
+        <div fxFlex="35%" [ngStyle]="{'background': '#f3f3f3', 'height':setSectionHeight()}" style="padding-left: 10px;">
           <div fxLayout="row"  style="padding: 10px" class="margin-top-10">
             <div fxFlex="10%">
               <i class="fa fa-envelope" [ngStyle]="{'color': setTextColor(coreDataService.templateData.templateTheme)}"></i>&nbsp;&nbsp;

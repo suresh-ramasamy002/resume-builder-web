@@ -27,17 +27,17 @@ export class TemplateNineComponent implements OnInit, OnChanges {
   }
   ngOnChanges(changes: SimpleChanges) {
     if (this.pageType === 'single') {
-      this.pageHeight = '27cm';
+      this.pageHeight = '28cm';
     } else {
-      this.pageHeight = '54.9cm';
+      this.pageHeight = '58cm';
     }
   }
 
   ngOnInit(): void {
     if (this.pageType === 'single') {
-      this.pageHeight = '27cm';
+      this.pageHeight = '28cm';
     } else {
-      this.pageHeight = '54.9cm';
+      this.pageHeight = '58cm';
     }
   }
   setTextColor(bgColor) {
