@@ -6,6 +6,7 @@
 */
 {
   "compilerOptions": {
+    "experimentalDecorators": true,
     "outDir": "./dist/",
     "sourceMap": true,
     "noImplicitAny": true,

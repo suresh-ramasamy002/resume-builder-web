@@ -14,7 +14,6 @@ export class CoreDataService {
  private $resumeDownloadedData: Array<ResumeDownloadProperty> = [];
  private $hideSeparater: boolean = false;
 
-
   get hideSeparater(): boolean{
     return this.$hideSeparater;
   }

@@ -1,0 +1,143 @@
+.padding-top-left-right {
+  padding: 1.5rem 1.5rem 0rem 1.5rem;
+}
+.star-rating {
+  display:flex;
+  flex-direction: row-reverse;
+  font-size:1.4em;
+  text-align:center;
+  margin-left: 8px;
+  width: 50%;
+  line-height: 0;
+}
+
+.star-rating input {
+  display:none;
+}
+
+.star-rating label {
+  color: lightgray;
+  cursor:pointer;
+}
+
+.star-rating :checked ~ label {
+  color:#363D49;
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+  color: #363D49;
+}
+.star {
+  margin-left: 2px;
+}
+#nextpage1 {
+  page-break-before: always;
+}
+
+
+.A4 {
+  background: white;
+  width: 21cm;
+  height: 29.7cm;
+  display: block;
+  margin: 0 auto;
+  padding: 10px 25px;
+  margin-bottom: 0.5cm;
+  box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+}
+
+@media print {
+  .page-break {
+    display: block;
+    page-break-before: always;
+  }
+
+}
+
+@media print {
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  .A4 {
+    box-shadow: none;
+    margin: 0;
+    width: auto;
+    height: auto;
+  }
+  .noprint {
+    display: none;
+  }
+  .enable-print {
+    display: block;
+  }
+}
+
+
+@media print {
+  .page-break {
+    display: block;
+    page-break-before: always;
+  }}
+
+@media print {
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  .container {
+    box-shadow: none;
+    margin: 0;
+    width: auto;
+    height: auto;
+  }
+  .noprint {
+    display: none;
+  }
+  .enable-print {
+    display: block;
+  }
+}
+div {page-break-inside: avoid}
+
+.a4 {
+  background: white;
+  width: 21cm;
+  height: 29.7cm;
+  display: block;
+  margin-bottom: 0.5cm;
+  box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
+  overflow-y: scroll;
+  box-sizing: border-box;
+  font-size: 12pt;
+}
+.page-break {
+  display: block;
+  page-break-before: always;
+}
+.noprint {
+  display: none;
+}
+.enable-print {
+  display: block;
+}
+div{-webkit-region-break-inside: avoid;}
+div { page-break-inside:auto }
+label { page-break-inside:avoid; page-break-after:auto };
+
+.cascade-right-header {
+  border-bottom: 1px solid rgb(223, 223, 223);
+  padding-bottom: 7px;
+}
+.fa-small {
+  padding: 5px;
+  color: white;
+  font-size: 10px;
+}
+.fa-small-location {
+  padding: 5px 7px;
+  color: white;
+  font-size: 11px;
+}

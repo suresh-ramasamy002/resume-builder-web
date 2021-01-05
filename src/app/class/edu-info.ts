@@ -12,6 +12,7 @@ export class EduInfo {
   endDate: string;
   endMonth: string;
   isPresent: boolean;
+  margin: number;
   constructor(options: {yearFromTo?: string, schoolName?: string, department?: string, gpa?: string, course?: string, dept?: string
     startDate?: string,
     startMonth?: string,
@@ -19,7 +20,7 @@ export class EduInfo {
     endMonth?: string,
     isPresent?: boolean,
     gpaStatus?: string,
-    gpaFormat?: string} = {}) {
+    gpaFormat?: string, margin?: number} = {}) {
     this.yearFromTo = options.yearFromTo;
     this.schoolName = options.schoolName;
     this.department = options.department;
@@ -33,5 +34,6 @@ export class EduInfo {
     this.isPresent = options.isPresent || false;
     this.gpaStatus = options.gpaStatus || null;
     this.gpaFormat = options.gpaFormat || null;
+    this.margin = options.margin || null;
   }
 }

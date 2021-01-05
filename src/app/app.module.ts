@@ -58,9 +58,6 @@ import { LoaderComponent } from './components/loader/loader.component';
 import {LoadingService} from './services/loading.service';
 import {PaymentService} from './services/payment.service';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
-import { TemplateOneComponent } from './components/template-files/template-one/template-one.component';
-import { TemplateRootComponent } from './pages/templates/template-root.component';
-import { TemplateEditorComponent } from './pages/templates/template-editor/template-editor.component';
 import {CoreDataService} from './services/core-data.service';
 import { AlertDialogComponent } from './components/alert-dialog/alert-dialog.component';
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
@@ -74,25 +71,28 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
 import {AngularFireFunctionsModule, REGION} from '@angular/fire/functions';
 import { DownloadWarningDialogComponent } from './components/download-warning-dialog/download-warning-dialog.component';
 import { FeedbackFormComponent } from './components/feedback-form/feedback-form.component';
-import { TemplateTwoComponent } from './components/template-files/template-two/template-two.component';
-import { TemplateThreeComponent } from './components/template-files/template-three/template-three.component';
 import { PdfViewerComponent } from './components/pdf-viewer/pdf-viewer.component';
 import { IntroductionComponent } from './pages/introduction/introduction.component';
-import { TemplateFourComponent } from './components/template-files/template-four/template-four.component';
-import { TemplateFiveComponent } from './components/template-files/template-five/template-five.component';
-import { TemplateSixComponent } from './components/template-files/template-six/template-six.component';
-import { TemplateSevenComponent } from './components/template-files/template-seven/template-seven.component';
 import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard.component';
-import { TemplateEightComponent } from './components/template-files/template-eight/template-eight.component';
-// import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
-// import { PdfJsViewerModule } from 'ng2-pdfjs-viewer';
 import {ScrollDispatcher} from '@angular/cdk/scrolling';
 import { ResumeRulesComponent } from './pages/resume-rules/resume-rules.component';
 import { HowToUseComponent } from './pages/how-to-use/how-to-use.component';
-import { TemplateNineComponent } from './components/template-files/template-nine/template-nine.component';
-import { TemplateTenComponent } from './components/template-files/template-ten/template-ten.component';
 import { ResumeBuilderComponent } from './pages/resume-builder/resume-builder.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { PaginatedViewComponent } from './components/paginated-view/paginated-view.component';
+import {PageContentDirective} from './components/paginated-view/page-content.directive';
+import {TemplateCubicComponent} from './components/resume-cv/template-cubic/template-cubic.component';
+import {ConstantDataService} from './services/constant-data.service';
+import { TemplateCascadeComponent } from './components/resume-cv/template-cascade/template-cascade.component';
+import { TemplateEnfoldComponent } from './components/resume-cv/template-enfold/template-enfold.component';
+import { TemplateVibesComponent } from './components/resume-cv/template-vibes/template-vibes.component';
+import { TemplateCrispComponent } from './components/resume-cv/template-crisp/template-crisp.component';
+import { TemplateMuseComponent } from './components/resume-cv/template-muse/template-muse.component';
+import { TemplateSimpleComponent } from './components/resume-cv/template-simple/template-simple.component';
+import { TemplateIconicComponent } from './components/resume-cv/template-iconic/template-iconic.component';
+import { TemplateNanicaComponent } from './components/resume-cv/template-nanica/template-nanica.component';
+import { TemplateInfluxComponent } from './components/resume-cv/template-influx/template-influx.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -102,9 +102,6 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     HomeComponent,
     LoaderComponent,
     ForgotPasswordComponent,
-    TemplateOneComponent,
-    TemplateRootComponent,
-    TemplateEditorComponent,
     AlertDialogComponent,
     ConfirmDialogComponent,
     ImageUploadCropComponent,
@@ -113,21 +110,24 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     StripePipe,
     DownloadWarningDialogComponent,
     FeedbackFormComponent,
-    TemplateTwoComponent,
-    TemplateThreeComponent,
     PdfViewerComponent,
     IntroductionComponent,
-    TemplateFourComponent,
-    TemplateFiveComponent,
-    TemplateSixComponent,
-    TemplateSevenComponent,
     AdminDashboardComponent,
-    TemplateEightComponent,
     ResumeRulesComponent,
     HowToUseComponent,
-    TemplateNineComponent,
-    TemplateTenComponent,
-    ResumeBuilderComponent
+    ResumeBuilderComponent,
+    PaginatedViewComponent,
+    PageContentDirective,
+    TemplateCubicComponent,
+    TemplateCascadeComponent,
+    TemplateEnfoldComponent,
+    TemplateVibesComponent,
+    TemplateCrispComponent,
+    TemplateMuseComponent,
+    TemplateSimpleComponent,
+    TemplateIconicComponent,
+    TemplateNanicaComponent,
+    TemplateInfluxComponent
   ],
   imports: [
     HttpClientModule,
@@ -173,11 +173,9 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     AngularFireFunctionsModule,
     PdfViewerModule,
     DragDropModule
-    // NgxExtendedPdfViewerModule,
-    // PdfJsViewerModule
   ],
-  exports: [StripePipe],
-  providers: [{provide: REGION, useValue: 'us-central1'}, LoadingService, CoreDataService, UserService, PaymentService, ScrollDispatcher],
+  exports: [StripePipe, PageContentDirective],
+  providers: [{provide: REGION, useValue: 'us-central1'}, LoadingService, CoreDataService, UserService, PaymentService, ScrollDispatcher, ConstantDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

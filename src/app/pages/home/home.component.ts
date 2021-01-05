@@ -34,6 +34,11 @@ export class HomeComponent implements OnInit {
     this.scrollNum = window.pageYOffset || 0;
   }
   selectedTemplate(templateName, theme) {
+    if (templateName === 'template-six' || templateName === 'template-nine') {
+      this.coreDataService.templateData.spacing.sectionSpacing = 0.5;
+    } else {
+      this.coreDataService.templateData.spacing.sectionSpacing = 1.2;
+    }
     this.coreDataService.selectedTemplate = templateName;
     // this.coreDataService.templateData.templateTheme = theme;
     localStorage.setItem('selectedTemplate', this.coreDataService.selectedTemplate);

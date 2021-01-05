@@ -1,0 +1,860 @@
+<div style="margin: auto;width:21cm;box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);overflow: hidden" #templateFive id="template-five" class="a4" #pageContent [ngStyle]="{'height': coreDataService.templateData.pageType+ 'cm'}">
+  <div fxLayout="row">
+    <div fxFlex="100%" style="padding: 1.5rem 1.5rem 0rem 1.5rem;">
+      <div fxLayout="row">
+        <div fxFlex="100%">
+          <label contenteditable="false" class="text-color"
+                 [ngStyle]="{
+                           'color': coreDataService.templateData.templateTheme,
+                           'font-weight': this.coreDataService.templateData.fonts.nameFontWeight,
+                           'font-size': this.coreDataService.templateData.fonts.nameFontSize + 'px',
+                           'font-style': this.coreDataService.templateData.fonts.nameFontStyle,
+                           'text-transform': this.coreDataService.templateData.fonts.nameTextTransform,
+                           'text-decoration': this.coreDataService.templateData.fonts.nameTextDecoration,
+                           'font-family': this.coreDataService.templateData.fontFamily}"
+          >
+            {{coreDataService.templateData.title}}
+          </label>
+        </div>
+      </div>
+      <div fxLayout="row" style="margin-top: 10px" *ngIf="coreDataService.templateData.role !== null && coreDataService.templateData.role !== ''">
+        <div fxFlex="100%">
+          <label contenteditable="false" class="text-color"
+                 [ngStyle]="{
+                           'color': coreDataService.templateData.templateTheme,
+                           'font-weight': this.coreDataService.templateData.fonts.roleFontWeight,
+                           'font-size': this.coreDataService.templateData.fonts.roleFontSize+'px',
+                           'font-style': this.coreDataService.templateData.fonts.roleFontStyle,
+                           'text-transform': this.coreDataService.templateData.fonts.roleTextTransform,
+                           'text-decoration': this.coreDataService.templateData.fonts.roleTextDecoration,
+                           'font-family': this.coreDataService.templateData.fontFamily}"
+          >
+            {{coreDataService.templateData.role}}
+          </label>
+        </div>
+      </div>
+      <div [ngStyle]="{'margin-bottom': coreDataService.templateData.spacing.entrySpacing + 'rem'}"></div>
+      <div fxLayout="row">
+        <div fxFlex="40%">
+          <i class="fa fa-envelope fa-small" [ngStyle]="{'background': coreDataService.templateData.templateTheme}"></i>&nbsp;
+          <label [ngStyle]="{
+                           'font-size': this.coreDataService.templateData.fonts.entryTextFontSize+'px',
+                           'font-style': this.coreDataService.templateData.fonts.entryTextFontStyle,
+                           'font-weight': this.coreDataService.templateData.fonts.entryTextFontWeight,
+                           'text-transform': this.coreDataService.templateData.fonts.entryTextTextTransform,
+                           'text-decoration': this.coreDataService.templateData.fonts.entryTextTextDecoration,
+                           'font-family': this.coreDataService.templateData.fontFamily}" class="text-color">{{coreDataService.templateData.email}}</label>
+        </div>
+        <div fxFlex="40%">
+          <i class="fa fa-phone fa-small" [ngStyle]="{'background': coreDataService.templateData.templateTheme}"></i>&nbsp;
+          <label [ngStyle]="{
+                           'font-size': this.coreDataService.templateData.fonts.entryTextFontSize+'px',
+                           'font-style': this.coreDataService.templateData.fonts.entryTextFontStyle,
+                           'font-weight': this.coreDataService.templateData.fonts.entryTextFontWeight,
+                           'text-transform': this.coreDataService.templateData.fonts.entryTextTextTransform,
+                           'text-decoration': this.coreDataService.templateData.fonts.entryTextTextDecoration,
+                           'font-family': this.coreDataService.templateData.fontFamily}" class="text-color">{{coreDataService.templateData.phone}}</label>
+        </div>
+      </div>
+      <div [ngStyle]="{'margin-bottom': coreDataService.templateData.spacing.entrySpacing + 'rem'}"></div>
+      <div fxLayout="row">
+        <div fxFlex="40%" *ngIf="coreDataService.templateData.address != null && coreDataService.templateData.address != ''">
+          <div fxLayout="row">
+            <div fxFlex="10%">
+              <i class="fa fa-map-marker fa-small-location" [ngStyle]="{'background': coreDataService.templateData.templateTheme}"></i>&nbsp;&nbsp;
+            </div>
+            <div fxFlex="90%">
+              <label [ngStyle]="{
+                           'font-size': this.coreDataService.templateData.fonts.entryTextFontSize+'px',
+                           'font-style': this.coreDataService.templateData.fonts.entryTextFontStyle,
+                           'font-weight': this.coreDataService.templateData.fonts.entryTextFontWeight,
+                           'text-transform': this.coreDataService.templateData.fonts.entryTextTextTransform,
+                           'text-decoration': this.coreDataService.templateData.fonts.entryTextTextDecoration,
+                           'font-family': this.coreDataService.templateData.fontFamily}" class="text-color" style="word-break: break-word" [innerHTML]="breakLine(coreDataService.templateData.address)"></label>
+            </div>
+          </div>
+        </div>
+        <div fxFlex="40%" *ngIf="coreDataService.templateData.gitHub != null && coreDataService.templateData.gitHub != ''">
+          <div fxFlex="9.5%">
+            <img src="assets/images/github-white.svg" class="fa-small" [ngStyle]="{'background': coreDataService.templateData.templateTheme}" width="10px"/>&nbsp;&nbsp;
+          </div>
+          <div fxFlex="80%" style="word-break: break-all">
+            <label [ngStyle]="{
+                           'font-size': this.coreDataService.templateData.fonts.entryTextFontSize+'px',
+                           'font-style': this.coreDataService.templateData.fonts.entryTextFontStyle,
+                           'font-weight': this.coreDataService.templateData.fonts.entryTextFontWeight,
+                           'text-transform': this.coreDataService.templateData.fonts.entryTextTextTransform,
+                           'text-decoration': this.coreDataService.templateData.fonts.entryTextTextDecoration,
+                           'font-family': this.coreDataService.templateData.fontFamily}" class="text-color">{{coreDataService.templateData.gitHub}}</label>
+          </div>
+        </div>
+      </div>
+      <div [ngStyle]="{'margin-bottom': coreDataService.templateData.spacing.entrySpacing + 'rem'}"></div>
+      <div fxLayout="row">
+        <div fxFlex="60%" *ngIf="coreDataService.templateData.linkedIn != null && coreDataService.templateData.linkedIn != ''">
+          <div fxLayout="row">
+            <div fxFlex="7%">
+              <img src="assets/images/linkedin-white.svg" class="fa-small" [ngStyle]="{'background': coreDataService.templateData.templateTheme}" width="10px"/>
+            </div>
+            <div fxFlex="80%" style="word-break: break-all">
+              <label [ngStyle]="{
+                           'font-size': this.coreDataService.templateData.fonts.entryTextFontSize+'px',
+                           'font-style': this.coreDataService.templateData.fonts.entryTextFontStyle,
+                           'font-weight': this.coreDataService.templateData.fonts.entryTextFontWeight,
+                           'text-transform': this.coreDataService.templateData.fonts.entryTextTextTransform,
+                           'text-decoration': this.coreDataService.templateData.fonts.entryTextTextDecoration,
+                           'font-family': this.coreDataService.templateData.fontFamily}" class="text-color">{{coreDataService.templateData.linkedIn}}</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div [ngStyle]="{'margin-bottom': this.coreDataService.templateData.spacing.sectionSpacing + 'rem'}"></div>
+      <div fxLayout="row">
+        <div fxFlex="100%" *ngIf="coreDataService.templateData.objective" #summaryScroll id="summaryScroll">
+          <label contenteditable="false" class="text-color" style="line-height: 1.4rem"
+                 [ngStyle]="{'font-weight': this.coreDataService.templateData.fonts.entryTextFontWeight,
+                           'font-size': this.coreDataService.templateData.fonts.entryTextFontSize+'px',
+                           'font-style': this.coreDataService.templateData.fonts.entryTextFontStyle,
+                           'text-transform': this.coreDataService.templateData.fonts.entryTextTextTransform,
+                           'text-decoration': this.coreDataService.templateData.fonts.entryTextTextDecoration,
+                           'font-family': this.coreDataService.templateData.fontFamily}"
+          >{{coreDataService.templateData.objectiveMsg}}</label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div fxLayout="row" fxFlexFill>
+    <div fxFlex="100%" style="padding: 1.5rem; background: #ffffff">
+      <ng-container *ngFor="let section of constantDataService.populateIconic" [ngSwitch]="section.name">
+        <div fxLayout="row" *ngSwitchCase="'work experience'">
+          <div fxFlex="100%" [ngStyle]="{'margin-bottom': this.coreDataService.templateData.spacing.sectionSpacing + 'rem', 'margin-top': coreDataService.templateData.spacingWorkExp + 'px'}"  *ngIf="coreDataService.templateData.workExp" #workExpScroll id="workExpScroll">
+            <div fxLayout="row">
+              <div fxFlex="100%" class="cascade-right-header">
+                <label contenteditable="false" class="text-color"
+                       [ngStyle]="{
+                           'color': this.coreDataService.templateData.templateTheme,
+                           'font-weight': this.coreDataService.templateData.fonts.sectionFontWeight,
+                           'font-size': this.coreDataService.templateData.fonts.sectionFontSize+'px',
+                           'font-style': this.coreDataService.templateData.fonts.sectionFontStyle,
+                           'text-transform': this.coreDataService.templateData.fonts.sectionTextTransform,
+                           'text-decoration': this.coreDataService.templateData.fonts.sectionTextDecoration,
+                           'font-family': this.coreDataService.templateData.fontFamily}"
+                ><span [ngStyle]="{'background': coreDataService.templateData.templateTheme}" style="padding: 7px 8px 5px 8px; border-radius: 5px"><img src="assets/images/template-icons/black-suitcase.svg" style="width: 14px"/></span>&nbsp;Work Experience</label>
+              </div>
+            </div>
+            <div fxLayout="row">
+              <div fxFlex="100%">
+                <div [ngStyle]="{'marginBottom': this.coreDataService.templateData.spacing.entrySpacing + 'rem'}"></div>
+                <div fxLayout="row" *ngFor="let companyInfo of coreDataService.templateData.companyInfo; let i = index" [ngStyle]="{'marginBottom': i != coreDataService.templateData.companyInfo.length-1 ? coreDataService.templateData.spacing.entrySpacing + 'rem': '0rem', 'margin-top': companyInfo.margin + 'px'}">
+                  <div fxFlex="25%">
+                    <label contenteditable="false" class="text-color"
+                           [ngStyle]="{'font-weight': this.coreDataService.templateData.fonts.entryTextFontWeight,
+                                      'font-size': coreDataService.templateData.fonts.entryTextFontSize+'px',
+                                      'font-style': this.coreDataService.templateData.fonts.entryTextFontStyle,
+                                      'text-transform': this.coreDataService.templateData.fonts.entryTextTextTransform,
+                                      'text-decoration': this.coreDataService.templateData.fonts.entryTextTextDecoration,
+                                      'font-family': this.coreDataService.templateData.fontFamily}"
+                    >{{companyInfo.workFromTo}}</label>
+                  </div>
+                  <div fxFlex="75%">
+                    <div>
+                      <label contenteditable="false" class="text-color"
+                             [ngStyle]="{'font-weight': this.coreDataService.templateData.fonts.entryTitleFontWeight,
+                                        'font-size': coreDataService.templateData.fonts.entryTitleFontSize+'px',
+                                        'font-style': this.coreDataService.templateData.fonts.entryTitleFontStyle,
+                                        'text-transform': this.coreDataService.templateData.fonts.entryTitleTextTransform,
+                                        'text-decoration': this.coreDataService.templateData.fonts.entryTitleTextDecoration,
+                                        'font-family': this.coreDataService.templateData.fontFamily}"
+                      >{{companyInfo.role}}</label>
+                    </div>
+                    <div>
+                      <label contenteditable="false"  maxlength="50" class="text-color"
+                             [ngStyle]="{'font-weight': this.coreDataService.templateData.fonts.entrySubtitleFontWeight,
+                                        'font-size': coreDataService.templateData.fonts.entrySubtitleFontSize+'px',
+                                        'font-style': this.coreDataService.templateData.fonts.entrySubtitleFontStyle,
+                                        'text-transform': this.coreDataService.templateData.fonts.entrySubtitleTextTransform,
+                                        'text-decoration': this.coreDataService.templateData.fonts.entrySubtitleTextDecoration,
+                                        'font-family': this.coreDataService.templateData.fontFamily}"
+                      >
+                        {{companyInfo.companyName}}</label>
+                    </div>
+                    <div *ngFor="let summary of coreDataService.templateData.companyInfo[i].details; let k = index" [ngStyle]="{'margin-top': (summary.margin + 5) + 'px'}">
+                      <div fxFlex="3%" *ngIf="summary.summary != null && summary.summary != ''"><label class="text-color">&#x2022;</label></div>
+                      <div fxFlex="97%" *ngIf="summary.summary != null && summary.summary != ''">
+                        <label contenteditable="false" class="text-color"
+                               [ngStyle]="{'font-weight': this.coreDataService.templateData.fonts.entryTextFontWeight,
+                                          'font-size': coreDataService.templateData.fonts.entryTextFontSize+'px',
+                                          'font-style': this.coreDataService.templateData.fonts.entryTextFontStyle,
+                                          'text-transform': this.coreDataService.templateData.fonts.entryTextTextTransform,
+                                          'text-decoration': this.coreDataService.templateData.fonts.entryTextTextDecoration,
+                                          'font-family': this.coreDataService.templateData.fontFamily}" style="line-height: 1.4rem">
+                          {{summary.summary}}</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div fxLayout="row" *ngSwitchCase="'education'">
+          <div fxFlex="100%" [ngStyle]="{'margin-bottom': this.coreDataService.templateData.spacing.sectionSpacing + 'rem', 'margin-top': coreDataService.templateData.spacingEducation + 'px'}" *ngIf="coreDataService.templateData.education" #educationScroll id="educationScroll">
+            <div fxLayout="row">
+              <div fxFlex="100%" class="cascade-right-header">
+                <label contenteditable="false"
+                       [ngStyle]="{ 'color': this.coreDataService.templateData.templateTheme,
+                           'font-size': this.coreDataService.templateData.fonts.sectionFontSize+'px',
+                           'font-weight': this.coreDataService.templateData.fonts.sectionFontWeight,
+                           'font-style': this.coreDataService.templateData.fonts.sectionFontStyle,
+                           'text-transform': this.coreDataService.templateData.fonts.sectionTextTransform,
+                           'text-decoration': this.coreDataService.templateData.fonts.sectionTextDecoration,
+                           'font-family': this.coreDataService.templateData.fontFamily}"
+                ><span [ngStyle]="{'background': coreDataService.templateData.templateTheme}" style="padding: 10px 6px 1px 6px; border-radius: 5px"><img src="assets/images/template-icons/education.svg" style="width: 20px" /></span>&nbsp;Education</label>
+              </div>
+            </div>
+            <div fxLayout="row">
+              <div fxFlex="100%">
+                <div [ngStyle]="{'marginBottom': this.coreDataService.templateData.spacing.entrySpacing + 'rem'}"></div>
+                <div fxLayout="row" *ngFor="let eduInfo of coreDataService.templateData.educationInfo; let i = index" [ngStyle]="{'marginBottom': i != coreDataService.templateData.educationInfo.length-1 ? coreDataService.templateData.spacing.entrySpacing + 'rem': '0rem','margin-top': eduInfo.margin + 'px'}">
+                  <div fxFlex="25%">
+                    <label contenteditable="false" class="text-color"
+                           [ngStyle]="{'font-weight': this.coreDataService.templateData.fonts.entryTextFontWeight,
+                                      'font-size': coreDataService.templateData.fonts.entryTextFontSize+'px',
+                                      'font-style': this.coreDataService.templateData.fonts.entryTextFontStyle,
+                                      'text-transform': this.coreDataService.templateData.fonts.entryTextTextTransform,
+                                      'text-decoration': this.coreDataService.templateData.fonts.entryTextTextDecoration,
+                                      'font-family': this.coreDataService.templateData.fontFamily}"
+                    >{{eduInfo.yearFromTo}}</label>
+                  </div>
+                  <div fxFlex="75%">
+                    <div>
+                      <label contenteditable="false" class="text-color"
+                             [ngStyle]="{'font-weight': this.coreDataService.templateData.fonts.entryTitleFontWeight,
+                                        'font-size': coreDataService.templateData.fonts.entryTitleFontSize+'px',
+                                        'font-style': this.coreDataService.templateData.fonts.entryTitleFontStyle,
+                                        'text-transform': this.coreDataService.templateData.fonts.entryTitleTextTransform,
+                                        'text-decoration': this.coreDataService.templateData.fonts.entryTitleTextDecoration,
+                                        'font-family': this.coreDataService.templateData.fontFamily}"  maxlength="50">{{eduInfo.schoolName}}</label><br/>
+                    </div>
+                    <div>
+                      <label contenteditable="false" class="text-color"
+                             [ngStyle]="{'font-weight': this.coreDataService.templateData.fonts.entrySubtitleFontWeight,
+                                        'font-size': coreDataService.templateData.fonts.entrySubtitleFontSize+'px',
+                                        'font-style': this.coreDataService.templateData.fonts.entrySubtitleFontStyle,
+                                        'text-transform': this.coreDataService.templateData.fonts.entrySubtitleTextTransform,
+                                        'text-decoration': this.coreDataService.templateData.fonts.entrySubtitleTextDecoration,
+                                        'font-family': this.coreDataService.templateData.fontFamily}">{{eduInfo.department}}</label><br/>
+                    </div>
+                    <div *ngIf="eduInfo.gpa!=null && eduInfo.gpa!=''">
+                      <label contenteditable="false" class="text-color"
+                             [ngStyle]="{'font-weight': this.coreDataService.templateData.fonts.entryTextFontWeight,
+                                          'font-size': coreDataService.templateData.fonts.entryTextFontSize+'px',
+                                          'font-style': this.coreDataService.templateData.fonts.entryTextFontStyle,
+                                          'text-transform': this.coreDataService.templateData.fonts.entryTextTextTransform,
+                                          'text-decoration': this.coreDataService.templateData.fonts.entryTextTextDecoration,
+                                          'font-family': this.coreDataService.templateData.fontFamily}">{{eduInfo.gpa}}</label><br/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div fxLayout="row" *ngSwitchCase="'project'">
+          <div fxFlex="100%" [ngStyle]="{'margin-bottom': this.coreDataService.templateData.spacing.sectionSpacing + 'rem', 'margin-top': this.coreDataService.templateData.spacingProject + 'px'}" *ngIf="coreDataService.templateData.project">
+            <div fxLayout="row">
+              <div fxFlex="100%" class="cascade-right-header">
+                <label contenteditable="false"
+                       [ngStyle]="{ 'color': this.coreDataService.templateData.templateTheme,
+                           'font-size': this.coreDataService.templateData.fonts.sectionFontSize+'px',
+                           'font-weight': this.coreDataService.templateData.fonts.sectionFontWeight,
+                           'font-style': this.coreDataService.templateData.fonts.sectionFontStyle,
+                           'text-transform': this.coreDataService.templateData.fonts.sectionTextTransform,
+                           'text-decoration': this.coreDataService.templateData.fonts.sectionTextDecoration,
+                           'font-family': this.coreDataService.templateData.fontFamily}"
+                ><span [ngStyle]="{'background': coreDataService.templateData.templateTheme}" style="padding: 10px 6px 1px 6px; border-radius: 5px"><img src="assets/images/template-icons/project.svg" style="width: 20px" /></span>&nbsp;Projects</label>
+              </div>
+            </div>
+            <div fxLayout="row">
+              <div fxFlex="100%">
+                <div [ngStyle]="{'marginBottom': this.coreDataService.templateData.spacing.entrySpacing + 'rem'}"></div>
+                <div fxLayout="row" *ngFor="let projectInfo of coreDataService.templateData.projectInfo; let i = index" [ngStyle]="{'marginBottom': i != coreDataService.templateData.projectInfo.length-1 ? coreDataService.templateData.spacing.entrySpacing + 'rem': '0rem', 'margin-top': projectInfo.margin + 'px'}">
+                  <div fxFlex="25%"></div>
+                  <div fxFlex="75%">
+                    <div>
+                      <label contenteditable="false" class="text-color"
+                             [ngStyle]="{'font-weight': this.coreDataService.templateData.fonts.entryTitleFontWeight,
+                                        'font-size': coreDataService.templateData.fonts.entryTitleFontSize+'px',
+                                        'font-style': this.coreDataService.templateData.fonts.entryTitleFontStyle,
+                                        'text-transform': this.coreDataService.templateData.fonts.entryTitleTextTransform,
+                                        'text-decoration': this.coreDataService.templateData.fonts.entryTitleTextDecoration,
+                                        'font-family': this.coreDataService.templateData.fontFamily}"  maxlength="50"
+                      >{{projectInfo.projectTitle}}</label>
+                    </div>
+                    <div style="margin-top: 5px" *ngIf="projectInfo.projectDesc[0].summary != null && projectInfo.projectDesc[0].summary != ''">
+                      <label contenteditable="false" class="text-color" style="line-height: 1.4rem"
+                             [ngStyle]="{'font-weight': this.coreDataService.templateData.fonts.entryTextFontWeight,
+                           'font-size': this.coreDataService.templateData.fonts.entryTextFontSize+'px',
+                           'font-style': this.coreDataService.templateData.fonts.entryTextFontStyle,
+                           'text-transform': this.coreDataService.templateData.fonts.entryTextTextTransform,
+                           'text-decoration': this.coreDataService.templateData.fonts.entryTextTextDecoration,
+                           'font-family': this.coreDataService.templateData.fontFamily}"
+                      >{{projectInfo.projectDesc[0].summary}}</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div fxLayout="row" *ngSwitchCase="'certificate'">
+          <div fxFlex="100%" [ngStyle]="{'margin-bottom': this.coreDataService.templateData.spacing.sectionSpacing + 'rem', 'margin-top': coreDataService.templateData.spacingCertificate + 'px'}" *ngIf="coreDataService.templateData.certifications">
+            <div fxLayout="row">
+              <div fxFlex="100%" class="cascade-right-header">
+                <label contenteditable="false"
+                       [ngStyle]="{ 'color': this.coreDataService.templateData.templateTheme,
+                           'font-size': this.coreDataService.templateData.fonts.sectionFontSize+'px',
+                           'font-weight': this.coreDataService.templateData.fonts.sectionFontWeight,
+                           'font-style': this.coreDataService.templateData.fonts.sectionFontStyle,
+                           'text-transform': this.coreDataService.templateData.fonts.sectionTextTransform,
+                           'text-decoration': this.coreDataService.templateData.fonts.sectionTextDecoration,
+                           'font-family': this.coreDataService.templateData.fontFamily}"
+                ><span [ngStyle]="{'background': coreDataService.templateData.templateTheme}" style="padding: 6px 7px 5px 7px; border-radius: 5px"><i class="fa fa-certificate" aria-hidden="true" style="color: white;font-size: 18px"></i></span>&nbsp;Certificates</label>
+              </div>
+            </div>
+            <div fxLayout="row">
+              <div fxFlex="100%">
+                <div [ngStyle]="{'marginBottom': this.coreDataService.templateData.spacing.entrySpacing + 'rem'}"></div>
+                <div fxLayout="row" *ngFor="let certiInfo of coreDataService.templateData.certificates; let i = index" [ngStyle]="{'marginBottom': i != coreDataService.templateData.certificates.length-1 ? coreDataService.templateData.spacing.entrySpacing + 'rem': '0rem', 'margin-top': certiInfo.margin + 'px'}">
+                  <div *ngIf="certiInfo.year != null && certiInfo.year != ''" fxFlex="25%">
+                    <label contenteditable="false" class="text-color"
+                           [ngStyle]="{'font-weight': this.coreDataService.templateData.fonts.entryTextFontWeight,
+                           'font-size': this.coreDataService.templateData.fonts.entryTextFontSize+'px',
+                           'font-style': this.coreDataService.templateData.fonts.entryTextFontStyle,
+                           'text-transform': this.coreDataService.templateData.fonts.entryTextTextTransform,
+                           'text-decoration': this.coreDataService.templateData.fonts.entryTextTextDecoration,
+                           'font-family': this.coreDataService.templateData.fontFamily}"
+                    >{{certiInfo.year}}</label>
+                  </div>
+                  <div fxFlex="75%">
+                    <div>
+                      <label contenteditable="false" class="text-color"
+                             [ngStyle]="{'font-weight': this.coreDataService.templateData.fonts.entryTitleFontWeight,
+                                        'font-size': coreDataService.templateData.fonts.entryTitleFontSize+'px',
+                                        'font-style': this.coreDataService.templateData.fonts.entryTitleFontStyle,
+                                        'text-transform': this.coreDataService.templateData.fonts.entryTitleTextTransform,
+                                        'text-decoration': this.coreDataService.templateData.fonts.entryTitleTextDecoration,
+                                        'font-family': this.coreDataService.templateData.fontFamily}"  maxlength="50"
+                      >{{certiInfo.certificateName}}</label>
+                    </div>
+                    <div>
+                      <label contenteditable="false" class="text-color" style="line-height: 1.4rem"
+                             [ngStyle]="{'font-weight': this.coreDataService.templateData.fonts.entryTextFontWeight,
+                           'font-size': this.coreDataService.templateData.fonts.entryTextFontSize+'px',
+                           'font-style': this.coreDataService.templateData.fonts.entryTextFontStyle,
+                           'text-transform': this.coreDataService.templateData.fonts.entryTextTextTransform,
+                           'text-decoration': this.coreDataService.templateData.fonts.entryTextTextDecoration,
+                           'font-family': this.coreDataService.templateData.fontFamily}"
+                      >{{certiInfo.description}}</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div fxLayout="row" *ngSwitchCase="'course'">
+          <div fxFlex="100%" [ngStyle]="{'margin-bottom': this.coreDataService.templateData.spacing.sectionSpacing + 'rem', 'margin-top': coreDataService.templateData.spacingCourse + 'px'}" *ngIf="coreDataService.templateData.course">
+            <div fxLayout="row">
+              <div fxFlex="100%" class="cascade-right-header">
+                <label contenteditable="false"
+                       [ngStyle]="{ 'color': this.coreDataService.templateData.templateTheme,
+                           'font-size': this.coreDataService.templateData.fonts.sectionFontSize+'px',
+                           'font-weight': this.coreDataService.templateData.fonts.sectionFontWeight,
+                           'font-style': this.coreDataService.templateData.fonts.sectionFontStyle,
+                           'text-transform': this.coreDataService.templateData.fonts.sectionTextTransform,
+                           'text-decoration': this.coreDataService.templateData.fonts.sectionTextDecoration,
+                           'font-family': this.coreDataService.templateData.fontFamily}"
+                ><span [ngStyle]="{'background': coreDataService.templateData.templateTheme}" style="padding: 6px 7px 5px 7px; border-radius: 5px"><i class="fa fa-book" aria-hidden="true" style="color: white;font-size: 18px"></i></span>&nbsp;Courses</label>
+              </div>
+            </div>
+            <div fxLayout="row">
+              <div fxFlex="100%">
+                <div [ngStyle]="{'marginBottom': this.coreDataService.templateData.spacing.entrySpacing + 'rem'}"></div>
+                <div fxLayout="row" *ngFor="let courseInfo of coreDataService.templateData.courseInfo; let i = index" [ngStyle]="{'marginBottom': i != coreDataService.templateData.courseInfo.length-1 ? coreDataService.templateData.spacing.entrySpacing + 'rem': '0rem', 'margin-top': courseInfo.margin + 'px'}">
+                  <div fxFlex="25%">
+                    <label contenteditable="false" class="text-color"
+                           [ngStyle]="{'font-weight': this.coreDataService.templateData.fonts.entryTextFontWeight,
+                                      'font-size': coreDataService.templateData.fonts.entryTextFontSize+'px',
+                                      'font-style': this.coreDataService.templateData.fonts.entryTextFontStyle,
+                                      'text-transform': this.coreDataService.templateData.fonts.entryTextTextTransform,
+                                      'text-decoration': this.coreDataService.templateData.fonts.entryTextTextDecoration,
+                                      'font-family': this.coreDataService.templateData.fontFamily}"
+                    >{{courseInfo.courseFromTo}}</label>
+                  </div>
+                  <div fxFlex="75%">
+                    <div>
+                      <label contenteditable="false" class="text-color"
+                             [ngStyle]="{'font-weight': this.coreDataService.templateData.fonts.entryTitleFontWeight,
+                                        'font-size': coreDataService.templateData.fonts.entryTitleFontSize+'px',
+                                        'font-style': this.coreDataService.templateData.fonts.entryTitleFontStyle,
+                                        'text-transform': this.coreDataService.templateData.fonts.entryTitleTextTransform,
+                                        'text-decoration': this.coreDataService.templateData.fonts.entryTitleTextDecoration,
+                                        'font-family': this.coreDataService.templateData.fontFamily}"
+                      >{{courseInfo.courseTitle}}</label>
+                    </div>
+                    <div *ngFor="let summary of coreDataService.templateData.courseInfo[i].details; let k = index" [ngStyle]="{'margin-top': (summary.margin + 5) + 'px'}">
+                      <div fxFlex="3%" *ngIf="summary.summary != null && summary.summary != ''"><label class="text-color">&#x2022;</label></div>
+                      <div fxFlex="97%" *ngIf="summary.summary != null && summary.summary != ''">
+                        <label contenteditable="false" class="text-color"
+                               [ngStyle]="{'font-weight': this.coreDataService.templateData.fonts.entryTextFontWeight,
+                                          'font-size': coreDataService.templateData.fonts.entryTextFontSize+'px',
+                                          'font-style': this.coreDataService.templateData.fonts.entryTextFontStyle,
+                                          'text-transform': this.coreDataService.templateData.fonts.entryTextTextTransform,
+                                          'text-decoration': this.coreDataService.templateData.fonts.entryTextTextDecoration,
+                                          'font-family': this.coreDataService.templateData.fontFamily}" style="line-height: 1.4rem">
+                          {{summary.summary}}</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div fxLayout="row" *ngSwitchCase="'awards'">
+          <div fxFlex="100%" [ngStyle]="{'margin-bottom': this.coreDataService.templateData.spacing.sectionSpacing + 'rem', 'margin-top': coreDataService.templateData.spacingAwards + 'px'}" *ngIf="coreDataService.templateData.honorReward">
+            <div fxLayout="row">
+              <div fxFlex="100%" class="cascade-right-header">
+                <label contenteditable="false"
+                       [ngStyle]="{ 'color': this.coreDataService.templateData.templateTheme,
+                           'font-size': this.coreDataService.templateData.fonts.sectionFontSize+'px',
+                           'font-weight': this.coreDataService.templateData.fonts.sectionFontWeight,
+                           'font-style': this.coreDataService.templateData.fonts.sectionFontStyle,
+                           'text-transform': this.coreDataService.templateData.fonts.sectionTextTransform,
+                           'text-decoration': this.coreDataService.templateData.fonts.sectionTextDecoration,
+                           'font-family': this.coreDataService.templateData.fontFamily}"
+                ><span [ngStyle]="{'background': coreDataService.templateData.templateTheme}" style="padding: 6px 7px 5px 7px; border-radius: 5px"><i class="fa fa-trophy" aria-hidden="true" style="color: white;font-size: 18px"></i></span>&nbsp;Awards</label>
+              </div>
+            </div>
+            <div fxLayout="row">
+              <div fxFlex="100%">
+                <div [ngStyle]="{'marginBottom': this.coreDataService.templateData.spacing.entrySpacing + 'rem'}"></div>
+                <div fxLayout="row" *ngFor="let info of coreDataService.templateData.honorAwardInfo; let i = index" [ngStyle]="{'marginBottom': i != coreDataService.templateData.honorAwardInfo.length-1 ? coreDataService.templateData.spacing.entrySpacing + 'rem': '0rem', 'margin-top': info.margin + 'px'}">
+                  <div fxFlex="25%">
+                    <label contenteditable="false" class="text-color" style="line-height: 1.4rem"
+                           [ngStyle]="{'font-weight': this.coreDataService.templateData.fonts.entryTextFontWeight,
+                                        'font-size': coreDataService.templateData.fonts.entryTextFontSize+'px',
+                                        'font-style': this.coreDataService.templateData.fonts.entryTextFontStyle,
+                                        'text-transform': this.coreDataService.templateData.fonts.entryTextTextTransform,
+                                        'text-decoration': this.coreDataService.templateData.fonts.entryTextTextDecoration,
+                                        'font-family': this.coreDataService.templateData.fontFamily}"  maxlength="300"
+                    >{{info.year}}</label>
+                  </div>
+                  <div fxFlex="75%">
+                    <div>
+                      <label contenteditable="false" class="text-color" style="line-height: 1.4rem"
+                             [ngStyle]="{'font-weight': this.coreDataService.templateData.fonts.entryTextFontWeight,
+                                        'font-size': coreDataService.templateData.fonts.entryTextFontSize+'px',
+                                        'font-style': this.coreDataService.templateData.fonts.entryTextFontStyle,
+                                        'text-transform': this.coreDataService.templateData.fonts.entryTextTextTransform,
+                                        'text-decoration': this.coreDataService.templateData.fonts.entryTextTextDecoration,
+                                        'font-family': this.coreDataService.templateData.fontFamily}"  maxlength="300"
+                      >{{info.award}}</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div fxLayout="row" *ngSwitchCase="'co-activities'">
+          <div fxFlex="100%" [ngStyle]="{'margin-bottom': this.coreDataService.templateData.spacing.sectionSpacing + 'rem', 'margin-top': this.coreDataService.templateData.spacingCoActivities + 'px'}" *ngIf="coreDataService.templateData.coActivities">
+            <div fxLayout="row">
+              <div fxFlex="100%" class="cascade-right-header">
+                <label contenteditable="false"
+                       [ngStyle]="{ 'color': this.coreDataService.templateData.templateTheme,
+                           'font-size': this.coreDataService.templateData.fonts.sectionFontSize+'px',
+                           'font-weight': this.coreDataService.templateData.fonts.sectionFontWeight,
+                           'font-style': this.coreDataService.templateData.fonts.sectionFontStyle,
+                           'text-transform': this.coreDataService.templateData.fonts.sectionTextTransform,
+                           'text-decoration': this.coreDataService.templateData.fonts.sectionTextDecoration,
+                           'font-family': this.coreDataService.templateData.fontFamily}"
+                ><span [ngStyle]="{'background': coreDataService.templateData.templateTheme}" style="padding: 6px 7px 5px 7px; border-radius: 5px"><i class="fa fa-tasks" aria-hidden="true" style="color: white;font-size: 16px"></i></span>&nbsp;Co-curricular Activities</label>
+              </div>
+            </div>
+            <div fxLayout="row">
+              <div fxFlex="100%">
+                <div [ngStyle]="{'marginBottom': this.coreDataService.templateData.spacing.entrySpacing + 'rem'}"></div>
+                <div fxLayout="row" *ngFor="let info of coreDataService.templateData.coActivitiesInfo; let i = index" [ngStyle]="{'marginBottom': i != coreDataService.templateData.coActivitiesInfo.length-1 ? (coreDataService.templateData.spacing.entrySpacing - 0.3) + 'rem': '0rem', 'margin-top': info.margin + 'px'}">
+                  <div fxFlex="25%"></div>
+                  <div fxFlex="3%">
+                    <label>&#x2022;</label>
+                  </div>
+                  <div fxFlex="72%">
+                    <div>
+                      <label contenteditable="false" class="text-color" style="line-height: 1.4rem"
+                             [ngStyle]="{'font-weight': this.coreDataService.templateData.fonts.entryTextFontWeight,
+                                        'font-size': coreDataService.templateData.fonts.entryTextFontSize+'px',
+                                        'font-style': this.coreDataService.templateData.fonts.entryTextFontStyle,
+                                        'text-transform': this.coreDataService.templateData.fonts.entryTextTextTransform,
+                                        'text-decoration': this.coreDataService.templateData.fonts.entryTextTextDecoration,
+                                        'font-family': this.coreDataService.templateData.fontFamily}"  maxlength="300"
+                      >{{info.summary}}</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div fxLayout="row" *ngSwitchCase="'extra-activities'">
+          <div fxFlex="100%" [ngStyle]="{'margin-bottom': this.coreDataService.templateData.spacing.sectionSpacing + 'rem', 'margin-top': coreDataService.templateData.spacingExtraActivities + 'px'}" *ngIf="coreDataService.templateData.extraActivities">
+            <div fxLayout="row">
+              <div fxFlex="100%" class="cascade-right-header">
+                <label contenteditable="false"
+                       [ngStyle]="{ 'color': this.coreDataService.templateData.templateTheme,
+                           'font-size': this.coreDataService.templateData.fonts.sectionFontSize+'px',
+                           'font-weight': this.coreDataService.templateData.fonts.sectionFontWeight,
+                           'font-style': this.coreDataService.templateData.fonts.sectionFontStyle,
+                           'text-transform': this.coreDataService.templateData.fonts.sectionTextTransform,
+                           'text-decoration': this.coreDataService.templateData.fonts.sectionTextDecoration,
+                           'font-family': this.coreDataService.templateData.fontFamily}"
+                ><span [ngStyle]="{'background': coreDataService.templateData.templateTheme}" style="padding: 6px 7px 5px 7px; border-radius: 5px"><i class="fa fa-star" aria-hidden="true" style="color: white;font-size: 16px"></i></span>&nbsp;Extra-curricular Activities</label>
+              </div>
+            </div>
+            <div fxLayout="row">
+              <div fxFlex="100%">
+                <div [ngStyle]="{'marginBottom': this.coreDataService.templateData.spacing.entrySpacing + 'rem'}"></div>
+                <div fxLayout="row" *ngFor="let info of coreDataService.templateData.extraActivitiesInfo; let i = index" [ngStyle]="{'marginBottom': i != coreDataService.templateData.extraActivitiesInfo.length-1 ? (coreDataService.templateData.spacing.entrySpacing - 0.3) + 'rem': '0rem', 'margin-top': info.margin + 'px'}">
+                  <div fxFlex="25%"></div>
+                  <div fxFlex="3%">
+                    <label>&#x2022;</label>
+                  </div>
+                  <div fxFlex="72%">
+                    <div>
+                      <label contenteditable="false" class="text-color" style="line-height: 1.4rem"
+                             [ngStyle]="{'font-weight': this.coreDataService.templateData.fonts.entryTextFontWeight,
+                                        'font-size': coreDataService.templateData.fonts.entryTextFontSize+'px',
+                                        'font-style': this.coreDataService.templateData.fonts.entryTextFontStyle,
+                                        'text-transform': this.coreDataService.templateData.fonts.entryTextTextTransform,
+                                        'text-decoration': this.coreDataService.templateData.fonts.entryTextTextDecoration,
+                                        'font-family': this.coreDataService.templateData.fontFamily}"  maxlength="300"
+                      >{{info.summary}}</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div fxLayout="row" *ngSwitchCase="'additional-info'">
+          <div fxFlex="100%" [ngStyle]="{'margin-bottom': this.coreDataService.templateData.spacing.sectionSpacing + 'rem', 'margin-top': coreDataService.templateData.spacingAddInfoActivities + 'px'}" *ngIf="coreDataService.templateData.additionalInfo">
+            <div fxLayout="row">
+              <div fxFlex="100%" class="cascade-right-header">
+                <label contenteditable="false"
+                       [ngStyle]="{ 'color': this.coreDataService.templateData.templateTheme,
+                           'font-size': this.coreDataService.templateData.fonts.sectionFontSize+'px',
+                           'font-weight': this.coreDataService.templateData.fonts.sectionFontWeight,
+                           'font-style': this.coreDataService.templateData.fonts.sectionFontStyle,
+                           'text-transform': this.coreDataService.templateData.fonts.sectionTextTransform,
+                           'text-decoration': this.coreDataService.templateData.fonts.sectionTextDecoration,
+                           'font-family': this.coreDataService.templateData.fontFamily}"
+                ><span [ngStyle]="{'background': coreDataService.templateData.templateTheme}" style="padding: 5px 7px 5px 7px; border-radius: 5px"><i class="fa fa-info-circle" aria-hidden="true" style="color: white;font-size: 16px"></i></span>&nbsp;Additional Information</label>
+              </div>
+            </div>
+            <div fxLayout="row">
+              <div fxFlex="100%">
+                <div [ngStyle]="{'marginBottom': this.coreDataService.templateData.spacing.entrySpacing + 'rem'}"></div>
+                <div fxLayout="row" *ngFor="let info of coreDataService.templateData.additionalInfoDetails; let i = index" [ngStyle]="{'marginBottom': i != coreDataService.templateData.additionalInfoDetails.length-1 ? (coreDataService.templateData.spacing.entrySpacing - 0.3) + 'rem': '0rem', 'margin-top': info.margin + 'px'}">
+                  <div fxFlex="25%"></div>
+                  <div fxFlex="3%">
+                    <label>&#x2022;</label>
+                  </div>
+                  <div fxFlex="72%">
+                    <div>
+                      <label contenteditable="false" class="text-color" style="line-height: 1.4rem"
+                             [ngStyle]="{'font-weight': this.coreDataService.templateData.fonts.entryTextFontWeight,
+                                        'font-size': coreDataService.templateData.fonts.entryTextFontSize+'px',
+                                        'font-style': this.coreDataService.templateData.fonts.entryTextFontStyle,
+                                        'text-transform': this.coreDataService.templateData.fonts.entryTextTextTransform,
+                                        'text-decoration': this.coreDataService.templateData.fonts.entryTextTextDecoration,
+                                        'font-family': this.coreDataService.templateData.fontFamily}"  maxlength="300"
+                      >{{info.summary}}</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div fxLayout="row" *ngSwitchCase="'reference'">
+          <div fxFlex="100%" [ngStyle]="{'margin-bottom': this.coreDataService.templateData.spacing.sectionSpacing + 'rem', 'margin-top': coreDataService.templateData.spacingReference + 'px'}" *ngIf="coreDataService.templateData.reference">
+            <div fxLayout="row">
+              <div fxFlex="100%" class="cascade-right-header">
+                <label contenteditable="false"
+                       [ngStyle]="{ 'color': this.coreDataService.templateData.templateTheme,
+                           'font-size': this.coreDataService.templateData.fonts.sectionFontSize+'px',
+                           'font-weight': this.coreDataService.templateData.fonts.sectionFontWeight,
+                           'font-style': this.coreDataService.templateData.fonts.sectionFontStyle,
+                           'text-transform': this.coreDataService.templateData.fonts.sectionTextTransform,
+                           'text-decoration': this.coreDataService.templateData.fonts.sectionTextDecoration,
+                           'font-family': this.coreDataService.templateData.fontFamily}"
+                ><span [ngStyle]="{'background': coreDataService.templateData.templateTheme}" style="padding: 5px 7px 5px 7px; border-radius: 5px"><i class="fa fa-user-circle" aria-hidden="true" style="color: white;font-size: 16px"></i></span>&nbsp;References</label>
+              </div>
+            </div>
+            <div fxLayout="row">
+              <div fxFlex="100%">
+                <div [ngStyle]="{'marginBottom': this.coreDataService.templateData.spacing.entrySpacing + 'rem'}"></div>
+                <div fxLayout="row" *ngFor="let refInfo of coreDataService.templateData.referenceDetails; let i = index" [ngStyle]="{'marginBottom': i != coreDataService.templateData.referenceDetails.length-1 ? coreDataService.templateData.spacing.entrySpacing + 'rem': '0rem', 'margin-top': refInfo.margin + 'px'}">
+                  <div fxFlex="25%"></div>
+                  <div fxFlex="75%">
+                    <div>
+                      <label contenteditable="false" class="text-color"
+                             [ngStyle]="{'font-weight': this.coreDataService.templateData.fonts.entryTitleFontWeight,
+                                        'font-size': coreDataService.templateData.fonts.entryTitleFontSize+'px',
+                                        'font-style': this.coreDataService.templateData.fonts.entryTitleFontStyle,
+                                        'text-transform': this.coreDataService.templateData.fonts.entryTitleTextTransform,
+                                        'text-decoration': this.coreDataService.templateData.fonts.entryTitleTextDecoration,
+                                        'font-family': this.coreDataService.templateData.fontFamily}"  maxlength="50"
+                      >{{refInfo.name}}</label>
+                    </div>
+                    <div style="margin-top: 5px">
+                      <label contenteditable="false" class="text-color"
+                             [ngStyle]="{'font-weight': this.coreDataService.templateData.fonts.entryTextFontWeight,
+                           'font-size': this.coreDataService.templateData.fonts.entryTextFontSize+'px',
+                           'font-style': this.coreDataService.templateData.fonts.entryTextFontStyle,
+                           'text-transform': this.coreDataService.templateData.fonts.entryTextTextTransform,
+                           'text-decoration': this.coreDataService.templateData.fonts.entryTextTextDecoration,
+                           'font-family': this.coreDataService.templateData.fontFamily}"
+                      >{{refInfo.jobTitle + ', ' + refInfo.company}}</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+          <div fxLayout="row" *ngSwitchCase="'skills'">
+            <div fxFlex="100%" *ngIf="coreDataService.templateData.skills"  [ngStyle]="{'margin-bottom': this.coreDataService.templateData.spacing.sectionSpacing + 'rem', 'margin-top': this.coreDataService.templateData.spacingSkills + 'px'}">
+              <div fxLayout="row">
+                <div fxFlex="100%" class="cascade-right-header">
+                  <label contenteditable="false" class="text-color"
+                         [ngStyle]="{
+                           'color': this.coreDataService.templateData.templateTheme,
+                           'font-size': this.coreDataService.templateData.fonts.sectionFontSize+'px',
+                           'font-weight': this.coreDataService.templateData.fonts.sectionFontWeight,
+                           'font-style': this.coreDataService.templateData.fonts.sectionFontStyle,
+                           'text-transform': this.coreDataService.templateData.fonts.sectionTextTransform,
+                           'text-decoration': this.coreDataService.templateData.fonts.sectionTextDecoration,
+                           'font-family': this.coreDataService.templateData.fontFamily}"
+                  ><span [ngStyle]="{'background': coreDataService.templateData.templateTheme}" style="padding: 7px 5px 6px 9px;border-radius: 5px"><i class="fa fa-puzzle-piece" aria-hidden="true" style="color: white;font-size: 18px"></i></span>&nbsp;Skills</label>
+                </div>
+              </div>
+              <div [ngStyle]="{'margin-bottom': coreDataService.templateData.spacing.entrySpacing + 'rem'}"></div>
+              <div >
+                <div fxLayout="row" *ngFor="let techSkills of coreDataService.templateData.technicalSkills; let i = index" fxLayoutGap="0.5%" [ngStyle]="{'margin-top': (techSkills.margin) + 'px', 'margin-bottom': i != coreDataService.templateData.technicalSkills.length -1 ? (coreDataService.templateData.spacing.entrySpacing - 0.3) + 'rem' : '0rem'}">
+                  <div fxFlex="25%"></div>
+                  <div fxFlex="50%" fxLayoutAlign="left center">
+                    <label contenteditable="false" class="text-color" [ngStyle]="{
+                           'font-size': this.coreDataService.templateData.fonts.entryTextFontSize+'px',
+                           'font-weight': this.coreDataService.templateData.fonts.entryTextFontWeight,
+                           'font-style': this.coreDataService.templateData.fonts.entryTextFontStyle,
+                           'text-transform': this.coreDataService.templateData.fonts.entryTextTextTransform,
+                           'text-decoration': this.coreDataService.templateData.fonts.entryTextTextDecoration,
+                           'font-family': this.coreDataService.templateData.fontFamily}">{{techSkills.skill}}</label>
+                  </div>
+                  <div fxFlex="25%" fxLayoutAlign="end center" *ngIf="coreDataService.templateData.showSkillsRate && techSkills.rate != null && techSkills.rate > 0">
+                    <div class="star-rating" [ngStyle]="{'font-size': setFontSize(coreDataService.templateData.starType)}">
+                      <input type="radio" [id]="'5-starstech-'+i" [name]="'tech'+i" value="5" [(ngModel)]="techSkills.rate"/>
+                      <label [for]="'5-starstech-'+i" class="star" [ngStyle]="{'color': techSkills.rate >= 5 ? coreDataService.templateData.templateTheme : '#bdbdbd'}">   <ng-container *ngIf="coreDataService.templateData.starType == 'star'">&#9733;</ng-container>
+                        <ng-container *ngIf="coreDataService.templateData.starType == 'round'">&#x25cf;</ng-container>
+                        <ng-container *ngIf="coreDataService.templateData.starType == 'square'">&#x25a0;</ng-container>
+                        <ng-container *ngIf="coreDataService.templateData.starType == 'diamond'">&#9830;</ng-container></label>
+                      <input type="radio" [id]="'4-starstech-'+i" [name]="'tech'+i" value="4" [(ngModel)]="techSkills.rate"/>
+                      <label [for]="'4-starstech-'+i" class="star" [ngStyle]="{'color': techSkills.rate >= 4 ? coreDataService.templateData.templateTheme : '#bdbdbd'}">   <ng-container *ngIf="coreDataService.templateData.starType == 'star'">&#9733;</ng-container>
+                        <ng-container *ngIf="coreDataService.templateData.starType == 'round'">&#x25cf;</ng-container>
+                        <ng-container *ngIf="coreDataService.templateData.starType == 'square'">&#x25a0;</ng-container>
+                        <ng-container *ngIf="coreDataService.templateData.starType == 'diamond'">&#9830;</ng-container></label>
+                      <input type="radio" [id]="'3-starstech-'+i" [name]="'tech'+i" value="3" [(ngModel)]="techSkills.rate"/>
+                      <label [for]="'3-starstech-'+i" class="star" [ngStyle]="{'color': techSkills.rate >= 3 ? coreDataService.templateData.templateTheme : '#bdbdbd'}">   <ng-container *ngIf="coreDataService.templateData.starType == 'star'">&#9733;</ng-container>
+                        <ng-container *ngIf="coreDataService.templateData.starType == 'round'">&#x25cf;</ng-container>
+                        <ng-container *ngIf="coreDataService.templateData.starType == 'square'">&#x25a0;</ng-container>
+                        <ng-container *ngIf="coreDataService.templateData.starType == 'diamond'">&#9830;</ng-container></label>
+                      <input type="radio" [id]="'2-starstech-'+i" [name]="'tech'+i" value="2" [(ngModel)]="techSkills.rate"/>
+                      <label [for]="'2-starstech-'+i" class="star" [ngStyle]="{'color': techSkills.rate >= 2 ? coreDataService.templateData.templateTheme : '#bdbdbd'}">   <ng-container *ngIf="coreDataService.templateData.starType == 'star'">&#9733;</ng-container>
+                        <ng-container *ngIf="coreDataService.templateData.starType == 'round'">&#x25cf;</ng-container>
+                        <ng-container *ngIf="coreDataService.templateData.starType == 'square'">&#x25a0;</ng-container>
+                        <ng-container *ngIf="coreDataService.templateData.starType == 'diamond'">&#9830;</ng-container></label>
+                      <input type="radio" [id]="'1-starstech-'+i" [name]="'tech'+i" value="1" [(ngModel)]="techSkills.rate"/>
+                      <label [for]="'1-starstech-'+i" class="star" [ngStyle]="{'color': techSkills.rate >= 1 ? coreDataService.templateData.templateTheme : '#bdbdbd'}">   <ng-container *ngIf="coreDataService.templateData.starType == 'star'">&#9733;</ng-container>
+                        <ng-container *ngIf="coreDataService.templateData.starType == 'round'">&#x25cf;</ng-container>
+                        <ng-container *ngIf="coreDataService.templateData.starType == 'square'">&#x25a0;</ng-container>
+                        <ng-container *ngIf="coreDataService.templateData.starType == 'diamond'">&#9830;</ng-container></label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div fxLayout="row" *ngSwitchCase="'software'">
+            <div fxFlex="100%" *ngIf="coreDataService.templateData.tech"  [ngStyle]="{'margin-bottom': this.coreDataService.templateData.spacing.sectionSpacing + 'rem', 'margin-top': coreDataService.templateData.spacingSoftware + 'px'}">
+              <div fxLayout="row">
+                <div fxFlex="100%" class="cascade-right-header">
+                  <label contenteditable="false" class="text-color"
+                         [ngStyle]="{
+                           'color': this.coreDataService.templateData.templateTheme,
+                           'font-size': this.coreDataService.templateData.fonts.sectionFontSize+'px',
+                           'font-weight': this.coreDataService.templateData.fonts.sectionFontWeight,
+                           'font-style': this.coreDataService.templateData.fonts.sectionFontStyle,
+                           'text-transform': this.coreDataService.templateData.fonts.sectionTextTransform,
+                           'text-decoration': this.coreDataService.templateData.fonts.sectionTextDecoration,
+                           'font-family': this.coreDataService.templateData.fontFamily}"
+                  ><span [ngStyle]="{'background': coreDataService.templateData.templateTheme}" style="padding: 8px 8px 6px 8px; border-radius: 5px"><i class="fa fa-desktop" aria-hidden="true" style="color: white;font-size: 16px"></i></span>&nbsp;Software</label>
+                </div>
+              </div>
+              <div [ngStyle]="{'margin-bottom': coreDataService.templateData.spacing.entrySpacing + 'rem'}"></div>
+              <div >
+                <div fxLayout="row" *ngFor="let techSkills of coreDataService.templateData.computerSkills; let i = index" fxLayoutGap="0.5%" [ngStyle]="{'margin-top': (techSkills.margin) + 'px', 'margin-bottom': i != coreDataService.templateData.computerSkills.length -1 ? (coreDataService.templateData.spacing.entrySpacing - 0.3) + 'rem' : '0rem'}">
+                  <div fxFlex="25%"></div>
+                  <div fxFlex="50%" fxLayoutAlign="left center">
+                    <label contenteditable="false" class="text-color" [ngStyle]="{
+                           'font-size': this.coreDataService.templateData.fonts.entryTextFontSize+'px',
+                           'font-weight': this.coreDataService.templateData.fonts.entryTextFontWeight,
+                           'font-style': this.coreDataService.templateData.fonts.entryTextFontStyle,
+                           'text-transform': this.coreDataService.templateData.fonts.entryTextTextTransform,
+                           'text-decoration': this.coreDataService.templateData.fonts.entryTextTextDecoration,
+                           'font-family': this.coreDataService.templateData.fontFamily}">{{techSkills.skill}}</label>
+                  </div>
+                  <div fxFlex="25%" fxLayoutAlign="end center" *ngIf="coreDataService.templateData.showTechRate && techSkills.rate != null && techSkills.rate > 0">
+                    <div class="star-rating" [ngStyle]="{'font-size': setFontSize(coreDataService.templateData.starType)}">
+                      <input type="radio" [id]="'5-starstech-'+i" [name]="'tech'+i" value="5" [(ngModel)]="techSkills.rate"/>
+                      <label [for]="'5-starstech-'+i" class="star" [ngStyle]="{'color': techSkills.rate >= 5 ? coreDataService.templateData.templateTheme : '#bdbdbd'}">   <ng-container *ngIf="coreDataService.templateData.starType == 'star'">&#9733;</ng-container>
+                        <ng-container *ngIf="coreDataService.templateData.starType == 'round'">&#x25cf;</ng-container>
+                        <ng-container *ngIf="coreDataService.templateData.starType == 'square'">&#x25a0;</ng-container>
+                        <ng-container *ngIf="coreDataService.templateData.starType == 'diamond'">&#9830;</ng-container></label>
+                      <input type="radio" [id]="'4-starstech-'+i" [name]="'tech'+i" value="4" [(ngModel)]="techSkills.rate"/>
+                      <label [for]="'4-starstech-'+i" class="star" [ngStyle]="{'color': techSkills.rate >= 4 ? coreDataService.templateData.templateTheme : '#bdbdbd'}">   <ng-container *ngIf="coreDataService.templateData.starType == 'star'">&#9733;</ng-container>
+                        <ng-container *ngIf="coreDataService.templateData.starType == 'round'">&#x25cf;</ng-container>
+                        <ng-container *ngIf="coreDataService.templateData.starType == 'square'">&#x25a0;</ng-container>
+                        <ng-container *ngIf="coreDataService.templateData.starType == 'diamond'">&#9830;</ng-container></label>
+                      <input type="radio" [id]="'3-starstech-'+i" [name]="'tech'+i" value="3" [(ngModel)]="techSkills.rate"/>
+                      <label [for]="'3-starstech-'+i" class="star" [ngStyle]="{'color': techSkills.rate >= 3 ? coreDataService.templateData.templateTheme : '#bdbdbd'}">   <ng-container *ngIf="coreDataService.templateData.starType == 'star'">&#9733;</ng-container>
+                        <ng-container *ngIf="coreDataService.templateData.starType == 'round'">&#x25cf;</ng-container>
+                        <ng-container *ngIf="coreDataService.templateData.starType == 'square'">&#x25a0;</ng-container>
+                        <ng-container *ngIf="coreDataService.templateData.starType == 'diamond'">&#9830;</ng-container></label>
+                      <input type="radio" [id]="'2-starstech-'+i" [name]="'tech'+i" value="2" [(ngModel)]="techSkills.rate"/>
+                      <label [for]="'2-starstech-'+i" class="star" [ngStyle]="{'color': techSkills.rate >= 2 ? coreDataService.templateData.templateTheme : '#bdbdbd'}">   <ng-container *ngIf="coreDataService.templateData.starType == 'star'">&#9733;</ng-container>
+                        <ng-container *ngIf="coreDataService.templateData.starType == 'round'">&#x25cf;</ng-container>
+                        <ng-container *ngIf="coreDataService.templateData.starType == 'square'">&#x25a0;</ng-container>
+                        <ng-container *ngIf="coreDataService.templateData.starType == 'diamond'">&#9830;</ng-container></label>
+                      <input type="radio" [id]="'1-starstech-'+i" [name]="'tech'+i" value="1" [(ngModel)]="techSkills.rate"/>
+                      <label [for]="'1-starstech-'+i" class="star" [ngStyle]="{'color': techSkills.rate >= 1 ? coreDataService.templateData.templateTheme : '#bdbdbd'}">   <ng-container *ngIf="coreDataService.templateData.starType == 'star'">&#9733;</ng-container>
+                        <ng-container *ngIf="coreDataService.templateData.starType == 'round'">&#x25cf;</ng-container>
+                        <ng-container *ngIf="coreDataService.templateData.starType == 'square'">&#x25a0;</ng-container>
+                        <ng-container *ngIf="coreDataService.templateData.starType == 'diamond'">&#9830;</ng-container></label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div fxLayout="row" *ngSwitchCase="'languages'">
+            <div fxFlex="100%" *ngIf="coreDataService.templateData.language" [ngStyle]="{'margin-bottom': this.coreDataService.templateData.spacing.sectionSpacing + 'rem', 'margin-top': coreDataService.templateData.spacingLanguage + 'px'}">
+              <div fxLayout="row">
+                <div fxFlex="100%" class="cascade-right-header">
+                  <label contenteditable="false" class="text-color"
+                         [ngStyle]="{
+                           'color': this.coreDataService.templateData.templateTheme,
+                           'font-size': this.coreDataService.templateData.fonts.sectionFontSize+'px',
+                           'font-weight': this.coreDataService.templateData.fonts.sectionFontWeight,
+                           'font-style': this.coreDataService.templateData.fonts.sectionFontStyle,
+                           'text-transform': this.coreDataService.templateData.fonts.sectionTextTransform,
+                           'text-decoration': this.coreDataService.templateData.fonts.sectionTextDecoration,
+                           'font-family': this.coreDataService.templateData.fontFamily}"
+                  ><span [ngStyle]="{'background': coreDataService.templateData.templateTheme}" style="padding: 8px 8px 6px 8px; border-radius: 5px"><i class="fa fa-flag" aria-hidden="true" style="color: white;font-size: 16px"></i></span>&nbsp;Languages</label>
+                </div>
+              </div>
+              <div [ngStyle]="{'margin-bottom': coreDataService.templateData.spacing.entrySpacing + 'rem'}"></div>
+              <div >
+                <div fxLayout="row" *ngFor="let techSkills of coreDataService.templateData.knownLanguage; let i = index" fxLayoutGap="0.5%" [ngStyle]="{'margin-top':  (techSkills.margin) + 'px', 'margin-bottom': i != coreDataService.templateData.knownLanguage.length -1 ? (coreDataService.templateData.spacing.entrySpacing - 0.3) + 'rem' : '0rem'}">
+                  <div fxFlex="25%"></div>
+                  <div fxFlex="50%" fxLayoutAlign="left center">
+                    <label contenteditable="false" class="text-color" [ngStyle]="{
+                           'font-size': this.coreDataService.templateData.fonts.entryTextFontSize+'px',
+                           'font-weight': this.coreDataService.templateData.fonts.entryTextFontWeight,
+                           'font-style': this.coreDataService.templateData.fonts.entryTextFontStyle,
+                           'text-transform': this.coreDataService.templateData.fonts.entryTextTextTransform,
+                           'text-decoration': this.coreDataService.templateData.fonts.entryTextTextDecoration,
+                           'font-family': this.coreDataService.templateData.fontFamily}" >{{techSkills.skill}}</label>
+                  </div>
+                  <div fxFlex="25%" fxLayoutAlign="end center" *ngIf="coreDataService.templateData.showLanguageRate && techSkills.rate != null && techSkills.rate > 0">
+                    <div class="star-rating" [ngStyle]="{'font-size': setFontSize(coreDataService.templateData.starType)}">
+                      <input type="radio" [id]="'5-starstech-'+i" [name]="'tech'+i" value="5" [(ngModel)]="techSkills.rate"/>
+                      <label [for]="'5-starstech-'+i" class="star" [ngStyle]="{'color': techSkills.rate >= 5 ? coreDataService.templateData.templateTheme : '#bdbdbd'}">   <ng-container *ngIf="coreDataService.templateData.starType == 'star'">&#9733;</ng-container>
+                        <ng-container *ngIf="coreDataService.templateData.starType == 'round'">&#x25cf;</ng-container>
+                        <ng-container *ngIf="coreDataService.templateData.starType == 'square'">&#x25a0;</ng-container>
+                        <ng-container *ngIf="coreDataService.templateData.starType == 'diamond'">&#9830;</ng-container></label>
+                      <input type="radio" [id]="'4-starstech-'+i" [name]="'tech'+i" value="4" [(ngModel)]="techSkills.rate"/>
+                      <label [for]="'4-starstech-'+i" class="star" [ngStyle]="{'color': techSkills.rate >= 4 ? coreDataService.templateData.templateTheme : '#bdbdbd'}">   <ng-container *ngIf="coreDataService.templateData.starType == 'star'">&#9733;</ng-container>
+                        <ng-container *ngIf="coreDataService.templateData.starType == 'round'">&#x25cf;</ng-container>
+                        <ng-container *ngIf="coreDataService.templateData.starType == 'square'">&#x25a0;</ng-container>
+                        <ng-container *ngIf="coreDataService.templateData.starType == 'diamond'">&#9830;</ng-container></label>
+                      <input type="radio" [id]="'3-starstech-'+i" [name]="'tech'+i" value="3" [(ngModel)]="techSkills.rate"/>
+                      <label [for]="'3-starstech-'+i" class="star" [ngStyle]="{'color': techSkills.rate >= 3 ? coreDataService.templateData.templateTheme : '#bdbdbd'}">   <ng-container *ngIf="coreDataService.templateData.starType == 'star'">&#9733;</ng-container>
+                        <ng-container *ngIf="coreDataService.templateData.starType == 'round'">&#x25cf;</ng-container>
+                        <ng-container *ngIf="coreDataService.templateData.starType == 'square'">&#x25a0;</ng-container>
+                        <ng-container *ngIf="coreDataService.templateData.starType == 'diamond'">&#9830;</ng-container></label>
+                      <input type="radio" [id]="'2-starstech-'+i" [name]="'tech'+i" value="2" [(ngModel)]="techSkills.rate"/>
+                      <label [for]="'2-starstech-'+i" class="star" [ngStyle]="{'color': techSkills.rate >= 2 ? coreDataService.templateData.templateTheme : '#bdbdbd'}">   <ng-container *ngIf="coreDataService.templateData.starType == 'star'">&#9733;</ng-container>
+                        <ng-container *ngIf="coreDataService.templateData.starType == 'round'">&#x25cf;</ng-container>
+                        <ng-container *ngIf="coreDataService.templateData.starType == 'square'">&#x25a0;</ng-container>
+                        <ng-container *ngIf="coreDataService.templateData.starType == 'diamond'">&#9830;</ng-container></label>
+                      <input type="radio" [id]="'1-starstech-'+i" [name]="'tech'+i" value="1" [(ngModel)]="techSkills.rate"/>
+                      <label [for]="'1-starstech-'+i" class="star" [ngStyle]="{'color': techSkills.rate >= 1 ? coreDataService.templateData.templateTheme : '#bdbdbd'}">   <ng-container *ngIf="coreDataService.templateData.starType == 'star'">&#9733;</ng-container>
+                        <ng-container *ngIf="coreDataService.templateData.starType == 'round'">&#x25cf;</ng-container>
+                        <ng-container *ngIf="coreDataService.templateData.starType == 'square'">&#x25a0;</ng-container>
+                        <ng-container *ngIf="coreDataService.templateData.starType == 'diamond'">&#9830;</ng-container></label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div fxLayout="row" *ngSwitchCase="'interest'">
+            <div fxFlex="100%" *ngIf="coreDataService.templateData.interest" [ngStyle]="{'margin-bottom': this.coreDataService.templateData.spacing.sectionSpacing + 'rem', 'margin-top': this.coreDataService.templateData.spacingInterest + 'px'}">
+              <div fxLayout="row">
+                <div fxFlex="100%"  class="cascade-right-header">
+                  <label contenteditable="false" class="text-color"
+                         [ngStyle]="{
+                           'color': this.coreDataService.templateData.templateTheme,
+                           'font-size': this.coreDataService.templateData.fonts.sectionFontSize+'px',
+                           'font-weight': this.coreDataService.templateData.fonts.sectionFontWeight,
+                           'font-style': this.coreDataService.templateData.fonts.sectionFontStyle,
+                           'text-transform': this.coreDataService.templateData.fonts.sectionTextTransform,
+                           'text-decoration': this.coreDataService.templateData.fonts.sectionTextDecoration,
+                           'font-family': this.coreDataService.templateData.fontFamily}"
+                  ><span [ngStyle]="{'background': coreDataService.templateData.templateTheme}" style="padding: 6px 7px 5px 7px; border-radius: 5px"><i class="fa fa-thumbs-up" aria-hidden="true" style="color: white;font-size: 18px"></i></span>&nbsp;Interest</label>
+                </div>
+              </div>
+              <div [ngStyle]="{'margin-bottom': coreDataService.templateData.spacing.entrySpacing + 'rem'}"></div>
+              <div >
+                <div fxLayout="row" *ngFor="let interest of coreDataService.templateData.interestOn; let i = index" [ngStyle]="{'margin-top': (interest.margin) + 'px', 'margin-bottom': i != coreDataService.templateData.interestOn.length -1 ? (coreDataService.templateData.spacing.entrySpacing - 0.3) + 'rem' : '0rem'}">
+                  <div fxFlex="25%"></div>
+                  <div fxFlex="75%">
+                    <label contenteditable="false" class="text-color" [ngStyle]="{
+                           'font-size': this.coreDataService.templateData.fonts.entryTextFontSize+'px',
+                           'font-weight': this.coreDataService.templateData.fonts.entryTextFontWeight,
+                           'font-style': this.coreDataService.templateData.fonts.entryTextFontStyle,
+                           'text-transform': this.coreDataService.templateData.fonts.entryTextTextTransform,
+                           'text-decoration': this.coreDataService.templateData.fonts.entryTextTextDecoration,
+                           'font-family': this.coreDataService.templateData.fontFamily}">{{interest.summary}}</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>

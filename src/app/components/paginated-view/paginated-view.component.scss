@@ -1,0 +1,24 @@
+.paginated-view {
+  > .page {
+    margin: 0 auto;
+    margin-bottom: 0.5cm;
+  }
+}
+.page {
+  display: block;
+  background: white;
+  box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.A4 {
+  width: 595px;
+  height: 842px;
+  padding: 10px 25px;
+}
+
+.A3{
+  width: 842px;
+  height: 1191px;
+  padding: 10px 25px;
+}

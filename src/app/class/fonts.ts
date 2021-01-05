@@ -1,0 +1,65 @@
+export class Fonts {
+  nameFontSize: number;
+  nameFontWeight: string;
+  nameFontStyle: string;
+  nameTextTransform: string;
+  nameTextDecoration: string;
+  roleFontSize: number;
+  roleFontWeight: string;
+  roleFontStyle: string;
+  roleTextTransform: string;
+  roleTextDecoration: string;
+  sectionFontSize: number;
+  sectionFontWeight: string;
+  sectionFontStyle: string;
+  sectionTextTransform: string;
+  sectionTextDecoration: string;
+  entryTitleFontSize: number;
+  entryTitleFontWeight: string;
+  entryTitleFontStyle: string;
+  entryTitleTextTransform: string;
+  entryTitleTextDecoration: string;
+  entrySubtitleFontSize: number;
+  entrySubtitleFontWeight: string;
+  entrySubtitleFontStyle: string;
+  entrySubtitleTextTransform: string;
+  entrySubtitleTextDecoration: string;
+  entryTextFontSize: number;
+  entryTextFontWeight: string;
+  entryTextFontStyle: string;
+  entryTextTextTransform: string;
+  entryTextTextDecoration: string;
+
+  constructor(nameFontSize: number, nameFontWeight: string, nameFontStyle: string, nameTextTransform: string, nameTextDecoration: string, roleFontSize: number, roleFontWeight: string, roleFontStyle: string, roleTextTransform: string, roleTextDecoration: string, sectionFontSize: number, sectionFontWeight: string, sectionFontStyle: string, sectionTextTransform: string, sectionTextDecoration: string, entryTitleFontSize: number, entryTitleFontWeight: string, entryTitleFontStyle: string, entryTitleTextTransform: string, entryTitleTextDecoration: string, entrySubtitleFontSize: number, entrySubtitleFontWeight: string, entrySubtitleFontStyle: string, entrySubtitleTextTransform: string, entrySubtitleTextDecoration: string, entryTextFontSize: number, entryTextFontWeight: string, entryTextFontStyle: string, entryTextTextTransform: string, entryTextTextDecoration: string) {
+    this.nameFontSize = nameFontSize;
+    this.nameFontWeight = nameFontWeight;
+    this.nameFontStyle = nameFontStyle;
+    this.nameTextTransform = nameTextTransform;
+    this.nameTextDecoration = nameTextDecoration;
+    this.roleFontSize = roleFontSize;
+    this.roleFontWeight = roleFontWeight;
+    this.roleFontStyle = roleFontStyle;
+    this.roleTextTransform = roleTextTransform;
+    this.roleTextDecoration = roleTextDecoration;
+    this.sectionFontSize = sectionFontSize;
+    this.sectionFontWeight = sectionFontWeight;
+    this.sectionFontStyle = sectionFontStyle;
+    this.sectionTextTransform = sectionTextTransform;
+    this.sectionTextDecoration = sectionTextDecoration;
+    this.entryTitleFontSize = entryTitleFontSize;
+    this.entryTitleFontWeight = entryTitleFontWeight;
+    this.entryTitleFontStyle = entryTitleFontStyle;
+    this.entryTitleTextTransform = entryTitleTextTransform;
+    this.entryTitleTextDecoration = entryTitleTextDecoration;
+    this.entrySubtitleFontSize = entrySubtitleFontSize;
+    this.entrySubtitleFontWeight = entrySubtitleFontWeight;
+    this.entrySubtitleFontStyle = entrySubtitleFontStyle;
+    this.entrySubtitleTextTransform = entrySubtitleTextTransform;
+    this.entrySubtitleTextDecoration = entrySubtitleTextDecoration;
+    this.entryTextFontSize = entryTextFontSize;
+    this.entryTextFontWeight = entryTextFontWeight;
+    this.entryTextFontStyle = entryTextFontStyle;
+    this.entryTextTextTransform = entryTextTextTransform;
+    this.entryTextTextDecoration = entryTextTextDecoration;
+  }
+}

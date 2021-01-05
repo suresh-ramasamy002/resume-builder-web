@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {CoreDataService} from '../../services/core-data.service';
 import {MatSidenav} from '@angular/material/sidenav';
 import {AuthService} from '../../services/auth.service';
@@ -13,19 +13,22 @@ declare let Razorpay: any;
 import html2pdf from 'html2pdf.js';
 import {ConfirmDialogComponent} from '../../components/confirm-dialog/confirm-dialog.component';
 import {CdkDragDrop, moveItemInArray, CdkDragStart} from '@angular/cdk/drag-drop';
+import {CourseInfo} from '../../class/course-info';
+import {ProjectInfo} from '../../class/project-info';
+import {ConstantDataService} from '../../services/constant-data.service';
 @Component({
   selector: 'app-resume-builder',
   templateUrl: './resume-builder.component.html',
   styleUrls: ['./resume-builder.component.scss']
 })
-export class ResumeBuilderComponent implements OnInit {
+export class ResumeBuilderComponent implements OnInit, OnDestroy {
    public sectionName = null;
   private PDF_EXTENSION = '.pdf';
   @ViewChild('templateFile') template: ElementRef;
   public themeColor =  [];
   @ViewChild('sidenav') sidenav: MatSidenav;
   private aId = 'V5cCGAXOpHMTvgL2b2rccgDLt3x1';
-  public fontFamily = ['Arial', 'Book Antiqua', 'Calibri', 'Cambria', 'Didot', 'Garamond', 'Georgia', 'Helvetica', 'Times New Roman', 'Trebuchet MS', 'Verdana'];
+  public fontFamily = ['Arial', 'Arimo', 'Helvetica', 'Noto Sans', 'Times New Roman', 'Trebuchet MS', 'Verdana', 'Work Sans'];
   public options = {
     key: 'rzp_live_0Tyq3jzKCHpjDf',
     amount: '1500',
@@ -40,6 +43,7 @@ export class ResumeBuilderComponent implements OnInit {
       color: '#34457F'
     }
   };
+  // public noOfPages = [{number: '1', desc: 'onePage'}, {number: '2', desc: 'twoPage'}, {number: '3', desc: 'threePage'}, {number: '4', desc: 'fourPage'}, {number: '5', desc: 'fivePage'}, {number: '6', desc: 'sixPage'}, {number: '7', desc: 'sevenPage'}, {number: '8', desc: 'eightPage'}, {number: '9', desc: 'ninePage'}, {number: '10', desc: 'tenPage'}];
   public workExpIndex = 0;
   public educationIndex = 0;
   private rzp1 = new Razorpay(this.options);
@@ -64,13 +68,28 @@ export class ResumeBuilderComponent implements OnInit {
     {name: 'lightskyblue', value: '#04b4ff'},
     {name: 'skyblue', value: '#009bdf'},
     {name: 'semiblue', value: '#0075a7'},
-    {name: 'blue', value: '#003d74'},
     {name: 'purple', value: '#542494'},
     {name: 'lightpurple', value: '#731c92'},
     {name: 'red', value: '#bf271f'},
-    {name: 'darkred', value: '#7d1914'}
+    {name: 'darkred', value: '#7d1914'},
+    {name: 'darkgray', value: '#453a54'}
   ];
-  constructor(public coreDataService: CoreDataService, private auth: AuthService, private sanitizer: DomSanitizer, private userService: UserService, public dialog: MatDialog) {
+  public noOfPages = [
+    {page: '1', size: '29.68'},
+    {page: '2', size: '59.36'},
+    {page: '3', size: '89.04'},
+    {page: '4', size: '118.72'},
+    {page: '5', size: '148.40'},
+    {page: '6', size: '178.08'},
+    {page: '7', size: '207.76'},
+    {page: '8', size: '237.44'},
+    {page: '9', size: '267.12'},
+    {page: '10', size: '296.8'}
+  ];
+  public reOrderDetails = false;
+  public sectionSpacing = false;
+  public starType = [{name: 'round', hexCode: '&#x25cf;', label: 'Round'}, {name: 'star', hexCode: '&#9733;', label: 'Star'}, {name: 'square', hexCode: '&#x25a0;', label: 'Square'}, {name: 'diamond', hexCode: '&#9830;', label: 'Diamond'}];
+  constructor(public coreDataService: CoreDataService, private auth: AuthService, private sanitizer: DomSanitizer, private userService: UserService, public dialog: MatDialog, public constantDataService: ConstantDataService) {
 
   }
   ngOnInit(): void {
@@ -93,78 +112,10 @@ export class ResumeBuilderComponent implements OnInit {
       localStorage.setItem('selectedTemplate', this.coreDataService.selectedTemplate);
       localStorage.setItem('selectedTemplateTheme', this.coreDataService.templateData.templateTheme);
     });
-
+     this.constantDataService.refreshData();
     if ('selectedTemplateTheme' in localStorage) {
       this.coreDataService.templateData.templateTheme = localStorage.getItem('selectedTemplateTheme');
     }
-  }
-  setThemePerTemplate(templateName) {
-    this.themeColor = [];
-    switch (templateName) {
-      case 'template-one': this.themeColor = [
-        { name: 'Blue', value: '#353f58' },
-        { name: 'Blue Grey', value: '#607D8B' },
-        { name: 'Black', value: '#343b46' }];
-        break;
-      case 'template-two': this.themeColor = [
-        { name: 'Blue', value: '#353f58' },
-        { name: 'Brown', value: '#414141' },
-        { name: 'Grey', value: '#f3f3f3' },
-        { name: 'Black', value: '#343b46' }];
-        break;
-      case 'template-three': this.themeColor = [
-        { name: 'Blue', value: '#353f58' },
-        { name: 'Blue Grey', value: '#607D8B'},
-        { name: 'Brown', value: '#414141' },
-        { name: 'Black', value: '#343b46' }];
-        break;
-      case 'template-four': this.themeColor = [
-        { name: 'Blue', value: '#353f58' },
-        { name: 'Blue Grey', value: '#607D8B'},
-        { name: 'Black', value: '#343b46' }];
-        break;
-      case 'template-five': this.themeColor = [
-        { name: 'Black', value: '#343b46' }];
-        break;
-      case 'template-six': this.themeColor = [
-        { name: 'Blue', value: '#353f58' },
-        { name: 'Blue Grey', value: '#607D8B' },
-        { name: 'Black', value: '#343b46' }];
-        break;
-      case 'template-seven': this.themeColor = [
-        { name: 'Blue', value: '#414141' },
-        { name: 'Blue Grey', value: '#353f58' },
-        { name: 'Black', value: '#343b46'}];
-        break;
-      case 'template-eight': this.themeColor = [
-        { name: 'Blue', value: '#414141' },
-        { name: 'Blue Grey', value: '#353f58' },
-        { name: 'Black', value: '#343b46'}];
-        break;
-      case 'template-nine': this.themeColor = [
-        { name: 'Blue', value: '#414141' },
-        { name: 'Blue Grey', value: '#353f58' },
-        { name: 'Black', value: '#343b46'}];
-        break;
-      case 'template-ten': this.themeColor = [
-        { name: 'Blue', value: '#414141' },
-        { name: 'Blue Grey', value: '#353f58' },
-        { name: 'Black', value: '#343b46'}];
-        break;
-    }
-    return this.themeColor;
-  }
-  setTickColor(colorVal) {
-    let color = '#292929';
-    switch(colorVal) {
-      case '#343b46': color = '#ffffff';
-        break;
-      case '#353f58': color = '#ffffff';
-        break;
-      case '#414141': color = '#ffffff';
-        break;
-    }
-    return color;
   }
   ngOnDestroy() {
     this.coreDataService.templateData.image = null;
@@ -172,8 +123,28 @@ export class ResumeBuilderComponent implements OnInit {
     localStorage.setItem('selectedTemplateTheme', this.coreDataService.templateData.templateTheme);
     this.userService.addUpdateUserResumeData(firebase.auth().currentUser.uid);
   }
+  setThemePerTemplate(templateName) {
+    this.themeColor = [
+      { name: 'Blue', value: '#353f58' },
+      { name: 'Blue Grey', value: '#607D8B' },
+      { name: 'Black', value: '#343b46' },
+      {name: 'oliveGreen', value: '#01998d'},
+      {name: 'tickBlue', value: '#003d74'}
+    ];
+    return this.themeColor;
+  }
+  setTickColor(colorVal) {
+    let color = '#ffffff';
+    switch(colorVal) {
+      case '#d7d7d7' : color = '#363d49';
+      break;
+      case '#bbbcbf' : color = '#363d49';
+        break;
+    }
+    return color;
+  }
   openPaymentDialog(): void {
-    if (this.coreDataService.userDetails.role === 'PRO_ADMIN_1' || this.coreDataService.userDetails.role === 'CO_ADMIN_1' || this.coreDataService.selectedTemplate === 'template-one' || this.coreDataService.selectedTemplate === 'template-two' || this.coreDataService.selectedTemplate === 'template-four') {
+    if (this.coreDataService.userDetails.role === 'PRO_ADMIN_1' || this.coreDataService.userDetails.role === 'CO_ADMIN_1') {
       this.exportRightNow();
     } else {
       let razorpay = new Razorpay(this.options);
@@ -256,11 +227,17 @@ export class ResumeBuilderComponent implements OnInit {
   //     return confirmationMessage;              // Gecko, WebKit, Chrome <34
   // }
   selectedTemplate(templateName, theme) {
+    if (templateName === 'template-six' || templateName === 'template-nine') {
+      this.coreDataService.templateData.spacing.sectionSpacing = 0.5;
+    } else {
+      this.coreDataService.templateData.spacing.sectionSpacing = 1.2;
+    }
     this.coreDataService.selectedTemplate = templateName;
     this.coreDataService.templateData.templateTheme = theme;
     this.setThemePerTemplate(this.coreDataService.selectedTemplate);
     localStorage.setItem('selectedTemplateTheme', this.coreDataService.templateData.templateTheme);
     localStorage.setItem('selectedTemplate', this.coreDataService.selectedTemplate);
+    this.constantDataService.refreshData();
   }
   changeTheme(colorValue) {
     this.coreDataService.templateData.templateTheme = colorValue;
@@ -344,7 +321,7 @@ export class ResumeBuilderComponent implements OnInit {
   }
 
   addWorkExperience() {
-    this.coreDataService.templateData.companyInfo.push({companyName: '', workFromTo: '', role: '', details: [''], isPresent: false, startDate: null, endDate: null, endMonth: null, startMonth: null});
+    this.coreDataService.templateData.companyInfo.push({companyName: '', workFromTo: '', role: '', details: [{summary: '', margin: 0}], isPresent: false, startDate: null, endDate: null, endMonth: null, startMonth: null, margin: 0});
   }
   deleteCompanyInfo(i) {
     this.workExpIndex = null;
@@ -360,7 +337,7 @@ export class ResumeBuilderComponent implements OnInit {
     });
   }
   addAcheivement(i) {
-    this.coreDataService.templateData.companyInfo[i].details.push('');
+    this.coreDataService.templateData.companyInfo[i].details.push({summary: '', margin: 0});
   }
   deleteAcheivement(i, j) {
     this.coreDataService.templateData.companyInfo[i].details.splice(j, 1);
@@ -372,7 +349,7 @@ export class ResumeBuilderComponent implements OnInit {
       endDate: null,
       endMonth: null,
       startMonth: null, isPresent: false,  gpaFormat: '/10',
-      gpaStatus: null});
+      gpaStatus: null, margin: 0});
   }
   deleteEduInfo(i) {
     this.educationIndex = null;
@@ -388,7 +365,7 @@ export class ResumeBuilderComponent implements OnInit {
     });
   }
   addCerficates() {
-    this.coreDataService.templateData.certificates.push({certificateName: '', year: '', toDate: '', fromDate: ''});
+    this.coreDataService.templateData.certificates.push({certificateName: '', year: '', toDate: '', fromDate: '', margin: 0, description: ''});
   }
   deleteCerficates(i) {
     let dialogRef = this.dialog.open(ConfirmDialogComponent, {
@@ -403,7 +380,7 @@ export class ResumeBuilderComponent implements OnInit {
     });
   }
   addAwards() {
-    this.coreDataService.templateData.honorAwardInfo.push({year: '', award: ''});
+    this.coreDataService.templateData.honorAwardInfo.push({year: '', award: '', margin: 0});
   }
   deleteAwards(i) {
     let dialogRef = this.dialog.open(ConfirmDialogComponent, {
@@ -421,7 +398,7 @@ export class ResumeBuilderComponent implements OnInit {
     this.coreDataService.templateData.image = null;
   }
   addInterest() {
-    this.coreDataService.templateData.interestOn.push('');
+    this.coreDataService.templateData.interestOn.push({summary: '', margin: 0});
   }
   deleteInterest(i) {
     this.coreDataService.templateData.interestOn.splice(i, 1);
@@ -436,47 +413,22 @@ export class ResumeBuilderComponent implements OnInit {
     this.coreDataService.templateData.computerSkills.splice(i, 1);
   }
   addLanguage() {
-    this.coreDataService.templateData.knownLanguage.push({skill: '', rate: 0});
+    this.coreDataService.templateData.knownLanguage.push({skill: '', rate: 0, margin: 0});
   }
   addTechSkills() {
-    this.coreDataService.templateData.technicalSkills.push({skill: '', rate: 0});
+    this.coreDataService.templateData.technicalSkills.push({skill: '', rate: 0, margin: 0});
   }
   addComputerSkills() {
-    this.coreDataService.templateData.computerSkills.push({skill: '', rate: 0});
-  }
-  addActivities() {
-    this.coreDataService.templateData.activitiesInfo.push({place: '', role: '', year: '', summary: [''], isPresent: false,
-      startDate: null,
-      endDate: null,
-      endMonth: null,
-      startMonth: null});
-  }
-  deleteActivityInfo(i) {
-    let dialogRef = this.dialog.open(ConfirmDialogComponent, {
-      width: '450px',
-      data: {heading: 'Do you want to remove this entry?', message: 'If you remove this position all your changes will be lost.'}
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        this.coreDataService.templateData.activitiesInfo.splice(i, 1);
-      } else {
-      }
-    });
-  }
-  deleteActivitySummary(i, k) {
-    this.coreDataService.templateData.activitiesInfo[i].summary.splice(k, 1);
-  }
-  addActivitySummary(i) {
-    this.coreDataService.templateData.activitiesInfo[i].summary.push('');
+    this.coreDataService.templateData.computerSkills.push({skill: '', rate: 0, margin: 0});
   }
   addAdditionalInfo(){
-    this.coreDataService.templateData.additionalInfoDetails.push('');
+    this.coreDataService.templateData.additionalInfoDetails.push({summary: '', margin: 0});
   }
   deleteAdditionalInfo(i){
     this.coreDataService.templateData.additionalInfoDetails.splice(i, 1);
   }
   addReference(){
-    this.coreDataService.templateData.referenceDetails.push('');
+    this.coreDataService.templateData.referenceDetails.push({name: '', jobTitle: '', company: '',  margin: 0});
   }
   deleteReference(i){
     this.coreDataService.templateData.referenceDetails.splice(i, 1);
@@ -496,8 +448,8 @@ export class ResumeBuilderComponent implements OnInit {
       };
       html2pdf().from(document.getElementById(selectedElement)).set(opt).toPdf().get('pdf').then((pdf) => {
         let dialogRef = this.dialog.open(PdfViewerComponent, {
-          width: '96vw',
-          maxWidth: '96vw',
+          width: '80vw',
+          maxWidth: '80vw',
           data: {src: pdf.output('bloburl')}
         });
         dialogRef.afterClosed().subscribe(result => {
@@ -511,7 +463,6 @@ export class ResumeBuilderComponent implements OnInit {
     }, 100);
   }
   saveToDB(response) {
-    console.log(response);
     let userPaymentsData = {
       name: this.coreDataService.userDetails.firstName,
       email: this.coreDataService.userDetails.email,
@@ -583,12 +534,8 @@ export class ResumeBuilderComponent implements OnInit {
     moveItemInArray(this.coreDataService.templateData.certificates, event.previousIndex, event.currentIndex);
   }
   setCertificateDate(i) {
-    if (this.coreDataService.templateData.certificates[i].fromDate != null && this.coreDataService.templateData.certificates[i].toDate == null) {
-      this.coreDataService.templateData.certificates[i].year = this.coreDataService.templateData.certificates[i].fromDate;
-    } else if (this.coreDataService.templateData.certificates[i].fromDate == null && this.coreDataService.templateData.certificates[i].toDate != null) {
-      this.coreDataService.templateData.certificates[i].year = this.coreDataService.templateData.certificates[i].toDate;
-    } else if (this.coreDataService.templateData.certificates[i].fromDate != null && this.coreDataService.templateData.certificates[i].toDate != null) {
-      this.coreDataService.templateData.certificates[i].year = this.coreDataService.templateData.certificates[i].fromDate + ' - ' + this.coreDataService.templateData.certificates[i].toDate;
+    if (this.coreDataService.templateData.certificates[i].fromDate != null && this.coreDataService.templateData.certificates[i].toDate != null) {
+      this.coreDataService.templateData.certificates[i].year = this.coreDataService.templateData.certificates[i].toDate + ' ' + this.coreDataService.templateData.certificates[i].fromDate;
     } else {
       this.coreDataService.templateData.certificates[i].year = null;
     }
@@ -598,24 +545,6 @@ export class ResumeBuilderComponent implements OnInit {
   }
   SwapInterest(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.coreDataService.templateData.interestOn, event.previousIndex, event.currentIndex);
-  }
-  setActivityDate(checked, i) {
-    this.coreDataService.templateData.activitiesInfo[i].isPresent = checked;
-    if (checked) {
-      this.coreDataService.templateData.activitiesInfo[i].endMonth = null;
-      this.coreDataService.templateData.activitiesInfo[i].endDate = null;
-      this.coreDataService.templateData.activitiesInfo[i].year = this.coreDataService.templateData.activitiesInfo[i].startMonth + ' ' + this.coreDataService.templateData.activitiesInfo[i].startDate + ' - Present';
-    } else {
-      this.coreDataService.templateData.activitiesInfo[i].year = this.coreDataService.templateData.activitiesInfo[i].startMonth + ' ' + this.coreDataService.templateData.activitiesInfo[i].startDate;
-    }
-  }
-  setActivityDateWithEnd(i) {
-    if (this.coreDataService.templateData.activitiesInfo[i].endMonth != null && this.coreDataService.templateData.activitiesInfo[i].endDate != null) {
-      this.coreDataService.templateData.activitiesInfo[i].year = this.coreDataService.templateData.activitiesInfo[i].startMonth + ' ' + this.coreDataService.templateData.activitiesInfo[i].startDate + ' - ' + this.coreDataService.templateData.activitiesInfo[i].endMonth + ' ' + this.coreDataService.templateData.activitiesInfo[i].endDate;
-    }
-  }
-  SwapActivities(event: CdkDragDrop<string[]>) {
-    moveItemInArray(this.coreDataService.templateData.activitiesInfo, event.previousIndex, event.currentIndex);
   }
   setGpaFormat(i) {
     this.coreDataService.templateData.educationInfo[i].gpa = this.coreDataService.templateData.educationInfo[i].gpaStatus + '' + this.coreDataService.templateData.educationInfo[i].gpaFormat;
@@ -628,6 +557,8 @@ export class ResumeBuilderComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.coreDataService.templateData.workExp = false;
+        this.sectionName = 'Personal Info';
+        this.constantDataService.refreshData();
       } else {
       }
     });
@@ -640,6 +571,8 @@ export class ResumeBuilderComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.coreDataService.templateData.education = false;
+        this.sectionName = 'Personal Info';
+        this.constantDataService.refreshData();
       } else {
       }
     });
@@ -652,6 +585,8 @@ export class ResumeBuilderComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.coreDataService.templateData.skills = false;
+        this.sectionName = 'Personal Info';
+        this.constantDataService.refreshData();
       } else {
       }
     });
@@ -664,6 +599,8 @@ export class ResumeBuilderComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.coreDataService.templateData.objective = false;
+        this.sectionName = 'Personal Info';
+        this.constantDataService.refreshData();
       } else {
       }
     });
@@ -676,6 +613,8 @@ export class ResumeBuilderComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.coreDataService.templateData.tech = false;
+        this.sectionName = 'Personal Info';
+        this.constantDataService.refreshData();
       } else {
       }
     });
@@ -688,6 +627,8 @@ export class ResumeBuilderComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.coreDataService.templateData.language = false;
+        this.sectionName = 'Personal Info';
+        this.constantDataService.refreshData();
       } else {
       }
     });
@@ -700,6 +641,8 @@ export class ResumeBuilderComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.coreDataService.templateData.certifications = false;
+        this.sectionName = 'Personal Info';
+        this.constantDataService.refreshData();
       } else {
       }
     });
@@ -712,6 +655,8 @@ export class ResumeBuilderComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.coreDataService.templateData.honorReward = false;
+        this.sectionName = 'Personal Info';
+        this.constantDataService.refreshData();
       } else {
       }
     });
@@ -724,6 +669,8 @@ export class ResumeBuilderComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.coreDataService.templateData.interest = false;
+        this.sectionName = 'Personal Info';
+        this.constantDataService.refreshData();
       } else {
       }
     });
@@ -736,6 +683,7 @@ export class ResumeBuilderComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.coreDataService.templateData.activities = false;
+        this.sectionName = 'Personal Info';
       } else {
       }
     });
@@ -748,6 +696,8 @@ export class ResumeBuilderComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.coreDataService.templateData.additionalInfo = false;
+        this.sectionName = 'Personal Info';
+        this.constantDataService.refreshData();
       } else {
       }
     });
@@ -760,8 +710,384 @@ export class ResumeBuilderComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.coreDataService.templateData.reference = false;
+        this.sectionName = 'Personal Info';
+        this.constantDataService.refreshData();
       } else {
       }
     });
+  }
+  hideCourse() {
+    let dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '450px',
+      data: {heading: 'Do you want to hide this section?', message: 'Your changes have been saved. You can add this section once again later.'}
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.coreDataService.templateData.course = false;
+        this.sectionName = 'Personal Info';
+        this.constantDataService.refreshData();
+      } else {
+      }
+    });
+  }
+  deleteCourseDetail(i, j) {
+    this.coreDataService.templateData.courseInfo[i].details.splice(j, 1);
+  }
+  addCourseDetail(i) {
+    this.coreDataService.templateData.courseInfo[i].details.push({summary: '', margin: 0});
+  }
+  setCourseDateWithEnd(i) {
+    if (this.coreDataService.templateData.courseInfo[i].endMonth != null && this.coreDataService.templateData.courseInfo[i].endDate != null) {
+      this.coreDataService.templateData.courseInfo[i].courseFromTo = this.coreDataService.templateData.courseInfo[i].startMonth + ' ' + this.coreDataService.templateData.courseInfo[i].startDate + ' - ' + this.coreDataService.templateData.courseInfo[i].endMonth + ' ' + this.coreDataService.templateData.courseInfo[i].endDate;
+    }
+  }
+  setCourseDate(checked, i) {
+    this.coreDataService.templateData.courseInfo[i].isPresent = checked;
+    if (checked) {
+      this.coreDataService.templateData.courseInfo[i].endMonth = null;
+      this.coreDataService.templateData.courseInfo[i].endDate = null;
+      this.coreDataService.templateData.courseInfo[i].courseFromTo = this.coreDataService.templateData.courseInfo[i].startMonth + ' ' + this.coreDataService.templateData.courseInfo[i].startDate + ' - Present';
+    } else {
+      this.coreDataService.templateData.courseInfo[i].courseFromTo = this.coreDataService.templateData.courseInfo[i].startMonth + ' ' + this.coreDataService.templateData.courseInfo[i].startDate;
+    }
+}
+  SwapCourseInfo(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.coreDataService.templateData.courseInfo, event.previousIndex, event.currentIndex);
+  }
+  deleteCourseInfo(i) {
+    let dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '450px',
+      data: {heading: 'Do you want to remove this entry?', message: 'If you remove this position all your changes will be lost.'}
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.coreDataService.templateData.courseInfo.splice(i ,1);
+      } else {
+      }
+    });
+  }
+  addCourseInfo() {
+    this.coreDataService.templateData.courseInfo.push(new CourseInfo(null, null, [{summary: '', margin: 0}], true, null, null, null, null, 0));
+  }
+  hideProject() {
+    let dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '450px',
+      data: {heading: 'Do you want to hide this section?', message: 'Your changes have been saved. You can add this section once again later.'}
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.coreDataService.templateData.project = false;
+        this.sectionName = 'Personal Info';
+        this.constantDataService.refreshData();
+      } else {
+      }
+    });
+  }
+  addProject() {
+    this.coreDataService.templateData.projectInfo.push(new ProjectInfo(null, [{summary: '', margin: 0}], 0));
+  }
+  deleteProjectInfo(i) {
+    let dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '450px',
+      data: {heading: 'Do you want to remove this entry?', message: 'If you remove this position all your changes will be lost.'}
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.coreDataService.templateData.projectInfo.splice(i ,1);
+      } else {
+      }
+    });
+  }
+  deleteProjectDetail(i, j) {
+    this.coreDataService.templateData.projectInfo[i].projectDesc.splice(j, 1);
+  }
+  addProjectDetail(i) {
+    this.coreDataService.templateData.projectInfo[i].projectDesc.push({summary: '', margin: 0});
+  }
+  SwapProjectInfo(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.coreDataService.templateData.projectInfo, event.previousIndex, event.currentIndex);
+  }
+  hideCoActivities() {
+    let dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '450px',
+      data: {heading: 'Do you want to hide this section?', message: 'Your changes have been saved. You can add this section once again later.'}
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.coreDataService.templateData.coActivities = false;
+        this.sectionName = 'Personal Info';
+        this.constantDataService.refreshData();
+      } else {
+      }
+    });
+  }
+  hideExtraActivities() {
+    let dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '450px',
+      data: {heading: 'Do you want to hide this section?', message: 'Your changes have been saved. You can add this section once again later.'}
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.coreDataService.templateData.extraActivities = false;
+        this.sectionName = 'Personal Info';
+        this.constantDataService.refreshData();
+      } else {
+      }
+    });
+  }
+  addCoActivities() {
+    this.coreDataService.templateData.coActivitiesInfo.push({summary: '', margin: 0});
+  }
+  deleteCoActivities(i) {
+    this.coreDataService.templateData.coActivitiesInfo.splice(i, 1);
+  }
+  SwapCoActivities(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.coreDataService.templateData.coActivitiesInfo, event.previousIndex, event.currentIndex);
+  }
+  SwapExtraActivities(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.coreDataService.templateData.extraActivitiesInfo, event.previousIndex, event.currentIndex);
+  }
+  SwapAdditionalInfo(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.coreDataService.templateData.additionalInfoDetails, event.previousIndex, event.currentIndex);
+  }
+  SwapReference(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.coreDataService.templateData.referenceDetails, event.previousIndex, event.currentIndex);
+  }
+  addExtraActivities() {
+    this.coreDataService.templateData.extraActivitiesInfo.push({summary: '', margin: 0});
+  }
+  deleteExtraActivities(i) {
+    this.coreDataService.templateData.extraActivitiesInfo.splice(i, 1);
+  }
+  scrollToView(sectionId) {
+    // document.getElementById(sectionId).scrollIntoView({behavior: 'smooth'});
+  }
+  nameFontWeight() {
+    if (this.coreDataService.templateData.fonts.nameFontWeight === 'Bold') {
+      this.coreDataService.templateData.fonts.nameFontWeight = 'normal';
+    }else {
+      this.coreDataService.templateData.fonts.nameFontWeight = 'Bold';
+    }
+  }
+  nameFontStyle() {
+    if (this.coreDataService.templateData.fonts.nameFontStyle === 'italic') {
+      this.coreDataService.templateData.fonts.nameFontStyle = 'normal';
+    } else {
+      this.coreDataService.templateData.fonts.nameFontStyle = 'italic';
+    }
+  }
+  nameFontDecoration() {
+    if (this.coreDataService.templateData.fonts.nameTextDecoration == 'underline') {
+      this.coreDataService.templateData.fonts.nameTextDecoration = 'none';
+    } else {
+      this.coreDataService.templateData.fonts.nameTextDecoration = 'underline';
+    }
+  }
+  nameFontTransform() {
+    if (this.coreDataService.templateData.fonts.nameTextTransform == 'uppercase') {
+      this.coreDataService.templateData.fonts.nameTextTransform = 'none';
+    } else {
+      this.coreDataService.templateData.fonts.nameTextTransform = 'uppercase';
+    }
+  }
+
+
+  roleFontWeight() {
+    if (this.coreDataService.templateData.fonts.roleFontWeight === 'Bold') {
+      this.coreDataService.templateData.fonts.roleFontWeight = 'normal';
+    }else {
+      this.coreDataService.templateData.fonts.roleFontWeight = 'Bold';
+    }
+  }
+  roleFontStyle() {
+    if (this.coreDataService.templateData.fonts.roleFontStyle === 'italic') {
+      this.coreDataService.templateData.fonts.roleFontStyle = 'normal';
+    } else {
+      this.coreDataService.templateData.fonts.roleFontStyle = 'italic';
+    }
+  }
+  roleFontDecoration() {
+    if (this.coreDataService.templateData.fonts.roleTextDecoration == 'underline') {
+      this.coreDataService.templateData.fonts.roleTextDecoration = 'none';
+    } else {
+      this.coreDataService.templateData.fonts.roleTextDecoration = 'underline';
+    }
+  }
+  roleFontTransform() {
+    if (this.coreDataService.templateData.fonts.roleTextTransform == 'uppercase') {
+      this.coreDataService.templateData.fonts.roleTextTransform = 'none';
+    } else {
+      this.coreDataService.templateData.fonts.roleTextTransform = 'uppercase';
+    }
+  }
+
+  sectionFontWeight() {
+    if (this.coreDataService.templateData.fonts.sectionFontWeight === 'Bold') {
+      this.coreDataService.templateData.fonts.sectionFontWeight = 'normal';
+    }else {
+      this.coreDataService.templateData.fonts.sectionFontWeight = 'Bold';
+    }
+  }
+  sectionFontStyle() {
+    if (this.coreDataService.templateData.fonts.sectionFontStyle === 'italic') {
+      this.coreDataService.templateData.fonts.sectionFontStyle = 'normal';
+    } else {
+      this.coreDataService.templateData.fonts.sectionFontStyle = 'italic';
+    }
+  }
+  sectionFontDecoration() {
+    if (this.coreDataService.templateData.fonts.sectionTextDecoration == 'underline') {
+      this.coreDataService.templateData.fonts.sectionTextDecoration = 'none';
+    } else {
+      this.coreDataService.templateData.fonts.sectionTextDecoration = 'underline';
+    }
+  }
+  sectionFontTransform() {
+    if (this.coreDataService.templateData.fonts.sectionTextTransform == 'uppercase') {
+      this.coreDataService.templateData.fonts.sectionTextTransform = 'none';
+    } else {
+      this.coreDataService.templateData.fonts.sectionTextTransform = 'uppercase';
+    }
+  }
+
+
+  entryTitleFontWeight() {
+    if (this.coreDataService.templateData.fonts.entryTitleFontWeight === 'Bold') {
+      this.coreDataService.templateData.fonts.entryTitleFontWeight = 'normal';
+    }else {
+      this.coreDataService.templateData.fonts.entryTitleFontWeight = 'Bold';
+    }
+  }
+  entryTitleFontStyle() {
+    if (this.coreDataService.templateData.fonts.entryTitleFontStyle === 'italic') {
+      this.coreDataService.templateData.fonts.entryTitleFontStyle = 'normal';
+    } else {
+      this.coreDataService.templateData.fonts.entryTitleFontStyle = 'italic';
+    }
+  }
+  entryTitleFontDecoration() {
+    if (this.coreDataService.templateData.fonts.entryTitleTextDecoration == 'underline') {
+      this.coreDataService.templateData.fonts.entryTitleTextDecoration = 'none';
+    } else {
+      this.coreDataService.templateData.fonts.entryTitleTextDecoration = 'underline';
+    }
+  }
+  entryTitleFontTransform() {
+    if (this.coreDataService.templateData.fonts.entryTitleTextTransform == 'uppercase') {
+      this.coreDataService.templateData.fonts.entryTitleTextTransform = 'none';
+    } else {
+      this.coreDataService.templateData.fonts.entryTitleTextTransform = 'uppercase';
+    }
+  }
+
+
+  entrySubtitleFontWeight() {
+    if (this.coreDataService.templateData.fonts.entrySubtitleFontWeight === 'Bold') {
+      this.coreDataService.templateData.fonts.entrySubtitleFontWeight = 'normal';
+    }else {
+      this.coreDataService.templateData.fonts.entrySubtitleFontWeight = 'Bold';
+    }
+  }
+  entrySubtitleFontStyle() {
+    if (this.coreDataService.templateData.fonts.entrySubtitleFontStyle === 'italic') {
+      this.coreDataService.templateData.fonts.entrySubtitleFontStyle = 'normal';
+    } else {
+      this.coreDataService.templateData.fonts.entrySubtitleFontStyle = 'italic';
+    }
+  }
+  entrySubtitleFontDecoration() {
+    if (this.coreDataService.templateData.fonts.entrySubtitleTextDecoration == 'underline') {
+      this.coreDataService.templateData.fonts.entrySubtitleTextDecoration = 'none';
+    } else {
+      this.coreDataService.templateData.fonts.entrySubtitleTextDecoration = 'underline';
+    }
+  }
+  entrySubtitleFontTransform() {
+    if (this.coreDataService.templateData.fonts.entrySubtitleTextTransform == 'uppercase') {
+      this.coreDataService.templateData.fonts.entrySubtitleTextTransform = 'none';
+    } else {
+      this.coreDataService.templateData.fonts.entrySubtitleTextTransform = 'uppercase';
+    }
+  }
+
+
+  entryTextFontWeight() {
+    if (this.coreDataService.templateData.fonts.entryTextFontWeight === 'Bold') {
+      this.coreDataService.templateData.fonts.entryTextFontWeight = 'normal';
+    }else {
+      this.coreDataService.templateData.fonts.entryTextFontWeight = 'Bold';
+    }
+  }
+  entryTextFontStyle() {
+    if (this.coreDataService.templateData.fonts.entryTextFontStyle === 'italic') {
+      this.coreDataService.templateData.fonts.entryTextFontStyle = 'normal';
+    } else {
+      this.coreDataService.templateData.fonts.entryTextFontStyle = 'italic';
+    }
+  }
+  entryTextDecoration() {
+    if (this.coreDataService.templateData.fonts.entryTextTextDecoration == 'underline') {
+      this.coreDataService.templateData.fonts.entryTextTextDecoration = 'none';
+    } else {
+      this.coreDataService.templateData.fonts.entryTextTextDecoration = 'underline';
+    }
+  }
+  entryTextTransform() {
+    if (this.coreDataService.templateData.fonts.entryTextTextTransform == 'uppercase') {
+      this.coreDataService.templateData.fonts.entryTextTextTransform = 'none';
+    } else {
+      this.coreDataService.templateData.fonts.entryTextTextTransform = 'uppercase';
+    }
+  }
+  swapCubicLeftSection(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.constantDataService.populateCubicLeft, event.previousIndex, event.currentIndex);
+  }
+  swapCubicRightSection(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.constantDataService.populateCubicRight, event.previousIndex, event.currentIndex);
+  }
+  swapCascadeLeftSection(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.constantDataService.populateCascadeLeft, event.previousIndex, event.currentIndex);
+  }
+  swapCascadeRightSection(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.constantDataService.populateCascadeRight, event.previousIndex, event.currentIndex);
+  }
+  swapEnfoldLeftSection(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.constantDataService.populateEnfoldLeft, event.previousIndex, event.currentIndex);
+  }
+  swapEnfoldRightSection(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.constantDataService.populateEnfoldRight, event.previousIndex, event.currentIndex);
+  }
+  swapVibesLeftSection(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.constantDataService.populateVibesLeft, event.previousIndex, event.currentIndex);
+  }
+  swapVibesRightSection(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.constantDataService.populateVibesRight, event.previousIndex, event.currentIndex);
+  }
+  swapCrispLeftSection(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.constantDataService.populateCrispLeft, event.previousIndex, event.currentIndex);
+  }
+  swapCrispRightSection(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.constantDataService.populateCrispRight, event.previousIndex, event.currentIndex);
+  }
+  swapMuseLeftSection(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.constantDataService.populateMuseLeft, event.previousIndex, event.currentIndex);
+  }
+  swapMuseRightSection(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.constantDataService.populateMuseRight, event.previousIndex, event.currentIndex);
+  }
+  swapSimpleLeftSection(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.constantDataService.populateSimpleLeft, event.previousIndex, event.currentIndex);
+  }
+  swapSimpleRightSection(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.constantDataService.populateSimpleRight, event.previousIndex, event.currentIndex);
+  }
+  swapIconicSection(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.constantDataService.populateIconic, event.previousIndex, event.currentIndex);
+  }
+  swapNanicaSection(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.constantDataService.populateNanica, event.previousIndex, event.currentIndex);
+  }
+  logoutUser() {
+    this.auth.logout();
   }
 }

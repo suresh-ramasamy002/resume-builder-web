@@ -13,3 +13,29 @@ html, body {
   scrollbar-width: thin;
 }
 
+.paginated-view {
+  > .page {
+    margin: 0 auto;
+    margin-bottom: 0.5cm;
+  }
+}
+.page {
+  display: block;
+  background: white;
+  box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.A4 {
+  width: 21cm;
+  height: 29.4cm;
+}
+
+.A3{
+  width: 842px;
+  height: 1191px;
+  padding: 10px 25px;
+}
+.text-color {
+  color: #363D49;
+}
