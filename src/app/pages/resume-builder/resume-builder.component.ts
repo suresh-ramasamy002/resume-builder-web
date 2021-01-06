@@ -1092,6 +1092,9 @@ export class ResumeBuilderComponent implements OnInit, OnDestroy {
   swapNanicaSection(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.constantDataService.populateNanica, event.previousIndex, event.currentIndex);
   }
+  swapInfluxSection(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.constantDataService.populateInflux, event.previousIndex, event.currentIndex);
+  }
   logoutUser() {
     this.auth.logout();
   }

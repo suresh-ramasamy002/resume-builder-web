@@ -385,6 +385,18 @@
                     </ng-container>
                   </mat-card>
                 </div>
+                <div fxLayout="row" *ngIf="coreDataService.selectedTemplate == 'template-six'">
+                  <mat-card fxFlex="100%" cdkDropList cdkDropListLockAxis="y" cdkDropListOrientation="Vertical" (cdkDropListDropped)="swapInfluxSection($event)" class="drag-list">
+                    <ng-container *ngFor="let swapLeftInflux of constantDataService.populateInflux; let i = index">
+                      <div fxLayout="row" *ngIf="swapLeftInflux.bool" cdkDrag cdkDragHandle class="drag-box">
+                        <div fxFlex="100%">
+                          <label>{{swapLeftInflux.label}}</label>
+                          <label class="text-color pull-right"><img src="assets/images/drag.svg" width="8px"></label>
+                        </div>
+                      </div>
+                    </ng-container>
+                  </mat-card>
+                </div>
                 <div fxLayout="row" *ngIf="coreDataService.selectedTemplate == 'template-seven'" fxLayoutGap="2%">
                   <mat-card fxFlex="50%" cdkDropList cdkDropListLockAxis="y" cdkDropListOrientation="Vertical" (cdkDropListDropped)="swapEnfoldLeftSection($event)" class="drag-list">
                     <ng-container *ngFor="let swapLeftEnfold of constantDataService.populateEnfoldLeft; let i = index">
