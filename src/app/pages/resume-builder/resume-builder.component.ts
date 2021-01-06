@@ -107,6 +107,11 @@ export class ResumeBuilderComponent implements OnInit, OnDestroy {
     if ('templateData' in localStorage) {
       this.coreDataService.templateData = JSON.parse(localStorage.getItem('templateData'));
     }
+    if (this.coreDataService.selectedTemplate === 'template-six' || this.coreDataService.selectedTemplate === 'template-nine') {
+      this.coreDataService.templateData.spacing.sectionSpacing = 0.5;
+    } else {
+      this.coreDataService.templateData.spacing.sectionSpacing = 1.2;
+    }
     window.onbeforeunload = (() => {
       localStorage.setItem('templateData', JSON.stringify(this.coreDataService.templateData));
       localStorage.setItem('selectedTemplate', this.coreDataService.selectedTemplate);
