@@ -14,86 +14,88 @@
       </div>
     </div>
     <div [ngStyle]="{'background': sectionName != 'Resume Templates' && sectionName != 'Custom Design' ? '#00000080': 'transparent'}">
-    <div fxLayout="row">
+      <ng-container *ngFor="let section of constantDataService.populateSideMenu; let index = index" [ngSwitch]="section.name">
+    <div fxLayout="row" *ngSwitchCase="'Personal Info'">
       <div fxFlex="100%" class="build-side-nav-sub-tile" [ngClass]="{'build-side-nav-sub-tile-selected': sectionName == 'Personal Info'}" (click)="sectionName = 'Personal Info'; reOrderDetails = false;sectionSpacing = false; scrollToView('personalInfoScroll')">
         <a>Personal Info</a>
       </div>
     </div>
-    <div fxLayout="row" *ngIf="coreDataService.templateData.objective">
+    <div fxLayout="row" *ngSwitchCase="'Summary'">
       <div fxFlex="100%" class="build-side-nav-sub-tile" [ngClass]="{'build-side-nav-sub-tile-selected': sectionName == 'Summary'}" (click)="sectionName = 'Summary'; reOrderDetails = false;sectionSpacing = false; scrollToView('summaryScroll');">
         <a>Summary</a>
       </div>
     </div>
-    <div fxLayout="row" *ngIf="coreDataService.templateData.workExp">
+    <div fxLayout="row" *ngSwitchCase="'Work Experience'">
       <div fxFlex="100%" class="build-side-nav-sub-tile" [ngClass]="{'build-side-nav-sub-tile-selected': sectionName == 'Work Experience'}" (click)="sectionName = 'Work Experience'; reOrderDetails = false;sectionSpacing = false; scrollToView('workExpScroll')">
         <a>Work Experience</a>
       </div>
     </div>
-    <div fxLayout="row" *ngIf="coreDataService.templateData.education">
+    <div fxLayout="row" *ngSwitchCase="'Education'">
       <div fxFlex="100%" class="build-side-nav-sub-tile" [ngClass]="{'build-side-nav-sub-tile-selected': sectionName == 'Education'}" (click)="sectionName = 'Education'; reOrderDetails = false;sectionSpacing = false; scrollToView('educationScroll')">
         <a>Education</a>
       </div>
     </div>
-    <div fxLayout="row" *ngIf="coreDataService.templateData.skills">
+    <div fxLayout="row" *ngSwitchCase="'Skills'">
       <div fxFlex="100%" class="build-side-nav-sub-tile" [ngClass]="{'build-side-nav-sub-tile-selected': sectionName == 'Skills'}" (click)="sectionName = 'Skills'; reOrderDetails = false;sectionSpacing = false;">
         <a>Skills</a>
       </div>
     </div>
-      <div fxLayout="row" *ngIf="coreDataService.templateData.project">
+      <div fxLayout="row" *ngSwitchCase="'Projects'">
         <div fxFlex="100%" class="build-side-nav-sub-tile" [ngClass]="{'build-side-nav-sub-tile-selected': sectionName == 'Projects'}" (click)="sectionName = 'Projects'; reOrderDetails = false;sectionSpacing = false;">
           <a>Projects</a>
         </div>
       </div>
-      <div fxLayout="row" *ngIf="coreDataService.templateData.tech">
+      <div fxLayout="row" *ngSwitchCase="'Software'">
         <div fxFlex="100%" class="build-side-nav-sub-tile" [ngClass]="{'build-side-nav-sub-tile-selected': sectionName == 'Software'}" (click)="sectionName = 'Software'; reOrderDetails = false;sectionSpacing = false;">
           <a>Software</a>
         </div>
       </div>
-      <div fxLayout="row" *ngIf="coreDataService.templateData.language">
+      <div fxLayout="row" *ngSwitchCase="'Languages'">
         <div fxFlex="100%" class="build-side-nav-sub-tile" [ngClass]="{'build-side-nav-sub-tile-selected': sectionName == 'Languages'}" (click)="sectionName = 'Languages'; reOrderDetails = false;sectionSpacing = false;">
           <a>Languages</a>
         </div>
       </div>
-      <div fxLayout="row" *ngIf="coreDataService.templateData.certifications">
+      <div fxLayout="row" *ngSwitchCase="'Certifications'">
         <div fxFlex="100%" class="build-side-nav-sub-tile" [ngClass]="{'build-side-nav-sub-tile-selected': sectionName == 'Certifications'}" (click)="sectionName = 'Certifications'; reOrderDetails = false;sectionSpacing = false;">
           <a>Certificates</a>
         </div>
       </div>
-      <div fxLayout="row" *ngIf="coreDataService.templateData.course">
+      <div fxLayout="row" *ngSwitchCase="'Courses'">
         <div fxFlex="100%" class="build-side-nav-sub-tile" [ngClass]="{'build-side-nav-sub-tile-selected': sectionName == 'Courses'}" (click)="sectionName = 'Courses'; reOrderDetails = false;sectionSpacing = false;">
           <a>Courses</a>
         </div>
       </div>
-      <div fxLayout="row" *ngIf="coreDataService.templateData.honorReward">
+      <div fxLayout="row" *ngSwitchCase="'Honors'">
         <div fxFlex="100%" class="build-side-nav-sub-tile" [ngClass]="{'build-side-nav-sub-tile-selected': sectionName == 'Honors'}" (click)="sectionName = 'Honors'; reOrderDetails = false;sectionSpacing = false;">
           <a>Honors & Awards</a>
         </div>
       </div>
-      <div fxLayout="row" *ngIf="coreDataService.templateData.interest">
+      <div fxLayout="row" *ngSwitchCase="'Interests'">
         <div fxFlex="100%" class="build-side-nav-sub-tile" [ngClass]="{'build-side-nav-sub-tile-selected': sectionName == 'Interests'}" (click)="sectionName = 'Interests'; reOrderDetails = false;sectionSpacing = false;">
           <a>Interests</a>
         </div>
       </div>
-      <div fxLayout="row" *ngIf="coreDataService.templateData.coActivities">
+      <div fxLayout="row" *ngSwitchCase="'Co-curricular Activities'">
         <div fxFlex="100%" class="build-side-nav-sub-tile" [ngClass]="{'build-side-nav-sub-tile-selected': sectionName == 'Co-curricular Activities'}" (click)="sectionName = 'Co-curricular Activities'; reOrderDetails = false;sectionSpacing = false;">
           <a>Co-curricular Activities</a>
         </div>
       </div>
-      <div fxLayout="row" *ngIf="coreDataService.templateData.extraActivities">
+      <div fxLayout="row" *ngSwitchCase="'Extra-curricular Activities'">
         <div fxFlex="100%" class="build-side-nav-sub-tile" [ngClass]="{'build-side-nav-sub-tile-selected': sectionName == 'Extra-curricular Activities'}" (click)="sectionName = 'Extra-curricular Activities'; reOrderDetails = false;sectionSpacing = false;">
           <a>Extra-curricular Activities</a>
         </div>
       </div>
-      <div fxLayout="row" *ngIf="coreDataService.templateData.additionalInfo">
+      <div fxLayout="row" *ngSwitchCase="'Additional Info'">
         <div fxFlex="100%" class="build-side-nav-sub-tile" [ngClass]="{'build-side-nav-sub-tile-selected': sectionName == 'Additional Info'}" (click)="sectionName = 'Additional Info'; reOrderDetails = false;sectionSpacing = false;">
           <a>Additional Info</a>
         </div>
       </div>
-      <div fxLayout="row" *ngIf="coreDataService.templateData.reference">
+      <div fxLayout="row" *ngSwitchCase="'Reference'">
         <div fxFlex="100%" class="build-side-nav-sub-tile" [ngClass]="{'build-side-nav-sub-tile-selected': sectionName == 'Reference'}" (click)="sectionName = 'Reference'; reOrderDetails = false;sectionSpacing = false;">
           <a>Reference</a>
         </div>
       </div>
+      </ng-container>
       <div fxLayout="row">
         <div fxFlex="100%" class="build-side-nav-sub-tile" [ngClass]="{'build-side-nav-sub-tile-selected': sectionName == 'Add & Remove Sections'}" (click)="sectionName = 'Add & Remove Sections'; reOrderDetails = false;sectionSpacing = false;">
           <a>Add & Remove Sections</a>
@@ -762,13 +764,14 @@
           </mat-form-field>
           <div fxFlex="5%"></div>
         </div>
-<!--        <div fxLayout="row" fxLayoutGap="3%" class="margin-top-15">-->
-<!--          <div fxFlex="5%"></div>-->
-<!--          <div fxFlex="90%" fxLayoutAlign="end">-->
-<!--            <button mat-raised-button color="primary" (click)="sectionName = 'Summary'">Next Section</button>-->
-<!--          </div>-->
-<!--          <div fxFlex="5%"></div>-->
-<!--        </div>-->
+        <div fxLayout="row" fxLayoutGap="3%" class="margin-top-15">
+          <div fxFlex="5%"></div>
+          <div fxFlex="90%" fxLayoutAlign="end">
+            <button *ngIf="checkSectionIndex('Personal Info')" mat-raised-button color="primary" (click)="sectionName = 'Add & Remove Sections'">Add More Sections?</button>
+            <button *ngIf="!checkSectionIndex('Personal Info')" mat-raised-button color="primary" (click)="nextSection('Personal Info')">Next Section</button>
+          </div>
+          <div fxFlex="5%"></div>
+        </div>
       </div>
     </div>
     <div fxLayout="row" *ngIf="sectionName == 'Summary'">
@@ -824,14 +827,15 @@
           </mat-form-field>
           <div fxFlex="5%"></div>
         </div>
-<!--        <div fxLayout="row" fxLayoutGap="3%" class="margin-top-15">-->
-<!--          <div fxFlex="5%"></div>-->
-<!--          <div fxFlex="90%" fxLayoutAlign="end">-->
-<!--            <button mat-stroked-button color="primary" (click)="sectionName = 'Personal Info'">Back</button>-->
-<!--            <button mat-raised-button color="primary" (click)="sectionName = 'Work Experience'" class="m-l-1">Next Section</button>-->
-<!--          </div>-->
-<!--          <div fxFlex="5%"></div>-->
-<!--        </div>-->
+        <div fxLayout="row" fxLayoutGap="3%" class="margin-top-15">
+          <div fxFlex="5%"></div>
+          <div fxFlex="90%" fxLayoutAlign="end">
+            <button mat-stroked-button (click)="previousSection('Summary')">Back</button>
+            <button class="m-l-1" *ngIf="checkSectionIndex('Summary')" mat-raised-button color="primary" (click)="sectionName = 'Add & Remove Sections'">Add More Sections?</button>
+            <button class="m-l-1" *ngIf="!checkSectionIndex('Summary')" mat-raised-button color="primary" (click)="nextSection('Summary')">Next Section</button>
+          </div>
+          <div fxFlex="5%"></div>
+        </div>
       </div>
     </div>
     <div fxLayout="row" *ngIf="sectionName == 'Work Experience'">
@@ -1045,14 +1049,15 @@
           </div>
           <div fxFlex="5%"></div>
         </div>
+        <div fxLayout="row" fxLayoutGap="3%" style="margin-top: 25px">
+          <div fxFlex="5%"></div>
+          <div fxFlex="87%" fxLayoutAlign="end">
+            <button mat-stroked-button (click)="previousSection('Work Experience')">Back</button>
+            <button class="m-l-1" *ngIf="checkSectionIndex('Work Experience')" mat-raised-button color="primary" (click)="sectionName = 'Add & Remove Sections'">Add More Sections?</button>
+            <button class="m-l-1" *ngIf="!checkSectionIndex('Work Experience')" mat-raised-button color="primary" (click)="nextSection('Work Experience')">Next Section</button>
+          </div>
+        </div>
         <div style="margin-top: 30px"></div>
-<!--        <div fxLayout="row" fxLayoutGap="3%" style="margin-top: 25px">-->
-<!--          <div fxFlex="5%"></div>-->
-<!--          <div fxFlex="87%" fxLayoutAlign="end">-->
-<!--            <button mat-stroked-button color="primary" (click)="sectionName = 'Summary'">Back</button>-->
-<!--            <button mat-raised-button color="primary" (click)="sectionName = 'Education'" class="m-l-1">Next Section</button>-->
-<!--          </div>-->
-<!--        </div>-->
       </div>
     </div>
     <div fxLayout="row" *ngIf="sectionName == 'Education'">
@@ -1263,14 +1268,15 @@
           </div>
           <div fxFlex="5%"></div>
         </div>
+        <div fxLayout="row" fxLayoutGap="3%" style="margin-top: 25px">
+          <div fxFlex="5%"></div>
+          <div fxFlex="87%" fxLayoutAlign="end">
+            <button mat-stroked-button (click)="previousSection('Education')">Back</button>
+            <button class="m-l-1" *ngIf="checkSectionIndex('Education')" mat-raised-button color="primary" (click)="sectionName = 'Add & Remove Sections'">Add More Sections?</button>
+            <button class="m-l-1" *ngIf="!checkSectionIndex('Education')" mat-raised-button color="primary" (click)="nextSection('Education')">Next Section</button>
+          </div>
+        </div>
         <div style="margin-top: 30px"></div>
-<!--        <div fxLayout="row" fxLayoutGap="3%" style="margin-top: 25px">-->
-<!--          <div fxFlex="5%"></div>-->
-<!--          <div fxFlex="87%" fxLayoutAlign="end">-->
-<!--            <button mat-stroked-button color="primary" (click)="sectionName = 'Work Experience'">Back</button>-->
-<!--            <button mat-raised-button color="primary" (click)="sectionName = 'Skills'" class="m-l-1">Next Section</button>-->
-<!--          </div>-->
-<!--        </div>-->
       </div>
     </div>
     <div fxLayout="row" *ngIf="sectionName == 'Skills'">
@@ -1441,13 +1447,14 @@
             <button mat-stroked-button (click)="addTechSkills()">+New Skills</button>
           </div>
         </div>
-<!--        <div fxLayout="row" fxLayoutGap="3%" style="margin-top: 25px">-->
-<!--          <div fxFlex="5%"></div>-->
-<!--          <div fxFlex="87%" fxLayoutAlign="end">-->
-<!--            <button mat-stroked-button color="primary" (click)="sectionName = 'Education'">Back</button>-->
-<!--            <button mat-raised-button color="primary" (click)="sectionName = 'Software'" class="m-l-1">Next Section</button>-->
-<!--          </div>-->
-<!--        </div>-->
+        <div fxLayout="row" fxLayoutGap="3%" style="margin-top: 25px">
+          <div fxFlex="5%"></div>
+          <div fxFlex="87%" fxLayoutAlign="end">
+            <button mat-stroked-button (click)="previousSection('Skills')">Back</button>
+            <button class="m-l-1" *ngIf="checkSectionIndex('Skills')" mat-raised-button color="primary" (click)="sectionName = 'Add & Remove Sections'">Add More Sections?</button>
+            <button class="m-l-1" *ngIf="!checkSectionIndex('Skills')" mat-raised-button color="primary" (click)="nextSection('Skills')">Next Section</button>
+          </div>
+        </div>
       </div>
     </div>
     <div fxLayout="row" *ngIf="sectionName == 'Projects'">
@@ -1598,6 +1605,15 @@
           </div>
           <div fxFlex="5%"></div>
         </div>
+        <div fxLayout="row" fxLayoutGap="3%" style="margin-top: 25px">
+          <div fxFlex="5%"></div>
+          <div fxFlex="87%" fxLayoutAlign="end">
+            <button mat-stroked-button (click)="previousSection('Projects')">Back</button>
+            <button class="m-l-1" *ngIf="checkSectionIndex('Projects')" mat-raised-button color="primary" (click)="sectionName = 'Add & Remove Sections'">Add More Sections?</button>
+            <button class="m-l-1" *ngIf="!checkSectionIndex('Projects')" mat-raised-button color="primary" (click)="nextSection('Projects')">Next Section</button>
+          </div>
+        </div>
+        <div style="margin-top: 25px"></div>
       </div>
     </div>
     <div fxLayout="row" *ngIf="sectionName == 'Software'">
@@ -1767,13 +1783,15 @@
             <button mat-stroked-button (click)="addComputerSkills()">+New Skills</button>
           </div>
         </div>
-<!--        <div fxLayout="row" fxLayoutGap="3%" style="margin-top: 25px">-->
-<!--          <div fxFlex="5%"></div>-->
-<!--          <div fxFlex="87%" fxLayoutAlign="end">-->
-<!--            <button mat-stroked-button color="primary" (click)="sectionName = 'Skills'">Back</button>-->
-<!--            <button mat-raised-button color="primary" (click)="sectionName = 'Languages'" class="m-l-1">Next Section</button>-->
-<!--          </div>-->
-<!--        </div>-->
+        <div fxLayout="row" fxLayoutGap="3%" style="margin-top: 25px">
+          <div fxFlex="5%"></div>
+          <div fxFlex="87%" fxLayoutAlign="end">
+            <button mat-stroked-button (click)="previousSection('Software')">Back</button>
+            <button class="m-l-1" *ngIf="checkSectionIndex('Software')" mat-raised-button color="primary" (click)="sectionName = 'Add & Remove Sections'">Add More Sections?</button>
+            <button class="m-l-1" *ngIf="!checkSectionIndex('Software')" mat-raised-button color="primary" (click)="nextSection('Software')">Next Section</button>
+          </div>
+        </div>
+        <div style="margin-top: 25px"></div>
       </div>
     </div>
     <div fxLayout="row" *ngIf="sectionName == 'Languages'">
@@ -1928,13 +1946,15 @@
             <button mat-stroked-button (click)="addLanguage()">+New Language</button>
           </div>
         </div>
-<!--        <div fxLayout="row" fxLayoutGap="3%" style="margin-top: 25px">-->
-<!--          <div fxFlex="5%"></div>-->
-<!--          <div fxFlex="87%" fxLayoutAlign="end">-->
-<!--            <button mat-stroked-button color="primary" (click)="sectionName = 'Software'">Back</button>-->
-<!--            <button mat-raised-button color="primary" (click)="sectionName = 'Certifications'" class="m-l-1">Next Section</button>-->
-<!--          </div>-->
-<!--        </div>-->
+        <div fxLayout="row" fxLayoutGap="3%" style="margin-top: 25px">
+          <div fxFlex="5%"></div>
+          <div fxFlex="87%" fxLayoutAlign="end">
+            <button mat-stroked-button (click)="previousSection('Languages')">Back</button>
+            <button class="m-l-1" *ngIf="checkSectionIndex('Languages')" mat-raised-button color="primary" (click)="sectionName = 'Add & Remove Sections'">Add More Sections?</button>
+            <button class="m-l-1" *ngIf="!checkSectionIndex('Languages')" mat-raised-button color="primary" (click)="nextSection('Languages')">Next Section</button>
+          </div>
+        </div>
+        <div style="margin-top: 25px"></div>
       </div>
     </div>
     <div fxLayout="row" *ngIf="sectionName == 'Certifications'">
@@ -2097,13 +2117,15 @@
           </div>
           <div fxFlex="5%"></div>
         </div>
-<!--        <div fxLayout="row" fxLayoutGap="3%" style="margin-top: 25px">-->
-<!--          <div fxFlex="5%"></div>-->
-<!--          <div fxFlex="87%" fxLayoutAlign="end">-->
-<!--            <button mat-stroked-button color="primary" (click)="sectionName = 'Languages'">Back</button>-->
-<!--            <button mat-raised-button color="primary" (click)="sectionName = 'Honors'" class="m-l-1">Next Section</button>-->
-<!--          </div>-->
-<!--        </div>-->
+        <div fxLayout="row" fxLayoutGap="3%" style="margin-top: 25px">
+          <div fxFlex="5%"></div>
+          <div fxFlex="87%" fxLayoutAlign="end">
+            <button mat-stroked-button (click)="previousSection('Certifications')">Back</button>
+            <button class="m-l-1" *ngIf="checkSectionIndex('Certifications')" mat-raised-button color="primary" (click)="sectionName = 'Add & Remove Sections'">Add More Sections?</button>
+            <button class="m-l-1" *ngIf="!checkSectionIndex('Certifications')" mat-raised-button color="primary" (click)="nextSection('Certifications')">Next Section</button>
+          </div>
+        </div>
+        <div style="margin-top: 25px"></div>
       </div>
     </div>
     <div fxLayout="row" *ngIf="sectionName == 'Courses'">
@@ -2300,6 +2322,15 @@
           </div>
           <div fxFlex="5%"></div>
         </div>
+        <div fxLayout="row" fxLayoutGap="3%" style="margin-top: 25px">
+          <div fxFlex="5%"></div>
+          <div fxFlex="87%" fxLayoutAlign="end">
+            <button mat-stroked-button (click)="previousSection('Courses')">Back</button>
+            <button class="m-l-1" *ngIf="checkSectionIndex('Courses')" mat-raised-button color="primary" (click)="sectionName = 'Add & Remove Sections'">Add More Sections?</button>
+            <button class="m-l-1" *ngIf="!checkSectionIndex('Courses')" mat-raised-button color="primary" (click)="nextSection('Courses')">Next Section</button>
+          </div>
+        </div>
+        <div style="margin-top: 25px"></div>
       </div>
     </div>
     <div fxLayout="row" *ngIf="sectionName == 'Honors'">
@@ -2440,13 +2471,15 @@
           </div>
           <div fxFlex="5%"></div>
         </div>
-<!--        <div fxLayout="row" fxLayoutGap="3%" style="margin-top: 25px">-->
-<!--          <div fxFlex="5%"></div>-->
-<!--          <div fxFlex="87%" fxLayoutAlign="end">-->
-<!--            <button mat-stroked-button color="primary" (click)="sectionName = 'Certifications'">Back</button>-->
-<!--            <button mat-raised-button color="primary" (click)="sectionName = 'Interests'" class="m-l-1">Next Section</button>-->
-<!--          </div>-->
-<!--        </div>-->
+        <div fxLayout="row" fxLayoutGap="3%" style="margin-top: 25px">
+          <div fxFlex="5%"></div>
+          <div fxFlex="87%" fxLayoutAlign="end">
+            <button mat-stroked-button (click)="previousSection('Honors')">Back</button>
+            <button class="m-l-1" *ngIf="checkSectionIndex('Honors')" mat-raised-button color="primary" (click)="sectionName = 'Add & Remove Sections'">Add More Sections?</button>
+            <button class="m-l-1" *ngIf="!checkSectionIndex('Honors')" mat-raised-button color="primary" (click)="nextSection('Honors')">Next Section</button>
+          </div>
+        </div>
+        <div style="margin-top: 25px"></div>
       </div>
     </div>
     <div fxLayout="row" *ngIf="sectionName == 'Interests'">
@@ -2566,13 +2599,15 @@
           </div>
           <div fxFlex="5%"></div>
         </div>
-<!--        <div fxLayout="row" fxLayoutGap="3%" style="margin-top: 25px">-->
-<!--          <div fxFlex="5%"></div>-->
-<!--          <div fxFlex="87%" fxLayoutAlign="end">-->
-<!--            <button mat-stroked-button color="primary" (click)="sectionName = 'Honors'">Back</button>-->
-<!--            <button mat-raised-button color="primary" (click)="sectionName = 'Activities'" class="m-l-1">Next Section</button>-->
-<!--          </div>-->
-<!--        </div>-->
+        <div fxLayout="row" fxLayoutGap="3%" style="margin-top: 25px">
+          <div fxFlex="5%"></div>
+          <div fxFlex="87%" fxLayoutAlign="end">
+            <button mat-stroked-button (click)="previousSection('Interests')">Back</button>
+            <button class="m-l-1" *ngIf="checkSectionIndex('Interests')" mat-raised-button color="primary" (click)="sectionName = 'Add & Remove Sections'">Add More Sections?</button>
+            <button class="m-l-1" *ngIf="!checkSectionIndex('Interests')" mat-raised-button color="primary" (click)="nextSection('Interests')">Next Section</button>
+          </div>
+        </div>
+        <div style="margin-top: 25px"></div>
       </div>
     </div>
     <div fxLayout="row" *ngIf="sectionName == 'Co-curricular Activities'">
@@ -2695,13 +2730,15 @@
           </div>
           <div fxFlex="5%"></div>
         </div>
-<!--        <div fxLayout="row" fxLayoutGap="3%" style="margin-top: 25px">-->
-<!--          <div fxFlex="5%"></div>-->
-<!--          <div fxFlex="87%" fxLayoutAlign="end">-->
-<!--            <button mat-stroked-button color="primary" (click)="sectionName = 'Interests'">Back</button>-->
-<!--            <button mat-raised-button color="primary" (click)="sectionName = 'Additional Info'" class="m-l-1">Next Section</button>-->
-<!--          </div>-->
-<!--        </div>-->
+        <div fxLayout="row" fxLayoutGap="3%" style="margin-top: 25px">
+          <div fxFlex="5%"></div>
+          <div fxFlex="87%" fxLayoutAlign="end">
+            <button mat-stroked-button (click)="previousSection('Co-curricular Activities')">Back</button>
+            <button class="m-l-1" *ngIf="checkSectionIndex('Co-curricular Activities')" mat-raised-button color="primary" (click)="sectionName = 'Add & Remove Sections'">Add More Sections?</button>
+            <button class="m-l-1" *ngIf="!checkSectionIndex('Co-curricular Activities')" mat-raised-button color="primary" (click)="nextSection('Co-curricular Activities')">Next Section</button>
+          </div>
+        </div>
+        <div style="margin-top: 25px"></div>
       </div>
     </div>
     <div fxLayout="row" *ngIf="sectionName == 'Extra-curricular Activities'">
@@ -2824,13 +2861,15 @@
           </div>
           <div fxFlex="5%"></div>
         </div>
-        <!--        <div fxLayout="row" fxLayoutGap="3%" style="margin-top: 25px">-->
-        <!--          <div fxFlex="5%"></div>-->
-        <!--          <div fxFlex="87%" fxLayoutAlign="end">-->
-        <!--            <button mat-stroked-button color="primary" (click)="sectionName = 'Interests'">Back</button>-->
-        <!--            <button mat-raised-button color="primary" (click)="sectionName = 'Additional Info'" class="m-l-1">Next Section</button>-->
-        <!--          </div>-->
-        <!--        </div>-->
+        <div fxLayout="row" fxLayoutGap="3%" style="margin-top: 25px">
+          <div fxFlex="5%"></div>
+          <div fxFlex="87%" fxLayoutAlign="end">
+            <button mat-stroked-button (click)="previousSection('Extra-curricular Activities')">Back</button>
+            <button class="m-l-1" *ngIf="checkSectionIndex('Extra-curricular Activities')" mat-raised-button color="primary" (click)="sectionName = 'Add & Remove Sections'">Add More Sections?</button>
+            <button class="m-l-1" *ngIf="!checkSectionIndex('Extra-curricular Activities')" mat-raised-button color="primary" (click)="nextSection('Extra-curricular Activities')">Next Section</button>
+          </div>
+        </div>
+        <div style="margin-top: 25px"></div>
       </div>
     </div>
     <div fxLayout="row" *ngIf="sectionName == 'Additional Info'">
@@ -2949,13 +2988,15 @@
             <button mat-stroked-button (click)="addAdditionalInfo()">+Additional Info</button>
           </div>
         </div>
-<!--        <div fxLayout="row" fxLayoutGap="3%" style="margin-top: 25px">-->
-<!--          <div fxFlex="5%"></div>-->
-<!--          <div fxFlex="87%" fxLayoutAlign="end">-->
-<!--            <button mat-stroked-button color="primary" (click)="sectionName = 'Activities'">Back</button>-->
-<!--            <button mat-raised-button color="primary" (click)="sectionName = 'Reference'" class="m-l-1">Next Section</button>-->
-<!--          </div>-->
-<!--        </div>-->
+        <div fxLayout="row" fxLayoutGap="3%" style="margin-top: 25px">
+          <div fxFlex="5%"></div>
+          <div fxFlex="87%" fxLayoutAlign="end">
+            <button mat-stroked-button (click)="previousSection('Additional Info')">Back</button>
+            <button class="m-l-1" *ngIf="checkSectionIndex('Additional Info')" mat-raised-button color="primary" (click)="sectionName = 'Add & Remove Sections'">Add More Sections?</button>
+            <button class="m-l-1" *ngIf="!checkSectionIndex('Additional Info')" mat-raised-button color="primary" (click)="nextSection('Additional Info')">Next Section</button>
+          </div>
+        </div>
+        <div style="margin-top: 25px"></div>
       </div>
     </div>
     <div fxLayout="row" *ngIf="sectionName == 'Reference'">
@@ -3094,21 +3135,6 @@
           </div>
           <div fxFlex="5%"></div>
         </div>
-<!--        <div fxLayout="row" style="margin-top: 20px">-->
-<!--          <div fxFlex="8%"></div>-->
-<!--          <div fxFlex="90%">-->
-<!--            <div fxLayout="row" *ngFor="let addInfo of coreDataService.templateData.referenceDetails; let i = index">-->
-<!--              <mat-form-field appearance="outline" floatLabel="always" fxFlex="70%">-->
-<!--                <mat-label>{{'Reference'+ (i + 1)}}</mat-label>-->
-<!--                <textarea matInput [ngModel]="coreDataService.templateData.referenceDetails[i]" (focusout)="coreDataService.templateData.referenceDetails[i] = $event.target.value"></textarea>-->
-<!--              </mat-form-field>-->
-<!--              <div fxFlex="30%" fxLayoutAlign="center center">-->
-<!--                <button class="hide-button m-l-1" (click)="deleteReference(i)" style="width: 120px" *ngIf="coreDataService.templateData.referenceDetails.length > 1"><i class="fa fa-trash cr-pointer font-size-16px"></i>&nbsp; Remove</button>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <div fxFlex="2%"></div>-->
-<!--        </div>-->
         <div fxLayout="row" class="margin-top-15" *ngIf="!sectionSpacing && !reOrderDetails">
           <div fxFlex="5%"></div>
           <div fxFlex="90%" fxLayoutAlign="end">
@@ -3116,12 +3142,15 @@
           </div>
           <div fxFlex="5%"></div>
         </div>
-<!--        <div fxLayout="row" fxLayoutGap="3%" style="margin-top: 25px">-->
-<!--          <div fxFlex="5%"></div>-->
-<!--          <div fxFlex="87%" fxLayoutAlign="end">-->
-<!--            <button mat-stroked-button color="primary" (click)="sectionName = 'Additional Info'">Back</button>-->
-<!--          </div>-->
-<!--        </div>-->
+        <div fxLayout="row" fxLayoutGap="3%" style="margin-top: 25px">
+          <div fxFlex="5%"></div>
+          <div fxFlex="87%" fxLayoutAlign="end">
+            <button mat-stroked-button (click)="previousSection('Reference')">Back</button>
+            <button class="m-l-1" *ngIf="checkSectionIndex('Reference')" mat-raised-button color="primary" (click)="sectionName = 'Add & Remove Sections'">Add More Sections?</button>
+            <button class="m-l-1" *ngIf="!checkSectionIndex('Reference')" mat-raised-button color="primary" (click)="nextSection('Reference')">Next Section</button>
+          </div>
+        </div>
+        <div style="margin-top: 25px"></div>
       </div>
     </div>
     <div fxLayout="row" *ngIf="sectionName == 'Resume Templates'">

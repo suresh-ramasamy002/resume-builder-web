@@ -3,6 +3,9 @@ import {CoreDataService} from './core-data.service';
 
 @Injectable()
 export class ConstantDataService {
+  public sidemenuSections = [];
+  public populateSideMenu = [];
+
   public cubicSectionLeft = [];
   public cubicSectionRight = [];
   public populateCubicLeft = [];
@@ -350,6 +353,29 @@ export class ConstantDataService {
           }
         });
       }
+   this.sidemenuSections = [
+     {name: 'Personal Info', bool: true},
+     {name: 'Summary', bool: this.coreDataService.templateData.objective},
+     {name: 'Work Experience', bool: this.coreDataService.templateData.workExp},
+     {name: 'Education', bool: this.coreDataService.templateData.education},
+     {name: 'Skills', bool: this.coreDataService.templateData.skills},
+     {name: 'Projects', bool: this.coreDataService.templateData.project},
+     {name: 'Software', bool: this.coreDataService.templateData.tech},
+     {name: 'Languages', bool: this.coreDataService.templateData.language},
+     {name: 'Certifications', bool: this.coreDataService.templateData.certifications},
+     {name: 'Courses', bool: this.coreDataService.templateData.course},
+     {name: 'Honors', bool: this.coreDataService.templateData.honorReward},
+     {name: 'Interests', bool: this.coreDataService.templateData.interest},
+     {name: 'Co-curricular Activities', bool: this.coreDataService.templateData.coActivities},
+     {name: 'Extra-curricular Activities', bool: this.coreDataService.templateData.extraActivities},
+     {name: 'Additional Info', bool: this.coreDataService.templateData.additionalInfo},
+     {name: 'Reference', bool: this.coreDataService.templateData.reference},
+   ];
+     this.populateSideMenu = [];
+     this.sidemenuSections.forEach(section => {
+       if (section.bool) {
+         this.populateSideMenu.push(section);
+       }
+     });
   }
 }
-

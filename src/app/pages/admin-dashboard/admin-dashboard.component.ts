@@ -21,7 +21,7 @@ export class AdminDashboardComponent implements OnInit {
     this.userService.getResumeDetails(this.aId);
     setTimeout(() => {
       this.coreDataService.resumeDownloadedData.forEach(resumeData => {
-        if (resumeData.name !== 'template-one' && resumeData.name !== 'template-two' && resumeData.name !== 'template-four' && resumeData.count > 0) {
+        if (resumeData.count > 0) {
           this.revenueAmount += (resumeData.count * 15);
         }
         this.downloadCount += resumeData.count;

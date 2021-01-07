@@ -210,7 +210,7 @@ export class ResumeBuilderComponent implements OnInit, OnDestroy {
     }, 100);
   }
   openFeedbackDialog() {
-    let amt = (this.coreDataService.selectedTemplate !== 'template-one' && this.coreDataService.selectedTemplate !== 'template-two' && this.coreDataService.selectedTemplate !== 'template-four') ? 15 : 0;
+    let amt = 15;
     let dialogRef = this.dialog.open(FeedbackFormComponent, {
       disableClose: true,
       width: '350px',
@@ -1097,5 +1097,21 @@ export class ResumeBuilderComponent implements OnInit, OnDestroy {
   }
   logoutUser() {
     this.auth.logout();
+  }
+  nextSection(currentSection) {
+    let index = this.constantDataService.populateSideMenu.findIndex(x => x.name === currentSection);
+    this.sectionName = this.constantDataService.populateSideMenu[index + 1].name;
+  }
+  previousSection(currentSection) {
+    let index = this.constantDataService.populateSideMenu.findIndex(x => x.name === currentSection);
+    this.sectionName = this.constantDataService.populateSideMenu[index - 1].name;
+  }
+  checkSectionIndex(currentSection) {
+    let flag = false;
+    let index = this.constantDataService.populateSideMenu.findIndex(x => x.name === currentSection);
+    if (index == this.constantDataService.populateSideMenu.length-1) {
+      flag = true;
+    }
+    return flag;
   }
 }
