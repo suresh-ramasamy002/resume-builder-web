@@ -16,12 +16,12 @@ export class AuthService {
   private authState: any = null;
   private newUser: EnrollUserDetails = null;
   private evtAuthErr = new BehaviorSubject<string>('');
-  private userDataId = 'InMPoujb9RcrzQZa8qtyGE91HES2';
+  private userDataId = 'o995EnHR9ukYfLlnRw79';
   private userDataArray = [];
   evtAuthErr$ = this.evtAuthErr.asObservable();
 
   constructor(private afu: AngularFireAuth, private db: AngularFirestore, private router: Router, private coreDataService: CoreDataService) {
-    this.afu.authState.subscribe((auth => {
+    this.afu.authState.subscribe(( auth => {
          this.authState = auth;
     }));
   }

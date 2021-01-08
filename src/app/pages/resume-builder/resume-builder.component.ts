@@ -27,7 +27,7 @@ export class ResumeBuilderComponent implements OnInit, OnDestroy {
   @ViewChild('templateFile') template: ElementRef;
   public themeColor =  [];
   @ViewChild('sidenav') sidenav: MatSidenav;
-  private aId = 'InMPoujb9RcrzQZa8qtyGE91HES2';
+  private aId = 'V5cCGAXOpHMTvgL2b2rccgDLt3x1';
   public fontFamily = ['Arial', 'Arimo', 'Helvetica', 'Noto Sans', 'Times New Roman', 'Trebuchet MS', 'Verdana', 'Work Sans'];
   public options = {
     key: 'rzp_live_0Tyq3jzKCHpjDf',
