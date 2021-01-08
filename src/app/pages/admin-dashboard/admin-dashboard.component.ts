@@ -10,7 +10,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./admin-dashboard.component.scss']
 })
 export class AdminDashboardComponent implements OnInit {
-  private aId = 'V5cCGAXOpHMTvgL2b2rccgDLt3x1';
+  private aId = 'InMPoujb9RcrzQZa8qtyGE91HES2';
   public revenueAmount = 0;
   public downloadCount = 0;
   constructor(public coreDataService: CoreDataService, private auth: AuthService, private userService: UserService, private router: Router) { }
