@@ -288,7 +288,9 @@
                   </div>
                 </div>
                 <div fxLayout="row" *ngIf="coreDataService.selectedTemplate == 'template-one'" fxLayoutGap="2%">
-                  <mat-card fxFlex="50%" cdkDropList cdkDropListLockAxis="y" cdkDropListOrientation="Vertical" (cdkDropListDropped)="swapCubicLeftSection($event)" class="drag-list">
+                  <mat-card fxFlex="50%" cdkDropList #cubicLeft="cdkDropList"
+                            [cdkDropListData]="constantDataService.populateCubicLeft"
+                            [cdkDropListConnectedTo]="[cubicRight]" (cdkDropListDropped)="swapCubicLeftSection($event)" class="drag-list">
                     <ng-container *ngFor="let swapLeftCubic of constantDataService.populateCubicLeft; let i = index">
                     <div fxLayout="row" *ngIf="swapLeftCubic.bool" cdkDrag cdkDragHandle class="drag-box">
                       <div fxFlex="100%">
@@ -298,7 +300,8 @@
                     </div>
                     </ng-container>
                   </mat-card>
-                  <mat-card fxFlex="50%" cdkDropList cdkDropListLockAxis="y" cdkDropListOrientation="Vertical" (cdkDropListDropped)="swapCubicRightSection($event)" class="drag-list">
+                  <mat-card fxFlex="50%" cdkDropList #cubicRight="cdkDropList" [cdkDropListData]="constantDataService.populateCubicRight"
+                            [cdkDropListConnectedTo]="[cubicLeft]" (cdkDropListDropped)="swapCubicRightSection($event)" class="drag-list">
                     <ng-container *ngFor="let swapRightCubic of constantDataService.populateCubicRight; let i = index">
                       <div fxLayout="row" *ngIf="swapRightCubic.bool" cdkDrag cdkDragHandle class="drag-box">
                         <div fxFlex="100%">
@@ -332,7 +335,9 @@
                   </mat-card>
                 </div>
                 <div fxLayout="row" *ngIf="coreDataService.selectedTemplate == 'template-three'" fxLayoutGap="2%">
-                  <mat-card fxFlex="50%" cdkDropList cdkDropListLockAxis="y" cdkDropListOrientation="Vertical" (cdkDropListDropped)="swapVibesLeftSection($event)" class="drag-list">
+                  <mat-card fxFlex="50%" cdkDropList #vibesLeft="cdkDropList"
+                            [cdkDropListData]="constantDataService.populateVibesLeft"
+                            [cdkDropListConnectedTo]="[vibesRight]" (cdkDropListDropped)="swapVibesLeftSection($event)" class="drag-list">
                     <ng-container *ngFor="let swapLeftVibes of constantDataService.populateVibesLeft; let i = index">
                       <div fxLayout="row" *ngIf="swapLeftVibes.bool" cdkDrag cdkDragHandle class="drag-box">
                         <div fxFlex="100%">
@@ -342,7 +347,9 @@
                       </div>
                     </ng-container>
                   </mat-card>
-                  <mat-card fxFlex="50%" cdkDropList cdkDropListLockAxis="y" cdkDropListOrientation="Vertical" (cdkDropListDropped)="swapVibesRightSection($event)" class="drag-list">
+                  <mat-card fxFlex="50%" cdkDropList #vibesRight="cdkDropList"
+                            [cdkDropListData]="constantDataService.populateVibesRight"
+                            [cdkDropListConnectedTo]="[vibesLeft]" (cdkDropListDropped)="swapVibesRightSection($event)" class="drag-list">
                     <ng-container *ngFor="let swapRightVibes of constantDataService.populateVibesRight; let i = index">
                       <div fxLayout="row" *ngIf="swapRightVibes.bool" cdkDrag cdkDragHandle class="drag-box">
                         <div fxFlex="100%">

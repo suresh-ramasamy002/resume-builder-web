@@ -12,7 +12,7 @@ import {PdfViewerComponent} from '../../components/pdf-viewer/pdf-viewer.compone
 declare let Razorpay: any;
 import html2pdf from 'html2pdf.js';
 import {ConfirmDialogComponent} from '../../components/confirm-dialog/confirm-dialog.component';
-import {CdkDragDrop, moveItemInArray, CdkDragStart} from '@angular/cdk/drag-drop';
+import {CdkDragDrop, moveItemInArray, CdkDragStart, transferArrayItem} from '@angular/cdk/drag-drop';
 import {CourseInfo} from '../../class/course-info';
 import {ProjectInfo} from '../../class/project-info';
 import {ConstantDataService} from '../../services/constant-data.service';
@@ -1045,10 +1045,18 @@ export class ResumeBuilderComponent implements OnInit, OnDestroy {
     }
   }
   swapCubicLeftSection(event: CdkDragDrop<string[]>) {
-    moveItemInArray(this.constantDataService.populateCubicLeft, event.previousIndex, event.currentIndex);
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem(event.previousContainer.data, event.container.data, event.previousIndex, event.currentIndex);
+    }
   }
   swapCubicRightSection(event: CdkDragDrop<string[]>) {
-    moveItemInArray(this.constantDataService.populateCubicRight, event.previousIndex, event.currentIndex);
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem(event.previousContainer.data, event.container.data, event.previousIndex, event.currentIndex);
+    }
   }
   swapCascadeLeftSection(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.constantDataService.populateCascadeLeft, event.previousIndex, event.currentIndex);
@@ -1063,10 +1071,18 @@ export class ResumeBuilderComponent implements OnInit, OnDestroy {
     moveItemInArray(this.constantDataService.populateEnfoldRight, event.previousIndex, event.currentIndex);
   }
   swapVibesLeftSection(event: CdkDragDrop<string[]>) {
-    moveItemInArray(this.constantDataService.populateVibesLeft, event.previousIndex, event.currentIndex);
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem(event.previousContainer.data, event.container.data, event.previousIndex, event.currentIndex);
+    }
   }
   swapVibesRightSection(event: CdkDragDrop<string[]>) {
-    moveItemInArray(this.constantDataService.populateVibesRight, event.previousIndex, event.currentIndex);
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem(event.previousContainer.data, event.container.data, event.previousIndex, event.currentIndex);
+    }
   }
   swapCrispLeftSection(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.constantDataService.populateCrispLeft, event.previousIndex, event.currentIndex);

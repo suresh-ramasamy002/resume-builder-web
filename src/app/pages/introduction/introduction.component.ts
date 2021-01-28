@@ -49,7 +49,7 @@ export class IntroductionComponent implements OnInit, AfterViewInit {
     this.sidenav.close();
   }
   goToResume() {
-    this.resumeSection.nativeElement.scrollIntoView({behavior: 'smooth'});
+    this.resumeSection.nativeElement.scrollIntoView({behavior: 'smooth', block: 'end'});
     this.sidenav.close();
   }
   goToHome() {
