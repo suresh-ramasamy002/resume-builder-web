@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, OnDestroy, OnInit, ViewChild, HostListener} from '@angular/core';
 import {CoreDataService} from '../../services/core-data.service';
 import {MatSidenav} from '@angular/material/sidenav';
 import {AuthService} from '../../services/auth.service';
@@ -92,6 +92,13 @@ export class ResumeBuilderComponent implements OnInit, OnDestroy {
   constructor(public coreDataService: CoreDataService, private auth: AuthService, private sanitizer: DomSanitizer, private userService: UserService, public dialog: MatDialog, public constantDataService: ConstantDataService) {
 
   }
+  // @HostListener('window:beforeunload', ['$event'])
+  // preventReload(event) {
+  //     let confirmationMessage = "\o/";
+  //     console.log(event);
+  //     event.returnValue = confirmationMessage;    // Gecko, Trident, Chrome 34+
+  //     return confirmationMessage;              // Gecko, WebKit, Chrome <34
+  // }
   ngOnInit(): void {
     this.sectionName = 'Personal Info';
     this.year = [];
@@ -121,6 +128,13 @@ export class ResumeBuilderComponent implements OnInit, OnDestroy {
     if ('selectedTemplateTheme' in localStorage) {
       this.coreDataService.templateData.templateTheme = localStorage.getItem('selectedTemplateTheme');
     }
+    let _this = this;
+    window.addEventListener("beforeunload", function (e) {
+      var confirmationMessage = "\o/";
+      _this.userService.addUpdateUserResumeData(firebase.auth().currentUser.uid);
+      (e || window.event).returnValue = confirmationMessage; //Gecko + IE
+      return confirmationMessage;                            //Webkit, Safari, Chrome
+    });
   }
   ngOnDestroy() {
     this.coreDataService.templateData.image = null;
