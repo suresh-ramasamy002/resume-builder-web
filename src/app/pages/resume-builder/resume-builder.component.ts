@@ -121,6 +121,13 @@ export class ResumeBuilderComponent implements OnInit, OnDestroy {
     if ('selectedTemplateTheme' in localStorage) {
       this.coreDataService.templateData.templateTheme = localStorage.getItem('selectedTemplateTheme');
     }
+    let _this = this;
+    window.addEventListener("beforeunload", function (e) {
+      var confirmationMessage = "\o/";
+      _this.userService.addUpdateUserResumeData(firebase.auth().currentUser.uid);
+      (e || window.event).returnValue = confirmationMessage; //Gecko + IE
+      return confirmationMessage;                            //Webkit, Safari, Chrome
+    });
   }
   ngOnDestroy() {
     this.coreDataService.templateData.image = null;
