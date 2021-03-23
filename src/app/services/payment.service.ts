@@ -7,8 +7,6 @@ import { HttpClient } from '@angular/common/http';
 import { Customer, Source, Charge, SubscriptionPlan, StripeObject } from '../class/payment-models';
 @Injectable()
 export class PaymentService {
-  private rzpSecretLiveKey = 'TgMeOVvwjqO54jDK6s2XmMtW';
-  private rzpPublicLiveKey = 'rzp_live_0Tyq3jzKCHpjDf';
   private rzpSecretTestKey = 'eWtiXwHAOL6OkKStsJchT5Ns';
   private rzpPublicTestKey = 'rzp_test_zmGRanXtTp3AhM';
 }
