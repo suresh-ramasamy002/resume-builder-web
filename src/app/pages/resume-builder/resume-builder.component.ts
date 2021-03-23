@@ -30,7 +30,7 @@ export class ResumeBuilderComponent implements OnInit, OnDestroy {
   private aId = 'V5cCGAXOpHMTvgL2b2rccgDLt3x1';
   public fontFamily = ['Arial', 'Arimo', 'Helvetica', 'Noto Sans', 'Times New Roman', 'Trebuchet MS', 'Verdana', 'Work Sans'];
   public options = {
-    key: 'rzp_live_0Tyq3jzKCHpjDf',
+    key: 'rzp_test_zmGRanXtTp3AhM',
     amount: '1500',
     currency: 'INR',
     name: 'Resumearc',
